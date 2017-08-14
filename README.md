@@ -40,7 +40,7 @@
 </p>
 
 ## 获取高度的代理方法
-> 获取高度的方法如即可，这里有`4种Cell `而且做了一些测试操作
+> 获取高度的方法如下即可，而且这里有`4种Cell`同时做了一些测试操作，真实项目中一种`Cell`只需一行代码搞定一切问题。
 
 ```c
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
