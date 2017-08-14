@@ -1,5 +1,5 @@
 # UITableView-BMTemplateLayoutCell
-> 对UITableViewCell高度自定义及缓存
+> 对UITableViewCell高度自适应并缓存
 
 # 写在前面
 1. 系统自动计算无法满足准确获取`contentSize`。
