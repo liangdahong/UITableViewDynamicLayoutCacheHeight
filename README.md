@@ -8,6 +8,12 @@
 2. [FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)计算不准且似乎在`iOS10.2.1`会崩溃。
 3. 代码主动计算太繁琐而且容易错。
 
+# 使用说明
+> 在`Cell`中必须保证有一个视图的`最大Y`即是`Cell`的高度,具体可以查看`demo`中的`xib`约束设置。
+1. 支持`xib` `masonry`
+2. 支持`注册方式`和`alloc方式`创建`Cell`
+
+
 # 存在的问题
 1. 部分代码暂未优化，以后会优化。
 2. 准备让代码稳定后弄Cocoapods。
