@@ -51,12 +51,11 @@
         return [tableView bm_heightForCellWithCellClass:TableViewCell.class cacheByIndexPath:indexPath configuration:^(__kindof TableViewCell *layoutCell) {
             layoutCell.LABEEE.text = self.dataArray[indexPath.row];
         }];
-        
-    } else if(indexPath.row % 4 == 1){
+    } else if (indexPath.row % 4 == 1) {
         return [tableView bm_heightForCellWithCellClass:BMOneCell.class cacheByIndexPath:indexPath configuration:^(__kindof BMOneCell *layoutCell) {
             layoutCell.descLabel.text = self.dataArray[indexPath.row];
         }];
-    } else if(indexPath.row % 4 == 2){
+    } else if (indexPath.row % 4 == 2) {
         return [tableView bm_heightForCellWithCellClass:BMTwoCell.class cacheByIndexPath:indexPath configuration:^(__kindof BMTwoCell *layoutCell) {
             layoutCell.label1.text = self.dataArray[indexPath.row];
             layoutCell.label2.text = self.dataArray[indexPath.row];
