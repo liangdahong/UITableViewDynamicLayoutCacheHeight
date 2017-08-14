@@ -10,12 +10,8 @@
 
 typedef void (^BMLayoutCellConfigurationBlock)(__kindof UITableViewCell *layoutCell);
 
-@interface BMTemplateLayoutCellBottonView : UIView
-
-@end
-
 @interface UITableView (BMTemplateLayoutCell)
 
-- (CGFloat)bm_heightForCellWithIdentifier:(NSString *)identifier cacheByIndexPath:(NSIndexPath *)indexPath configuration:(BMLayoutCellConfigurationBlock)configuration;
+- (CGFloat)bm_heightForCellWithCellClass:(Class)clas cacheByIndexPath:(NSIndexPath *)indexPath configuration:(BMLayoutCellConfigurationBlock)configuration;
 
 @end

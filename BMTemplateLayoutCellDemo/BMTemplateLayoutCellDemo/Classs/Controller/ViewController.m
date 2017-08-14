@@ -16,6 +16,7 @@
 #import "BMOneCell.h"
 #import "BMTwoCell.h"
 #import "BMImageViewCell.h"
+#import "UITableViewCell+BMReusable.h"
 
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -35,10 +36,6 @@
     [super viewDidLoad];
     self.navigationController.navigationBar.hidden = NO;
     self.navigationController.navigationBar.translucent = NO;
-    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass(TableViewCell.class) bundle:nil] forCellReuseIdentifier:@"TableViewCell"];
-    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass(BMOneCell.class) bundle:nil] forCellReuseIdentifier:@"BMOneCell"];
-    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass(BMTwoCell.class) bundle:nil] forCellReuseIdentifier:@"BMTwoCell"];
-    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass(BMImageViewCell.class) bundle:nil] forCellReuseIdentifier:@"BMImageViewCell"];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(-40);
@@ -111,22 +108,22 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row % 4 == 0) {
-        TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TableViewCell" forIndexPath:indexPath];
+        TableViewCell *cell = [TableViewCell bm_cellWithTableView:tableView];
         cell.LABEEE.text = self.dataArray[indexPath.row];
         NSLog(@"%p", cell);
         return cell;
     } else if(indexPath.row % 4 == 1) {
-        BMOneCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BMOneCell" forIndexPath:indexPath];
+        BMOneCell *cell = [BMOneCell bm_cellWithTableView:tableView];
         cell.descLabel.text = self.dataArray[indexPath.row];
         NSLog(@"%p", cell);
         return cell;
     } else  if(indexPath.row % 4 == 2) {
-        BMTwoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BMTwoCell" forIndexPath:indexPath];
+        BMTwoCell *cell = [BMTwoCell bm_cellWithTableView:tableView];
         cell.label1.text = self.dataArray[indexPath.row];
         cell.label2.text = self.dataArray[indexPath.row];
         return cell;
     } else {
-        BMImageViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BMImageViewCell" forIndexPath:indexPath];
+        BMImageViewCell *cell = [BMImageViewCell bm_cellWithTableView:tableView];
         cell.labelLabel.text = self.dataArray[indexPath.row];
         if (indexPath.row % 3 == 0) {
             cell.iconImageView.image = [UIImage imageNamed:@"001"];
@@ -145,21 +142,22 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row % 4 == 0) {
-        return [tableView bm_heightForCellWithIdentifier:@"TableViewCell" cacheByIndexPath:indexPath configuration:^(__kindof TableViewCell *layoutCell) {
+        return [tableView bm_heightForCellWithCellClass:TableViewCell.class cacheByIndexPath:indexPath configuration:^(__kindof TableViewCell *layoutCell) {
             layoutCell.LABEEE.text = self.dataArray[indexPath.row];
         }];
+        
     } else if(indexPath.row % 4 == 1){
-        return [tableView bm_heightForCellWithIdentifier:@"BMOneCell" cacheByIndexPath:indexPath configuration:^(__kindof BMOneCell *layoutCell) {
+        return [tableView bm_heightForCellWithCellClass:BMOneCell.class cacheByIndexPath:indexPath configuration:^(__kindof BMOneCell *layoutCell) {
             layoutCell.descLabel.text = self.dataArray[indexPath.row];
         }];
     } else if(indexPath.row % 4 == 2){
-        return [tableView bm_heightForCellWithIdentifier:@"BMTwoCell" cacheByIndexPath:indexPath configuration:^(__kindof BMTwoCell *layoutCell) {
+        return [tableView bm_heightForCellWithCellClass:BMTwoCell.class cacheByIndexPath:indexPath configuration:^(__kindof BMTwoCell *layoutCell) {
             layoutCell.label1.text = self.dataArray[indexPath.row];
             layoutCell.label2.text = self.dataArray[indexPath.row];
         }];
     }
     else {
-        return [tableView bm_heightForCellWithIdentifier:@"BMImageViewCell" cacheByIndexPath:indexPath configuration:^(__kindof BMImageViewCell *layoutCell) {
+        return [tableView bm_heightForCellWithCellClass:BMImageViewCell.class cacheByIndexPath:indexPath configuration:^(__kindof BMImageViewCell *layoutCell) {
             layoutCell.labelLabel.text = self.dataArray[indexPath.row];
             if (indexPath.row % 3 == 0) {
                 layoutCell.iconImageView.image = [UIImage imageNamed:@"001"];

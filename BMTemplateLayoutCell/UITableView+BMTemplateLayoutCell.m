@@ -23,29 +23,6 @@ void swizzleMethod(Class class, SEL originalSelector, SEL swizzledSelector) {
     }
 }
 
-@implementation BMTemplateLayoutCellBottonView
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    self.hidden = YES;
-}
-
-- (instancetype)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
-        self.hidden = YES;
-    }
-    return self;
-}
-
-- (instancetype)init {
-    if (self = [super init]) {
-        self.hidden = YES;
-    }
-    return self;
-}
-
-@end
-
 @interface UITableView ()
 
 @property (strong, nonatomic, readonly) NSMutableDictionary *portraitCacheCellHeightMutableDictionary; ///< portraitCacheCellHeightMutableDictionary
@@ -56,9 +33,11 @@ void swizzleMethod(Class class, SEL originalSelector, SEL swizzledSelector) {
 
 @implementation UITableView (BMTemplateLayoutCell)
 
-- (CGFloat)bm_heightForCellWithIdentifier:(NSString *)identifier cacheByIndexPath:(NSIndexPath *)indexPath configuration:(BMLayoutCellConfigurationBlock)configuration {
+- (CGFloat)bm_heightForCellWithCellClass:(Class)clas
+                        cacheByIndexPath:(NSIndexPath *)indexPath
+                           configuration:(BMLayoutCellConfigurationBlock)configuration {
     // 创建新的重用标识
-    NSString *noReuseIdentifier = [NSString stringWithFormat:@"noReuse%@", identifier];
+    NSString *noReuseIdentifier = [NSString stringWithFormat:@"noReuse%@", NSStringFromClass(clas.class)];
     
     NSString *noReuseIdentifierChar = self.reusableCellWithIdentifierMutableDictionary[noReuseIdentifier];
     if (!noReuseIdentifierChar) {
@@ -70,9 +49,13 @@ void swizzleMethod(Class class, SEL originalSelector, SEL swizzledSelector) {
     
     if (!noCacheCell) {
         // 没有绑定就创建
-        noCacheCell = [self dequeueReusableCellWithIdentifier:identifier];
-        // 强制修改标注，是为了让外面无法再使用这个Cell
-        [noCacheCell setValue:noReuseIdentifier forKey:@"reuseIdentifier"];
+        NSString *path = [[NSBundle mainBundle] pathForResource:NSStringFromClass(clas.class) ofType:@"nib"];
+        if (path.length) {
+            noCacheCell = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(clas.class) owner:nil options:nil] firstObject];
+            [noCacheCell setValue:noReuseIdentifier forKey:@"reuseIdentifier"];
+        } else {
+            noCacheCell = [[clas alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:noReuseIdentifier];
+        }
         // 绑定起来
         objc_setAssociatedObject(self, (__bridge const void *)(noReuseIdentifierChar), noCacheCell, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         NSLog(@"创建cell 这个 cell 不参与重用 ---- %p", noCacheCell);
@@ -89,18 +72,17 @@ void swizzleMethod(Class class, SEL originalSelector, SEL swizzledSelector) {
         noCacheCell.frame = CGRectMake(0, 0, self.frame.size.width, 100);
         configuration(noCacheCell);
         [tempView layoutIfNeeded];
-
-        __block CGFloat height = 0;
+        
+        __block CGFloat maxY = 0;
         [noCacheCell.contentView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if ([obj isKindOfClass:[BMTemplateLayoutCellBottonView class]]) {
-                height = CGRectGetMaxY(obj.frame)  + .5;
-                *stop = YES;
+            if (maxY <  CGRectGetMaxY(obj.frame)) {
+                maxY = CGRectGetMaxY(obj.frame);
             }
         }];
-
-        (isPortrait ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[cacheID] = @(height);
-        NSLog(@"%d isPortrait:%@ first calculate height  height: %f", isPortrait, indexPath, height);
-        return height;
+        maxY += .5;
+        (isPortrait ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[cacheID] = @(maxY);
+        NSLog(@"%d isPortrait:%@ first calculate height  height: %f", isPortrait, indexPath, maxY);
+        return maxY;
     }
     return [heightValue doubleValue];
 }
