@@ -155,8 +155,7 @@
             layoutCell.label1.text = self.dataArray[indexPath.row];
             layoutCell.label2.text = self.dataArray[indexPath.row];
         }];
-    }
-    else {
+    } else {
         return [tableView bm_heightForCellWithCellClass:BMImageViewCell.class cacheByIndexPath:indexPath configuration:^(__kindof BMImageViewCell *layoutCell) {
             layoutCell.labelLabel.text = self.dataArray[indexPath.row];
             if (indexPath.row % 3 == 0) {
