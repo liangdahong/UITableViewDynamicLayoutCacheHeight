@@ -22,7 +22,9 @@
 //  THE SOFTWARE.
 
 /**
- 此库的代码和demo暂未整理，最近会整理下。
+ ********************************
+ 此库的代码和demo暂未整理，最近会整理下
+ ********************************
  */
 #import <UIKit/UIKit.h>
 
@@ -81,7 +83,7 @@ typedef void (^BMLayoutHeaderFooterViewConfigurationBlock)(__kindof UITableViewH
 #pragma mark - BMTemplateLayoutHeaderFooterView
 
 /**
- 
+ BMTemplateLayoutHeaderFooterView
  */
 @interface UITableView (BMTemplateLayoutHeaderFooterView)
 
