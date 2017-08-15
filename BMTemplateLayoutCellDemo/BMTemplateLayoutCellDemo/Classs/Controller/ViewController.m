@@ -17,8 +17,9 @@
 #import "BMTwoCell.h"
 #import "BMImageViewCell.h"
 #import "UITableViewCell+BMReusable.h"
+#import "BMHeaderView.h"
 
-@interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) BMChatInputView *chatInputView;
@@ -92,7 +93,7 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:0];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:1];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.tableFooterView = [UIView new];
@@ -102,6 +103,11 @@
 }
 
 #pragma mark - 系统delegate
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return self.dataArray.count;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.dataArray.count;
 }
@@ -134,6 +140,36 @@
         }
         return cell;
     }
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    BMHeaderView *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass(BMHeaderView.class)];
+    if (!view) {
+        view = [[BMHeaderView alloc] initWithReuseIdentifier:NSStringFromClass(BMHeaderView.class)];
+    }
+    view.descLabel.text = self.dataArray[section];
+    return view;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return [tableView bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:BMHeaderView.class isHeaderView:YES section:section configuration:^(__kindof BMHeaderView *headerFooterView) {
+        headerFooterView.descLabel.text = self.dataArray[section];
+    }];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    BMHeaderView *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass(BMHeaderView.class)];
+    if (!view) {
+        view = [[BMHeaderView alloc] initWithReuseIdentifier:NSStringFromClass(BMHeaderView.class)];
+    }
+    view.descLabel.text = [NSString stringWithFormat:@"initWithReuseIdentifier::::%@", self.dataArray[section]];
+    return view;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return [tableView bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:BMHeaderView.class isHeaderView:NO section:section configuration:^(__kindof BMHeaderView *headerFooterView) {
+        headerFooterView.descLabel.text = [NSString stringWithFormat:@"initWithReuseIdentifier::::%@", self.dataArray[section]];
+    }];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
