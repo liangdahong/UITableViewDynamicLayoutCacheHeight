@@ -56,7 +56,7 @@ typedef void (^BMLayoutHeaderFooterViewConfigurationBlock)(__kindof UITableViewH
  @param configuration 布局block
  @return 应该的高度
  */
-- (CGFloat)fd_heightForCellWithCellClass:(Class)clas configuration:(BMLayoutCellConfigurationBlock)configuration;
+- (CGFloat)bm_heightForCellWithCellClass:(Class)clas configuration:(BMLayoutCellConfigurationBlock)configuration;
 
 /**
  获取 Cell 的高度（内部自动处理缓存））

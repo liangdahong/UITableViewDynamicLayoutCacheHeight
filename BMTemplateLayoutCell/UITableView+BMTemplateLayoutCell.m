@@ -54,7 +54,7 @@ void swizzleMethod(Class class, SEL originalSelector, SEL swizzledSelector) {
 
 @implementation UITableView (BMTemplateLayoutCell)
 
-- (CGFloat)fd_heightForCellWithCellClass:(Class)clas configuration:(BMLayoutCellConfigurationBlock)configuration {
+- (CGFloat)bm_heightForCellWithCellClass:(Class)clas configuration:(BMLayoutCellConfigurationBlock)configuration {
     // 创建新的重用标识
     NSString *noReuseIdentifier = [NSString stringWithFormat:@"noReuse%@", NSStringFromClass(clas.class)];
     
