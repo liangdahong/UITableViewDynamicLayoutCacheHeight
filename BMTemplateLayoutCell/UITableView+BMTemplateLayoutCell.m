@@ -26,7 +26,7 @@
 
 /**
  交换2个方法的调用
-
+ 
  @param class class
  @param originalSelector originalSelector
  @param swizzledSelector swizzledSelector
@@ -44,31 +44,41 @@ void swizzleMethod(Class class, SEL originalSelector, SEL swizzledSelector) {
     }
 }
 
+CGFloat height(NSNumber *value) {
+#if CGFLOAT_IS_DOUBLE
+    return value.doubleValue;
+#else
+    return value.floatValue;
+#endif
+}
+
 @interface UITableView ()
 
-@property (strong, nonatomic, readonly) NSMutableDictionary *portraitCacheCellHeightMutableDictionary; ///< portraitCacheCellHeightMutableDictionary
-@property (strong, nonatomic, readonly) NSMutableDictionary *landscapeCacheCellHeightMutableDictionary; ///< landscapeCacheCellHeightMutableDictionary
-@property (strong, nonatomic, readonly) NSMutableDictionary *reusableCellWithIdentifierMutableDictionary; ///< reusableCellWithIdentifierMutableDictionary
+@property (strong, nonatomic, readonly) NSMutableDictionary *portraitCacheCellHeightMutableDictionary;     ///< portraitCacheCellHeightMutableDictionary
+@property (strong, nonatomic, readonly) NSMutableDictionary *landscapeCacheCellHeightMutableDictionary;    ///< landscapeCacheCellHeightMutableDictionary
+@property (strong, nonatomic, readonly) NSMutableDictionary *portraitCacheKeyCellHeightMutableDictionary;  ///< portraitCacheKeyCellHeightMutableDictionary
+@property (strong, nonatomic, readonly) NSMutableDictionary *landscapeCacheKeyCellHeightMutableDictionary; ///< landscapeCacheKeyCellHeightMutableDictionary
+@property (strong, nonatomic, readonly) NSMutableDictionary *reusableCellWithIdentifierMutableDictionary;  ///< reusableCellWithIdentifierMutableDictionary
 
 @end
 
 @implementation UITableView (BMTemplateLayoutCell)
 
-- (CGFloat)bm_heightForCellWithCellClass:(Class)clas configuration:(BMLayoutCellConfigurationBlock)configuration {
+- (UIView *)bm_tempViewCellWithCellClass:(Class)clas {
     // 创建新的重用标识
     NSString *noReuseIdentifier = [NSString stringWithFormat:@"noReuse%@", NSStringFromClass(clas.class)];
-    
+
     NSString *noReuseIdentifierChar = self.reusableCellWithIdentifierMutableDictionary[noReuseIdentifier];
     if (!noReuseIdentifierChar) {
         noReuseIdentifierChar = noReuseIdentifier;
         self.reusableCellWithIdentifierMutableDictionary[noReuseIdentifier] = noReuseIdentifier;
     }
     // 取特定的重用标识是否绑定的Cell
-    UITableViewCell *noCacheCell = objc_getAssociatedObject(self, (__bridge const void *)(noReuseIdentifierChar));
-    
-    if (!noCacheCell) {
+    UIView *tempView = objc_getAssociatedObject(self, (__bridge const void *)(noReuseIdentifierChar));
+    if (!tempView) {
         // 没有绑定就创建
         NSString *path = [[NSBundle mainBundle] pathForResource:NSStringFromClass(clas.class) ofType:@"nib"];
+        UITableViewCell *noCacheCell = nil;
         if (path.length) {
             noCacheCell = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(clas.class) owner:nil options:nil] firstObject];
             [noCacheCell setValue:noReuseIdentifier forKey:@"reuseIdentifier"];
@@ -76,20 +86,22 @@ void swizzleMethod(Class class, SEL originalSelector, SEL swizzledSelector) {
             noCacheCell = [[clas alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:noReuseIdentifier];
         }
         // 绑定起来
-        objc_setAssociatedObject(self, (__bridge const void *)(noReuseIdentifierChar), noCacheCell, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        tempView = [UIView new];
+        [tempView addSubview:noCacheCell];
+        objc_setAssociatedObject(self, (__bridge const void *)(noReuseIdentifierChar), tempView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         NSLog(@"创建cell 这个 cell 不参与重用 ---- %p", noCacheCell);
     }
-    
+    return tempView;
+}
+
+- (CGFloat)bm_layoutIfNeededCellWith:(UITableViewCell *)cell configuration:(BMLayoutCellConfigurationBlock)configuration {
     // 不存在就布局一下，在获取高度进行缓存
-    UIView *tempView = [UIView new];
-    tempView.frame = CGRectMake(0, 0, self.frame.size.width, 100);
-    [tempView addSubview:noCacheCell];
-    noCacheCell.frame = CGRectMake(0, 0, self.frame.size.width, 100);
-    configuration(noCacheCell);
-    [tempView layoutIfNeeded];
-    
+    cell.superview.frame = CGRectMake(0, 0, self.frame.size.width, 0);
+    cell.frame = CGRectMake(0, 0, self.frame.size.width, 0);
+    configuration(cell);
+    [cell.superview layoutIfNeeded];
     __block CGFloat maxY = 0;
-    [noCacheCell.contentView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [cell.contentView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (maxY <  CGRectGetMaxY(obj.frame)) {
             maxY = CGRectGetMaxY(obj.frame);
         }
@@ -98,114 +110,55 @@ void swizzleMethod(Class class, SEL originalSelector, SEL swizzledSelector) {
     return maxY;
 }
 
+
+- (CGFloat)bm_heightForCellWithCellClass:(Class)clas configuration:(BMLayoutCellConfigurationBlock)configuration {
+    if (!clas || configuration) {
+        return 0;
+    }
+    UIView *tempView = [self bm_tempViewCellWithCellClass:clas];
+    return [self bm_layoutIfNeededCellWith:tempView.subviews[0] configuration:configuration];
+}
+
 - (CGFloat)bm_heightForCellWithCellClass:(Class)clas
                         cacheByIndexPath:(NSIndexPath *)indexPath
                            configuration:(BMLayoutCellConfigurationBlock)configuration {
-    // 创建新的重用标识
-    NSString *noReuseIdentifier = [NSString stringWithFormat:@"noReuse%@", NSStringFromClass(clas.class)];
-    
-    NSString *noReuseIdentifierChar = self.reusableCellWithIdentifierMutableDictionary[noReuseIdentifier];
-    if (!noReuseIdentifierChar) {
-        noReuseIdentifierChar = noReuseIdentifier;
-        self.reusableCellWithIdentifierMutableDictionary[noReuseIdentifier] = noReuseIdentifier;
+    if (!clas || !configuration) {
+        return 0;
     }
-    // 取特定的重用标识是否绑定的Cell
-    UITableViewCell *noCacheCell = objc_getAssociatedObject(self, (__bridge const void *)(noReuseIdentifierChar));
-    
-    if (!noCacheCell) {
-        // 没有绑定就创建
-        NSString *path = [[NSBundle mainBundle] pathForResource:NSStringFromClass(clas.class) ofType:@"nib"];
-        if (path.length) {
-            noCacheCell = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(clas.class) owner:nil options:nil] firstObject];
-            [noCacheCell setValue:noReuseIdentifier forKey:@"reuseIdentifier"];
-        } else {
-            noCacheCell = [[clas alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:noReuseIdentifier];
-        }
-        // 绑定起来
-        objc_setAssociatedObject(self, (__bridge const void *)(noReuseIdentifierChar), noCacheCell, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        NSLog(@"创建cell 这个 cell 不参与重用 ---- %p", noCacheCell);
+    if (!indexPath) {
+       return [self bm_heightForCellWithCellClass:clas configuration:configuration];
     }
-    // 参加缓存 key (待优化)
-    NSString *cacheID = [NSString stringWithFormat:@"%ld-%ld", (long)indexPath.section, (long)indexPath.row];
-    
-    BOOL isPortrait = (CGRectGetWidth([[UIScreen mainScreen] bounds]) < CGRectGetHeight([[UIScreen mainScreen] bounds]));
-    NSNumber *heightValue = (isPortrait ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[cacheID];
-    if (!heightValue) {
-        // 不存在就布局一下，在获取高度进行缓存
-        UIView *tempView = [UIView new];
-        tempView.frame = CGRectMake(0, 0, self.frame.size.width, 100);
-        [tempView addSubview:noCacheCell];
-        noCacheCell.frame = CGRectMake(0, 0, self.frame.size.width, 100);
-        configuration(noCacheCell);
-        [tempView layoutIfNeeded];
-        
-        __block CGFloat maxY = 0;
-        [noCacheCell.contentView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if (maxY <  CGRectGetMaxY(obj.frame)) {
-                maxY = CGRectGetMaxY(obj.frame);
-            }
-        }];
-        maxY += .5;
-        (isPortrait ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[cacheID] = @(maxY);
-        NSLog(@"%d isPortrait:%@ first calculate height  height: %f", isPortrait, indexPath, maxY);
-        return maxY;
+    NSString *key = [NSString stringWithFormat:@"%ld-%ld", (long)indexPath.section, (long)indexPath.row];
+    BOOL isPortrait = UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation);
+    NSNumber *heightValue = (isPortrait ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key];
+    if (heightValue) {
+        return height(heightValue);
     }
-    return [heightValue doubleValue];
+    UIView *tempView = [self bm_tempViewCellWithCellClass:clas];
+    CGFloat height = [self bm_layoutIfNeededCellWith:tempView.subviews[0] configuration:configuration];
+    (isPortrait ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key] = @(height);
+    return height;
 }
 
 - (CGFloat)bm_heightForCellWithCellClass:(Class)clas cacheByKey:(NSString *)key configuration:(BMLayoutCellConfigurationBlock)configuration {
-    // 创建新的重用标识
-    NSString *noReuseIdentifier = [NSString stringWithFormat:@"noReuse%@", NSStringFromClass(clas.class)];
-    
-    NSString *noReuseIdentifierChar = self.reusableCellWithIdentifierMutableDictionary[noReuseIdentifier];
-    if (!noReuseIdentifierChar) {
-        noReuseIdentifierChar = noReuseIdentifier;
-        self.reusableCellWithIdentifierMutableDictionary[noReuseIdentifier] = noReuseIdentifier;
+    if (!clas || !configuration) {
+        return 0;
     }
-    // 取特定的重用标识是否绑定的Cell
-    UITableViewCell *noCacheCell = objc_getAssociatedObject(self, (__bridge const void *)(noReuseIdentifierChar));
-    
-    if (!noCacheCell) {
-        // 没有绑定就创建
-        NSString *path = [[NSBundle mainBundle] pathForResource:NSStringFromClass(clas.class) ofType:@"nib"];
-        if (path.length) {
-            noCacheCell = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(clas.class) owner:nil options:nil] firstObject];
-            [noCacheCell setValue:noReuseIdentifier forKey:@"reuseIdentifier"];
-        } else {
-            noCacheCell = [[clas alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:noReuseIdentifier];
-        }
-        // 绑定起来
-        objc_setAssociatedObject(self, (__bridge const void *)(noReuseIdentifierChar), noCacheCell, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        NSLog(@"创建cell 这个 cell 不参与重用 ---- %p", noCacheCell);
+    if (!key || key.length) {
+        return [self bm_heightForCellWithCellClass:clas configuration:configuration];
     }
-    // 参加缓存 key (待优化)
-    NSString *cacheID = key;
-    BOOL isPortrait = (CGRectGetWidth([[UIScreen mainScreen] bounds]) < CGRectGetHeight([[UIScreen mainScreen] bounds]));
-    NSNumber *heightValue = (isPortrait ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[cacheID];
-    if (!heightValue) {
-        // 不存在就布局一下，在获取高度进行缓存
-        UIView *tempView = [UIView new];
-        tempView.frame = CGRectMake(0, 0, self.frame.size.width, 100);
-        [tempView addSubview:noCacheCell];
-        noCacheCell.frame = CGRectMake(0, 0, self.frame.size.width, 100);
-        configuration(noCacheCell);
-        [tempView layoutIfNeeded];
-        
-        __block CGFloat maxY = 0;
-        [noCacheCell.contentView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if (maxY <  CGRectGetMaxY(obj.frame)) {
-                maxY = CGRectGetMaxY(obj.frame);
-            }
-        }];
-        maxY += .5;
-        (isPortrait ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[cacheID] = @(maxY);
-        return maxY;
+    BOOL isPortrait = UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation);
+    NSNumber *heightValue = (isPortrait ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key];
+    if (heightValue) {
+        return height(heightValue);
     }
-    return [heightValue doubleValue];
+    UIView *tempView = [self bm_tempViewCellWithCellClass:clas];
+    CGFloat height = [self bm_layoutIfNeededCellWith:tempView.subviews[0] configuration:configuration];
+    (isPortrait ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key] = @(height);
+    return height;
 }
 
 - (NSMutableDictionary *)portraitCacheCellHeightMutableDictionary {
-    // landscape 创建存储缓存高度的字典
     NSMutableDictionary *portraitCacheCellHeightMutableDictionary = objc_getAssociatedObject(self, _cmd);
     if (!portraitCacheCellHeightMutableDictionary) {
         portraitCacheCellHeightMutableDictionary = @{}.mutableCopy;
@@ -215,7 +168,6 @@ void swizzleMethod(Class class, SEL originalSelector, SEL swizzledSelector) {
 }
 
 - (NSMutableDictionary *)landscapeCacheCellHeightMutableDictionary {
-    // vertical 创建存储缓存高度的字典
     NSMutableDictionary *landscapeCacheCellHeightMutableDictionary = objc_getAssociatedObject(self, _cmd);
     if (!landscapeCacheCellHeightMutableDictionary) {
         landscapeCacheCellHeightMutableDictionary = @{}.mutableCopy;
@@ -231,6 +183,24 @@ void swizzleMethod(Class class, SEL originalSelector, SEL swizzledSelector) {
         objc_setAssociatedObject(self, _cmd, reusableCellWithIdentifierMutableDictionary, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     return reusableCellWithIdentifierMutableDictionary;
+}
+
+- (NSMutableDictionary *)portraitCacheKeyCellHeightMutableDictionary {
+    NSMutableDictionary *portraitCacheKeyCellHeightMutableDictionary = objc_getAssociatedObject(self, _cmd);
+    if (!portraitCacheKeyCellHeightMutableDictionary) {
+        portraitCacheKeyCellHeightMutableDictionary = @{}.mutableCopy;
+        objc_setAssociatedObject(self, _cmd, portraitCacheKeyCellHeightMutableDictionary, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    return portraitCacheKeyCellHeightMutableDictionary;
+}
+
+- (NSMutableDictionary *)landscapeCacheKeyCellHeightMutableDictionary {
+    NSMutableDictionary *landscapeCacheKeyCellHeightMutableDictionary = objc_getAssociatedObject(self, _cmd);
+    if (!landscapeCacheKeyCellHeightMutableDictionary) {
+        landscapeCacheKeyCellHeightMutableDictionary = @{}.mutableCopy;
+        objc_setAssociatedObject(self, _cmd, landscapeCacheKeyCellHeightMutableDictionary, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    return landscapeCacheKeyCellHeightMutableDictionary;
 }
 
 + (void)load {
@@ -364,24 +334,63 @@ void swizzleMethod(Class class, SEL originalSelector, SEL swizzledSelector) {
 
 @end
 
-
 @implementation UITableView (BMTemplateLayoutHeaderFooterView)
 
 - (CGFloat)bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:(Class)clas configuration:(BMLayoutHeaderFooterViewConfigurationBlock)configuration {
+    // 没有缓存创建临时View来布局获取高度
+    UIView *tempView = [self bm_tempViewHeaderFooterViewWithHeaderFooterViewClass:clas];
+    // 布局获取高度
+    return [self bm_layoutIfNeededHeaderFooterViewWith:tempView.subviews[0] configuration:configuration];
+}
+
+- (CGFloat)bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:(Class)clas isHeaderView:(BOOL)isHeaderView section:(NSInteger)section configuration:(BMLayoutHeaderFooterViewConfigurationBlock)configuration {
+    NSString *key = [NSString stringWithFormat:@"%@:%ld", isHeaderView ? @"Header" : @ "Footer" ,section];
+    NSNumber *heightValue = (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key];
+    // 有缓存就直接返回
+    if (heightValue) {
+        return height(heightValue);
+    }
+    // 没有缓存创建临时View来布局获取高度
+    UIView *tempView = [self bm_tempViewHeaderFooterViewWithHeaderFooterViewClass:clas];
     
-    // 创建新的重用标识
+    // 布局获取高度
+    CGFloat height = [self bm_layoutIfNeededHeaderFooterViewWith:tempView.subviews[0] configuration:configuration];
+    
+    // 缓存起来
+    (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key] = @(height);
+    return height;
+}
+
+- (CGFloat)bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:(Class)clas cacheByKey:(NSString *)key configuration:(BMLayoutHeaderFooterViewConfigurationBlock)configuration {
+    NSNumber *heightValue = (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key];
+    // 有缓存就直接返回
+    if (heightValue) {
+        return height(heightValue);
+    }
+    // 没有缓存创建临时View来布局获取高度
+    UIView *tempView = [self bm_tempViewHeaderFooterViewWithHeaderFooterViewClass:clas];
+    
+    // 布局获取高度
+    CGFloat height = [self bm_layoutIfNeededHeaderFooterViewWith:tempView.subviews[0] configuration:configuration];
+    
+    // 缓存起来
+    (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key] = @(height);
+    return height;
+}
+
+
+- (UIView *)bm_tempViewHeaderFooterViewWithHeaderFooterViewClass:(Class)clas {
     NSString *noReuseIdentifier = [NSString stringWithFormat:@"noReuse%@", NSStringFromClass(clas.class)];
-    
     NSString *noReuseIdentifierChar = self.reusableCellWithIdentifierMutableDictionary[noReuseIdentifier];
     if (!noReuseIdentifierChar) {
         noReuseIdentifierChar = noReuseIdentifier;
         self.reusableCellWithIdentifierMutableDictionary[noReuseIdentifier] = noReuseIdentifier;
     }
     // 取特定的重用标识是否绑定的Cell
-    UITableViewHeaderFooterView *noCachetableViewHeaderFooterView = objc_getAssociatedObject(self, (__bridge const void *)(noReuseIdentifierChar));
-    
-    if (!noCachetableViewHeaderFooterView) {
+    UIView *tempView = objc_getAssociatedObject(self, (__bridge const void *)(noReuseIdentifierChar));
+    if (!tempView) {
         // 没有绑定就创建
+        UITableViewHeaderFooterView *noCachetableViewHeaderFooterView = nil;
         NSString *path = [[NSBundle mainBundle] pathForResource:NSStringFromClass(clas.class) ofType:@"nib"];
         if (path.length) {
             noCachetableViewHeaderFooterView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(clas.class) owner:nil options:nil] firstObject];
@@ -390,125 +399,27 @@ void swizzleMethod(Class class, SEL originalSelector, SEL swizzledSelector) {
             noCachetableViewHeaderFooterView = [[clas alloc] initWithReuseIdentifier:noReuseIdentifier];
         }
         // 绑定起来
-        objc_setAssociatedObject(self, (__bridge const void *)(noReuseIdentifierChar), noCachetableViewHeaderFooterView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        NSLog(@"创建cell 这个 noCachetableViewHeaderFooterView 不参与重用 ---- %p", noCachetableViewHeaderFooterView);
+        tempView = [UIView new];
+        [tempView addSubview:noCachetableViewHeaderFooterView];
+        objc_setAssociatedObject(self, (__bridge const void *)(noReuseIdentifierChar), tempView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        NSLog(@"创建cell 这个 noCachetableViewHeaderFooterView 不参与重用 ---- %p", tempView);
     }
-    
+    return tempView;
+}
+
+- (CGFloat)bm_layoutIfNeededHeaderFooterViewWith:(UITableViewHeaderFooterView *)tableViewHeaderFooterView configuration:(BMLayoutHeaderFooterViewConfigurationBlock)configuration {
     // 不存在就布局一下，在获取高度进行缓存
-    UIView *tempView = [UIView new];
-    tempView.frame = CGRectMake(0, 0, self.frame.size.width, 100);
-    [tempView addSubview:noCachetableViewHeaderFooterView];
-    noCachetableViewHeaderFooterView.frame = CGRectMake(0, 0, self.frame.size.width, 100);
-    configuration(noCachetableViewHeaderFooterView);
-    [tempView layoutIfNeeded];
-    
+    tableViewHeaderFooterView.superview.frame = CGRectMake(0, 0, self.frame.size.width, 0);
+    tableViewHeaderFooterView.frame = CGRectMake(0, 0, self.frame.size.width, 0);
+    configuration(tableViewHeaderFooterView);
+    [tableViewHeaderFooterView.superview layoutIfNeeded];
     __block CGFloat maxY = 0;
-    [noCachetableViewHeaderFooterView.contentView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [tableViewHeaderFooterView.contentView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (maxY <  CGRectGetMaxY(obj.frame)) {
             maxY = CGRectGetMaxY(obj.frame);
         }
     }];
     return maxY;
-}
-
-- (CGFloat)bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:(Class)clas isHeaderView:(BOOL)isHeaderView section:(NSInteger)section configuration:(BMLayoutHeaderFooterViewConfigurationBlock)configuration {
-    // 创建新的重用标识
-    NSString *noReuseIdentifier = [NSString stringWithFormat:@"noReuse%@", NSStringFromClass(clas.class)];
-    
-    NSString *noReuseIdentifierChar = self.reusableCellWithIdentifierMutableDictionary[noReuseIdentifier];
-    if (!noReuseIdentifierChar) {
-        noReuseIdentifierChar = noReuseIdentifier;
-        self.reusableCellWithIdentifierMutableDictionary[noReuseIdentifier] = noReuseIdentifier;
-    }
-    // 取特定的重用标识是否绑定的Cell
-    UITableViewHeaderFooterView *noCachetableViewHeaderFooterView = objc_getAssociatedObject(self, (__bridge const void *)(noReuseIdentifierChar));
-    
-    if (!noCachetableViewHeaderFooterView) {
-        // 没有绑定就创建
-        NSString *path = [[NSBundle mainBundle] pathForResource:NSStringFromClass(clas.class) ofType:@"nib"];
-        if (path.length) {
-            noCachetableViewHeaderFooterView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(clas.class) owner:nil options:nil] firstObject];
-            [noCachetableViewHeaderFooterView setValue:noReuseIdentifier forKey:@"reuseIdentifier"];
-        } else {
-            noCachetableViewHeaderFooterView = [[clas alloc] initWithReuseIdentifier:noReuseIdentifier];
-        }
-        // 绑定起来
-        objc_setAssociatedObject(self, (__bridge const void *)(noReuseIdentifierChar), noCachetableViewHeaderFooterView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        NSLog(@"创建cell 这个 noCachetableViewHeaderFooterView 不参与重用 ---- %p", noCachetableViewHeaderFooterView);
-    }
-    // 参加缓存 key (待优化)
-    NSString *cacheID = [NSString stringWithFormat:@"%@:%ld", isHeaderView ? @"Header" : @ "Footer" ,section];
-    BOOL isPortrait = (CGRectGetWidth([[UIScreen mainScreen] bounds]) < CGRectGetHeight([[UIScreen mainScreen] bounds]));
-    NSNumber *heightValue = (isPortrait ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[cacheID];
-    if (!heightValue) {
-        // 不存在就布局一下，在获取高度进行缓存
-        UIView *tempView = [UIView new];
-        tempView.frame = CGRectMake(0, 0, self.frame.size.width, 100);
-        [tempView addSubview:noCachetableViewHeaderFooterView];
-        noCachetableViewHeaderFooterView.frame = CGRectMake(0, 0, self.frame.size.width, 100);
-        configuration(noCachetableViewHeaderFooterView);
-        [tempView layoutIfNeeded];
-        
-        __block CGFloat maxY = 0;
-        [noCachetableViewHeaderFooterView.contentView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if (maxY <  CGRectGetMaxY(obj.frame)) {
-                maxY = CGRectGetMaxY(obj.frame);
-            }
-        }];
-        (isPortrait ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[cacheID] = @(maxY);
-        return maxY;
-    }
-    return [heightValue doubleValue];
-}
-
-- (CGFloat)bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:(Class)clas cacheByKey:(NSString *)key configuration:(BMLayoutHeaderFooterViewConfigurationBlock)configuration {
-    // 创建新的重用标识
-    NSString *noReuseIdentifier = [NSString stringWithFormat:@"noReuse%@", NSStringFromClass(clas.class)];
-    
-    NSString *noReuseIdentifierChar = self.reusableCellWithIdentifierMutableDictionary[noReuseIdentifier];
-    if (!noReuseIdentifierChar) {
-        noReuseIdentifierChar = noReuseIdentifier;
-        self.reusableCellWithIdentifierMutableDictionary[noReuseIdentifier] = noReuseIdentifier;
-    }
-    // 取特定的重用标识是否绑定的Cell
-    UITableViewHeaderFooterView *noCachetableViewHeaderFooterView = objc_getAssociatedObject(self, (__bridge const void *)(noReuseIdentifierChar));
-    
-    if (!noCachetableViewHeaderFooterView) {
-        // 没有绑定就创建
-        NSString *path = [[NSBundle mainBundle] pathForResource:NSStringFromClass(clas.class) ofType:@"nib"];
-        if (path.length) {
-            noCachetableViewHeaderFooterView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(clas.class) owner:nil options:nil] firstObject];
-            [noCachetableViewHeaderFooterView setValue:noReuseIdentifier forKey:@"reuseIdentifier"];
-        } else {
-            noCachetableViewHeaderFooterView = [[clas alloc] initWithReuseIdentifier:noReuseIdentifier];
-        }
-        // 绑定起来
-        objc_setAssociatedObject(self, (__bridge const void *)(noReuseIdentifierChar), noCachetableViewHeaderFooterView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        NSLog(@"创建cell 这个 noCachetableViewHeaderFooterView 不参与重用 ---- %p", noCachetableViewHeaderFooterView);
-    }
-    // 参加缓存 key (待优化)
-    NSString *cacheID = [NSString stringWithFormat:@"HeaderFooter:%@", key];
-    BOOL isPortrait = (CGRectGetWidth([[UIScreen mainScreen] bounds]) < CGRectGetHeight([[UIScreen mainScreen] bounds]));
-    NSNumber *heightValue = (isPortrait ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[cacheID];
-    if (!heightValue) {
-        // 不存在就布局一下，在获取高度进行缓存
-        UIView *tempView = [UIView new];
-        tempView.frame = CGRectMake(0, 0, self.frame.size.width, 100);
-        [tempView addSubview:noCachetableViewHeaderFooterView];
-        noCachetableViewHeaderFooterView.frame = CGRectMake(0, 0, self.frame.size.width, 100);
-        configuration(noCachetableViewHeaderFooterView);
-        [tempView layoutIfNeeded];
-        
-        __block CGFloat maxY = 0;
-        [noCachetableViewHeaderFooterView.contentView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if (maxY <  CGRectGetMaxY(obj.frame)) {
-                maxY = CGRectGetMaxY(obj.frame);
-            }
-        }];
-        (isPortrait ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[cacheID] = @(maxY);
-        return maxY;
-    }
-    return [heightValue doubleValue];
 }
 
 @end
