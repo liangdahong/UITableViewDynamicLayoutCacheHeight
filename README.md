@@ -4,8 +4,15 @@
 # 写在前面
 > 由于最近需要做一个类似微信聊天窗口的功能,牵涉到`UITableViewCell`的高度自适应，同时需要准确获取`UITableView`的`contentSize`并做相应的滚动和动画，在反复尝试使用系统自适应和[FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)均有一些小问题待处理，代码计算又太麻烦，故尝试自己实现。
 
+## 原因
 1. 系统自动计算无法满足准确获取`contentSize`。
-2. [FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)计算不准且似乎在`iOS10.2.1`会崩溃。
+2. 系统自动计算效率较低（来回反复计算）。
+3. 系统自动计算对UITableViewHeaderFooterView的自适应不友好。
+4. [FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)似乎在`iOS10.2.1`会崩溃，而且有一些问题一直未处理。
+5. 代码计算太繁琐而且容易错（效率最高，但可能很少人用吧）
+
+## 存在的问题
+1. 此库可能会额外增加一个View提供布局需要（ps：如果自定义了分割线其实是不需要增加的）
 
 # 使用说明
 > 注意：`BMTemplateLayoutCell的实现原理是：内部创建Cell，然后使用Block让外部进行设值和布局，内部在使用 layoutIfNeeded 强制布局，在获取Cell的contentView的最底部的View的最大高度为Cell需要的高度，所以使用者不可对您自定义的Cell设置任何的底部约束限制，所以可能需要您额外增加一个View（记住把它的高度最好设置为0，它的唯一功能是提供布局需要），直接由顶部布局下来即可，放心内部会处理好的`
