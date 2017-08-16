@@ -52,6 +52,12 @@ CGFloat height(NSNumber *value) {
 #endif
 }
 
+#ifdef DEBUG 
+    #define BMTemplateLayoutCellLog(...) NSLog(__VA_ARGS__)
+#else
+    #define BMTemplateLayoutCellLog(...)
+#endif
+
 @interface UITableView ()
 
 @property (strong, nonatomic, readonly) NSMutableDictionary *portraitCacheCellHeightMutableDictionary;     ///< portraitCacheCellHeightMutableDictionary
@@ -89,13 +95,12 @@ CGFloat height(NSNumber *value) {
         tempView = [UIView new];
         [tempView addSubview:noCacheCell];
         objc_setAssociatedObject(self, (__bridge const void *)(noReuseIdentifierChar), tempView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        NSLog(@"创建cell 这个 cell 不参与重用 ---- %p", noCacheCell);
+        BMTemplateLayoutCellLog(@"第一次创建 %@ 的布局对象 cell：%@", clas, noCacheCell);
     }
     return tempView;
 }
 
 - (CGFloat)bm_layoutIfNeededCellWith:(UITableViewCell *)cell configuration:(BMLayoutCellConfigurationBlock)configuration {
-    // 不存在就布局一下，在获取高度进行缓存
     cell.superview.frame = CGRectMake(0, 0, self.frame.size.width, 0);
     cell.frame = CGRectMake(0, 0, self.frame.size.width, 0);
     configuration(cell);
@@ -109,7 +114,6 @@ CGFloat height(NSNumber *value) {
     maxY += .5;
     return maxY;
 }
-
 
 - (CGFloat)bm_heightForCellWithCellClass:(Class)clas configuration:(BMLayoutCellConfigurationBlock)configuration {
     if (!clas || configuration) {
@@ -132,11 +136,13 @@ CGFloat height(NSNumber *value) {
     BOOL isPortrait = UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation);
     NSNumber *heightValue = (isPortrait ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key];
     if (heightValue) {
+        BMTemplateLayoutCellLog(@"%@已缓存了 取缓存:%@", indexPath, heightValue);
         return height(heightValue);
     }
     UIView *tempView = [self bm_tempViewCellWithCellClass:clas];
     CGFloat height = [self bm_layoutIfNeededCellWith:tempView.subviews[0] configuration:configuration];
     (isPortrait ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key] = @(height);
+    BMTemplateLayoutCellLog(@"%@没有缓存 布局获取到的高度是:%f", indexPath, height);
     return height;
 }
 
@@ -150,6 +156,7 @@ CGFloat height(NSNumber *value) {
     BOOL isPortrait = UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation);
     NSNumber *heightValue = (isPortrait ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key];
     if (heightValue) {
+        BMTemplateLayoutCellLog(@"cacheByKey:%@ 取缓存:%@", key, heightValue);
         return height(heightValue);
     }
     UIView *tempView = [self bm_tempViewCellWithCellClass:clas];
@@ -348,6 +355,7 @@ CGFloat height(NSNumber *value) {
     NSNumber *heightValue = (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key];
     // 有缓存就直接返回
     if (heightValue) {
+        BMTemplateLayoutCellLog(@"组头部%ld已缓存了 取缓存:%@", (long)section, heightValue);
         return height(heightValue);
     }
     // 没有缓存创建临时View来布局获取高度
@@ -358,6 +366,7 @@ CGFloat height(NSNumber *value) {
     
     // 缓存起来
     (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key] = @(height);
+    BMTemplateLayoutCellLog(@"组头部%ld没有缓存 布局获取到的高度是:%f", section, height);
     return height;
 }
 
@@ -386,7 +395,6 @@ CGFloat height(NSNumber *value) {
         noReuseIdentifierChar = noReuseIdentifier;
         self.reusableCellWithIdentifierMutableDictionary[noReuseIdentifier] = noReuseIdentifier;
     }
-    // 取特定的重用标识是否绑定的Cell
     UIView *tempView = objc_getAssociatedObject(self, (__bridge const void *)(noReuseIdentifierChar));
     if (!tempView) {
         // 没有绑定就创建
@@ -402,13 +410,12 @@ CGFloat height(NSNumber *value) {
         tempView = [UIView new];
         [tempView addSubview:noCachetableViewHeaderFooterView];
         objc_setAssociatedObject(self, (__bridge const void *)(noReuseIdentifierChar), tempView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        NSLog(@"创建cell 这个 noCachetableViewHeaderFooterView 不参与重用 ---- %p", tempView);
+        BMTemplateLayoutCellLog(@"第一次创建 %@ 的布局对象 HeaderFooterView：%@", clas, noCachetableViewHeaderFooterView);
     }
     return tempView;
 }
 
 - (CGFloat)bm_layoutIfNeededHeaderFooterViewWith:(UITableViewHeaderFooterView *)tableViewHeaderFooterView configuration:(BMLayoutHeaderFooterViewConfigurationBlock)configuration {
-    // 不存在就布局一下，在获取高度进行缓存
     tableViewHeaderFooterView.superview.frame = CGRectMake(0, 0, self.frame.size.width, 0);
     tableViewHeaderFooterView.frame = CGRectMake(0, 0, self.frame.size.width, 0);
     configuration(tableViewHeaderFooterView);
