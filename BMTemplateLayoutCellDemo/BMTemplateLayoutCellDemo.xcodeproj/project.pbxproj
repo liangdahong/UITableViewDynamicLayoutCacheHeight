@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		313F5D321F45D0170050059C /* BMCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 313F5D301F45D0170050059C /* BMCell.m */; };
+		313F5D331F45D0170050059C /* BMCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 313F5D311F45D0170050059C /* BMCell.xib */; };
+		313F5D361F45D1C50050059C /* BMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 313F5D351F45D1C50050059C /* BMModel.m */; };
+		313F5D3C1F45DDA90050059C /* UIView+bb.m in Sources */ = {isa = PBXBuildFile; fileRef = 313F5D3B1F45DDA90050059C /* UIView+bb.m */; };
+		313F5D401F45E1810050059C /* 010@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 313F5D3D1F45E1810050059C /* 010@2x.png */; };
+		313F5D411F45E1810050059C /* 011@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 313F5D3E1F45E1810050059C /* 011@2x.png */; };
+		313F5D421F45E1810050059C /* 012@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 313F5D3F1F45E1810050059C /* 012@2x.png */; };
 		31661F5C1F433EED004E4750 /* BMHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31661F5B1F433EED004E4750 /* BMHeaderView.m */; };
 		31661F6C1F434A00004E4750 /* BMTemplateLayoutCell.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 31661F641F434A00004E4750 /* BMTemplateLayoutCell.podspec */; };
 		31661F6D1F434A00004E4750 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 31661F651F434A00004E4750 /* LICENSE */; };
@@ -68,6 +75,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		313F5D2F1F45D0170050059C /* BMCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMCell.h; sourceTree = "<group>"; };
+		313F5D301F45D0170050059C /* BMCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMCell.m; sourceTree = "<group>"; };
+		313F5D311F45D0170050059C /* BMCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMCell.xib; sourceTree = "<group>"; };
+		313F5D341F45D1C50050059C /* BMModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMModel.h; path = BMTemplateLayoutCellDemo/Classs/View/BMCell/BMModel.h; sourceTree = SOURCE_ROOT; };
+		313F5D351F45D1C50050059C /* BMModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMModel.m; path = BMTemplateLayoutCellDemo/Classs/View/BMCell/BMModel.m; sourceTree = SOURCE_ROOT; };
+		313F5D3A1F45DDA90050059C /* UIView+bb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+bb.h"; sourceTree = "<group>"; };
+		313F5D3B1F45DDA90050059C /* UIView+bb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+bb.m"; sourceTree = "<group>"; };
+		313F5D3D1F45E1810050059C /* 010@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "010@2x.png"; sourceTree = "<group>"; };
+		313F5D3E1F45E1810050059C /* 011@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "011@2x.png"; sourceTree = "<group>"; };
+		313F5D3F1F45E1810050059C /* 012@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "012@2x.png"; sourceTree = "<group>"; };
 		31661F5A1F433EED004E4750 /* BMHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMHeaderView.h; sourceTree = "<group>"; };
 		31661F5B1F433EED004E4750 /* BMHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMHeaderView.m; sourceTree = "<group>"; };
 		31661F641F434A00004E4750 /* BMTemplateLayoutCell.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = BMTemplateLayoutCell.podspec; path = ../BMTemplateLayoutCell.podspec; sourceTree = "<group>"; };
@@ -171,6 +188,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		313F5D2E1F45D0080050059C /* BMCell */ = {
+			isa = PBXGroup;
+			children = (
+				313F5D2F1F45D0170050059C /* BMCell.h */,
+				313F5D301F45D0170050059C /* BMCell.m */,
+				313F5D311F45D0170050059C /* BMCell.xib */,
+			);
+			path = BMCell;
+			sourceTree = "<group>";
+		};
 		31661F591F433EB4004E4750 /* BMHeader */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,6 +315,8 @@
 		32B095FA1F4157CB0076096D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				313F5D341F45D1C50050059C /* BMModel.h */,
+				313F5D351F45D1C50050059C /* BMModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -295,6 +324,7 @@
 		32B095FB1F4157CB0076096D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				313F5D2E1F45D0080050059C /* BMCell */,
 				31661F591F433EB4004E4750 /* BMHeader */,
 				32B098111F416DC00076096D /* BMImageViewCell */,
 				32B096B61F416C1E0076096D /* BMTwoCell */,
@@ -314,6 +344,8 @@
 				32B096121F4157F40076096D /* UIView+BMExtension.m */,
 				32B096751F41584C0076096D /* UIScrollView+BMExtension.h */,
 				32B096761F41584C0076096D /* UIScrollView+BMExtension.m */,
+				313F5D3A1F45DDA90050059C /* UIView+bb.h */,
+				313F5D3B1F45DDA90050059C /* UIView+bb.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -423,6 +455,9 @@
 		32B098171F416ED90076096D /* res */ = {
 			isa = PBXGroup;
 			children = (
+				313F5D3D1F45E1810050059C /* 010@2x.png */,
+				313F5D3E1F45E1810050059C /* 011@2x.png */,
+				313F5D3F1F45E1810050059C /* 012@2x.png */,
 				32B098181F416ED90076096D /* 001@2x.png */,
 				32B098191F416ED90076096D /* 002@2x.png */,
 				32B0981A1F416ED90076096D /* 003@2x.png */,
@@ -543,12 +578,16 @@
 				32B096851F4159B60076096D /* BMChatInputView.xib in Resources */,
 				3259ABD51F41571800B250DA /* LaunchScreen.storyboard in Resources */,
 				32B0981D1F416ED90076096D /* 003@2x.png in Resources */,
+				313F5D331F45D0170050059C /* BMCell.xib in Resources */,
 				31661F6D1F434A00004E4750 /* LICENSE in Resources */,
 				32B0981C1F416ED90076096D /* 002@2x.png in Resources */,
 				32B096BB1F416C2C0076096D /* BMTwoCell.xib in Resources */,
 				32B096891F4159B60076096D /* TableViewCell.xib in Resources */,
+				313F5D411F45E1810050059C /* 011@2x.png in Resources */,
+				313F5D421F45E1810050059C /* 012@2x.png in Resources */,
 				3259ABD21F41571800B250DA /* Assets.xcassets in Resources */,
 				3259ABD01F41571800B250DA /* Main.storyboard in Resources */,
+				313F5D401F45E1810050059C /* 010@2x.png in Resources */,
 				32B0981B1F416ED90076096D /* 001@2x.png in Resources */,
 				31661F6C1F434A00004E4750 /* BMTemplateLayoutCell.podspec in Resources */,
 				32B096871F4159B60076096D /* BMOneCell.xib in Resources */,
@@ -580,6 +619,7 @@
 				31661F5C1F433EED004E4750 /* BMHeaderView.m in Sources */,
 				32B095BD1F41577F0076096D /* main.m in Sources */,
 				32B096B11F4159DC0076096D /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				313F5D361F45D1C50050059C /* BMModel.m in Sources */,
 				31661F6E1F434A00004E4750 /* README.md in Sources */,
 				32B096141F4157F40076096D /* UIView+BMExtension.m in Sources */,
 				31DC9A681F41E6730045BAED /* UITableView+BMTemplateLayoutCell.m in Sources */,
@@ -590,9 +630,11 @@
 				32B096771F41584C0076096D /* UIScrollView+BMExtension.m in Sources */,
 				32B096BA1F416C2C0076096D /* BMTwoCell.m in Sources */,
 				32B096071F4157CB0076096D /* ViewController.m in Sources */,
+				313F5D321F45D0170050059C /* BMCell.m in Sources */,
 				32B096861F4159B60076096D /* BMOneCell.m in Sources */,
 				32B096881F4159B60076096D /* TableViewCell.m in Sources */,
 				32B096B31F4159DC0076096D /* ViewController+MASAdditions.m in Sources */,
+				313F5D3C1F45DDA90050059C /* UIView+bb.m in Sources */,
 				32B096AD1F4159DC0076096D /* MASLayoutConstraint.m in Sources */,
 				32B096AA1F4159DC0076096D /* MASCompositeConstraint.m in Sources */,
 				32B096B51F4159DC0076096D /* XXNibConvention.m in Sources */,

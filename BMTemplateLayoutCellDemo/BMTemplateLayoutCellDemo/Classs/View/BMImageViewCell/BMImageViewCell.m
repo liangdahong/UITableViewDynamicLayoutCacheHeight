@@ -11,5 +11,4 @@
 
 @implementation BMImageViewCell
 
-
 @end

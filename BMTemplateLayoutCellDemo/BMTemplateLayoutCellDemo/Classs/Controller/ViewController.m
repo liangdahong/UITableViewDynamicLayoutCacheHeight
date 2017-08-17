@@ -18,12 +18,14 @@
 #import "BMImageViewCell.h"
 #import "UITableViewCell+BMReusable.h"
 #import "BMHeaderView.h"
+#import "BMModel.h"
+#import "BMCell.h"
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) BMChatInputView *chatInputView;
-@property (strong, nonatomic) NSMutableArray <NSString *> *dataArray;
+@property (strong, nonatomic) NSMutableArray <BMModel *> *dataArray;
 
 @end
 
@@ -69,7 +71,7 @@
 
 #pragma mark - getters setters
 
-- (NSMutableArray<NSString *> *)dataArray {
+- (NSMutableArray<BMModel *> *)dataArray {
     if (!_dataArray) {
         _dataArray = [@[] mutableCopy];
     }
@@ -79,12 +81,7 @@
 - (BMChatInputView *)chatInputView {
     if (!_chatInputView) {
         _chatInputView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(BMChatInputView.class) owner:nil options:nil] firstObject];
-        __weak typeof(self) weakSelf = self;
-        _chatInputView.chatInputViewBlock = ^(NSString *string){
-            __strong typeof(weakSelf) self = weakSelf;
-            [self.dataArray addObject:string];
-            [self.tableView reloadData];
-            [self.tableView bm_scrollToBottomAnimated:YES];
+        _chatInputView.chatInputViewBlock = ^(NSString *string) {
         };
         _chatInputView.inputTextField.returnKeyType = UIReturnKeyDone;
     }
@@ -104,72 +101,16 @@
 
 #pragma mark - 系统delegate
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.dataArray.count;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row % 4 == 0) {
-        TableViewCell *cell = [TableViewCell bm_cellWithTableView:tableView];
-        cell.LABEEE.text = self.dataArray[indexPath.row];
-        NSLog(@"%p", cell);
-        return cell;
-    } else if(indexPath.row % 4 == 1) {
-        BMOneCell *cell = [BMOneCell bm_cellWithTableView:tableView];
-        cell.descLabel.text = self.dataArray[indexPath.row];
-        NSLog(@"%p", cell);
-        return cell;
-    } else  if(indexPath.row % 4 == 2) {
-        BMTwoCell *cell = [BMTwoCell bm_cellWithTableView:tableView];
-        cell.label1.text = self.dataArray[indexPath.row];
-        cell.label2.text = self.dataArray[indexPath.row];
-        return cell;
-    } else {
-        BMImageViewCell *cell = [BMImageViewCell bm_cellWithTableView:tableView];
-        cell.labelLabel.text = self.dataArray[indexPath.row];
-        if (indexPath.row % 3 == 0) {
-            cell.iconImageView.image = [UIImage imageNamed:@"001"];
-        } else if (indexPath.row % 3 == 1){
-            cell.iconImageView.image = [UIImage imageNamed:@"002"];
-        } else {
-            cell.iconImageView.image = [UIImage imageNamed:@"003"];
-        }
-        return cell;
-    }
+    return [BMCell bm_cellWithTableView:tableView];
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    BMHeaderView *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass(BMHeaderView.class)];
-    if (!view) {
-        view = [[BMHeaderView alloc] initWithReuseIdentifier:NSStringFromClass(BMHeaderView.class)];
-    }
-    view.descLabel.text = self.dataArray[section];
-    return view;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return [tableView bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:BMHeaderView.class isHeaderView:YES section:section configuration:^(__kindof BMHeaderView *headerFooterView) {
-        headerFooterView.descLabel.text = self.dataArray[section];
-    }];
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    BMHeaderView *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass(BMHeaderView.class)];
-    if (!view) {
-        view = [[BMHeaderView alloc] initWithReuseIdentifier:NSStringFromClass(BMHeaderView.class)];
-    }
-    view.descLabel.text = [NSString stringWithFormat:@"initWithReuseIdentifier::::%@", self.dataArray[section]];
-    return view;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return [tableView bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:BMHeaderView.class isHeaderView:NO section:section configuration:^(__kindof BMHeaderView *headerFooterView) {
-        headerFooterView.descLabel.text = [NSString stringWithFormat:@"initWithReuseIdentifier::::%@", self.dataArray[section]];
-    }];
+- (void)tableView:(UITableView *)tableView willDisplayCell:(BMCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    cell.model = self.dataArray[indexPath.row];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -177,32 +118,10 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row % 4 == 0) {
-        return [tableView bm_heightForCellWithCellClass:TableViewCell.class cacheByIndexPath:indexPath configuration:^(__kindof TableViewCell *layoutCell) {
-            layoutCell.LABEEE.text = self.dataArray[indexPath.row];
-        }];
-        
-    } else if(indexPath.row % 4 == 1){
-        return [tableView bm_heightForCellWithCellClass:BMOneCell.class cacheByIndexPath:indexPath configuration:^(__kindof BMOneCell *layoutCell) {
-            layoutCell.descLabel.text = self.dataArray[indexPath.row];
-        }];
-    } else if(indexPath.row % 4 == 2){
-        return [tableView bm_heightForCellWithCellClass:BMTwoCell.class cacheByIndexPath:indexPath configuration:^(__kindof BMTwoCell *layoutCell) {
-            layoutCell.label1.text = self.dataArray[indexPath.row];
-            layoutCell.label2.text = self.dataArray[indexPath.row];
-        }];
-    } else {
-        return [tableView bm_heightForCellWithCellClass:BMImageViewCell.class cacheByIndexPath:indexPath configuration:^(__kindof BMImageViewCell *layoutCell) {
-            layoutCell.labelLabel.text = self.dataArray[indexPath.row];
-            if (indexPath.row % 3 == 0) {
-                layoutCell.iconImageView.image = [UIImage imageNamed:@"001"];
-            } else if (indexPath.row % 3 == 1){
-                layoutCell.iconImageView.image = [UIImage imageNamed:@"002"];
-            } else {
-                layoutCell.iconImageView.image = [UIImage imageNamed:@"003"];
-            }
-        }];
-    }
+    BMModel *model = self.dataArray[indexPath.row];
+    return [tableView bm_heightForCellWithCellClass:BMCell.class cacheByKey:model.ID configuration:^(__kindof BMCell *cell) {
+        cell.model = model;
+    }];
 }
 
 #pragma mark - 自定义delegate
@@ -246,21 +165,56 @@
 }
 
 - (IBAction)add:(id)sender {
-    if (arc4random_uniform(3)) {
+    static NSInteger count = 0;
+    BMModel *model = [BMModel new];
+    if (arc4random_uniform(2)) {
         if (arc4random_uniform(2)) {
-            [self.dataArray addObject:@"随机的一条消随机的一条消息啊啊啊啊啊随机的一条消息啊啊啊啊啊随机的一条消息啊啊啊啊啊随机的一条消息啊啊啊啊啊息啊啊啊啊啊"];
+            model.name = @"名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称";
         } else {
-            [self.dataArray addObject:@"随机的一条消息啊随机的一条消息啊啊啊啊啊随机的一条消息啊啊啊啊啊随机的一条消息啊啊啊啊啊随机的一条消息啊啊啊啊啊随机的一条消息啊啊啊啊啊随机的一条消息啊啊啊啊啊随机的一条消息啊啊啊啊啊啊啊啊啊"];
+            model.name = @"名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称";
+        }
+    } else {
+        model.name = @"名称名称名称名称名啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊称名称名称名称名称名称名称名称";
+    }
+    if (arc4random_uniform(2)) {
+        if (arc4random_uniform(2)) {
+            model.desc = @"详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊情啊详情啊详情啊";
+        } else {
+            model.desc = @"详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情啊";
+        }
+    } else {
+        model.desc = @"详情啊详情啊详情啊详情啊详情啊详情啊详情啊详情";
+    }
+    
+    if (arc4random_uniform(2)) {
+        if (arc4random_uniform(2)) {
+            model.icon = @"001";
+        } else {
+            if (arc4random_uniform(2)) {
+                model.icon = @"002";
+            } else {
+                model.icon = @"003";
+            }
         }
     } else {
         if (arc4random_uniform(2)) {
-            [self.dataArray addObject:@"随机的一条消息啊啊啊啊随机的一条消息啊啊啊啊啊啊随机的一条消息啊啊啊啊啊随机的一条消息啊啊啊啊啊随机的一条消息啊啊啊啊啊随机的一条消息啊啊啊啊啊随机的一条消息啊啊啊啊啊随机的一条消息啊啊啊啊啊随机的一条消息啊啊啊啊啊随机的一条消息啊啊啊啊啊随机的一条消息啊啊啊啊啊"];
+            model.icon = @"010";
         } else {
-            [self.dataArray addObject:@"随机的一条消息啊啊啊啊啊"];
+            if (arc4random_uniform(2)) {
+                model.icon = @"011";
+            } else {
+                model.icon = @"012";
+            }
         }
     }
+    
+    model.ID = [NSString stringWithFormat:@"%ld", count++];
+    [self.dataArray addObject:model];
     [self.tableView reloadData];
-    [self.tableView bm_scrollToBottomAnimated:YES];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView bm_scrollToBottomAnimated:YES];
+    });
 }
 
 @end

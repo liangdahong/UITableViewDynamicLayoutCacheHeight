@@ -37,18 +37,16 @@
 <img src="1.png" width="80%">
 </p>
 
-<p align="center">
-<img src="2.png" width="80%">
-</p>
+## 代码设置
 
-<p align="center">
-<img src="3.png" width="80%">
-</p>
-
-<p align="center">
-<img src="4.png" width="80%">
-</p>
-
+```c
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    BMModel *model = self.dataArray[indexPath.row];
+    return [tableView bm_heightForCellWithCellClass:BMCell.class cacheByKey:model.ID configuration:^(__kindof BMCell *cell) {
+        cell.model = model;
+    }];
+}
+```
 
 # 集成
 ## CocoaPods
@@ -64,102 +62,3 @@
 1. 通过 `Clone ` 或者 `download ` 下载`BMTemplateLayoutCell` 文件夹内的所有内容。
 2. 将 BMTemplateLayoutCell 内的源文件添加(拖放)到你的工程。
 3. 导入 `"UITableView+BMTemplateLayoutCell.h"`
-
-
-# API浏览
-```c
-#import <UIKit/UIKit.h>
-
-/**
- BMLayoutCellConfigurationBlock
-
- @param layoutCell 需要布局的Cell
- */
-typedef void (^BMLayoutCellConfigurationBlock)(__kindof UITableViewCell *layoutCell);
-
-/**
- BMLayoutHeaderFooterViewConfigurationBlock
- 
- @param headerFooterView 需要布局的tableViewHeaderFooterView
- */
-typedef void (^BMLayoutHeaderFooterViewConfigurationBlock)(__kindof UITableViewHeaderFooterView *headerFooterView);
-
-#pragma mark - BMTemplateLayoutCell
-
-/**
- BMTemplateLayoutCell
- */
-@interface UITableView (BMTemplateLayoutCell)
-
-/**
- 获取 Cell 的高度（内部不做任何缓存操作））
-
- @param clas Cell Class
- @param configuration 布局block
- @return 应该的高度
- */
-- (CGFloat)fd_heightForCellWithCellClass:(Class)clas configuration:(BMLayoutCellConfigurationBlock)configuration;
-
-/**
- 获取 Cell 的高度（内部自动处理缓存））
- 
- @param clas Cell Class
- @param indexPath 内部会使用 indexPath 做缓存
- @param configuration 布局block
- @return 应该的高度
- */
-- (CGFloat)bm_heightForCellWithCellClass:(Class)clas cacheByIndexPath:(NSIndexPath *)indexPath configuration:(BMLayoutCellConfigurationBlock)configuration;
-
-/**
- 获取 Cell 的高度（内部自动处理缓存））
-
- @param clas Cell Class
- @param key 唯一key，内部会以次key来做缓存
- @param configuration 布局block
- @return 应该的高度
- */
-- (CGFloat)bm_heightForCellWithCellClass:(Class)clas cacheByKey:(NSString *)key configuration:(BMLayoutCellConfigurationBlock)configuration;
-
-@end
-
-#pragma mark - BMTemplateLayoutHeaderFooterView
-
-/**
- BMTemplateLayoutHeaderFooterView
- */
-@interface UITableView (BMTemplateLayoutHeaderFooterView)
-
-/**
- 获取 HeaderFooterView 的高度（内部不做任何缓存操作）
-
- @param clas HeaderFooterView class
- @param configuration 布局block
- @return 应该的高度
- */
-- (CGFloat)bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:(Class)clas configuration:(BMLayoutHeaderFooterViewConfigurationBlock)configuration;
-
-/**
- 获取 HeaderFooterView 的高度（内部自动处理缓存）
-
- @param clas HeaderFooterView class
- @param isHeaderView 是否是表头（组的头部：YES 组的尾部：NO）
- @param section 内部会使用 section 做缓存
- @param configuration 布局block
- @return 应该的高度
- */
-- (CGFloat)bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:(Class)clas isHeaderView:(BOOL)isHeaderView section:(NSInteger)section configuration:(BMLayoutHeaderFooterViewConfigurationBlock)configuration;
-
-/**
- 获取 HeaderFooterView 的高度（内部自动处理缓存）
- 
- @param clas HeaderFooterView class
- @param key 唯一key，内部会以次key来做缓存
- @param configuration 布局block
- @return 应该的高度
- */
-- (CGFloat)bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:(Class)clas cacheByKey:(NSString *)key configuration:(BMLayoutHeaderFooterViewConfigurationBlock)configuration;
-
-@end
-
-```
-
