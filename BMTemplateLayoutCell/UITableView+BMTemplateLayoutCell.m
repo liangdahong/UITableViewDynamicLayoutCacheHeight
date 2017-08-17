@@ -150,7 +150,7 @@ CGFloat height(NSNumber *value) {
     if (!clas || !configuration) {
         return 0;
     }
-    if (!key || key.length) {
+    if (!key || key.length == 0) {
         return [self bm_heightForCellWithCellClass:clas configuration:configuration];
     }
     BOOL isPortrait = UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation);
@@ -371,6 +371,13 @@ CGFloat height(NSNumber *value) {
 }
 
 - (CGFloat)bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:(Class)clas cacheByKey:(NSString *)key configuration:(BMLayoutHeaderFooterViewConfigurationBlock)configuration {
+    if (!clas || !configuration) {
+        return 0;
+    }
+    if (!key || key.length == 0) {
+        return [self bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:clas configuration:configuration];
+    }
+    
     NSNumber *heightValue = (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key];
     // 有缓存就直接返回
     if (heightValue) {
