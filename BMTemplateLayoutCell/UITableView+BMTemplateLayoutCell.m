@@ -24,6 +24,8 @@
 #import "UITableView+BMTemplateLayoutCell.h"
 #import <objc/runtime.h>
 
+#define isPortrait  (CGRectGetWidth([[UIScreen mainScreen] bounds]) < CGRectGetHeight([[UIScreen mainScreen] bounds]))
+
 /**
  交换2个方法的调用
  
@@ -133,7 +135,7 @@ CGFloat height(NSNumber *value) {
        return [self bm_heightForCellWithCellClass:clas configuration:configuration];
     }
     NSString *key = [NSString stringWithFormat:@"%ld-%ld", (long)indexPath.section, (long)indexPath.row];
-    BOOL isPortrait = UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation);
+    
     NSNumber *heightValue = (isPortrait ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key];
     if (heightValue) {
         BMTemplateLayoutCellLog(@"%@已缓存了 取缓存:%@", indexPath, heightValue);
@@ -153,7 +155,6 @@ CGFloat height(NSNumber *value) {
     if (!key || key.length == 0) {
         return [self bm_heightForCellWithCellClass:clas configuration:configuration];
     }
-    BOOL isPortrait = UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation);
     NSNumber *heightValue = (isPortrait ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key];
     if (heightValue) {
         BMTemplateLayoutCellLog(@"cacheByKey:%@ 取缓存:%@", key, heightValue);
@@ -352,7 +353,7 @@ CGFloat height(NSNumber *value) {
 
 - (CGFloat)bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:(Class)clas isHeaderView:(BOOL)isHeaderView section:(NSInteger)section configuration:(BMLayoutHeaderFooterViewConfigurationBlock)configuration {
     NSString *key = [NSString stringWithFormat:@"%@:%ld", isHeaderView ? @"Header" : @ "Footer" ,section];
-    NSNumber *heightValue = (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key];
+    NSNumber *heightValue = (isPortrait ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key];
     // 有缓存就直接返回
     if (heightValue) {
         BMTemplateLayoutCellLog(@"组头部%ld已缓存了 取缓存:%@", (long)section, heightValue);
@@ -365,7 +366,7 @@ CGFloat height(NSNumber *value) {
     CGFloat height = [self bm_layoutIfNeededHeaderFooterViewWith:tempView.subviews[0] configuration:configuration];
     
     // 缓存起来
-    (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key] = @(height);
+    (isPortrait ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key] = @(height);
     BMTemplateLayoutCellLog(@"组头部%ld没有缓存 布局获取到的高度是:%f", section, height);
     return height;
 }
@@ -378,7 +379,7 @@ CGFloat height(NSNumber *value) {
         return [self bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:clas configuration:configuration];
     }
     
-    NSNumber *heightValue = (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key];
+    NSNumber *heightValue = ((isPortrait) ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key];
     // 有缓存就直接返回
     if (heightValue) {
         return height(heightValue);
@@ -390,10 +391,9 @@ CGFloat height(NSNumber *value) {
     CGFloat height = [self bm_layoutIfNeededHeaderFooterViewWith:tempView.subviews[0] configuration:configuration];
     
     // 缓存起来
-    (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key] = @(height);
+    (isPortrait ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key] = @(height);
     return height;
 }
-
 
 - (UIView *)bm_tempViewHeaderFooterViewWithHeaderFooterViewClass:(Class)clas {
     NSString *noReuseIdentifier = [NSString stringWithFormat:@"noReuse%@", NSStringFromClass(clas.class)];

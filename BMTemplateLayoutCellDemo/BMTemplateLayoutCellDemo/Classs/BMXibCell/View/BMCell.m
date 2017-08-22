@@ -18,7 +18,7 @@
         return;
     }
     _model = model;
-    self.titleLabel.text = model.name;
+    self.titleLabel.text = [NSString stringWithFormat:@"%@ - %@", model.name, model.ID];
     self.iconImageView.image = [UIImage imageNamed:model.icon];
     self.descLabel.text = model.desc;
 }
