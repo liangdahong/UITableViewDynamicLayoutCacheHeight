@@ -29,12 +29,12 @@
 ##  gif效果图
 
 <p align="center">
-<img src="1.gif" width="100%">
+<img src="Res/1.gif" width="100%">
 </p>
 
 ## Xib约束图
 <p align="center">
-<img src="1.png" width="80%">
+<img src="Res/1.png" width="80%">
 </p>
 
 ## 代码设置
