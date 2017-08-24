@@ -32,9 +32,9 @@
 /**
  BMLayoutCellConfigurationBlock
 
- @param layoutCell 需要布局的Cell
+ @param cell 需要布局的Cell
  */
-typedef void (^BMLayoutCellConfigurationBlock)(__kindof UITableViewCell *layoutCell);
+typedef void (^BMLayoutCellConfigurationBlock)(__kindof UITableViewCell *cell);
 
 /**
  BMLayoutHeaderFooterViewConfigurationBlock

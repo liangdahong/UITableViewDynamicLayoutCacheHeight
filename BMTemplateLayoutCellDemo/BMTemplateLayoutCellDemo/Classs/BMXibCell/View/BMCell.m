@@ -9,6 +9,11 @@
 #import "BMCell.h"
 
 @interface BMCell ()
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
+@property (weak, nonatomic) IBOutlet UILabel *descLabel;
+
 @end
 
 @implementation BMCell

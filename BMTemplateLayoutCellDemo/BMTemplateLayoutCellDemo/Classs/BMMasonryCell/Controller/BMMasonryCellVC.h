@@ -1,14 +1,13 @@
 //
-//  BMMasonryXIBCellVC.h
+//  BMMasonryCellVC.h
 //  BMTemplateLayoutCellDemo
 //
-//  Created by __liangdahong on 2017/8/23.
+//  Created by ___liangdahong on 2017/8/24.
 //  Copyright © 2017年 ___liangdahong. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-
-@interface BMMasonryXIBCellVC : UIViewController
+@interface BMMasonryCellVC : UIViewController
 
 @end

@@ -10,7 +10,7 @@
 #import "BMSettingModel.h"
 #import "UITableViewCell+BMReusable.h"
 #import "BMXibCellVC.h"
-#import "BMMasonryXIBCellVC.h"
+#import "BMMasonryCellVC.h"
 
 @interface BMRootVC () <UITableViewDelegate, UITableViewDataSource>
 
@@ -43,11 +43,11 @@
         _modelArray = @[
                         @[
                             [BMSettingModel modelWithTitle:@"xib cell" selector:@selector(xibCell:)],
-                            [BMSettingModel modelWithTitle:@"masonry cell" selector:@selector(masonryXIBCell:)]
+                            [BMSettingModel modelWithTitle:@"masonry cell" selector:@selector(masonryCell:)]
                             ],
                         @[
-                            [BMSettingModel modelWithTitle:@"xib header footer cell" selector:nil],
-                            [BMSettingModel modelWithTitle:@"masonry header footer cell" selector:nil],
+                            [BMSettingModel modelWithTitle:@"xib header footer" selector:nil],
+                            [BMSettingModel modelWithTitle:@"masonry header footer" selector:nil],
                           ]
                         ];
     }
@@ -105,8 +105,8 @@
     [self.navigationController pushViewController:[BMXibCellVC new] animated:YES];
 }
 
-- (void)masonryXIBCell:(BMSettingModel *)model {
-    [self.navigationController pushViewController:[BMMasonryXIBCellVC new] animated:YES];
+- (void)masonryCell:(BMSettingModel *)model {
+    [self.navigationController pushViewController:[BMMasonryCellVC new] animated:YES];
 }
 
 - (void)setUI {

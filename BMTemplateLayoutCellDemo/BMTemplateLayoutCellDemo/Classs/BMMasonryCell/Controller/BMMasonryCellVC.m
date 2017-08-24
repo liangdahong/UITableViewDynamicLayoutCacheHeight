@@ -1,29 +1,29 @@
 //
-//  BMXibCellVC.m
+//  BMMasonryCellVC.m
 //  BMTemplateLayoutCellDemo
 //
-//  Created by __liangdahong on 2017/8/22.
+//  Created by ___liangdahong on 2017/8/24.
 //  Copyright © 2017年 ___liangdahong. All rights reserved.
 //
 
-#import "BMXibCellVC.h"
-#import "UIView+BMExtension.h"
-#import "UITableView+BMTemplateLayoutCell.h"
-#import "UIScrollView+BMExtension.h"
-#import "UITableViewCell+BMReusable.h"
+#import "BMMasonryCellVC.h"
+#import "Masonry.h"
 #import "BMModel.h"
-#import "BMCell.h"
+#import "BMMasonryCell.h"
+#import "UITableView+BMTemplateLayoutCell.h"
+#import "UITableViewCell+BMReusable.h"
 
-@interface BMXibCellVC () <UITableViewDelegate, UITableViewDataSource>
+@interface BMMasonryCellVC () <UITableViewDelegate, UITableViewDataSource>
 
-@property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) UITableView *tableView; ///< tableView
 @property (strong, nonatomic) NSMutableArray <BMModel *> *dataArray;
 
 @end
 
-@implementation BMXibCellVC
+@implementation BMMasonryCellVC
+
 #pragma mark -
-#pragma mark - init
+
 #pragma mark - 生命周期
 
 - (void)viewDidLoad {
@@ -31,11 +31,16 @@
     [self setUI];
 }
 
-- (void)setUI {
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"加一点数据" style:0 target:self action:@selector(addModelClock)];
-}
-
 #pragma mark - getters setters
+
+- (UITableView *)tableView {
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+    }
+    return _tableView;
+}
 
 - (NSMutableArray<BMModel *> *)dataArray {
     if (!_dataArray) {
@@ -46,15 +51,20 @@
 
 #pragma mark - 系统delegate
 
+#pragma mark - UITableViewDataSource UITableViewDelegate
+
+#pragma mark - UITableViewDataSource
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [BMCell bm_cellWithTableView:tableView];
+    return [BMMasonryCell bm_cellWithTableView:tableView];
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(BMCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView willDisplayCell:(BMMasonryCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     cell.model = self.dataArray[indexPath.row];
 }
 
@@ -64,7 +74,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     BMModel *model = self.dataArray[indexPath.row];
-    return [tableView bm_heightForCellWithCellClass:BMCell.class cacheByKey:model.ID configuration:^(__kindof BMCell *cell) {
+    return [tableView bm_heightForCellWithCellClass:BMMasonryCell.class cacheByKey:model.ID configuration:^(__kindof BMMasonryCell *cell) {
         cell.model = model;
     }];
 }
@@ -72,6 +82,15 @@
 #pragma mark - 自定义delegate
 #pragma mark - 公有方法
 #pragma mark - 私有方法
+
+- (void)setUI {
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"加一点数据" style:0 target:self action:@selector(addModelClock)];
+    [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(0);
+    }];
+}
+
 #pragma mark - 事件响应
 
 - (void)addModelClock {
@@ -101,7 +120,7 @@
             }
         }
         model.name = string1;
-
+        
         if (arc4random_uniform(2)) {
             if (arc4random_uniform(2)) {
                 model.icon = @"001";

@@ -22,9 +22,6 @@
 		3159AED11F4C8C00003FAF19 /* BMXibCellVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3159AECF1F4C8C00003FAF19 /* BMXibCellVC.xib */; };
 		3159AED51F4C8CB2003FAF19 /* BMCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3159AED21F4C8CB2003FAF19 /* BMCell.m */; };
 		3159AED61F4C8CB2003FAF19 /* BMCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3159AED41F4C8CB2003FAF19 /* BMCell.xib */; };
-		3159AEDE1F4C91B3003FAF19 /* BMMasonryXIBCellVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3159AEDC1F4C91B3003FAF19 /* BMMasonryXIBCellVC.m */; };
-		3159AEDF1F4C91B3003FAF19 /* BMMasonryXIBCellVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3159AEDD1F4C91B3003FAF19 /* BMMasonryXIBCellVC.xib */; };
-		3159AEE31F4C91C9003FAF19 /* BMMasonryXIBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3159AEE11F4C91C9003FAF19 /* BMMasonryXIBCell.m */; };
 		31661F6C1F434A00004E4750 /* BMTemplateLayoutCell.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 31661F641F434A00004E4750 /* BMTemplateLayoutCell.podspec */; };
 		31661F6D1F434A00004E4750 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 31661F651F434A00004E4750 /* LICENSE */; };
 		31661F6E1F434A00004E4750 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 31661F661F434A00004E4750 /* README.md */; };
@@ -51,6 +48,9 @@
 		32B096B31F4159DC0076096D /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B096A41F4159DC0076096D /* ViewController+MASAdditions.m */; };
 		32B096B41F4159DC0076096D /* XXNibBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B096A71F4159DC0076096D /* XXNibBridge.m */; };
 		32B096B51F4159DC0076096D /* XXNibConvention.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B096A91F4159DC0076096D /* XXNibConvention.m */; };
+		32F6EF261F4EA64900CD60AB /* BMMasonryCellVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F6EF241F4EA64900CD60AB /* BMMasonryCellVC.m */; };
+		32F6EF271F4EA64900CD60AB /* BMMasonryCellVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32F6EF251F4EA64900CD60AB /* BMMasonryCellVC.xib */; };
+		32F6EF2B1F4EA65F00CD60AB /* BMMasonryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F6EF291F4EA65F00CD60AB /* BMMasonryCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,11 +92,6 @@
 		3159AED21F4C8CB2003FAF19 /* BMCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMCell.m; sourceTree = "<group>"; };
 		3159AED31F4C8CB2003FAF19 /* BMCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMCell.h; sourceTree = "<group>"; };
 		3159AED41F4C8CB2003FAF19 /* BMCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMCell.xib; sourceTree = "<group>"; };
-		3159AEDB1F4C91B3003FAF19 /* BMMasonryXIBCellVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMMasonryXIBCellVC.h; sourceTree = "<group>"; };
-		3159AEDC1F4C91B3003FAF19 /* BMMasonryXIBCellVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMMasonryXIBCellVC.m; sourceTree = "<group>"; };
-		3159AEDD1F4C91B3003FAF19 /* BMMasonryXIBCellVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMMasonryXIBCellVC.xib; sourceTree = "<group>"; };
-		3159AEE01F4C91C9003FAF19 /* BMMasonryXIBCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMMasonryXIBCell.h; sourceTree = "<group>"; };
-		3159AEE11F4C91C9003FAF19 /* BMMasonryXIBCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMMasonryXIBCell.m; sourceTree = "<group>"; };
 		31661F641F434A00004E4750 /* BMTemplateLayoutCell.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = BMTemplateLayoutCell.podspec; path = ../BMTemplateLayoutCell.podspec; sourceTree = "<group>"; };
 		31661F651F434A00004E4750 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		31661F661F434A00004E4750 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -151,6 +146,11 @@
 		32B096A71F4159DC0076096D /* XXNibBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXNibBridge.m; sourceTree = "<group>"; };
 		32B096A81F4159DC0076096D /* XXNibConvention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXNibConvention.h; sourceTree = "<group>"; };
 		32B096A91F4159DC0076096D /* XXNibConvention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXNibConvention.m; sourceTree = "<group>"; };
+		32F6EF231F4EA64900CD60AB /* BMMasonryCellVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMMasonryCellVC.h; sourceTree = "<group>"; };
+		32F6EF241F4EA64900CD60AB /* BMMasonryCellVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMMasonryCellVC.m; sourceTree = "<group>"; };
+		32F6EF251F4EA64900CD60AB /* BMMasonryCellVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMMasonryCellVC.xib; sourceTree = "<group>"; };
+		32F6EF281F4EA65F00CD60AB /* BMMasonryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMMasonryCell.h; sourceTree = "<group>"; };
+		32F6EF291F4EA65F00CD60AB /* BMMasonryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMMasonryCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,45 +235,9 @@
 		3159AEC01F4C8B60003FAF19 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3159AED21F4C8CB2003FAF19 /* BMCell.m */,
 				3159AED31F4C8CB2003FAF19 /* BMCell.h */,
+				3159AED21F4C8CB2003FAF19 /* BMCell.m */,
 				3159AED41F4C8CB2003FAF19 /* BMCell.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		3159AED71F4C91A8003FAF19 /* BMMasonryXIBCell */ = {
-			isa = PBXGroup;
-			children = (
-				3159AED81F4C91A8003FAF19 /* Controller */,
-				3159AED91F4C91A8003FAF19 /* Model */,
-				3159AEDA1F4C91A8003FAF19 /* View */,
-			);
-			path = BMMasonryXIBCell;
-			sourceTree = "<group>";
-		};
-		3159AED81F4C91A8003FAF19 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				3159AEDB1F4C91B3003FAF19 /* BMMasonryXIBCellVC.h */,
-				3159AEDC1F4C91B3003FAF19 /* BMMasonryXIBCellVC.m */,
-				3159AEDD1F4C91B3003FAF19 /* BMMasonryXIBCellVC.xib */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		3159AED91F4C91A8003FAF19 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		3159AEDA1F4C91A8003FAF19 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				3159AEE01F4C91C9003FAF19 /* BMMasonryXIBCell.h */,
-				3159AEE11F4C91C9003FAF19 /* BMMasonryXIBCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -357,7 +321,7 @@
 		32B095B91F41577F0076096D /* Classs */ = {
 			isa = PBXGroup;
 			children = (
-				3159AED71F4C91A8003FAF19 /* BMMasonryXIBCell */,
+				32F6EF181F4EA62F00CD60AB /* BMMasonryCell */,
 				3159AEBD1F4C8B60003FAF19 /* BMXibCell */,
 				3159AEB11F4C8945003FAF19 /* RootVC */,
 			);
@@ -439,6 +403,34 @@
 				32B096A91F4159DC0076096D /* XXNibConvention.m */,
 			);
 			path = XXNibBridge;
+			sourceTree = "<group>";
+		};
+		32F6EF181F4EA62F00CD60AB /* BMMasonryCell */ = {
+			isa = PBXGroup;
+			children = (
+				32F6EF191F4EA62F00CD60AB /* Controller */,
+				32F6EF1D1F4EA62F00CD60AB /* View */,
+			);
+			path = BMMasonryCell;
+			sourceTree = "<group>";
+		};
+		32F6EF191F4EA62F00CD60AB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				32F6EF231F4EA64900CD60AB /* BMMasonryCellVC.h */,
+				32F6EF241F4EA64900CD60AB /* BMMasonryCellVC.m */,
+				32F6EF251F4EA64900CD60AB /* BMMasonryCellVC.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		32F6EF1D1F4EA62F00CD60AB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				32F6EF281F4EA65F00CD60AB /* BMMasonryCell.h */,
+				32F6EF291F4EA65F00CD60AB /* BMMasonryCell.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -552,10 +544,10 @@
 			files = (
 				3259ABD51F41571800B250DA /* LaunchScreen.storyboard in Resources */,
 				3159AEAF1F4C88AC003FAF19 /* 011@2x.png in Resources */,
-				3159AEDF1F4C91B3003FAF19 /* BMMasonryXIBCellVC.xib in Resources */,
 				3159AEAC1F4C88AC003FAF19 /* 002@2x.png in Resources */,
 				31661F6D1F434A00004E4750 /* LICENSE in Resources */,
 				3159AED61F4C8CB2003FAF19 /* BMCell.xib in Resources */,
+				32F6EF271F4EA64900CD60AB /* BMMasonryCellVC.xib in Resources */,
 				3159AEAE1F4C88AC003FAF19 /* 010@2x.png in Resources */,
 				3259ABD21F41571800B250DA /* Assets.xcassets in Resources */,
 				3159AEB01F4C88AC003FAF19 /* 012@2x.png in Resources */,
@@ -590,6 +582,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32B096B01F4159DC0076096D /* NSArray+MASAdditions.m in Sources */,
+				32F6EF261F4EA64900CD60AB /* BMMasonryCellVC.m in Sources */,
 				32B095BD1F41577F0076096D /* main.m in Sources */,
 				32B096B11F4159DC0076096D /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				3159AECC1F4C8BEF003FAF19 /* BMModel.m in Sources */,
@@ -600,16 +593,15 @@
 				31DC9A681F41E6730045BAED /* UITableView+BMTemplateLayoutCell.m in Sources */,
 				32B096AC1F4159DC0076096D /* MASConstraintMaker.m in Sources */,
 				3159AEBC1F4C8AF1003FAF19 /* BMSettingModel.m in Sources */,
-				3159AEE31F4C91C9003FAF19 /* BMMasonryXIBCell.m in Sources */,
 				32B096B21F4159DC0076096D /* View+MASAdditions.m in Sources */,
 				32B096AB1F4159DC0076096D /* MASConstraint.m in Sources */,
 				32B096AF1F4159DC0076096D /* MASViewConstraint.m in Sources */,
 				32B096771F41584C0076096D /* UIScrollView+BMExtension.m in Sources */,
 				3159AEB81F4C8945003FAF19 /* BMRootVC.m in Sources */,
+				32F6EF2B1F4EA65F00CD60AB /* BMMasonryCell.m in Sources */,
 				32B096B31F4159DC0076096D /* ViewController+MASAdditions.m in Sources */,
 				313F5D3C1F45DDA90050059C /* UIView+bb.m in Sources */,
 				32B096AD1F4159DC0076096D /* MASLayoutConstraint.m in Sources */,
-				3159AEDE1F4C91B3003FAF19 /* BMMasonryXIBCellVC.m in Sources */,
 				32B096AA1F4159DC0076096D /* MASCompositeConstraint.m in Sources */,
 				32B096B51F4159DC0076096D /* XXNibConvention.m in Sources */,
 				32B095BC1F41577F0076096D /* AppDelegate.m in Sources */,
