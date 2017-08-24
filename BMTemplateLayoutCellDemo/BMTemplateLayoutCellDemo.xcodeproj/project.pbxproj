@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		313F5D3C1F45DDA90050059C /* UIView+bb.m in Sources */ = {isa = PBXBuildFile; fileRef = 313F5D3B1F45DDA90050059C /* UIView+bb.m */; };
 		3159AEAB1F4C88AC003FAF19 /* 001@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3159AEA51F4C88AC003FAF19 /* 001@2x.png */; };
 		3159AEAC1F4C88AC003FAF19 /* 002@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3159AEA61F4C88AC003FAF19 /* 002@2x.png */; };
 		3159AEAD1F4C88AC003FAF19 /* 003@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3159AEA71F4C88AC003FAF19 /* 003@2x.png */; };
@@ -71,8 +70,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		313F5D3A1F45DDA90050059C /* UIView+bb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+bb.h"; sourceTree = "<group>"; };
-		313F5D3B1F45DDA90050059C /* UIView+bb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+bb.m"; sourceTree = "<group>"; };
 		3159AEA51F4C88AC003FAF19 /* 001@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "001@2x.png"; sourceTree = "<group>"; };
 		3159AEA61F4C88AC003FAF19 /* 002@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "002@2x.png"; sourceTree = "<group>"; };
 		3159AEA71F4C88AC003FAF19 /* 003@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "003@2x.png"; sourceTree = "<group>"; };
@@ -347,8 +344,6 @@
 				32B096121F4157F40076096D /* UIView+BMExtension.m */,
 				32B096751F41584C0076096D /* UIScrollView+BMExtension.h */,
 				32B096761F41584C0076096D /* UIScrollView+BMExtension.m */,
-				313F5D3A1F45DDA90050059C /* UIView+bb.h */,
-				313F5D3B1F45DDA90050059C /* UIView+bb.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -600,7 +595,6 @@
 				3159AEB81F4C8945003FAF19 /* BMRootVC.m in Sources */,
 				32F6EF2B1F4EA65F00CD60AB /* BMMasonryCell.m in Sources */,
 				32B096B31F4159DC0076096D /* ViewController+MASAdditions.m in Sources */,
-				313F5D3C1F45DDA90050059C /* UIView+bb.m in Sources */,
 				32B096AD1F4159DC0076096D /* MASLayoutConstraint.m in Sources */,
 				32B096AA1F4159DC0076096D /* MASCompositeConstraint.m in Sources */,
 				32B096B51F4159DC0076096D /* XXNibConvention.m in Sources */,
