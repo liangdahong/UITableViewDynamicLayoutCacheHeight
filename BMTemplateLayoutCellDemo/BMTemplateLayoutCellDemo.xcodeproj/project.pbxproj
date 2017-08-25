@@ -13,9 +13,6 @@
 		3159AEAE1F4C88AC003FAF19 /* 010@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3159AEA81F4C88AC003FAF19 /* 010@2x.png */; };
 		3159AEAF1F4C88AC003FAF19 /* 011@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3159AEA91F4C88AC003FAF19 /* 011@2x.png */; };
 		3159AEB01F4C88AC003FAF19 /* 012@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3159AEAA1F4C88AC003FAF19 /* 012@2x.png */; };
-		3159AEB81F4C8945003FAF19 /* BMRootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3159AEB51F4C8945003FAF19 /* BMRootVC.m */; };
-		3159AEB91F4C8945003FAF19 /* BMRootVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3159AEB61F4C8945003FAF19 /* BMRootVC.xib */; };
-		3159AEBC1F4C8AF1003FAF19 /* BMSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3159AEBB1F4C8AF1003FAF19 /* BMSettingModel.m */; };
 		3159AECC1F4C8BEF003FAF19 /* BMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3159AECB1F4C8BEF003FAF19 /* BMModel.m */; };
 		3159AED01F4C8C00003FAF19 /* BMXibCellVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3159AECE1F4C8C00003FAF19 /* BMXibCellVC.m */; };
 		3159AED11F4C8C00003FAF19 /* BMXibCellVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3159AECF1F4C8C00003FAF19 /* BMXibCellVC.xib */; };
@@ -31,6 +28,17 @@
 		3259ABD51F41571800B250DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3259ABD31F41571800B250DA /* LaunchScreen.storyboard */; };
 		3259ABE01F41571800B250DA /* BMTemplateLayoutCellDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3259ABDF1F41571800B250DA /* BMTemplateLayoutCellDemoTests.m */; };
 		3259ABEB1F41571800B250DA /* BMTemplateLayoutCellDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3259ABEA1F41571800B250DA /* BMTemplateLayoutCellDemoUITests.m */; };
+		32A243CE1F501FF200224A43 /* BMRootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A243C91F501FF200224A43 /* BMRootVC.m */; };
+		32A243CF1F501FF200224A43 /* BMRootVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32A243CA1F501FF200224A43 /* BMRootVC.xib */; };
+		32A243D01F501FF200224A43 /* BMSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A243CD1F501FF200224A43 /* BMSettingModel.m */; };
+		32A243DE1F50207000224A43 /* BMMasonryHeaderFooterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A243DC1F50207000224A43 /* BMMasonryHeaderFooterVC.m */; };
+		32A243DF1F50207000224A43 /* BMMasonryHeaderFooterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32A243DD1F50207000224A43 /* BMMasonryHeaderFooterVC.xib */; };
+		32A243E21F50218E00224A43 /* BMMasonryTableViewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A243E11F50218E00224A43 /* BMMasonryTableViewHeaderView.m */; };
+		32A243E61F50221200224A43 /* BMMasonryTableViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32A243E51F50221200224A43 /* BMMasonryTableViewHeaderView.xib */; };
+		32A243EA1F50246D00224A43 /* BMXibHeaderFooterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A243E81F50246D00224A43 /* BMXibHeaderFooterVC.m */; };
+		32A243EB1F50246D00224A43 /* BMXibHeaderFooterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32A243E91F50246D00224A43 /* BMXibHeaderFooterVC.xib */; };
+		32A243EE1F5024AF00224A43 /* BMXibHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A243ED1F5024AF00224A43 /* BMXibHeader.m */; };
+		32A243F01F5024B600224A43 /* BMXibHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32A243EF1F5024B600224A43 /* BMXibHeader.xib */; };
 		32B095BC1F41577F0076096D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B095B61F41577F0076096D /* AppDelegate.m */; };
 		32B095BD1F41577F0076096D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B095B71F41577F0076096D /* main.m */; };
 		32B096141F4157F40076096D /* UIView+BMExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B096121F4157F40076096D /* UIView+BMExtension.m */; };
@@ -76,11 +84,6 @@
 		3159AEA81F4C88AC003FAF19 /* 010@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "010@2x.png"; sourceTree = "<group>"; };
 		3159AEA91F4C88AC003FAF19 /* 011@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "011@2x.png"; sourceTree = "<group>"; };
 		3159AEAA1F4C88AC003FAF19 /* 012@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "012@2x.png"; sourceTree = "<group>"; };
-		3159AEB41F4C8945003FAF19 /* BMRootVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMRootVC.h; sourceTree = "<group>"; };
-		3159AEB51F4C8945003FAF19 /* BMRootVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMRootVC.m; sourceTree = "<group>"; };
-		3159AEB61F4C8945003FAF19 /* BMRootVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMRootVC.xib; sourceTree = "<group>"; };
-		3159AEBA1F4C8AF1003FAF19 /* BMSettingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMSettingModel.h; sourceTree = "<group>"; };
-		3159AEBB1F4C8AF1003FAF19 /* BMSettingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMSettingModel.m; sourceTree = "<group>"; };
 		3159AECA1F4C8BEF003FAF19 /* BMModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMModel.h; sourceTree = "<group>"; };
 		3159AECB1F4C8BEF003FAF19 /* BMModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMModel.m; sourceTree = "<group>"; };
 		3159AECD1F4C8C00003FAF19 /* BMXibCellVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMXibCellVC.h; sourceTree = "<group>"; };
@@ -107,6 +110,23 @@
 		3259ABE61F41571800B250DA /* BMTemplateLayoutCellDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BMTemplateLayoutCellDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3259ABEA1F41571800B250DA /* BMTemplateLayoutCellDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMTemplateLayoutCellDemoUITests.m; sourceTree = "<group>"; };
 		3259ABEC1F41571800B250DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32A243C81F501FF200224A43 /* BMRootVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMRootVC.h; sourceTree = "<group>"; };
+		32A243C91F501FF200224A43 /* BMRootVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMRootVC.m; sourceTree = "<group>"; };
+		32A243CA1F501FF200224A43 /* BMRootVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMRootVC.xib; sourceTree = "<group>"; };
+		32A243CC1F501FF200224A43 /* BMSettingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMSettingModel.h; sourceTree = "<group>"; };
+		32A243CD1F501FF200224A43 /* BMSettingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMSettingModel.m; sourceTree = "<group>"; };
+		32A243DB1F50207000224A43 /* BMMasonryHeaderFooterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMMasonryHeaderFooterVC.h; sourceTree = "<group>"; };
+		32A243DC1F50207000224A43 /* BMMasonryHeaderFooterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMMasonryHeaderFooterVC.m; sourceTree = "<group>"; };
+		32A243DD1F50207000224A43 /* BMMasonryHeaderFooterVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMMasonryHeaderFooterVC.xib; sourceTree = "<group>"; };
+		32A243E01F50218E00224A43 /* BMMasonryTableViewHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMMasonryTableViewHeaderView.h; sourceTree = "<group>"; };
+		32A243E11F50218E00224A43 /* BMMasonryTableViewHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMMasonryTableViewHeaderView.m; sourceTree = "<group>"; };
+		32A243E51F50221200224A43 /* BMMasonryTableViewHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMMasonryTableViewHeaderView.xib; sourceTree = "<group>"; };
+		32A243E71F50246D00224A43 /* BMXibHeaderFooterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMXibHeaderFooterVC.h; sourceTree = "<group>"; };
+		32A243E81F50246D00224A43 /* BMXibHeaderFooterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMXibHeaderFooterVC.m; sourceTree = "<group>"; };
+		32A243E91F50246D00224A43 /* BMXibHeaderFooterVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMXibHeaderFooterVC.xib; sourceTree = "<group>"; };
+		32A243EC1F5024AF00224A43 /* BMXibHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMXibHeader.h; sourceTree = "<group>"; };
+		32A243ED1F5024AF00224A43 /* BMXibHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMXibHeader.m; sourceTree = "<group>"; };
+		32A243EF1F5024B600224A43 /* BMXibHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMXibHeader.xib; sourceTree = "<group>"; };
 		32B095B51F41577F0076096D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		32B095B61F41577F0076096D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		32B095B71F41577F0076096D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -191,11 +211,8 @@
 		3159AEB11F4C8945003FAF19 /* RootVC */ = {
 			isa = PBXGroup;
 			children = (
-				3159AEB41F4C8945003FAF19 /* BMRootVC.h */,
-				3159AEB51F4C8945003FAF19 /* BMRootVC.m */,
-				3159AEB61F4C8945003FAF19 /* BMRootVC.xib */,
-				3159AEBA1F4C8AF1003FAF19 /* BMSettingModel.h */,
-				3159AEBB1F4C8AF1003FAF19 /* BMSettingModel.m */,
+				32A243C71F501FF200224A43 /* Controller */,
+				32A243CB1F501FF200224A43 /* Model */,
 			);
 			path = RootVC;
 			sourceTree = "<group>";
@@ -305,6 +322,99 @@
 			path = BMTemplateLayoutCellDemoUITests;
 			sourceTree = "<group>";
 		};
+		32A243C71F501FF200224A43 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				32A243C81F501FF200224A43 /* BMRootVC.h */,
+				32A243C91F501FF200224A43 /* BMRootVC.m */,
+				32A243CA1F501FF200224A43 /* BMRootVC.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		32A243CB1F501FF200224A43 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				32A243CC1F501FF200224A43 /* BMSettingModel.h */,
+				32A243CD1F501FF200224A43 /* BMSettingModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		32A243D31F50205800224A43 /* BMMasonryHeaderFooter */ = {
+			isa = PBXGroup;
+			children = (
+				32A243D41F50205800224A43 /* Controller */,
+				32A243D51F50205800224A43 /* Model */,
+				32A243D61F50205800224A43 /* View */,
+			);
+			path = BMMasonryHeaderFooter;
+			sourceTree = "<group>";
+		};
+		32A243D41F50205800224A43 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				32A243DB1F50207000224A43 /* BMMasonryHeaderFooterVC.h */,
+				32A243DC1F50207000224A43 /* BMMasonryHeaderFooterVC.m */,
+				32A243DD1F50207000224A43 /* BMMasonryHeaderFooterVC.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		32A243D51F50205800224A43 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		32A243D61F50205800224A43 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				32A243E01F50218E00224A43 /* BMMasonryTableViewHeaderView.h */,
+				32A243E11F50218E00224A43 /* BMMasonryTableViewHeaderView.m */,
+				32A243E51F50221200224A43 /* BMMasonryTableViewHeaderView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		32A243D71F50205800224A43 /* BMXibHeaderFooter */ = {
+			isa = PBXGroup;
+			children = (
+				32A243D81F50205800224A43 /* Controller */,
+				32A243D91F50205800224A43 /* Model */,
+				32A243DA1F50205800224A43 /* View */,
+			);
+			path = BMXibHeaderFooter;
+			sourceTree = "<group>";
+		};
+		32A243D81F50205800224A43 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				32A243E71F50246D00224A43 /* BMXibHeaderFooterVC.h */,
+				32A243E81F50246D00224A43 /* BMXibHeaderFooterVC.m */,
+				32A243E91F50246D00224A43 /* BMXibHeaderFooterVC.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		32A243D91F50205800224A43 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		32A243DA1F50205800224A43 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				32A243EC1F5024AF00224A43 /* BMXibHeader.h */,
+				32A243ED1F5024AF00224A43 /* BMXibHeader.m */,
+				32A243EF1F5024B600224A43 /* BMXibHeader.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		32B095B41F41577F0076096D /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +428,8 @@
 		32B095B91F41577F0076096D /* Classs */ = {
 			isa = PBXGroup;
 			children = (
+				32A243D31F50205800224A43 /* BMMasonryHeaderFooter */,
+				32A243D71F50205800224A43 /* BMXibHeaderFooter */,
 				32F6EF181F4EA62F00CD60AB /* BMMasonryCell */,
 				3159AEBD1F4C8B60003FAF19 /* BMXibCell */,
 				3159AEB11F4C8945003FAF19 /* RootVC */,
@@ -539,19 +651,23 @@
 			files = (
 				3259ABD51F41571800B250DA /* LaunchScreen.storyboard in Resources */,
 				3159AEAF1F4C88AC003FAF19 /* 011@2x.png in Resources */,
+				32A243F01F5024B600224A43 /* BMXibHeader.xib in Resources */,
 				3159AEAC1F4C88AC003FAF19 /* 002@2x.png in Resources */,
 				31661F6D1F434A00004E4750 /* LICENSE in Resources */,
 				3159AED61F4C8CB2003FAF19 /* BMCell.xib in Resources */,
+				32A243DF1F50207000224A43 /* BMMasonryHeaderFooterVC.xib in Resources */,
+				32A243E61F50221200224A43 /* BMMasonryTableViewHeaderView.xib in Resources */,
 				32F6EF271F4EA64900CD60AB /* BMMasonryCellVC.xib in Resources */,
 				3159AEAE1F4C88AC003FAF19 /* 010@2x.png in Resources */,
 				3259ABD21F41571800B250DA /* Assets.xcassets in Resources */,
 				3159AEB01F4C88AC003FAF19 /* 012@2x.png in Resources */,
+				32A243CF1F501FF200224A43 /* BMRootVC.xib in Resources */,
 				3259ABD01F41571800B250DA /* Main.storyboard in Resources */,
 				3159AED11F4C8C00003FAF19 /* BMXibCellVC.xib in Resources */,
 				31661F6C1F434A00004E4750 /* BMTemplateLayoutCell.podspec in Resources */,
+				32A243EB1F50246D00224A43 /* BMXibHeaderFooterVC.xib in Resources */,
 				3159AEAB1F4C88AC003FAF19 /* 001@2x.png in Resources */,
 				3159AEAD1F4C88AC003FAF19 /* 003@2x.png in Resources */,
-				3159AEB91F4C8945003FAF19 /* BMRootVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,28 +692,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32A243EA1F50246D00224A43 /* BMXibHeaderFooterVC.m in Sources */,
 				32B096B01F4159DC0076096D /* NSArray+MASAdditions.m in Sources */,
 				32F6EF261F4EA64900CD60AB /* BMMasonryCellVC.m in Sources */,
 				32B095BD1F41577F0076096D /* main.m in Sources */,
 				32B096B11F4159DC0076096D /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				32A243CE1F501FF200224A43 /* BMRootVC.m in Sources */,
 				3159AECC1F4C8BEF003FAF19 /* BMModel.m in Sources */,
 				3159AED51F4C8CB2003FAF19 /* BMCell.m in Sources */,
 				31661F6E1F434A00004E4750 /* README.md in Sources */,
+				32A243E21F50218E00224A43 /* BMMasonryTableViewHeaderView.m in Sources */,
 				3159AED01F4C8C00003FAF19 /* BMXibCellVC.m in Sources */,
 				32B096141F4157F40076096D /* UIView+BMExtension.m in Sources */,
 				31DC9A681F41E6730045BAED /* UITableView+BMTemplateLayoutCell.m in Sources */,
 				32B096AC1F4159DC0076096D /* MASConstraintMaker.m in Sources */,
-				3159AEBC1F4C8AF1003FAF19 /* BMSettingModel.m in Sources */,
+				32A243DE1F50207000224A43 /* BMMasonryHeaderFooterVC.m in Sources */,
 				32B096B21F4159DC0076096D /* View+MASAdditions.m in Sources */,
 				32B096AB1F4159DC0076096D /* MASConstraint.m in Sources */,
 				32B096AF1F4159DC0076096D /* MASViewConstraint.m in Sources */,
 				32B096771F41584C0076096D /* UIScrollView+BMExtension.m in Sources */,
-				3159AEB81F4C8945003FAF19 /* BMRootVC.m in Sources */,
 				32F6EF2B1F4EA65F00CD60AB /* BMMasonryCell.m in Sources */,
 				32B096B31F4159DC0076096D /* ViewController+MASAdditions.m in Sources */,
 				32B096AD1F4159DC0076096D /* MASLayoutConstraint.m in Sources */,
+				32A243D01F501FF200224A43 /* BMSettingModel.m in Sources */,
 				32B096AA1F4159DC0076096D /* MASCompositeConstraint.m in Sources */,
 				32B096B51F4159DC0076096D /* XXNibConvention.m in Sources */,
+				32A243EE1F5024AF00224A43 /* BMXibHeader.m in Sources */,
 				32B095BC1F41577F0076096D /* AppDelegate.m in Sources */,
 				31DC9A6C1F41EBF20045BAED /* UITableViewCell+BMReusable.m in Sources */,
 				32B096B41F4159DC0076096D /* XXNibBridge.m in Sources */,
