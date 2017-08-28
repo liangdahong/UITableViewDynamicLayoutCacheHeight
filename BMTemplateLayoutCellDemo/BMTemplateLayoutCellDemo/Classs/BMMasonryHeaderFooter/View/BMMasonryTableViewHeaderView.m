@@ -33,7 +33,6 @@
             make.left.right.mas_equalTo(0);
             make.height.mas_equalTo(0);
         }];
-        
     }
     return self;
 }

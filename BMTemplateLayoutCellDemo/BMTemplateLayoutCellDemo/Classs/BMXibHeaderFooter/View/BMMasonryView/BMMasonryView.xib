@@ -12,47 +12,60 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BMMasonryView">
-            <rect key="frame" x="0.0" y="0.0" width="463" height="152"/>
+            <rect key="frame" x="0.0" y="0.0" width="473" height="177"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="001.png" translatesAutoresizingMaskIntoConstraints="NO" id="WL7-c5-mGD">
-                    <rect key="frame" x="20" y="58" width="50" height="50"/>
+                    <rect key="frame" x="20" y="79" width="50" height="50"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="740" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MsQ-3I-s88">
-                    <rect key="frame" x="20" y="20" width="423" height="18"/>
+                    <rect key="frame" x="20" y="41" width="433" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="730" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6z-vg-KvD">
-                    <rect key="frame" x="10" y="128" width="443" height="14"/>
+                    <rect key="frame" x="10" y="149" width="453" height="14"/>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DU4-gE-O2M">
-                    <rect key="frame" x="0.0" y="152" width="463" height="0.0"/>
+                    <rect key="frame" x="0.0" y="177" width="473" height="0.0"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" id="ct8-ra-TTI"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的表头" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q87-MT-9Rg">
+                    <rect key="frame" x="10" y="10" width="453" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="gFu-Cs-UHl"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="Q87-MT-9Rg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="3ju-yE-DnR"/>
                 <constraint firstItem="WL7-c5-mGD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="6us-yq-GOB"/>
-                <constraint firstItem="DU4-gE-O2M" firstAttribute="top" secondItem="V6z-vg-KvD" secondAttribute="bottom" constant="10" id="94G-uI-dmX"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WL7-c5-mGD" secondAttribute="trailing" constant="20" id="9Ut-H8-dd0"/>
                 <constraint firstItem="DU4-gE-O2M" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="IIC-my-qlG"/>
                 <constraint firstItem="MsQ-3I-s88" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="IzR-Zh-O4T"/>
                 <constraint firstItem="WL7-c5-mGD" firstAttribute="top" secondItem="MsQ-3I-s88" secondAttribute="bottom" constant="20" id="MYc-Vl-c6a"/>
+                <constraint firstAttribute="trailing" secondItem="Q87-MT-9Rg" secondAttribute="trailing" constant="10" id="c5N-57-4mb"/>
+                <constraint firstAttribute="bottom" secondItem="DU4-gE-O2M" secondAttribute="bottom" id="cwt-TG-Gng"/>
                 <constraint firstAttribute="bottom" secondItem="DU4-gE-O2M" secondAttribute="bottom" id="dIh-B4-xBl"/>
+                <constraint firstItem="MsQ-3I-s88" firstAttribute="top" secondItem="Q87-MT-9Rg" secondAttribute="bottom" constant="10" id="dkp-eZ-9io"/>
                 <constraint firstAttribute="trailing" secondItem="V6z-vg-KvD" secondAttribute="trailing" constant="10" id="dv5-9z-iRO"/>
-                <constraint firstItem="MsQ-3I-s88" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="hgw-X8-0fq"/>
+                <constraint firstItem="DU4-gE-O2M" firstAttribute="top" secondItem="V6z-vg-KvD" secondAttribute="bottom" constant="14" id="fa6-C4-zyu"/>
                 <constraint firstItem="V6z-vg-KvD" firstAttribute="top" secondItem="WL7-c5-mGD" secondAttribute="bottom" constant="20" id="jkW-aG-GxB"/>
                 <constraint firstItem="V6z-vg-KvD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="pr3-08-6QV"/>
                 <constraint firstAttribute="trailing" secondItem="DU4-gE-O2M" secondAttribute="trailing" id="rQ9-vF-ySf"/>
                 <constraint firstAttribute="trailing" secondItem="MsQ-3I-s88" secondAttribute="trailing" constant="20" id="syn-oF-Aa8"/>
+                <constraint firstItem="Q87-MT-9Rg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="vga-xc-vLn"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
@@ -60,7 +73,7 @@
                 <outlet property="iconImageView" destination="WL7-c5-mGD" id="X9v-8G-vNT"/>
                 <outlet property="nameLabel" destination="MsQ-3I-s88" id="tfE-IN-tRb"/>
             </connections>
-            <point key="canvasLocation" x="-224.5" y="-351"/>
+            <point key="canvasLocation" x="-367.5" y="-371.5"/>
         </view>
     </objects>
     <resources>

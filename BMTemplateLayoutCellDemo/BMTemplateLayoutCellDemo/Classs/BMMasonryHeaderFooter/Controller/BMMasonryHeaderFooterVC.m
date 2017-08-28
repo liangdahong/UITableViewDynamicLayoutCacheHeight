@@ -60,8 +60,12 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return [tableView bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:BMMasonryTableViewHeaderView.class cacheByKey:@"c" configuration:^(__kindof UITableViewHeaderFooterView *headerFooterView) {
+    return [tableView bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:BMMasonryTableViewHeaderView.class isHeaderView:YES section:section configuration:^(__kindof UITableViewHeaderFooterView *headerFooterView) {
     }];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return .01;
 }
 
 #pragma mark - UITableViewDelegate
