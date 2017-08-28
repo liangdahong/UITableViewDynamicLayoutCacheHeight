@@ -409,7 +409,6 @@
 			isa = PBXGroup;
 			children = (
 				32C12C5C1F5415A1004D9700 /* BMMasonryView */,
-				32C12C601F5415A2004D9700 /* BMXibHeader */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -521,13 +520,6 @@
 				313300C61F5462CF001D6552 /* BMXibHeader.m */,
 			);
 			path = BMMasonryView;
-			sourceTree = "<group>";
-		};
-		32C12C601F5415A2004D9700 /* BMXibHeader */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = BMXibHeader;
 			sourceTree = "<group>";
 		};
 		32F6EF181F4EA62F00CD60AB /* BMMasonryCell */ = {
