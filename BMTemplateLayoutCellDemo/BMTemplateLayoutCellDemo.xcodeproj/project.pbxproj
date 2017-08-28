@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		313300C71F5462CF001D6552 /* BMXibHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 313300C61F5462CF001D6552 /* BMXibHeader.m */; };
 		3159AEAB1F4C88AC003FAF19 /* 001@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3159AEA51F4C88AC003FAF19 /* 001@2x.png */; };
 		3159AEAC1F4C88AC003FAF19 /* 002@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3159AEA61F4C88AC003FAF19 /* 002@2x.png */; };
 		3159AEAD1F4C88AC003FAF19 /* 003@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3159AEA71F4C88AC003FAF19 /* 003@2x.png */; };
@@ -52,9 +53,7 @@
 		32B096B31F4159DC0076096D /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B096A41F4159DC0076096D /* ViewController+MASAdditions.m */; };
 		32B096B41F4159DC0076096D /* XXNibBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B096A71F4159DC0076096D /* XXNibBridge.m */; };
 		32B096B51F4159DC0076096D /* XXNibConvention.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B096A91F4159DC0076096D /* XXNibConvention.m */; };
-		32C12C631F5415A2004D9700 /* BMMasonryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C12C5E1F5415A1004D9700 /* BMMasonryView.m */; };
 		32C12C641F5415A2004D9700 /* BMMasonryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32C12C5F1F5415A2004D9700 /* BMMasonryView.xib */; };
-		32C12C651F5415A2004D9700 /* BMXibHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C12C621F5415A2004D9700 /* BMXibHeader.m */; };
 		32C12C681F541A65004D9700 /* UITableViewHeaderFooterView+BMReusable.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C12C671F541A65004D9700 /* UITableViewHeaderFooterView+BMReusable.m */; };
 		32F6EF261F4EA64900CD60AB /* BMMasonryCellVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F6EF241F4EA64900CD60AB /* BMMasonryCellVC.m */; };
 		32F6EF271F4EA64900CD60AB /* BMMasonryCellVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32F6EF251F4EA64900CD60AB /* BMMasonryCellVC.xib */; };
@@ -79,6 +78,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		313300C51F5462CF001D6552 /* BMXibHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMXibHeader.h; sourceTree = "<group>"; };
+		313300C61F5462CF001D6552 /* BMXibHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMXibHeader.m; sourceTree = "<group>"; };
 		3159AEA51F4C88AC003FAF19 /* 001@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "001@2x.png"; sourceTree = "<group>"; };
 		3159AEA61F4C88AC003FAF19 /* 002@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "002@2x.png"; sourceTree = "<group>"; };
 		3159AEA71F4C88AC003FAF19 /* 003@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "003@2x.png"; sourceTree = "<group>"; };
@@ -160,11 +161,7 @@
 		32B096A71F4159DC0076096D /* XXNibBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXNibBridge.m; sourceTree = "<group>"; };
 		32B096A81F4159DC0076096D /* XXNibConvention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXNibConvention.h; sourceTree = "<group>"; };
 		32B096A91F4159DC0076096D /* XXNibConvention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXNibConvention.m; sourceTree = "<group>"; };
-		32C12C5D1F5415A1004D9700 /* BMMasonryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMMasonryView.h; sourceTree = "<group>"; };
-		32C12C5E1F5415A1004D9700 /* BMMasonryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMMasonryView.m; sourceTree = "<group>"; };
 		32C12C5F1F5415A2004D9700 /* BMMasonryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMMasonryView.xib; sourceTree = "<group>"; };
-		32C12C611F5415A2004D9700 /* BMXibHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMXibHeader.h; sourceTree = "<group>"; };
-		32C12C621F5415A2004D9700 /* BMXibHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMXibHeader.m; sourceTree = "<group>"; };
 		32C12C661F541A65004D9700 /* UITableViewHeaderFooterView+BMReusable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewHeaderFooterView+BMReusable.h"; sourceTree = "<group>"; };
 		32C12C671F541A65004D9700 /* UITableViewHeaderFooterView+BMReusable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewHeaderFooterView+BMReusable.m"; sourceTree = "<group>"; };
 		32F6EF231F4EA64900CD60AB /* BMMasonryCellVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMMasonryCellVC.h; sourceTree = "<group>"; };
@@ -519,9 +516,9 @@
 		32C12C5C1F5415A1004D9700 /* BMMasonryView */ = {
 			isa = PBXGroup;
 			children = (
-				32C12C5D1F5415A1004D9700 /* BMMasonryView.h */,
-				32C12C5E1F5415A1004D9700 /* BMMasonryView.m */,
 				32C12C5F1F5415A2004D9700 /* BMMasonryView.xib */,
+				313300C51F5462CF001D6552 /* BMXibHeader.h */,
+				313300C61F5462CF001D6552 /* BMXibHeader.m */,
 			);
 			path = BMMasonryView;
 			sourceTree = "<group>";
@@ -529,8 +526,6 @@
 		32C12C601F5415A2004D9700 /* BMXibHeader */ = {
 			isa = PBXGroup;
 			children = (
-				32C12C611F5415A2004D9700 /* BMXibHeader.h */,
-				32C12C621F5415A2004D9700 /* BMXibHeader.m */,
 			);
 			path = BMXibHeader;
 			sourceTree = "<group>";
@@ -726,6 +721,7 @@
 				31661F6E1F434A00004E4750 /* README.md in Sources */,
 				32A243E21F50218E00224A43 /* BMMasonryTableViewHeaderView.m in Sources */,
 				3159AED01F4C8C00003FAF19 /* BMXibCellVC.m in Sources */,
+				313300C71F5462CF001D6552 /* BMXibHeader.m in Sources */,
 				32B096141F4157F40076096D /* UIView+BMExtension.m in Sources */,
 				31DC9A681F41E6730045BAED /* UITableView+BMTemplateLayoutCell.m in Sources */,
 				32B096AC1F4159DC0076096D /* MASConstraintMaker.m in Sources */,
@@ -741,9 +737,7 @@
 				32B096AA1F4159DC0076096D /* MASCompositeConstraint.m in Sources */,
 				32B096B51F4159DC0076096D /* XXNibConvention.m in Sources */,
 				32B095BC1F41577F0076096D /* AppDelegate.m in Sources */,
-				32C12C651F5415A2004D9700 /* BMXibHeader.m in Sources */,
 				31DC9A6C1F41EBF20045BAED /* UITableViewCell+BMReusable.m in Sources */,
-				32C12C631F5415A2004D9700 /* BMMasonryView.m in Sources */,
 				32B096B41F4159DC0076096D /* XXNibBridge.m in Sources */,
 				32B096AE1F4159DC0076096D /* MASViewAttribute.m in Sources */,
 			);

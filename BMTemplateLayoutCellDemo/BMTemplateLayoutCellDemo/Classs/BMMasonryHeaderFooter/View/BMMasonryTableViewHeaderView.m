@@ -8,7 +8,6 @@
 
 #import "BMMasonryTableViewHeaderView.h"
 #import "Masonry.h"
-#import "BMMasonryView.h"
 
 @interface BMMasonryTableViewHeaderView ()
 
