@@ -31,7 +31,7 @@ kBMTableViewHeaderFooterViewProperty(BMMasonryView, masonryView)
 
 @implementation BMXibHeader
 
-kkBMTableViewHeaderFooterViewInit(BMMasonryView, masonryView)
+kBMTableViewHeaderFooterViewInit(BMMasonryView, masonryView)
 
 - (void)setModel:(BMModel *)model {
     if (_model == model) {

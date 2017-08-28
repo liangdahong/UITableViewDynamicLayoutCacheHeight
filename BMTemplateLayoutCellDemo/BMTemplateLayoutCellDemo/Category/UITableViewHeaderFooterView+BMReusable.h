@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #define kBMTableViewHeaderFooterViewProperty(clas, propertyName) @property (strong, nonatomic) clas *propertyName;
 
-#define kkBMTableViewHeaderFooterViewInit(clas, propertyName)\
+#define kBMTableViewHeaderFooterViewInit(clas, propertyName)\
 \
 - (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier {\
 if (self = [super initWithReuseIdentifier:reuseIdentifier]) {\
