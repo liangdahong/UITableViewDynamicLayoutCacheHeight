@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BMModel.h"
 
 @interface BMXibHeader : UITableViewHeaderFooterView
+
+@property (strong, nonatomic) BMModel *model;
 
 @end

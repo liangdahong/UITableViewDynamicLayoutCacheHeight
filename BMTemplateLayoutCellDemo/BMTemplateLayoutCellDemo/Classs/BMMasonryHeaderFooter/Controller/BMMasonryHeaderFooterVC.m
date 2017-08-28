@@ -8,6 +8,8 @@
 
 #import "BMMasonryHeaderFooterVC.h"
 #import "BMMasonryTableViewHeaderView.h"
+#import "UITableView+BMTemplateLayoutCell.h"
+#import "UITableViewHeaderFooterView+BMReusable.h"
 
 @interface BMMasonryHeaderFooterVC () <UITableViewDelegate, UITableViewDataSource>
 
@@ -51,21 +53,18 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    BMMasonryTableViewHeaderView *masonryTableViewHeaderView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"c"];
-    if (!masonryTableViewHeaderView) {
-        NSLog(@"masonryTableViewHeaderView alloc");
-        masonryTableViewHeaderView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(BMMasonryTableViewHeaderView.class) owner:nil options:nil] firstObject];
-    }
-    return masonryTableViewHeaderView;
+    return [BMMasonryTableViewHeaderView bm_tableViewHeaderFooterViewWithTableView:tableView];
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(BMMasonryTableViewHeaderView *)view forSection:(NSInteger)section {
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 100;
+    return [tableView bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:BMMasonryTableViewHeaderView.class cacheByKey:@"c" configuration:^(__kindof UITableViewHeaderFooterView *headerFooterView) {
+    }];
 }
 
 #pragma mark - UITableViewDelegate
-
-
 
 #pragma mark - 自定义delegate
 
@@ -74,7 +73,6 @@
 #pragma mark - 私有方法
 
 - (void)setUI {
-    
 }
 
 #pragma mark - 事件响应

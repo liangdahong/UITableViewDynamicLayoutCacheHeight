@@ -405,14 +405,7 @@ CGFloat height(NSNumber *value) {
     UIView *tempView = objc_getAssociatedObject(self, (__bridge const void *)(noReuseIdentifierChar));
     if (!tempView) {
         // 没有绑定就创建
-        UITableViewHeaderFooterView *noCachetableViewHeaderFooterView = nil;
-        NSString *path = [[NSBundle mainBundle] pathForResource:NSStringFromClass(clas.class) ofType:@"nib"];
-        if (path.length) {
-            noCachetableViewHeaderFooterView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(clas.class) owner:nil options:nil] firstObject];
-            [noCachetableViewHeaderFooterView setValue:noReuseIdentifier forKey:@"reuseIdentifier"];
-        } else {
-            noCachetableViewHeaderFooterView = [[clas alloc] initWithReuseIdentifier:noReuseIdentifier];
-        }
+        UITableViewHeaderFooterView *noCachetableViewHeaderFooterView = [[clas alloc] initWithReuseIdentifier:noReuseIdentifier];
         // 绑定起来
         tempView = [UIView new];
         [tempView addSubview:noCachetableViewHeaderFooterView];

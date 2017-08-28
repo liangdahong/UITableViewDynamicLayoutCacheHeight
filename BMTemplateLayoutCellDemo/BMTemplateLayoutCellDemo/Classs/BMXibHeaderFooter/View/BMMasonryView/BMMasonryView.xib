@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BMMasonryView">
+            <rect key="frame" x="0.0" y="0.0" width="554" height="153"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="001.png" translatesAutoresizingMaskIntoConstraints="NO" id="WL7-c5-mGD">
+                    <rect key="frame" x="20" y="58" width="50" height="50"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="740" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MsQ-3I-s88">
+                    <rect key="frame" x="20" y="20" width="514" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="730" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6z-vg-KvD">
+                    <rect key="frame" x="10" y="128" width="534" height="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="WL7-c5-mGD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="6us-yq-GOB"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WL7-c5-mGD" secondAttribute="trailing" constant="20" id="9Ut-H8-dd0"/>
+                <constraint firstItem="MsQ-3I-s88" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="IzR-Zh-O4T"/>
+                <constraint firstAttribute="bottom" secondItem="V6z-vg-KvD" secondAttribute="bottom" constant="11" id="LxP-iA-G2u"/>
+                <constraint firstItem="WL7-c5-mGD" firstAttribute="top" secondItem="MsQ-3I-s88" secondAttribute="bottom" constant="20" id="MYc-Vl-c6a"/>
+                <constraint firstAttribute="trailing" secondItem="V6z-vg-KvD" secondAttribute="trailing" constant="10" id="dv5-9z-iRO"/>
+                <constraint firstItem="MsQ-3I-s88" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="hgw-X8-0fq"/>
+                <constraint firstItem="V6z-vg-KvD" firstAttribute="top" secondItem="WL7-c5-mGD" secondAttribute="bottom" constant="20" id="jkW-aG-GxB"/>
+                <constraint firstItem="V6z-vg-KvD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="pr3-08-6QV"/>
+                <constraint firstAttribute="trailing" secondItem="MsQ-3I-s88" secondAttribute="trailing" constant="20" id="syn-oF-Aa8"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="descLabel" destination="V6z-vg-KvD" id="Qxz-EL-eNb"/>
+                <outlet property="iconImageView" destination="WL7-c5-mGD" id="X9v-8G-vNT"/>
+                <outlet property="nameLabel" destination="MsQ-3I-s88" id="tfE-IN-tRb"/>
+            </connections>
+            <point key="canvasLocation" x="-99" y="-281"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="001.png" width="50" height="50"/>
+    </resources>
+</document>
