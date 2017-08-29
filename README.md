@@ -1,6 +1,9 @@
 # UITableView-BMTemplateLayoutCell
 > 对UITableView之UITableViewCell和UITableViewHeaderFooterView高度自适应并缓存
 
+# 声明
+> 此库部分代码参考了[FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)向大神致敬。
+
 # 写在前面
 > 由于最近需要做一个类似微信聊天窗口的功能,牵涉到`UITableViewCell`的高度自适应，同时需要准确获取`UITableView`的`contentSize`并做相应的滚动和动画，在反复尝试使用系统自适应和[FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)均有一些小问题待处理，代码计算又太麻烦，故尝试自己实现。
 
