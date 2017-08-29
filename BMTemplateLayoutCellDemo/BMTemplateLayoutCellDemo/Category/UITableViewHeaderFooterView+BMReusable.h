@@ -13,14 +13,16 @@
 #define kBMTableViewHeaderFooterViewInit(clas, propertyName)\
 \
 - (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier {\
-if (self = [super initWithReuseIdentifier:reuseIdentifier]) {\
-_##propertyName = [[[UINib nibWithNibName:NSStringFromClass(clas.class) bundle:nil] instantiateWithOwner:nil options:nil] firstObject];\
-[self.contentView addSubview:_##propertyName];\
-[_##propertyName mas_makeConstraints:^(MASConstraintMaker *make) {\
-make.top.left.right.mas_equalTo(0);\
-}];\
-}\
-return self;\
+    if (self = [super initWithReuseIdentifier:reuseIdentifier]) {\
+        _##propertyName = [[[UINib nibWithNibName:NSStringFromClass(clas.class) bundle:nil] instantiateWithOwner:nil options:nil] firstObject];\
+        [self.contentView addSubview:_##propertyName];\
+        _##propertyName.translatesAutoresizingMaskIntoConstraints = NO;\
+        NSLayoutConstraint *constraintTop    = [NSLayoutConstraint constraintWithItem:_##propertyName attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0];\
+        NSLayoutConstraint *constraintLeft   = [NSLayoutConstraint constraintWithItem:_##propertyName attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0.0];\
+        NSLayoutConstraint *constraintRight  = [NSLayoutConstraint constraintWithItem:_##propertyName attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeRight multiplier:1.0 constant:0.0];\
+        [self.contentView addConstraints:@[constraintTop, constraintLeft, constraintRight]];\
+    }\
+    return self;\
 }\
 \
 

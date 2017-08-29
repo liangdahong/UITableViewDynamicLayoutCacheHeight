@@ -10,6 +10,7 @@
 #import "BMMasonryTableViewHeaderView.h"
 #import "UITableView+BMTemplateLayoutCell.h"
 #import "UITableViewHeaderFooterView+BMReusable.h"
+#import "UITableViewCell+BMReusable.h"
 
 @interface BMMasonryHeaderFooterVC () <UITableViewDelegate, UITableViewDataSource>
 
@@ -35,7 +36,6 @@
 #pragma mark - 系统delegate
 
 #pragma mark - UITableViewDataSource UITableViewDelegate
-#pragma mark - UITableViewDataSource UITableViewDelegate
 
 #pragma mark - UITableViewDataSource
 
@@ -48,7 +48,9 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [UITableViewCell new];
+    UITableViewCell *cell = [UITableViewCell bm_cellWithTableView:tableView];
+    cell.textLabel.text = @"我是cell";
+    cell.textLabel.font = [UIFont systemFontOfSize:15];
     return cell;
 }
 
@@ -77,6 +79,7 @@
 #pragma mark - 私有方法
 
 - (void)setUI {
+    self.tableView.rowHeight = 20;
 }
 
 #pragma mark - 事件响应

@@ -11,6 +11,7 @@
 #import "UITableView+BMTemplateLayoutCell.h"
 #import "BMModel.h"
 #import "UITableViewHeaderFooterView+BMReusable.h"
+#import "UITableViewCell+BMReusable.h"
 
 @interface BMXibHeaderFooterVC () <UITableViewDelegate, UITableViewDataSource>
 
@@ -54,7 +55,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [UITableViewCell new];
+    UITableViewCell *cell = [UITableViewCell bm_cellWithTableView:tableView];
     cell.textLabel.text = @"我是cell";
     cell.textLabel.font = [UIFont systemFontOfSize:15];
     return cell;
@@ -73,6 +74,10 @@
     return [tableView bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:BMXibHeader.class cacheByKey:model.ID configuration:^(__kindof BMXibHeader *headerFooterView) {
         headerFooterView.model = model;
     }];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return .01;
 }
 
 #pragma mark - UITableViewDelegate
