@@ -101,27 +101,10 @@
             }
         }
         model.name = string1;
-
         if (arc4random_uniform(2)) {
-            if (arc4random_uniform(2)) {
-                model.icon = @"001";
-            } else {
-                if (arc4random_uniform(2)) {
-                    model.icon = @"002";
-                } else {
-                    model.icon = @"003";
-                }
-            }
+            model.icon = [NSString stringWithFormat:@"%d.jpg", arc4random_uniform(8) + 1];
         } else {
-            if (arc4random_uniform(2)) {
-                model.icon = @"010";
-            } else {
-                if (arc4random_uniform(2)) {
-                    model.icon = @"011";
-                } else {
-                    model.icon = @"012";
-                }
-            }
+            model.icon = [NSString stringWithFormat:@"%d.png", arc4random_uniform(5) + 1];
         }
         model.ID = [NSString stringWithFormat:@"%ld", (long)count++];
         [self.dataArray addObject:model];
