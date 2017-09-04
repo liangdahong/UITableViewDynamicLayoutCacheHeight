@@ -75,7 +75,6 @@ CGFloat height(NSNumber *value) {
 - (UIView *)bm_tempViewCellWithCellClass:(Class)clas {
     // 创建新的重用标识
     NSString *noReuseIdentifier = [NSString stringWithFormat:@"noReuse%@", NSStringFromClass(clas.class)];
-
     NSString *noReuseIdentifierChar = self.reusableCellWithIdentifierMutableDictionary[noReuseIdentifier];
     if (!noReuseIdentifierChar) {
         noReuseIdentifierChar = noReuseIdentifier;
@@ -103,23 +102,23 @@ CGFloat height(NSNumber *value) {
 }
 
 - (CGFloat)bm_layoutIfNeededCellWith:(UITableViewCell *)cell configuration:(BMLayoutCellConfigurationBlock)configuration {
-    cell.superview.frame = CGRectMake(0, 0, self.frame.size.width, 0);
-    cell.frame = CGRectMake(0, 0, self.frame.size.width, 0);
+    cell.superview.frame = CGRectMake(0.0f, 0.0f, self.frame.size.width, 0.0f);
+    cell.frame = CGRectMake(0.0f, 0.0f, self.frame.size.width, 0.0f);
     configuration(cell);
     [cell.superview layoutIfNeeded];
-    __block CGFloat maxY = 0;
+    __block CGFloat maxY = 0.0f;
     [cell.contentView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (maxY <  CGRectGetMaxY(obj.frame)) {
             maxY = CGRectGetMaxY(obj.frame);
         }
     }];
-    maxY += .5;
+    maxY += 0.5f;
     return maxY;
 }
 
 - (CGFloat)bm_heightForCellWithCellClass:(Class)clas configuration:(BMLayoutCellConfigurationBlock)configuration {
     if (!clas || configuration) {
-        return 0;
+        return 0.0f;
     }
     UIView *tempView = [self bm_tempViewCellWithCellClass:clas];
     return [self bm_layoutIfNeededCellWith:tempView.subviews[0] configuration:configuration];
@@ -129,7 +128,7 @@ CGFloat height(NSNumber *value) {
                         cacheByIndexPath:(NSIndexPath *)indexPath
                            configuration:(BMLayoutCellConfigurationBlock)configuration {
     if (!clas || !configuration) {
-        return 0;
+        return 0.0f;
     }
     if (!indexPath) {
        return [self bm_heightForCellWithCellClass:clas configuration:configuration];
@@ -150,7 +149,7 @@ CGFloat height(NSNumber *value) {
 
 - (CGFloat)bm_heightForCellWithCellClass:(Class)clas cacheByKey:(NSString *)key configuration:(BMLayoutCellConfigurationBlock)configuration {
     if (!clas || !configuration) {
-        return 0;
+        return 0.0f;
     }
     if (!key || key.length == 0) {
         return [self bm_heightForCellWithCellClass:clas configuration:configuration];
@@ -373,9 +372,9 @@ CGFloat height(NSNumber *value) {
 
 - (CGFloat)bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:(Class)clas cacheByKey:(NSString *)key configuration:(BMLayoutHeaderFooterViewConfigurationBlock)configuration {
     if (!clas || !configuration) {
-        return 0;
+        return 0.0f;
     }
-    if (!key || key.length == 0) {
+    if (!key || key.length == 0.0f) {
         return [self bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:clas configuration:configuration];
     }
     
@@ -416,11 +415,11 @@ CGFloat height(NSNumber *value) {
 }
 
 - (CGFloat)bm_layoutIfNeededHeaderFooterViewWith:(UITableViewHeaderFooterView *)tableViewHeaderFooterView configuration:(BMLayoutHeaderFooterViewConfigurationBlock)configuration {
-    tableViewHeaderFooterView.superview.frame = CGRectMake(0, 0, self.frame.size.width, 0);
-    tableViewHeaderFooterView.frame = CGRectMake(0, 0, self.frame.size.width, 0);
+    tableViewHeaderFooterView.superview.frame = CGRectMake(0.0f, 0.0f, self.frame.size.width, 0.0f);
+    tableViewHeaderFooterView.frame = CGRectMake(0.0f, 0.0f, self.frame.size.width, 0.0f);
     configuration(tableViewHeaderFooterView);
     [tableViewHeaderFooterView.superview layoutIfNeeded];
-    __block CGFloat maxY = 0;
+    __block CGFloat maxY = 0.0f;
     [tableViewHeaderFooterView.contentView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (maxY <  CGRectGetMaxY(obj.frame)) {
             maxY = CGRectGetMaxY(obj.frame);
