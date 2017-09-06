@@ -2,17 +2,17 @@
 > 对UITableView之UITableViewCell和UITableViewHeaderFooterView高度自适应并缓存
 
 # 声明
-> 此库部分代码参考了[FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)向大神致敬。
+> 此库代码参考了[FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)在此感谢。
 
 # 写在前面
 > 由于最近需要做一个类似微信聊天窗口的功能,牵涉到`UITableViewCell`的高度自适应，同时需要准确获取`UITableView`的`contentSize`并做相应的滚动和动画，在反复尝试使用系统自适应和[FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)均有一些小问题待处理，代码计算又太麻烦，故尝试自己实现。
 
 ## 原因
 1. 系统自动计算无法满足准确获取`contentSize`。
-2. 系统自动计算效率较低（来回反复计算）。
-3. 系统自动计算对UITableViewHeaderFooterView的自适应不友好。
-4. [FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)似乎在`iOS10.2.1`会崩溃，而且有一些问题一直未处理。
-5. 代码计算太繁琐而且容易错（效率最高，但可能很少人用吧）
+2. 系统自动计算效率较低（来回反复计算）导致滚动指示器跳动。
+3. 系统自动计算对UITableViewHeaderFooterView的自适应不太友好。
+4. [FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)似乎在`iOS10.2.1`会崩溃，而且好像有一些小问题。
+5. 代码计算太繁琐而且容易错，你喜欢就用吧。
 
 ## 存在的问题
 1. 此库可能会额外增加一个View提供布局需要（ps：如果自定义了分割线其实是不需要增加的）
