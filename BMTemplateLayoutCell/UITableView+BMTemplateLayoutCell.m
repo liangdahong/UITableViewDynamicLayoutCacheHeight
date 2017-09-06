@@ -125,12 +125,14 @@ CGFloat height(NSNumber *value) {
     configuration(cell);
     [cell.superview layoutIfNeeded];
     __block CGFloat maxY = 0.0f;
-    [cell.contentView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [cell.contentView.subviews  enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (maxY <  CGRectGetMaxY(obj.frame)) {
             maxY = CGRectGetMaxY(obj.frame);
         }
     }];
-    maxY += 0.5f;
+    if (maxY > 0.0f) {
+        maxY += 0.5f;
+    }
     return maxY;
 }
 
@@ -416,7 +418,7 @@ CGFloat height(NSNumber *value) {
     configuration(tableViewHeaderFooterView);
     [tableViewHeaderFooterView.superview layoutIfNeeded];
     __block CGFloat maxY = 0.0f;
-    [tableViewHeaderFooterView.contentView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [tableViewHeaderFooterView.contentView.subviews enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (maxY <  CGRectGetMaxY(obj.frame)) {
             maxY = CGRectGetMaxY(obj.frame);
         }
