@@ -28,10 +28,6 @@
 
 /**
  交换2个方法的调用
- 
- @param class class
- @param originalSelector originalSelector
- @param swizzledSelector swizzledSelector
  */
 void swizzleMethod(Class class, SEL originalSelector, SEL swizzledSelector) {
     // 1.获取旧 Method
@@ -71,6 +67,28 @@ CGFloat height(NSNumber *value) {
 @end
 
 @implementation UITableView (BMTemplateLayoutCell)
+
++ (void)load {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        SEL selectors[] = {
+            @selector(reloadData),
+            @selector(insertSections:withRowAnimation:),
+            @selector(deleteSections:withRowAnimation:),
+            @selector(reloadSections:withRowAnimation:),
+            @selector(moveSection:toSection:),
+            @selector(insertRowsAtIndexPaths:withRowAnimation:),
+            @selector(deleteRowsAtIndexPaths:withRowAnimation:),
+            @selector(reloadRowsAtIndexPaths:withRowAnimation:),
+            @selector(moveRowAtIndexPath:toIndexPath:)
+        };
+        for (NSUInteger index = 0; index < sizeof(selectors) / sizeof(SEL); ++index) {
+            SEL originalSelector = selectors[index];
+            SEL swizzledSelector = NSSelectorFromString([@"bm_" stringByAppendingString:NSStringFromSelector(originalSelector)]);
+            swizzleMethod(self.class, originalSelector, swizzledSelector);
+        }
+    });
+}
 
 - (UIView *)bm_tempViewCellWithCellClass:(Class)clas {
     // 创建新的重用标识
@@ -208,28 +226,6 @@ CGFloat height(NSNumber *value) {
         objc_setAssociatedObject(self, _cmd, landscapeCacheKeyCellHeightMutableDictionary, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     return landscapeCacheKeyCellHeightMutableDictionary;
-}
-
-+ (void)load {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        SEL selectors[] = {
-            @selector(reloadData),
-            @selector(insertSections:withRowAnimation:),
-            @selector(deleteSections:withRowAnimation:),
-            @selector(reloadSections:withRowAnimation:),
-            @selector(moveSection:toSection:),
-            @selector(insertRowsAtIndexPaths:withRowAnimation:),
-            @selector(deleteRowsAtIndexPaths:withRowAnimation:),
-            @selector(reloadRowsAtIndexPaths:withRowAnimation:),
-            @selector(moveRowAtIndexPath:toIndexPath:)
-        };
-        for (NSUInteger index = 0; index < sizeof(selectors) / sizeof(SEL); ++index) {
-            SEL originalSelector = selectors[index];
-            SEL swizzledSelector = NSSelectorFromString([@"bm_" stringByAppendingString:NSStringFromSelector(originalSelector)]);
-            swizzleMethod(self.class, originalSelector, swizzledSelector);
-        }
-    });
 }
 
 - (void)bm_reloadData {
