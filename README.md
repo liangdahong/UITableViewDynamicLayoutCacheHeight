@@ -1,5 +1,5 @@
 # UITableView-BMTemplateLayoutCell
-> 对UITableView之UITableViewCell和UITableViewHeaderFooterView高度自适应并缓存
+> 对`UITableView`之`Cell`和`UITableViewHeaderFooterView`高度自适应并缓存，同时完美支持`Storyboard`、`Xib`、`Masonry`，及`注册方式`或者`alloc方式`创建`Cell`
 
 # 声明
 > 此库代码参考了[FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)在此感谢。
