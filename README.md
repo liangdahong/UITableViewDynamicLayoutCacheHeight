@@ -88,7 +88,7 @@
 ## 手动安装
 
 1. 通过 `Clone ` 或者 `download ` 下载`BMTemplateLayoutCell` 文件夹内的所有内容。
-2. 将 BMTemplateLayoutCell 内的源文件添加(拖放)到你的工程。
+2. 将 `BMTemplateLayoutCell` 内的源文件添加(拖放)到你的工程。
 3. 导入 `"UITableView+BMTemplateLayoutCell.h"`
 
 
@@ -102,4 +102,4 @@
 ## v1.0.0 
 
 # MIT
-`BMDragCellCollectionView `使用 MIT 许可证，详情可见 [LICENSE](LICENSE) 文件
+`BMDragCellCollectionView` 使用 MIT 许可证，详情可见 [LICENSE](LICENSE) 文件
