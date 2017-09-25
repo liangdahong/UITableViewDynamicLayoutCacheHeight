@@ -10,4 +10,6 @@
 
 @interface BMMasonryTableViewHeaderView : UITableViewHeaderFooterView
 
+@property (strong, nonatomic) UILabel *descLabel; ///< descLabel
+
 @end

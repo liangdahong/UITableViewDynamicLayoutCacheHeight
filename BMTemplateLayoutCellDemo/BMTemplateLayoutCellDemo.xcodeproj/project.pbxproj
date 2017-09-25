@@ -32,6 +32,7 @@
 		31661F6E1F434A00004E4750 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 31661F661F434A00004E4750 /* README.md */; };
 		31DC9A681F41E6730045BAED /* UITableView+BMTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DC9A651F41E6730045BAED /* UITableView+BMTemplateLayoutCell.m */; };
 		31DC9A6C1F41EBF20045BAED /* UITableViewCell+BMReusable.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DC9A6B1F41EBF20045BAED /* UITableViewCell+BMReusable.m */; };
+		321AAFEA1F6135BE0055E53B /* UICollectionView+BMTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 321AAFE91F6135BE0055E53B /* UICollectionView+BMTemplateLayoutCell.m */; };
 		3259ABD01F41571800B250DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3259ABCE1F41571800B250DA /* Main.storyboard */; };
 		3259ABD21F41571800B250DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3259ABD11F41571800B250DA /* Assets.xcassets */; };
 		3259ABD51F41571800B250DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3259ABD31F41571800B250DA /* LaunchScreen.storyboard */; };
@@ -117,6 +118,8 @@
 		31DC9A651F41E6730045BAED /* UITableView+BMTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+BMTemplateLayoutCell.m"; sourceTree = "<group>"; };
 		31DC9A6A1F41EBF20045BAED /* UITableViewCell+BMReusable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+BMReusable.h"; sourceTree = "<group>"; };
 		31DC9A6B1F41EBF20045BAED /* UITableViewCell+BMReusable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+BMReusable.m"; sourceTree = "<group>"; };
+		321AAFE81F6135BE0055E53B /* UICollectionView+BMTemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+BMTemplateLayoutCell.h"; sourceTree = "<group>"; };
+		321AAFE91F6135BE0055E53B /* UICollectionView+BMTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+BMTemplateLayoutCell.m"; sourceTree = "<group>"; };
 		3259ABC21F41571800B250DA /* BMTemplateLayoutCellDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BMTemplateLayoutCellDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3259ABCF1F41571800B250DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3259ABD11F41571800B250DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -464,6 +467,8 @@
 			children = (
 				31DC9A641F41E6730045BAED /* UITableView+BMTemplateLayoutCell.h */,
 				31DC9A651F41E6730045BAED /* UITableView+BMTemplateLayoutCell.m */,
+				321AAFE81F6135BE0055E53B /* UICollectionView+BMTemplateLayoutCell.h */,
+				321AAFE91F6135BE0055E53B /* UICollectionView+BMTemplateLayoutCell.m */,
 			);
 			name = BMTemplateLayoutCell;
 			path = ../BMTemplateLayoutCell;
@@ -760,6 +765,7 @@
 				32A243D01F501FF200224A43 /* BMSettingModel.m in Sources */,
 				32B096AA1F4159DC0076096D /* MASCompositeConstraint.m in Sources */,
 				32B096B51F4159DC0076096D /* XXNibConvention.m in Sources */,
+				321AAFEA1F6135BE0055E53B /* UICollectionView+BMTemplateLayoutCell.m in Sources */,
 				32B095BC1F41577F0076096D /* AppDelegate.m in Sources */,
 				31DC9A6C1F41EBF20045BAED /* UITableViewCell+BMReusable.m in Sources */,
 				32B096B41F4159DC0076096D /* XXNibBridge.m in Sources */,

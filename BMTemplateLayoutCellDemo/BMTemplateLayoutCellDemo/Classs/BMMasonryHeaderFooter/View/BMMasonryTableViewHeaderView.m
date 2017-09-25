@@ -11,7 +11,6 @@
 
 @interface BMMasonryTableViewHeaderView ()
 
-@property (strong, nonatomic) UILabel *descLabel; ///< descLabel
 
 @end
 
@@ -19,6 +18,7 @@
 
 - (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithReuseIdentifier:reuseIdentifier]) {
+        self.frame = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 100);
         [self.contentView addSubview:self.descLabel];
         [self.descLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(10);

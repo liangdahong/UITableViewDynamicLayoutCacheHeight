@@ -59,10 +59,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(BMMasonryTableViewHeaderView *)view forSection:(NSInteger)section {
+    view.descLabel.text = @"descLabeldescLabeldescLabeldescLabeldescLabeldescLabeldescLabeldescLabeldescLabeldescLabel";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return [tableView bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:BMMasonryTableViewHeaderView.class isHeaderView:YES section:section configuration:^(__kindof UITableViewHeaderFooterView *headerFooterView) {
+    return [tableView bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:BMMasonryTableViewHeaderView.class isHeaderView:YES section:section configuration:^(__kindof BMMasonryTableViewHeaderView *headerFooterView) {
+        headerFooterView.descLabel.text = @"descLabeldescLabeldescLabeldescLabeldescLabeldescLabeldescLabeldescLabeldescLabeldescLabel";
     }];
 }
 
