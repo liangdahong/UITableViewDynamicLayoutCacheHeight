@@ -33,7 +33,7 @@
  @param originalSelector originalSelector
  @param swizzledSelector swizzledSelector
  */
-void swizzleMethod(Class class, SEL originalSelector, SEL swizzledSelector) {
+void bm_templateLayoutCell_swizzleMethod(Class class, SEL originalSelector, SEL swizzledSelector) {
     // 1.获取旧 Method
     Method originalMethod = class_getInstanceMethod(class, originalSelector);
     // 2.获取新 Method
@@ -46,7 +46,7 @@ void swizzleMethod(Class class, SEL originalSelector, SEL swizzledSelector) {
     }
 }
 
-CGFloat height(NSNumber *value) {
+CGFloat bm_templateLayoutCell_height(NSNumber *value) {
 #if CGFLOAT_IS_DOUBLE
     return value.doubleValue;
 #else
@@ -139,7 +139,7 @@ CGFloat height(NSNumber *value) {
     NSNumber *heightValue = (isPortrait ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key];
     if (heightValue) {
         BMTemplateLayoutCellLog(@"%@已缓存了 取缓存:%@", indexPath, heightValue);
-        return height(heightValue);
+        return bm_templateLayoutCell_height(heightValue);
     }
     UIView *tempView = [self bm_tempViewCellWithCellClass:clas];
     CGFloat height = [self bm_layoutIfNeededCellWith:tempView.subviews[0] configuration:configuration];
@@ -158,7 +158,7 @@ CGFloat height(NSNumber *value) {
     NSNumber *heightValue = (isPortrait ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key];
     if (heightValue) {
         BMTemplateLayoutCellLog(@"cacheByKey:%@ 取缓存:%@", key, heightValue);
-        return height(heightValue);
+        return bm_templateLayoutCell_height(heightValue);
     }
     UIView *tempView = [self bm_tempViewCellWithCellClass:clas];
     CGFloat height = [self bm_layoutIfNeededCellWith:tempView.subviews[0] configuration:configuration];
@@ -227,33 +227,33 @@ CGFloat height(NSNumber *value) {
         };
         for (NSUInteger index = 0; index < sizeof(selectors) / sizeof(SEL); ++index) {
             SEL originalSelector = selectors[index];
-            SEL swizzledSelector = NSSelectorFromString([@"bm_" stringByAppendingString:NSStringFromSelector(originalSelector)]);
-            swizzleMethod(self.class, originalSelector, swizzledSelector);
+            SEL swizzledSelector = NSSelectorFromString([@"bm_templateLayoutCell_" stringByAppendingString:NSStringFromSelector(originalSelector)]);
+            bm_templateLayoutCell_swizzleMethod(self.class, originalSelector, swizzledSelector);
         }
     });
 }
 
-- (void)bm_reloadData {
+- (void)bm_templateLayoutCell_reloadData {
     [self.portraitCacheCellHeightMutableDictionary  removeAllObjects];
     [self.landscapeCacheCellHeightMutableDictionary removeAllObjects];
-    [self bm_reloadData];
+    [self bm_templateLayoutCell_reloadData];
 }
 
-- (void)bm_insertSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation {
+- (void)bm_templateLayoutCell_insertSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation {
     // 待优化
     [self.portraitCacheCellHeightMutableDictionary  removeAllObjects];
     [self.landscapeCacheCellHeightMutableDictionary removeAllObjects];
-    [self bm_insertSections:sections withRowAnimation:animation];
+    [self bm_templateLayoutCell_insertSections:sections withRowAnimation:animation];
 }
 
-- (void)bm_deleteSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation {
+- (void)bm_templateLayoutCell_deleteSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation {
     // 待优化
     [self.portraitCacheCellHeightMutableDictionary  removeAllObjects];
     [self.landscapeCacheCellHeightMutableDictionary removeAllObjects];
-    [self bm_deleteSections:sections withRowAnimation:animation];
+    [self bm_templateLayoutCell_deleteSections:sections withRowAnimation:animation];
 }
 
-- (void)bm_reloadSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation {
+- (void)bm_templateLayoutCell_reloadSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation {
     // 将需要刷新的的 section 的高度缓存清除
     [sections enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL * _Nonnull stop) {
         NSInteger row = [self.dataSource tableView:self numberOfRowsInSection:idx];
@@ -269,10 +269,10 @@ CGFloat height(NSNumber *value) {
         [self.landscapeCacheCellHeightMutableDictionary  removeObjectForKey:[NSString stringWithFormat:@"Footer:%ld", (long)idx]];
         
     }];
-    [self bm_reloadSections:sections withRowAnimation:animation];
+    [self bm_templateLayoutCell_reloadSections:sections withRowAnimation:animation];
 }
 
-- (void)bm_moveSection:(NSInteger)section toSection:(NSInteger)newSection {
+- (void)bm_templateLayoutCell_moveSection:(NSInteger)section toSection:(NSInteger)newSection {
     // 待优化
     {
         NSInteger row = [self.dataSource tableView:self numberOfRowsInSection:section];
@@ -298,34 +298,34 @@ CGFloat height(NSNumber *value) {
         [self.portraitCacheCellHeightMutableDictionary  removeObjectForKey:[NSString stringWithFormat:@"Footer:%ld", (long)newSection]];
         [self.landscapeCacheCellHeightMutableDictionary  removeObjectForKey:[NSString stringWithFormat:@"Footer:%ld", (long)newSection]];
     }
-    [self bm_moveSection:section toSection:newSection];
+    [self bm_templateLayoutCell_moveSection:section toSection:newSection];
 }
 
-- (void)bm_insertRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation {
+- (void)bm_templateLayoutCell_insertRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation {
     // 待优化
     [self.portraitCacheCellHeightMutableDictionary  removeAllObjects];
     [self.landscapeCacheCellHeightMutableDictionary removeAllObjects];
-    [self bm_insertRowsAtIndexPaths:indexPaths withRowAnimation:animation];
+    [self bm_templateLayoutCell_insertRowsAtIndexPaths:indexPaths withRowAnimation:animation];
 }
 
-- (void)bm_deleteRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation {
+- (void)bm_templateLayoutCell_deleteRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation {
     // 待优化
     [self.portraitCacheCellHeightMutableDictionary  removeAllObjects];
     [self.landscapeCacheCellHeightMutableDictionary removeAllObjects];
-    [self bm_deleteRowsAtIndexPaths:indexPaths withRowAnimation:animation];
+    [self bm_templateLayoutCell_deleteRowsAtIndexPaths:indexPaths withRowAnimation:animation];
 }
 
-- (void)bm_reloadRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation {
+- (void)bm_templateLayoutCell_reloadRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation {
     // 将需要刷新的 indexPath 的高度缓存清除
     [indexPaths enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSString *cacheID = [NSString stringWithFormat:@"%ld-%ld", (long)obj.section, (long)obj.row];
         [self.portraitCacheCellHeightMutableDictionary  removeObjectForKey:cacheID];
         [self.landscapeCacheCellHeightMutableDictionary removeObjectForKey:cacheID];
     }];
-    [self bm_reloadRowsAtIndexPaths:indexPaths withRowAnimation:animation];
+    [self bm_templateLayoutCell_reloadRowsAtIndexPaths:indexPaths withRowAnimation:animation];
 }
 
-- (void)bm_moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+- (void)bm_templateLayoutCell_moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
     // 待优化
     {
         NSString *cacheID = [NSString stringWithFormat:@"%ld-%ld", (long)sourceIndexPath.section, (long)sourceIndexPath.row];
@@ -337,7 +337,7 @@ CGFloat height(NSNumber *value) {
         [self.portraitCacheCellHeightMutableDictionary  removeObjectForKey:cacheID];
         [self.landscapeCacheCellHeightMutableDictionary removeObjectForKey:cacheID];
     }
-    [self bm_moveRowAtIndexPath:sourceIndexPath toIndexPath:destinationIndexPath];
+    [self bm_templateLayoutCell_moveRowAtIndexPath:sourceIndexPath toIndexPath:destinationIndexPath];
 }
 
 @end
@@ -357,7 +357,7 @@ CGFloat height(NSNumber *value) {
     // 有缓存就直接返回
     if (heightValue) {
         BMTemplateLayoutCellLog(@"组头部%ld已缓存了 取缓存:%@", (long)section, heightValue);
-        return height(heightValue);
+        return bm_templateLayoutCell_height(heightValue);
     }
     // 没有缓存创建临时View来布局获取高度
     UIView *tempView = [self bm_tempViewHeaderFooterViewWithHeaderFooterViewClass:clas];
@@ -382,7 +382,7 @@ CGFloat height(NSNumber *value) {
     NSNumber *heightValue = ((isPortrait) ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key];
     // 有缓存就直接返回
     if (heightValue) {
-        return height(heightValue);
+        return bm_templateLayoutCell_height(heightValue);
     }
     // 没有缓存创建临时View来布局获取高度
     UIView *tempView = [self bm_tempViewHeaderFooterViewWithHeaderFooterViewClass:clas];
