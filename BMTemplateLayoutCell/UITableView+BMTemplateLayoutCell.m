@@ -361,10 +361,8 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
     }
     // 没有缓存创建临时View来布局获取高度
     UIView *tempView = [self bm_tempViewHeaderFooterViewWithHeaderFooterViewClass:clas];
-    
     // 布局获取高度
     CGFloat height = [self bm_layoutIfNeededHeaderFooterViewWith:tempView.subviews[0] configuration:configuration];
-    
     // 缓存起来
     (isPortrait ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key] = @(height);
     BMTemplateLayoutCellLog(@"组头部%ld没有缓存 布局获取到的高度是:%f", (long)section, height);
@@ -386,10 +384,8 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
     }
     // 没有缓存创建临时View来布局获取高度
     UIView *tempView = [self bm_tempViewHeaderFooterViewWithHeaderFooterViewClass:clas];
-    
     // 布局获取高度
     CGFloat height = [self bm_layoutIfNeededHeaderFooterViewWith:tempView.subviews[0] configuration:configuration];
-    
     // 缓存起来
     (isPortrait ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key] = @(height);
     return height;
