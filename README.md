@@ -1,5 +1,5 @@
 # UITableView-BMTemplateLayoutCell
-> 对UITableView之UITableViewCell和UITableViewHeaderFooterView高度自适应并缓存
+> 对`UITableView`之`Cell`和`UITableViewHeaderFooterView`高度自适应并缓存，同时完美支持`Storyboard`、`Xib`、`Masonry`，及`注册方式`或者`alloc方式`创建`Cell`
 
 # 声明
 > 此库代码参考了[FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)在此感谢。
@@ -88,7 +88,7 @@
 ## 手动安装
 
 1. 通过 `Clone ` 或者 `download ` 下载`BMTemplateLayoutCell` 文件夹内的所有内容。
-2. 将 BMTemplateLayoutCell 内的源文件添加(拖放)到你的工程。
+2. 将 `BMTemplateLayoutCell` 内的源文件添加(拖放)到你的工程。
 3. 导入 `"UITableView+BMTemplateLayoutCell.h"`
 
 
@@ -102,4 +102,4 @@
 ## v1.0.0 
 
 # MIT
-`BMDragCellCollectionView `使用 MIT 许可证，详情可见 [LICENSE](LICENSE) 文件
+`BMDragCellCollectionView` 使用 MIT 许可证，详情可见 [LICENSE](LICENSE) 文件
