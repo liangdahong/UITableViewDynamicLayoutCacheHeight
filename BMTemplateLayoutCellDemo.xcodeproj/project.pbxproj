@@ -27,14 +27,12 @@
 		316329881F59A0320059B434 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 316329821F59A0320059B434 /* 4.png */; };
 		316329891F59A0320059B434 /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = 316329831F59A0320059B434 /* 5.png */; };
 		3163298A1F59A0320059B434 /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = 316329841F59A0320059B434 /* 6.png */; };
-		31661F6C1F434A00004E4750 /* BMTemplateLayoutCell.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 31661F641F434A00004E4750 /* BMTemplateLayoutCell.podspec */; };
-		31661F6D1F434A00004E4750 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 31661F651F434A00004E4750 /* LICENSE */; };
-		31661F6E1F434A00004E4750 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 31661F661F434A00004E4750 /* README.md */; };
-		31DC9A681F41E6730045BAED /* UITableView+BMTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31DC9A651F41E6730045BAED /* UITableView+BMTemplateLayoutCell.m */; };
 		32545A311F9DD80C00E3F939 /* UIScrollView+BMExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 32545A271F9DD80C00E3F939 /* UIScrollView+BMExtension.m */; };
 		32545A321F9DD80C00E3F939 /* UITableViewCell+BMReusable.m in Sources */ = {isa = PBXBuildFile; fileRef = 32545A2A1F9DD80C00E3F939 /* UITableViewCell+BMReusable.m */; };
 		32545A331F9DD80C00E3F939 /* UITableViewHeaderFooterView+BMReusable.m in Sources */ = {isa = PBXBuildFile; fileRef = 32545A2D1F9DD80C00E3F939 /* UITableViewHeaderFooterView+BMReusable.m */; };
 		32545A341F9DD80C00E3F939 /* UIView+BMExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 32545A301F9DD80C00E3F939 /* UIView+BMExtension.m */; };
+		32545A3A1F9DD8F300E3F939 /* BMTemplateLayoutCell.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 32545A381F9DD8F300E3F939 /* BMTemplateLayoutCell.podspec */; };
+		32545A401F9DD94700E3F939 /* UITableView+BMTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32545A3F1F9DD94700E3F939 /* UITableView+BMTemplateLayoutCell.m */; };
 		3259ABD01F41571800B250DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3259ABCE1F41571800B250DA /* Main.storyboard */; };
 		3259ABD21F41571800B250DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3259ABD11F41571800B250DA /* Assets.xcassets */; };
 		3259ABD51F41571800B250DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3259ABD31F41571800B250DA /* LaunchScreen.storyboard */; };
@@ -99,11 +97,6 @@
 		316329821F59A0320059B434 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
 		316329831F59A0320059B434 /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
 		316329841F59A0320059B434 /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6.png; sourceTree = "<group>"; };
-		31661F641F434A00004E4750 /* BMTemplateLayoutCell.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = BMTemplateLayoutCell.podspec; path = ../BMTemplateLayoutCell.podspec; sourceTree = "<group>"; };
-		31661F651F434A00004E4750 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		31661F661F434A00004E4750 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		31DC9A641F41E6730045BAED /* UITableView+BMTemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+BMTemplateLayoutCell.h"; sourceTree = "<group>"; };
-		31DC9A651F41E6730045BAED /* UITableView+BMTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+BMTemplateLayoutCell.m"; sourceTree = "<group>"; };
 		32545A261F9DD80C00E3F939 /* UIScrollView+BMExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+BMExtension.h"; sourceTree = "<group>"; };
 		32545A271F9DD80C00E3F939 /* UIScrollView+BMExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+BMExtension.m"; sourceTree = "<group>"; };
 		32545A291F9DD80C00E3F939 /* UITableViewCell+BMReusable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+BMReusable.h"; sourceTree = "<group>"; };
@@ -112,6 +105,9 @@
 		32545A2D1F9DD80C00E3F939 /* UITableViewHeaderFooterView+BMReusable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewHeaderFooterView+BMReusable.m"; sourceTree = "<group>"; };
 		32545A2F1F9DD80C00E3F939 /* UIView+BMExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BMExtension.h"; sourceTree = "<group>"; };
 		32545A301F9DD80C00E3F939 /* UIView+BMExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BMExtension.m"; sourceTree = "<group>"; };
+		32545A381F9DD8F300E3F939 /* BMTemplateLayoutCell.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BMTemplateLayoutCell.podspec; sourceTree = "<group>"; };
+		32545A3E1F9DD94700E3F939 /* UITableView+BMTemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+BMTemplateLayoutCell.h"; sourceTree = "<group>"; };
+		32545A3F1F9DD94700E3F939 /* UITableView+BMTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+BMTemplateLayoutCell.m"; sourceTree = "<group>"; };
 		3259ABC21F41571800B250DA /* BMTemplateLayoutCellDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BMTemplateLayoutCellDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3259ABCF1F41571800B250DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3259ABD11F41571800B250DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -292,13 +288,20 @@
 			path = UIView;
 			sourceTree = "<group>";
 		};
+		32545A351F9DD8F300E3F939 /* BMTemplateLayoutCell */ = {
+			isa = PBXGroup;
+			children = (
+				32545A3E1F9DD94700E3F939 /* UITableView+BMTemplateLayoutCell.h */,
+				32545A3F1F9DD94700E3F939 /* UITableView+BMTemplateLayoutCell.m */,
+			);
+			path = BMTemplateLayoutCell;
+			sourceTree = "<group>";
+		};
 		3259ABB91F41571800B250DA = {
 			isa = PBXGroup;
 			children = (
-				31661F641F434A00004E4750 /* BMTemplateLayoutCell.podspec */,
-				31661F651F434A00004E4750 /* LICENSE */,
-				31661F661F434A00004E4750 /* README.md */,
-				32B095C31F4157900076096D /* BMTemplateLayoutCell */,
+				32545A381F9DD8F300E3F939 /* BMTemplateLayoutCell.podspec */,
+				32545A351F9DD8F300E3F939 /* BMTemplateLayoutCell */,
 				3259ABC41F41571800B250DA /* BMTemplateLayoutCellDemo */,
 				3259ABDE1F41571800B250DA /* BMTemplateLayoutCellDemoTests */,
 				3259ABE91F41571800B250DA /* BMTemplateLayoutCellDemoUITests */,
@@ -469,16 +472,6 @@
 				3159AEB11F4C8945003FAF19 /* RootVC */,
 			);
 			path = Classs;
-			sourceTree = "<group>";
-		};
-		32B095C31F4157900076096D /* BMTemplateLayoutCell */ = {
-			isa = PBXGroup;
-			children = (
-				31DC9A641F41E6730045BAED /* UITableView+BMTemplateLayoutCell.h */,
-				31DC9A651F41E6730045BAED /* UITableView+BMTemplateLayoutCell.m */,
-			);
-			name = BMTemplateLayoutCell;
-			path = ../BMTemplateLayoutCell;
 			sourceTree = "<group>";
 		};
 		32B0960E1F4157F40076096D /* Category */ = {
@@ -657,7 +650,6 @@
 				3259ABD51F41571800B250DA /* LaunchScreen.storyboard in Resources */,
 				316329771F599D000059B434 /* 1.jpg in Resources */,
 				316329781F599D000059B434 /* 2.jpg in Resources */,
-				31661F6D1F434A00004E4750 /* LICENSE in Resources */,
 				3163298A1F59A0320059B434 /* 6.png in Resources */,
 				3159AED61F4C8CB2003FAF19 /* BMCell.xib in Resources */,
 				316329851F59A0320059B434 /* 1.png in Resources */,
@@ -667,13 +659,13 @@
 				316329891F59A0320059B434 /* 5.png in Resources */,
 				316329871F59A0320059B434 /* 3.png in Resources */,
 				316329881F59A0320059B434 /* 4.png in Resources */,
+				32545A3A1F9DD8F300E3F939 /* BMTemplateLayoutCell.podspec in Resources */,
 				3163297D1F599D000059B434 /* 7.jpg in Resources */,
 				316329791F599D000059B434 /* 3.jpg in Resources */,
 				32A243CF1F501FF200224A43 /* BMRootVC.xib in Resources */,
 				3259ABD01F41571800B250DA /* Main.storyboard in Resources */,
 				3159AED11F4C8C00003FAF19 /* BMXibCellVC.xib in Resources */,
 				3163297E1F599D000059B434 /* 8.jpg in Resources */,
-				31661F6C1F434A00004E4750 /* BMTemplateLayoutCell.podspec in Resources */,
 				3163297C1F599D000059B434 /* 6.jpg in Resources */,
 				32A243EB1F50246D00224A43 /* BMXibHeaderFooterVC.xib in Resources */,
 				3163297B1F599D000059B434 /* 5.jpg in Resources */,
@@ -754,16 +746,15 @@
 				32F6EF261F4EA64900CD60AB /* BMMasonryCellVC.m in Sources */,
 				32B095BD1F41577F0076096D /* main.m in Sources */,
 				32A243CE1F501FF200224A43 /* BMRootVC.m in Sources */,
+				32545A401F9DD94700E3F939 /* UITableView+BMTemplateLayoutCell.m in Sources */,
 				32545A331F9DD80C00E3F939 /* UITableViewHeaderFooterView+BMReusable.m in Sources */,
 				32545A311F9DD80C00E3F939 /* UIScrollView+BMExtension.m in Sources */,
 				3159AECC1F4C8BEF003FAF19 /* BMModel.m in Sources */,
 				3159AED51F4C8CB2003FAF19 /* BMCell.m in Sources */,
-				31661F6E1F434A00004E4750 /* README.md in Sources */,
 				32A243E21F50218E00224A43 /* BMMasonryTableViewHeaderView.m in Sources */,
 				3159AED01F4C8C00003FAF19 /* BMXibCellVC.m in Sources */,
 				313300C71F5462CF001D6552 /* BMXibHeader.m in Sources */,
 				32545A341F9DD80C00E3F939 /* UIView+BMExtension.m in Sources */,
-				31DC9A681F41E6730045BAED /* UITableView+BMTemplateLayoutCell.m in Sources */,
 				32A243DE1F50207000224A43 /* BMMasonryHeaderFooterVC.m in Sources */,
 				32F6EF2B1F4EA65F00CD60AB /* BMMasonryCell.m in Sources */,
 				32545A321F9DD80C00E3F939 /* UITableViewCell+BMReusable.m in Sources */,
