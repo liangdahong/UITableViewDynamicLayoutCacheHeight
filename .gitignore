@@ -17,11 +17,13 @@ DerivedData
 *.ipa
 Podfile.lock
 .DS_Store
-BMWash.xcworkspace/
+BMTemplateLayoutCellDemo.xcworkspace/
 /build
 /test_history
 /test
 /product
 /product_history
 /history
+
+#CocoaPods
 /Pods

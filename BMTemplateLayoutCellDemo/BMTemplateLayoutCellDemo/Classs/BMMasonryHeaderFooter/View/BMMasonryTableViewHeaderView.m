@@ -9,11 +9,6 @@
 #import "BMMasonryTableViewHeaderView.h"
 #import "Masonry.h"
 
-@interface BMMasonryTableViewHeaderView ()
-
-
-@end
-
 @implementation BMMasonryTableViewHeaderView
 
 - (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier {
