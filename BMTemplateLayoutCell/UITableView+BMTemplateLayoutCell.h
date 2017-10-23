@@ -23,7 +23,7 @@
 
 /**
  ****************************************************************
- 部分代码正在优化中
+代码正在优化中
  ****************************************************************
  */
 
@@ -31,7 +31,7 @@
 
 /**
  BMLayoutCellConfigurationBlock
-
+ 
  @param cell 需要布局的Cell
  */
 typedef void (^BMLayoutCellConfigurationBlock)(__kindof UITableViewCell *cell);
@@ -51,8 +51,8 @@ typedef void (^BMLayoutHeaderFooterViewConfigurationBlock)(__kindof UITableViewH
 @interface UITableView (BMTemplateLayoutCell)
 
 /**
- 获取 Cell 的高度（内部不做任何缓存操作）
-
+ 获取 Cell 的高度（内部不做任何缓存操作））
+ 
  @param clas Cell Class
  @param configuration 布局block
  @return 应该的高度
@@ -60,7 +60,7 @@ typedef void (^BMLayoutHeaderFooterViewConfigurationBlock)(__kindof UITableViewH
 - (CGFloat)bm_heightForCellWithCellClass:(Class)clas configuration:(BMLayoutCellConfigurationBlock)configuration;
 
 /**
- 获取 Cell 的高度（内部以indexPath做缓存）
+ 获取 Cell 的高度（内部自动处理缓存））
  
  @param clas Cell Class
  @param indexPath 内部会使用 indexPath 做缓存
@@ -70,8 +70,8 @@ typedef void (^BMLayoutHeaderFooterViewConfigurationBlock)(__kindof UITableViewH
 - (CGFloat)bm_heightForCellWithCellClass:(Class)clas cacheByIndexPath:(NSIndexPath *)indexPath configuration:(BMLayoutCellConfigurationBlock)configuration;
 
 /**
- 获取 Cell 的高度（内部使用key做缓存）
-
+ 获取 Cell 的高度（内部自动处理缓存））
+ 
  @param clas Cell Class
  @param key 唯一key，内部会以次key来做缓存
  @param configuration 布局block
@@ -89,8 +89,8 @@ typedef void (^BMLayoutHeaderFooterViewConfigurationBlock)(__kindof UITableViewH
 @interface UITableView (BMTemplateLayoutHeaderFooterView)
 
 /**
- 获取 HeaderFooterView 的高度（内部不做缓存操作）
-
+ 获取 HeaderFooterView 的高度（内部不做任何缓存操作）
+ 
  @param clas HeaderFooterView class
  @param configuration 布局block
  @return 应该的高度
@@ -98,8 +98,8 @@ typedef void (^BMLayoutHeaderFooterViewConfigurationBlock)(__kindof UITableViewH
 - (CGFloat)bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:(Class)clas configuration:(BMLayoutHeaderFooterViewConfigurationBlock)configuration;
 
 /**
- 获取 HeaderFooterView 的高度（内部以section来做缓存）
-
+ 获取 HeaderFooterView 的高度（内部自动处理缓存）
+ 
  @param clas HeaderFooterView class
  @param isHeaderView 是否是表头（组的头部：YES 组的尾部：NO）
  @param section 内部会使用 section 做缓存
@@ -109,7 +109,7 @@ typedef void (^BMLayoutHeaderFooterViewConfigurationBlock)(__kindof UITableViewH
 - (CGFloat)bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:(Class)clas isHeaderView:(BOOL)isHeaderView section:(NSInteger)section configuration:(BMLayoutHeaderFooterViewConfigurationBlock)configuration;
 
 /**
- 获取 HeaderFooterView 的高度（内部以key来处理缓存，表头，表尾一样处理）
+ 获取 HeaderFooterView 的高度（内部自动处理缓存）
  
  @param clas HeaderFooterView class
  @param key 唯一key，内部会以次key来做缓存

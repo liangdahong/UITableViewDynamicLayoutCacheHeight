@@ -62,15 +62,10 @@ CGFloat height(NSNumber *value) {
 
 @interface UITableView ()
 
-@property (strong, nonatomic, readonly) NSMutableArray <NSMutableArray <NSNumber *>*> *portraitCacheCellHeightIndexPathMutableArray;     ///< 竖屏模式Cell的缓存 arr 使用 IndexPath
-@property (strong, nonatomic, readonly) NSMutableArray <NSMutableArray <NSNumber *>*> *landscapeCacheCellHeightIndexPathMutableArray;    ///< 横屏模式Cell的缓存 arr 使用 IndexPath
-
-@property (strong, nonatomic, readonly) NSMutableDictionary *portraitCacheCellHeightMutableDictionary;     ///< 竖屏模式Cell的缓存字典
-@property (strong, nonatomic, readonly) NSMutableDictionary *landscapeCacheCellHeightMutableDictionary;    ///< 横屏模式Cell的缓存字典
-
+@property (strong, nonatomic, readonly) NSMutableDictionary *portraitCacheCellHeightMutableDictionary;     ///< portraitCacheCellHeightMutableDictionary
+@property (strong, nonatomic, readonly) NSMutableDictionary *landscapeCacheCellHeightMutableDictionary;    ///< landscapeCacheCellHeightMutableDictionary
 @property (strong, nonatomic, readonly) NSMutableDictionary *portraitCacheKeyCellHeightMutableDictionary;  ///< portraitCacheKeyCellHeightMutableDictionary
 @property (strong, nonatomic, readonly) NSMutableDictionary *landscapeCacheKeyCellHeightMutableDictionary; ///< landscapeCacheKeyCellHeightMutableDictionary
-
 @property (strong, nonatomic, readonly) NSMutableDictionary *reusableCellWithIdentifierMutableDictionary;  ///< reusableCellWithIdentifierMutableDictionary
 
 @end
@@ -139,21 +134,17 @@ CGFloat height(NSNumber *value) {
     if (!indexPath) {
         return [self bm_heightForCellWithCellClass:clas configuration:configuration];
     }
-    if ((isPortrait ? self.portraitCacheCellHeightIndexPathMutableArray :  self.landscapeCacheCellHeightIndexPathMutableArray).count > indexPath.section) {
-        NSMutableArray *muarray = (isPortrait ? self.portraitCacheCellHeightIndexPathMutableArray :  self.landscapeCacheCellHeightIndexPathMutableArray)[indexPath.section];
-        if (muarray.count > indexPath.row) {
-            BMTemplateLayoutCellLog(@"%@已缓存了 取缓存:%@", indexPath, muarray[indexPath.row]);
-            return [muarray[indexPath.row] doubleValue];
-        }
-    } else {
-        NSUInteger index = (isPortrait ? self.portraitCacheCellHeightIndexPathMutableArray :  self.landscapeCacheCellHeightIndexPathMutableArray).count;
-        for (; index < indexPath.section + 1; index++) {
-            [(isPortrait ? self.portraitCacheCellHeightIndexPathMutableArray :  self.landscapeCacheCellHeightIndexPathMutableArray) addObject:@[].mutableCopy];
-        }
+    NSString *key = [NSString stringWithFormat:@"%ld-%ld", (long)indexPath.section, (long)indexPath.row];
+    
+    NSNumber *heightValue = (isPortrait ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key];
+    if (heightValue) {
+        BMTemplateLayoutCellLog(@"%@已缓存了 取缓存:%@", indexPath, heightValue);
+        return height(heightValue);
     }
     UIView *tempView = [self bm_tempViewCellWithCellClass:clas];
     CGFloat height = [self bm_layoutIfNeededCellWith:tempView.subviews[0] configuration:configuration];
-    [(isPortrait ? self.portraitCacheCellHeightIndexPathMutableArray :  self.landscapeCacheCellHeightIndexPathMutableArray)[indexPath.section] insertObject:@(height) atIndex:indexPath.row];
+    (isPortrait ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key] = @(height);
+    BMTemplateLayoutCellLog(@"%@没有缓存 布局获取到的高度是:%f", indexPath, height);
     return height;
 }
 
@@ -173,24 +164,6 @@ CGFloat height(NSNumber *value) {
     CGFloat height = [self bm_layoutIfNeededCellWith:tempView.subviews[0] configuration:configuration];
     (isPortrait ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key] = @(height);
     return height;
-}
-
-- (NSMutableArray<NSMutableArray<NSNumber *> *> *)portraitCacheCellHeightIndexPathMutableArray {
-    NSMutableArray<NSMutableArray<NSNumber *> *> *arr = objc_getAssociatedObject(self, _cmd);
-    if (!arr) {
-        arr = @[].mutableCopy;
-        objc_setAssociatedObject(self, _cmd, arr, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }
-    return arr;
-}
-
-- (NSMutableArray<NSMutableArray<NSNumber *> *> *)landscapeCacheCellHeightIndexPathMutableArray {
-    NSMutableArray<NSMutableArray<NSNumber *> *> *arr = objc_getAssociatedObject(self, _cmd);
-    if (!arr) {
-        arr = @[].mutableCopy;
-        objc_setAssociatedObject(self, _cmd, arr, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }
-    return arr;
 }
 
 - (NSMutableDictionary *)portraitCacheCellHeightMutableDictionary {
@@ -261,35 +234,70 @@ CGFloat height(NSNumber *value) {
 }
 
 - (void)bm_reloadData {
-    [self.portraitCacheCellHeightIndexPathMutableArray  removeAllObjects];
-    [self.landscapeCacheCellHeightIndexPathMutableArray removeAllObjects];
+    [self.portraitCacheCellHeightMutableDictionary  removeAllObjects];
+    [self.landscapeCacheCellHeightMutableDictionary removeAllObjects];
     [self bm_reloadData];
 }
 
 - (void)bm_insertSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation {
-    [sections enumerateIndexesUsingBlock:^(NSUInteger section, BOOL * _Nonnull stop) {
-        [(isPortrait ? self.portraitCacheCellHeightIndexPathMutableArray :  self.landscapeCacheCellHeightIndexPathMutableArray) insertObject:@[].mutableCopy atIndex:section];
-    }];
+    // 待优化
+    [self.portraitCacheCellHeightMutableDictionary  removeAllObjects];
+    [self.landscapeCacheCellHeightMutableDictionary removeAllObjects];
     [self bm_insertSections:sections withRowAnimation:animation];
 }
 
 - (void)bm_deleteSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation {
-    [sections enumerateIndexesUsingBlock:^(NSUInteger section, BOOL * _Nonnull stop) {
-        [(isPortrait ? self.portraitCacheCellHeightIndexPathMutableArray : self.landscapeCacheCellHeightIndexPathMutableArray) removeObjectAtIndex:section];
-    }];
+    // 待优化
+    [self.portraitCacheCellHeightMutableDictionary  removeAllObjects];
+    [self.landscapeCacheCellHeightMutableDictionary removeAllObjects];
     [self bm_deleteSections:sections withRowAnimation:animation];
 }
 
 - (void)bm_reloadSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation {
     // 将需要刷新的的 section 的高度缓存清除
-    [sections enumerateIndexesUsingBlock:^(NSUInteger section, BOOL * _Nonnull stop) {
-        [(isPortrait ? self.portraitCacheCellHeightIndexPathMutableArray : self.landscapeCacheCellHeightIndexPathMutableArray) removeObjectAtIndex:section];
+    [sections enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL * _Nonnull stop) {
+        NSInteger row = [self.dataSource tableView:self numberOfRowsInSection:idx];
+        while (row--) {
+            NSString *cacheID = [NSString stringWithFormat:@"%ld-%ld", (long)idx, (long)row];
+            [self.portraitCacheCellHeightMutableDictionary  removeObjectForKey:cacheID];
+            [self.landscapeCacheCellHeightMutableDictionary removeObjectForKey:cacheID];
+        }
+        [self.portraitCacheCellHeightMutableDictionary  removeObjectForKey:[NSString stringWithFormat:@"Header:%ld", (long)idx]];
+        [self.portraitCacheCellHeightMutableDictionary  removeObjectForKey:[NSString stringWithFormat:@"Footer:%ld", (long)idx]];
+        
+        [self.landscapeCacheCellHeightMutableDictionary  removeObjectForKey:[NSString stringWithFormat:@"Header:%ld", (long)idx]];
+        [self.landscapeCacheCellHeightMutableDictionary  removeObjectForKey:[NSString stringWithFormat:@"Footer:%ld", (long)idx]];
+        
     }];
     [self bm_reloadSections:sections withRowAnimation:animation];
 }
 
 - (void)bm_moveSection:(NSInteger)section toSection:(NSInteger)newSection {
-    [(isPortrait ? self.portraitCacheCellHeightIndexPathMutableArray : self.landscapeCacheCellHeightIndexPathMutableArray) exchangeObjectAtIndex:section withObjectAtIndex:section];
+    // 待优化
+    {
+        NSInteger row = [self.dataSource tableView:self numberOfRowsInSection:section];
+        while (row--) {
+            NSString *cacheID = [NSString stringWithFormat:@"%ld-%ld", (long)section, (long)row];
+            [self.portraitCacheCellHeightMutableDictionary  removeObjectForKey:cacheID];
+            [self.landscapeCacheCellHeightMutableDictionary removeObjectForKey:cacheID];
+        }
+        [self.portraitCacheCellHeightMutableDictionary  removeObjectForKey:[NSString stringWithFormat:@"Header:%ld", (long)section]];
+        [self.landscapeCacheCellHeightMutableDictionary  removeObjectForKey:[NSString stringWithFormat:@"Header:%ld", (long)section]];
+        [self.portraitCacheCellHeightMutableDictionary  removeObjectForKey:[NSString stringWithFormat:@"Footer:%ld", (long)section]];
+        [self.landscapeCacheCellHeightMutableDictionary  removeObjectForKey:[NSString stringWithFormat:@"Footer:%ld", (long)section]];
+    }
+    {
+        NSInteger row = [self.dataSource tableView:self numberOfRowsInSection:newSection];
+        while (row--) {
+            NSString *cacheID = [NSString stringWithFormat:@"%ld-%ld", (long)newSection, (long)row];
+            [self.portraitCacheCellHeightMutableDictionary  removeObjectForKey:cacheID];
+            [self.landscapeCacheCellHeightMutableDictionary removeObjectForKey:cacheID];
+        }
+        [self.portraitCacheCellHeightMutableDictionary  removeObjectForKey:[NSString stringWithFormat:@"Header:%ld", (long)newSection]];
+        [self.landscapeCacheCellHeightMutableDictionary  removeObjectForKey:[NSString stringWithFormat:@"Header:%ld", (long)newSection]];
+        [self.portraitCacheCellHeightMutableDictionary  removeObjectForKey:[NSString stringWithFormat:@"Footer:%ld", (long)newSection]];
+        [self.landscapeCacheCellHeightMutableDictionary  removeObjectForKey:[NSString stringWithFormat:@"Footer:%ld", (long)newSection]];
+    }
     [self bm_moveSection:section toSection:newSection];
 }
 
@@ -297,11 +305,6 @@ CGFloat height(NSNumber *value) {
     // 待优化
     [self.portraitCacheCellHeightMutableDictionary  removeAllObjects];
     [self.landscapeCacheCellHeightMutableDictionary removeAllObjects];
-    
-    [indexPaths enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        
-    }];
-    
     [self bm_insertRowsAtIndexPaths:indexPaths withRowAnimation:animation];
 }
 
