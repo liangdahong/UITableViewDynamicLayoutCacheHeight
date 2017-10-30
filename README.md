@@ -24,7 +24,7 @@
 1. 支持`xib` `masonry`
 2. 支持`注册方式`和`alloc方式`创建`Cell`
 
-# 如果您的`TableView`支持横竖屏请设置以下属性为`YES`,支持`IB`和代码设置。
+## 如果您的`TableView`支持横竖屏请设置以下属性为`YES`,支持`IB`和代码设置。
 
 ```c
 @property (assign, nonatomic, getter=isScreenRotating) IBInspectable BOOL screenRotating; ///< 是否支持屏幕旋转，默认NO
