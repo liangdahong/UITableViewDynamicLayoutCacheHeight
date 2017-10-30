@@ -24,7 +24,12 @@
 #import "UITableView+BMTemplateLayoutCell.h"
 #import <objc/runtime.h>
 
-#define isPortrait  (CGRectGetWidth([[UIScreen mainScreen] bounds]) < CGRectGetHeight([[UIScreen mainScreen] bounds]))
+BOOL isPortraitRotating (UITableView *self) {
+    if (!self.isScreenRotating) {
+        return YES;
+    }
+    return (CGRectGetWidth([[UIScreen mainScreen] bounds]) < CGRectGetHeight([[UIScreen mainScreen] bounds]));
+}
 
 /**
  交换2个方法的调用
@@ -71,6 +76,18 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
 @end
 
 @implementation UITableView (BMTemplateLayoutCell)
+
+- (BOOL)isScreenRotating {
+    return [objc_getAssociatedObject(self, _cmd) boolValue];
+}
+
+- (void)setScreenRotating:(BOOL)screenRotating {
+    objc_setAssociatedObject(self, @selector(isScreenRotating), @(screenRotating), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (BOOL)bm_noDataOpenScroll {
+    return [objc_getAssociatedObject(self, _cmd) boolValue];
+}
 
 - (UIView *)bm_tempViewCellWithCellClass:(Class)clas {
     // 创建新的重用标识
@@ -135,15 +152,23 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
         return [self bm_heightForCellWithCellClass:clas configuration:configuration];
     }
     NSString *key = [NSString stringWithFormat:@"%ld-%ld", (long)indexPath.section, (long)indexPath.row];
+
+    if (!self.isScreenRotating) {
+        
+    }
+    if ((CGRectGetWidth([[UIScreen mainScreen] bounds]) < CGRectGetHeight([[UIScreen mainScreen] bounds]))) {
+        
+        
+    }
     
-    NSNumber *heightValue = (isPortrait ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key];
+    NSNumber *heightValue = (isPortraitRotating(self) ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key];
     if (heightValue) {
         BMTemplateLayoutCellLog(@"%@已缓存了 取缓存:%@", indexPath, heightValue);
         return bm_templateLayoutCell_height(heightValue);
     }
     UIView *tempView = [self bm_tempViewCellWithCellClass:clas];
     CGFloat height = [self bm_layoutIfNeededCellWith:tempView.subviews[0] configuration:configuration];
-    (isPortrait ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key] = @(height);
+    (isPortraitRotating(self) ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key] = @(height);
     BMTemplateLayoutCellLog(@"%@没有缓存 布局获取到的高度是:%f", indexPath, height);
     return height;
 }
@@ -155,14 +180,14 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
     if (!key || key.length == 0) {
         return [self bm_heightForCellWithCellClass:clas configuration:configuration];
     }
-    NSNumber *heightValue = (isPortrait ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key];
+    NSNumber *heightValue = (isPortraitRotating(self) ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key];
     if (heightValue) {
         BMTemplateLayoutCellLog(@"cacheByKey:%@ 取缓存:%@", key, heightValue);
         return bm_templateLayoutCell_height(heightValue);
     }
     UIView *tempView = [self bm_tempViewCellWithCellClass:clas];
     CGFloat height = [self bm_layoutIfNeededCellWith:tempView.subviews[0] configuration:configuration];
-    (isPortrait ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key] = @(height);
+    (isPortraitRotating(self) ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key] = @(height);
     return height;
 }
 
@@ -353,7 +378,7 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
 
 - (CGFloat)bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:(Class)clas isHeaderView:(BOOL)isHeaderView section:(NSInteger)section configuration:(BMLayoutHeaderFooterViewConfigurationBlock)configuration {
     NSString *key = [NSString stringWithFormat:@"%@:%ld", isHeaderView ? @"Header" : @ "Footer" ,(long)section];
-    NSNumber *heightValue = (isPortrait ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key];
+    NSNumber *heightValue = (isPortraitRotating(self) ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key];
     // 有缓存就直接返回
     if (heightValue) {
         BMTemplateLayoutCellLog(@"组头部%ld已缓存了 取缓存:%@", (long)section, heightValue);
@@ -364,7 +389,7 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
     // 布局获取高度
     CGFloat height = [self bm_layoutIfNeededHeaderFooterViewWith:tempView.subviews[0] configuration:configuration];
     // 缓存起来
-    (isPortrait ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key] = @(height);
+    (isPortraitRotating(self) ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key] = @(height);
     BMTemplateLayoutCellLog(@"组头部%ld没有缓存 布局获取到的高度是:%f", (long)section, height);
     return height;
 }
@@ -377,7 +402,7 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
         return [self bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:clas configuration:configuration];
     }
     
-    NSNumber *heightValue = ((isPortrait) ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key];
+    NSNumber *heightValue = ((isPortraitRotating(self)) ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key];
     // 有缓存就直接返回
     if (heightValue) {
         return bm_templateLayoutCell_height(heightValue);
@@ -387,7 +412,7 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
     // 布局获取高度
     CGFloat height = [self bm_layoutIfNeededHeaderFooterViewWith:tempView.subviews[0] configuration:configuration];
     // 缓存起来
-    (isPortrait ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key] = @(height);
+    (isPortraitRotating(self) ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key] = @(height);
     return height;
 }
 

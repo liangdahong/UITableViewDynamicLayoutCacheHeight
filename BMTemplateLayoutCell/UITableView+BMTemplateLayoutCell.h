@@ -48,7 +48,10 @@ typedef void (^BMLayoutHeaderFooterViewConfigurationBlock)(__kindof UITableViewH
 /**
  BMTemplateLayoutCell
  */
+IB_DESIGNABLE
 @interface UITableView (BMTemplateLayoutCell)
+
+@property (assign, nonatomic, getter=isScreenRotating) IBInspectable BOOL screenRotating; ///< 是否支持屏幕旋转，默认NO
 
 /**
  获取 Cell 的高度（内部不做任何缓存操作））

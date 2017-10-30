@@ -96,10 +96,11 @@
 - 如果在使用过程中遇到BUG，希望您能[Issues](https://github.com/asiosldh/UITableView-BMTemplateLayoutCell/issues)我。
 
 # 版本历史
-## v1.0.3
-## v1.0.2
-## v1.0.1
-## v1.0.0 
+- v1.0.4
+- v1.0.3
+- v1.0.2
+- v1.0.1
+- v1.0.0
 
 # MIT
 `BMDragCellCollectionView` 使用 MIT 许可证，详情可见 [LICENSE](LICENSE) 文件
