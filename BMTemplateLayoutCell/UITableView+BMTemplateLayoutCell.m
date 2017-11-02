@@ -152,15 +152,6 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
         return [self bm_heightForCellWithCellClass:clas configuration:configuration];
     }
     NSString *key = [NSString stringWithFormat:@"%ld-%ld", (long)indexPath.section, (long)indexPath.row];
-
-    if (!self.isScreenRotating) {
-        
-    }
-    if ((CGRectGetWidth([[UIScreen mainScreen] bounds]) < CGRectGetHeight([[UIScreen mainScreen] bounds]))) {
-        
-        
-    }
-    
     NSNumber *heightValue = (isPortraitRotating(self) ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key];
     if (heightValue) {
         BMTemplateLayoutCellLog(@"%@已缓存了 取缓存:%@", indexPath, heightValue);
