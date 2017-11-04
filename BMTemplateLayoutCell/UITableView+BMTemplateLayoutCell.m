@@ -126,7 +126,7 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
     [cell.superview layoutIfNeeded];
     __block CGFloat maxY = 0;
     [cell.contentView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (maxY <  CGRectGetMaxY(obj.frame)) {
+        if (maxY <  CGRectGetMaxY(obj.frame) && obj.isHidden == NO) {
             maxY = CGRectGetMaxY(obj.frame);
         }
     }];
