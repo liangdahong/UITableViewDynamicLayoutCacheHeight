@@ -135,7 +135,7 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
 }
 
 - (CGFloat)bm_heightForCellWithCellClass:(Class)clas configuration:(BMLayoutCellConfigurationBlock)configuration {
-    if (!clas || configuration) {
+    if (!clas || !configuration) {
         return 0;
     }
     UIView *tempView = [self bm_tempViewCellWithCellClass:clas];

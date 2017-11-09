@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -40,21 +40,20 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JKi-wO-BM9">
-                        <rect key="frame" x="0.0" y="190" width="342" height="0.0"/>
+                        <rect key="frame" x="0.0" y="200" width="342" height="0.0"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" id="eNR-rX-vKB"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100+" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vq9-DP-ZcS">
-                        <rect key="frame" x="303.5" y="166" width="26.5" height="13.5"/>
+                        <rect key="frame" x="303.5" y="311" width="26.5" height="13.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Vq9-DP-ZcS" firstAttribute="top" secondItem="Bp8-mr-dxT" secondAttribute="bottom" constant="5" id="33y-ZI-Ybn"/>
                     <constraint firstItem="ER7-ex-Ea8" firstAttribute="top" secondItem="LKj-Tc-dBo" secondAttribute="bottom" constant="10" id="4o5-KQ-zi2"/>
                     <constraint firstItem="npZ-sH-v8W" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="5ey-1D-KmZ"/>
                     <constraint firstItem="Bp8-mr-dxT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="8yG-SZ-u5P"/>
@@ -64,12 +63,13 @@
                     <constraint firstAttribute="trailing" secondItem="LKj-Tc-dBo" secondAttribute="trailing" constant="10" id="RV2-3m-I3Z"/>
                     <constraint firstItem="LKj-Tc-dBo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="SCZ-wk-xjc"/>
                     <constraint firstAttribute="trailing" secondItem="Vq9-DP-ZcS" secondAttribute="trailing" constant="12" id="Z25-uv-zOa"/>
-                    <constraint firstItem="JKi-wO-BM9" firstAttribute="top" secondItem="npZ-sH-v8W" secondAttribute="bottom" constant="10" id="Zkl-yI-6f9"/>
+                    <constraint firstItem="JKi-wO-BM9" firstAttribute="top" secondItem="npZ-sH-v8W" secondAttribute="bottom" constant="20" id="Zkl-yI-6f9"/>
                     <constraint firstItem="JKi-wO-BM9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="dpP-1g-r0r"/>
                     <constraint firstItem="Bp8-mr-dxT" firstAttribute="top" secondItem="ER7-ex-Ea8" secondAttribute="bottom" constant="10" id="o2c-MI-z0c"/>
                     <constraint firstItem="LKj-Tc-dBo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="qJC-YP-5pI"/>
                     <constraint firstAttribute="trailing" secondItem="Bp8-mr-dxT" secondAttribute="trailing" constant="10" id="ruj-LV-Mk3"/>
                     <constraint firstItem="ER7-ex-Ea8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="rwl-Oh-v5H"/>
+                    <constraint firstAttribute="bottom" secondItem="Vq9-DP-ZcS" secondAttribute="bottom" constant="10" id="uaa-WS-XZC"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

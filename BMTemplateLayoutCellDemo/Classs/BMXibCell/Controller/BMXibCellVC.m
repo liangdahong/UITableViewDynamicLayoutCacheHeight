@@ -64,7 +64,10 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     BMModel *model = self.dataArray[indexPath.row];
-    return [tableView bm_heightForCellWithCellClass:BMCell.class cacheByKey:model.ID configuration:^(__kindof BMCell *cell) {
+//    return [tableView bm_heightForCellWithCellClass:BMCell.class cacheByKey:model.ID configuration:^(__kindof BMCell *cell) {
+//        cell.model = model;
+//    }];    
+    return [tableView bm_heightForCellWithCellClass:BMCell.class cacheByIndexPath:indexPath configuration:^(__kindof BMCell *cell) {
         cell.model = model;
     }];
 }
@@ -85,21 +88,26 @@
         NSMutableString *string = [NSMutableString string];
         while (arci--) {
             if (arc4random_uniform(2)) {
-                [string appendString:@"消"];
+                [string appendString:@"消称称称称"];
             } else {
-                [string appendString:@"息"];
+                [string appendString:@"息称称称称称称称称"];
             }
         }
+        [string appendString:@"。[我的的的的]"];
+
         model.desc = string;
         int arcd = arc4random_uniform(50)+10;
         NSMutableString *string1 = [NSMutableString string];
         while (arcd--) {
             if (arc4random_uniform(2)) {
-                [string1 appendString:@"名"];
+                [string1 appendString:@"名称称称称称称称称称称称称称称称称称称称称称称称称"];
             } else {
-                [string1 appendString:@"称"];
+                [string1 appendString:@"称称称称称称称称称"];
             }
         }
+        
+        [string1 appendString:@"。[我的的的的]"];
+        
         model.name = string1;
         if (arc4random_uniform(2)) {
             model.icon = [NSString stringWithFormat:@"%d.jpg", arc4random_uniform(8) + 1];
@@ -110,6 +118,8 @@
         [self.dataArray addObject:model];
         [mua addObject:[NSIndexPath  indexPathForRow:self.dataArray.count - 1 inSection:0]];
     }
+    
+    
     [self.tableView reloadData];
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:self.dataArray.count - 1 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionBottom];
