@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "BMRootVC.h"
+#import "YYFPSLabel.h"
 
 @interface AppDelegate ()
 
@@ -23,6 +24,10 @@
     nav.navigationBar.translucent = NO;
     nav.navigationBar.hidden = NO;
     self.window.rootViewController = nav;
+    
+    YYFPSLabel *label = [YYFPSLabel new];
+    label.frame = CGRectMake(10, 100, 60, 20);
+    [self.window addSubview:label];
     return YES;
 }
 

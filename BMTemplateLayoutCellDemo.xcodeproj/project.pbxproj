@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		313300C71F5462CF001D6552 /* BMXibHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 313300C61F5462CF001D6552 /* BMXibHeader.m */; };
 		315738DE1FB4ADD700A19CD8 /* BMTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 315738DD1FB4ADD700A19CD8 /* BMTableView.m */; };
+		315738E41FB4B45B00A19CD8 /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 315738E11FB4B45B00A19CD8 /* YYFPSLabel.m */; };
+		315738E51FB4B45B00A19CD8 /* YYWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 315738E31FB4B45B00A19CD8 /* YYWeakProxy.m */; };
 		3159AECC1F4C8BEF003FAF19 /* BMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3159AECB1F4C8BEF003FAF19 /* BMModel.m */; };
 		3159AED01F4C8C00003FAF19 /* BMXibCellVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3159AECE1F4C8C00003FAF19 /* BMXibCellVC.m */; };
 		3159AED11F4C8C00003FAF19 /* BMXibCellVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3159AECF1F4C8C00003FAF19 /* BMXibCellVC.xib */; };
@@ -78,6 +80,10 @@
 		313300C61F5462CF001D6552 /* BMXibHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMXibHeader.m; sourceTree = "<group>"; };
 		315738DC1FB4ADD700A19CD8 /* BMTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMTableView.h; sourceTree = "<group>"; };
 		315738DD1FB4ADD700A19CD8 /* BMTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMTableView.m; sourceTree = "<group>"; };
+		315738E01FB4B45B00A19CD8 /* YYFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYFPSLabel.h; sourceTree = "<group>"; };
+		315738E11FB4B45B00A19CD8 /* YYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFPSLabel.m; sourceTree = "<group>"; };
+		315738E21FB4B45B00A19CD8 /* YYWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYWeakProxy.h; sourceTree = "<group>"; };
+		315738E31FB4B45B00A19CD8 /* YYWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYWeakProxy.m; sourceTree = "<group>"; };
 		3159AECA1F4C8BEF003FAF19 /* BMModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMModel.h; sourceTree = "<group>"; };
 		3159AECB1F4C8BEF003FAF19 /* BMModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMModel.m; sourceTree = "<group>"; };
 		3159AECD1F4C8C00003FAF19 /* BMXibCellVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMXibCellVC.h; sourceTree = "<group>"; };
@@ -186,6 +192,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		315738DF1FB4B45B00A19CD8 /* YYFPSLabel */ = {
+			isa = PBXGroup;
+			children = (
+				315738E01FB4B45B00A19CD8 /* YYFPSLabel.h */,
+				315738E11FB4B45B00A19CD8 /* YYFPSLabel.m */,
+				315738E21FB4B45B00A19CD8 /* YYWeakProxy.h */,
+				315738E31FB4B45B00A19CD8 /* YYWeakProxy.m */,
+			);
+			path = YYFPSLabel;
+			sourceTree = "<group>";
+		};
 		3159AEA41F4C88AC003FAF19 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +246,7 @@
 		3159AEBE1F4C8B60003FAF19 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				315738DF1FB4B45B00A19CD8 /* YYFPSLabel */,
 				3159AECD1F4C8C00003FAF19 /* BMXibCellVC.h */,
 				3159AECE1F4C8C00003FAF19 /* BMXibCellVC.m */,
 				3159AECF1F4C8C00003FAF19 /* BMXibCellVC.xib */,
@@ -753,7 +771,9 @@
 				32A243CE1F501FF200224A43 /* BMRootVC.m in Sources */,
 				32545A401F9DD94700E3F939 /* UITableView+BMTemplateLayoutCell.m in Sources */,
 				32545A331F9DD80C00E3F939 /* UITableViewHeaderFooterView+BMReusable.m in Sources */,
+				315738E41FB4B45B00A19CD8 /* YYFPSLabel.m in Sources */,
 				32545A311F9DD80C00E3F939 /* UIScrollView+BMExtension.m in Sources */,
+				315738E51FB4B45B00A19CD8 /* YYWeakProxy.m in Sources */,
 				3159AECC1F4C8BEF003FAF19 /* BMModel.m in Sources */,
 				3159AED51F4C8CB2003FAF19 /* BMCell.m in Sources */,
 				32A243E21F50218E00224A43 /* BMMasonryTableViewHeaderView.m in Sources */,
