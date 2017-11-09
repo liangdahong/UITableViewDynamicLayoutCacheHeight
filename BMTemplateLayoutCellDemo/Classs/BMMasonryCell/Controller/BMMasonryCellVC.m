@@ -101,7 +101,7 @@
     while (arc--) {
         
         BMModel *model = [BMModel new];
-        int arci = arc4random_uniform(200)+10;
+        int arci = arc4random_uniform(50)+10;
         NSMutableString *string = [NSMutableString string];
         while (arci--) {
             if (arc4random_uniform(2)) {
@@ -111,7 +111,7 @@
             }
         }
         model.desc = string;
-        int arcd = arc4random_uniform(50)+10;
+        int arcd = arc4random_uniform(20)+10;
         NSMutableString *string1 = [NSMutableString string];
         while (arcd--) {
             if (arc4random_uniform(2)) {

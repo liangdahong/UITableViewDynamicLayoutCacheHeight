@@ -18,14 +18,14 @@
 
 @implementation BMCell
 
-- (void)setModel:(BMModel *)model {
-    if (_model == model) {
-        return;
-    }
-    _model = model;
-    self.titleLabel.text = [NSString stringWithFormat:@"%@ - %@", model.name, model.ID];
-    self.iconImageView.image = [UIImage imageNamed:model.icon];
-    self.descLabel.text = model.desc;
+- (void)draw {
+    self.titleLabel.text = [NSString stringWithFormat:@"%@ - %@", _model.name, _model.ID];
+    self.iconImageView.image = [UIImage imageNamed:_model.icon];
+    self.descLabel.text = _model.desc;
 }
 
+- (void)clear {
+    self.titleLabel.text = @"";
+    self.descLabel.text = @"";
+}
 @end

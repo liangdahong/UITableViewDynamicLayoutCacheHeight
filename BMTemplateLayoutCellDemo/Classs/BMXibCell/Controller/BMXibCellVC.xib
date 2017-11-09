@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BMXibCellVC">
             <connections>
-                <outlet property="tableView" destination="1eC-Jz-MQA" id="6xd-ex-c7p"/>
+                <outlet property="tableView" destination="1eC-Jz-MQA" id="z2z-uJ-Apt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,8 +20,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1eC-Jz-MQA">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1eC-Jz-MQA" customClass="BMTableView">
+                    <rect key="frame" x="7" y="11" width="368" height="656"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="screenRotating" value="YES"/>
@@ -39,6 +39,7 @@
                 <constraint firstItem="1eC-Jz-MQA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gqS-pU-BN6"/>
                 <constraint firstAttribute="trailing" secondItem="1eC-Jz-MQA" secondAttribute="trailing" id="oJV-Wy-0Ry"/>
             </constraints>
+            <point key="canvasLocation" x="-175" y="18"/>
         </view>
     </objects>
 </document>

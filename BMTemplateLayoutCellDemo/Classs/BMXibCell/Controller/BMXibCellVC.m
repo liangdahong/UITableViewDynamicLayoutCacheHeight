@@ -13,10 +13,15 @@
 #import "UITableViewCell+BMReusable.h"
 #import "BMModel.h"
 #import "BMCell.h"
+#import "BMTableView.h"
 
 @interface BMXibCellVC () <UITableViewDelegate, UITableViewDataSource>
+{
+    NSMutableArray *needLoadArr;
+    BOOL scrollToToping;
+}
 
-@property (strong, nonatomic) UITableView *tableView;
+@property (weak, nonatomic) IBOutlet BMTableView *tableView;
 @property (strong, nonatomic) NSMutableArray <BMModel *> *dataArray;
 
 @end
@@ -28,6 +33,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    needLoadArr = [@[] mutableCopy];
+    _tableView.block = ^{
+        if (!scrollToToping) {
+            [needLoadArr removeAllObjects];
+            [self loadContent];
+        }
+    };
+    _tableView.scrollsToTop = NO;
     [self setUI];
 }
 
@@ -55,7 +68,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(BMCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    cell.model = self.dataArray[indexPath.row];
+    [self drawCell:cell withIndexPath:indexPath];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -64,14 +77,82 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     BMModel *model = self.dataArray[indexPath.row];
-//    return [tableView bm_heightForCellWithCellClass:BMCell.class cacheByKey:model.ID configuration:^(__kindof BMCell *cell) {
-//        cell.model = model;
-//    }];    
     return [tableView bm_heightForCellWithCellClass:BMCell.class cacheByIndexPath:indexPath configuration:^(__kindof BMCell *cell) {
         cell.model = model;
+        [cell draw];
     }];
 }
 
+//按需加载 - 如果目标行与当前行相差超过指定行数，只在目标滚动范围的前后指定3行加载。
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+    
+    NSIndexPath *ip = [self.tableView indexPathForRowAtPoint:CGPointMake(0, targetContentOffset->y)];
+    
+    NSIndexPath *cip = [[self.tableView indexPathsForVisibleRows] firstObject];
+    
+    NSInteger skipCount = 8;
+    if (labs(cip.row-ip.row)>skipCount) {
+        NSArray *temp = [self.tableView indexPathsForRowsInRect:CGRectMake(0, targetContentOffset->y, self.tableView.bm_width, self.tableView.bm_height)];
+        NSMutableArray *arr = [NSMutableArray arrayWithArray:temp];
+        if (velocity.y<0) {
+            NSIndexPath *indexPath = [temp lastObject];
+            if (indexPath.row+3<self.dataArray.count) {
+                [arr addObject:[NSIndexPath indexPathForRow:indexPath.row+1 inSection:0]];
+                [arr addObject:[NSIndexPath indexPathForRow:indexPath.row+2 inSection:0]];
+                [arr addObject:[NSIndexPath indexPathForRow:indexPath.row+3 inSection:0]];
+            }
+        } else {
+            NSIndexPath *indexPath = [temp firstObject];
+            if (indexPath.row>3) {
+                [arr addObject:[NSIndexPath indexPathForRow:indexPath.row-3 inSection:0]];
+                [arr addObject:[NSIndexPath indexPathForRow:indexPath.row-2 inSection:0]];
+                [arr addObject:[NSIndexPath indexPathForRow:indexPath.row-1 inSection:0]];
+            }
+        }
+        [needLoadArr addObjectsFromArray:arr];
+    }
+}
+
+- (void)drawCell:(BMCell *)cell withIndexPath:(NSIndexPath *)indexPath {
+    cell.model = self.dataArray[indexPath.row];
+    // clear
+//    cell.TESTLABEL.text = nil;
+    // 如果没有加载的有 而且不包含当前
+    if (needLoadArr.count > 0
+        && [needLoadArr indexOfObject:indexPath] == NSNotFound) {
+//        cell.model = self.dataArray[indexPath.row];
+        [cell clear];
+        return;
+    }
+    if (scrollToToping) {
+        [cell clear];
+        return;
+    } 
+    [cell draw];
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    [needLoadArr removeAllObjects];
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
+    scrollToToping = NO;
+    [self loadContent];
+}
+
+- (void)loadContent{
+    if (scrollToToping) {
+        return;
+    }
+    if (self.tableView.indexPathsForVisibleRows.count<=0) {
+        return;
+    }
+    if (self.tableView.visibleCells&&self.tableView.visibleCells.count>0) {
+        for (id temp in [self.tableView.visibleCells copy]) {
+            [(BMCell *)temp draw];
+        }
+    }
+}
 #pragma mark - 自定义delegate
 #pragma mark - 公有方法
 #pragma mark - 私有方法
@@ -84,25 +165,25 @@
     while (arc--) {
         
         BMModel *model = [BMModel new];
-        int arci = arc4random_uniform(200)+10;
+        int arci = arc4random_uniform(60)+10;
         NSMutableString *string = [NSMutableString string];
         while (arci--) {
             if (arc4random_uniform(2)) {
                 [string appendString:@"消称称称称"];
             } else {
-                [string appendString:@"息称称称称称称称称"];
+                [string appendString:@"息称称称称称"];
             }
         }
         [string appendString:@"。[我的的的的]"];
 
         model.desc = string;
-        int arcd = arc4random_uniform(50)+10;
+        int arcd = arc4random_uniform(20)+10;
         NSMutableString *string1 = [NSMutableString string];
         while (arcd--) {
             if (arc4random_uniform(2)) {
-                [string1 appendString:@"名称称称称称称称称称称称称称称称称称称称称称称称称"];
+                [string1 appendString:@"名称称称称"];
             } else {
-                [string1 appendString:@"称称称称称称称称称"];
+                [string1 appendString:@"称称称"];
             }
         }
         
