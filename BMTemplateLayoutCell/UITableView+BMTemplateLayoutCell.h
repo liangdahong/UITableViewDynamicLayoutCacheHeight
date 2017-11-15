@@ -29,12 +29,14 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  BMLayoutCellConfigurationBlock
  
  @param cell 需要布局的Cell
  */
-typedef void (^BMLayoutCellConfigurationBlock)(__kindof UITableViewCell *cell);
+typedef void (^BMLayoutCellConfigurationBlock)( __kindof UITableViewCell *cell);
 
 /**
  BMLayoutHeaderFooterViewConfigurationBlock
@@ -122,3 +124,5 @@ IB_DESIGNABLE
 - (CGFloat)bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:(Class)clas cacheByKey:(NSString *)key configuration:(BMLayoutHeaderFooterViewConfigurationBlock)configuration;
 
 @end
+
+NS_ASSUME_NONNULL_END
