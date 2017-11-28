@@ -13,19 +13,22 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UILabel *descLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 @end
 
 @implementation BMCell
 
 - (void)draw {
-    self.titleLabel.text = [NSString stringWithFormat:@"%@ - %@", _model.name, _model.ID];
-    self.iconImageView.image = [UIImage imageNamed:_model.icon];
-    self.descLabel.text = _model.desc;
+    _titleLabel.text = [NSString stringWithFormat:@"%@ - %@", _model.name, _model.ID];
+    _iconImageView.image = [UIImage imageNamed:_model.icon];
+    _descLabel.text = _model.desc;
+    _timeLabel.text  = @"2017年11月28日11:41:03";
 }
 
 - (void)clear {
-    self.titleLabel.text = @"";
-    self.descLabel.text = @"";
+    _titleLabel.text = @"";
+    _descLabel.text  = @"";
+    _timeLabel.text  = @"";
 }
 @end

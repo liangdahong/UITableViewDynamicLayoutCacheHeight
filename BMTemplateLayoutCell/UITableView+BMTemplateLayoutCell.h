@@ -21,12 +21,6 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-/**
- ****************************************************************
-代码正在优化中
- ****************************************************************
- */
-
 #import <UIKit/UIKit.h>
 
 /**
@@ -120,5 +114,14 @@ IB_DESIGNABLE
  @return 应该的高度
  */
 - (CGFloat)bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:(Class)clas cacheByKey:(NSString *)key configuration:(BMLayoutHeaderFooterViewConfigurationBlock)configuration;
+
+@end
+
+#pragma mark - UITableViewCell BMTemplateLayoutCell
+
+IB_DESIGNABLE
+@interface UITableViewCell (BMTemplateLayoutCell)
+
+@property (assign, nonatomic, getter=isNoFixedBottomView) IBInspectable BOOL noFixedBottomView; ///< 不固定的底部View
 
 @end

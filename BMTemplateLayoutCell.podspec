@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name         = 'BMTemplateLayoutCell'
-s.version      = '1.0.6'
+s.version      = '1.0.7'
 s.summary      = 'Template autolayout cell for automatically UITableViewCell UITableViewHeaderFooterView height calculating'
 s.homepage     = 'https://github.com/asiosldh/UITableView-BMTemplateLayoutCell'
 s.license      = 'MIT'

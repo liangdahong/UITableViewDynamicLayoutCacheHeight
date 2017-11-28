@@ -75,6 +75,12 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
 
 @end
 
+@interface  UITableViewCell ()
+
+@property (nonatomic, strong) UIView *linView; ///< linView
+
+@end
+
 @implementation UITableView (BMTemplateLayoutCell)
 
 - (BOOL)isScreenRotating {
@@ -124,14 +130,32 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
     cell.frame = CGRectMake(0, 0, self.frame.size.width, 0);
     configuration(cell);
     [cell.superview layoutIfNeeded];
-    __block CGFloat maxY = 0;
-    [cell.contentView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (maxY <  CGRectGetMaxY(obj.frame)) {
-            maxY = CGRectGetMaxY(obj.frame);
+    if (!cell.isNoFixedBottomView) {
+        if (cell.linView) {
+            return CGRectGetMaxY(cell.linView.frame) + .5;
+        } else {
+            __block CGFloat maxY = 0;
+            __block UIView *v = nil;
+            [cell.contentView.subviews enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if (maxY <  CGRectGetMaxY(obj.frame)) {
+                    maxY = CGRectGetMaxY(obj.frame);
+                    v = obj;
+                }
+            }];
+            maxY += .5;
+            cell.linView = v;
+            return maxY;
         }
-    }];
-    maxY += .5;
-    return maxY;
+    } else {
+        __block CGFloat maxY = 0;
+        [cell.contentView.subviews enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (maxY <  CGRectGetMaxY(obj.frame)) {
+                maxY = CGRectGetMaxY(obj.frame);
+            }
+        }];
+        maxY += .5;
+        return maxY;
+    }
 }
 
 - (CGFloat)bm_heightForCellWithCellClass:(Class)clas configuration:(BMLayoutCellConfigurationBlock)configuration {
@@ -433,7 +457,7 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
     configuration(tableViewHeaderFooterView);
     [tableViewHeaderFooterView.superview layoutIfNeeded];
     __block CGFloat maxY = 0;
-    [tableViewHeaderFooterView.contentView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [tableViewHeaderFooterView.contentView.subviews enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (maxY <  CGRectGetMaxY(obj.frame)) {
             maxY = CGRectGetMaxY(obj.frame);
         }
@@ -442,3 +466,24 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
 }
 
 @end
+
+@implementation UITableViewCell (BMTemplateLayoutCell)
+
+- (BOOL)isNoFixedBottomView {
+    return [objc_getAssociatedObject(self, _cmd) boolValue];
+}
+
+- (void)setNoFixedBottomView:(BOOL)noFixedBottomView {
+    objc_setAssociatedObject(self, @selector(isNoFixedBottomView), @(noFixedBottomView), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (UIView *)linView {
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+- (void)setLinView:(UIView *)linView {
+    objc_setAssociatedObject(self, @selector(linView), linView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+@end
+

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		313300C71F5462CF001D6552 /* BMXibHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 313300C61F5462CF001D6552 /* BMXibHeader.m */; };
-		315738DE1FB4ADD700A19CD8 /* BMTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 315738DD1FB4ADD700A19CD8 /* BMTableView.m */; };
 		315738E41FB4B45B00A19CD8 /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 315738E11FB4B45B00A19CD8 /* YYFPSLabel.m */; };
 		315738E51FB4B45B00A19CD8 /* YYWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 315738E31FB4B45B00A19CD8 /* YYWeakProxy.m */; };
 		3159AECC1F4C8BEF003FAF19 /* BMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3159AECB1F4C8BEF003FAF19 /* BMModel.m */; };
@@ -41,6 +40,7 @@
 		3259ABD51F41571800B250DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3259ABD31F41571800B250DA /* LaunchScreen.storyboard */; };
 		3259ABE01F41571800B250DA /* BMTemplateLayoutCellDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3259ABDF1F41571800B250DA /* BMTemplateLayoutCellDemoTests.m */; };
 		3259ABEB1F41571800B250DA /* BMTemplateLayoutCellDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3259ABEA1F41571800B250DA /* BMTemplateLayoutCellDemoUITests.m */; };
+		3295A1001FCD13A6006A8EA0 /* UITableView+BMDynamicLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 3295A0FF1FCD13A6006A8EA0 /* UITableView+BMDynamicLoad.m */; };
 		32A243CE1F501FF200224A43 /* BMRootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A243C91F501FF200224A43 /* BMRootVC.m */; };
 		32A243CF1F501FF200224A43 /* BMRootVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32A243CA1F501FF200224A43 /* BMRootVC.xib */; };
 		32A243D01F501FF200224A43 /* BMSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A243CD1F501FF200224A43 /* BMSettingModel.m */; };
@@ -78,8 +78,6 @@
 /* Begin PBXFileReference section */
 		313300C51F5462CF001D6552 /* BMXibHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMXibHeader.h; sourceTree = "<group>"; };
 		313300C61F5462CF001D6552 /* BMXibHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMXibHeader.m; sourceTree = "<group>"; };
-		315738DC1FB4ADD700A19CD8 /* BMTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMTableView.h; sourceTree = "<group>"; };
-		315738DD1FB4ADD700A19CD8 /* BMTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMTableView.m; sourceTree = "<group>"; };
 		315738E01FB4B45B00A19CD8 /* YYFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYFPSLabel.h; sourceTree = "<group>"; };
 		315738E11FB4B45B00A19CD8 /* YYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFPSLabel.m; sourceTree = "<group>"; };
 		315738E21FB4B45B00A19CD8 /* YYWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYWeakProxy.h; sourceTree = "<group>"; };
@@ -128,6 +126,8 @@
 		3259ABE61F41571800B250DA /* BMTemplateLayoutCellDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BMTemplateLayoutCellDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3259ABEA1F41571800B250DA /* BMTemplateLayoutCellDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMTemplateLayoutCellDemoUITests.m; sourceTree = "<group>"; };
 		3259ABEC1F41571800B250DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3295A0FE1FCD13A6006A8EA0 /* UITableView+BMDynamicLoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+BMDynamicLoad.h"; sourceTree = "<group>"; };
+		3295A0FF1FCD13A6006A8EA0 /* UITableView+BMDynamicLoad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+BMDynamicLoad.m"; sourceTree = "<group>"; };
 		32A243C81F501FF200224A43 /* BMRootVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMRootVC.h; sourceTree = "<group>"; };
 		32A243C91F501FF200224A43 /* BMRootVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMRootVC.m; sourceTree = "<group>"; };
 		32A243CA1F501FF200224A43 /* BMRootVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMRootVC.xib; sourceTree = "<group>"; };
@@ -266,8 +266,8 @@
 		3159AEC01F4C8B60003FAF19 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				315738DC1FB4ADD700A19CD8 /* BMTableView.h */,
-				315738DD1FB4ADD700A19CD8 /* BMTableView.m */,
+				3295A0FE1FCD13A6006A8EA0 /* UITableView+BMDynamicLoad.h */,
+				3295A0FF1FCD13A6006A8EA0 /* UITableView+BMDynamicLoad.m */,
 				3159AED31F4C8CB2003FAF19 /* BMCell.h */,
 				3159AED21F4C8CB2003FAF19 /* BMCell.m */,
 				3159AED41F4C8CB2003FAF19 /* BMCell.xib */,
@@ -314,7 +314,6 @@
 		32545A351F9DD8F300E3F939 /* BMTemplateLayoutCell */ = {
 			isa = PBXGroup;
 			children = (
-				3259ABC41F41571800B250DA /* BMTemplateLayoutCellDemo */,
 				32545A3E1F9DD94700E3F939 /* UITableView+BMTemplateLayoutCell.h */,
 				32545A3F1F9DD94700E3F939 /* UITableView+BMTemplateLayoutCell.m */,
 			);
@@ -326,6 +325,7 @@
 			children = (
 				32545A381F9DD8F300E3F939 /* BMTemplateLayoutCell.podspec */,
 				32545A351F9DD8F300E3F939 /* BMTemplateLayoutCell */,
+				3259ABC41F41571800B250DA /* BMTemplateLayoutCellDemo */,
 				3259ABDE1F41571800B250DA /* BMTemplateLayoutCellDemoTests */,
 				3259ABE91F41571800B250DA /* BMTemplateLayoutCellDemoUITests */,
 				3259ABC31F41571800B250DA /* Products */,
@@ -778,12 +778,12 @@
 				3159AED51F4C8CB2003FAF19 /* BMCell.m in Sources */,
 				32A243E21F50218E00224A43 /* BMMasonryTableViewHeaderView.m in Sources */,
 				3159AED01F4C8C00003FAF19 /* BMXibCellVC.m in Sources */,
+				3295A1001FCD13A6006A8EA0 /* UITableView+BMDynamicLoad.m in Sources */,
 				313300C71F5462CF001D6552 /* BMXibHeader.m in Sources */,
 				32545A341F9DD80C00E3F939 /* UIView+BMExtension.m in Sources */,
 				32A243DE1F50207000224A43 /* BMMasonryHeaderFooterVC.m in Sources */,
 				32F6EF2B1F4EA65F00CD60AB /* BMMasonryCell.m in Sources */,
 				32545A321F9DD80C00E3F939 /* UITableViewCell+BMReusable.m in Sources */,
-				315738DE1FB4ADD700A19CD8 /* BMTableView.m in Sources */,
 				32A243D01F501FF200224A43 /* BMSettingModel.m in Sources */,
 				32B095BC1F41577F0076096D /* AppDelegate.m in Sources */,
 			);

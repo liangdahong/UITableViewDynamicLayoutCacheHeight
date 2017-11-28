@@ -13,15 +13,14 @@
 #import "UITableViewCell+BMReusable.h"
 #import "BMModel.h"
 #import "BMCell.h"
-#import "BMTableView.h"
+#import "UITableView+BMDynamicLoad.h"
 
 @interface BMXibCellVC () <UITableViewDelegate, UITableViewDataSource>
 {
     NSMutableArray *needLoadArr;
-    BOOL scrollToToping;
 }
 
-@property (weak, nonatomic) IBOutlet BMTableView *tableView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray <BMModel *> *dataArray;
 
 @end
@@ -34,13 +33,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     needLoadArr = [@[] mutableCopy];
-    _tableView.block = ^{
-        if (!scrollToToping) {
-            [needLoadArr removeAllObjects];
-            [self loadContent];
-        }
+    _tableView.hitTestBlock = ^{
+        [needLoadArr removeAllObjects];
+        [self loadContent];
     };
-    _tableView.scrollsToTop = NO;
+//    _tableView.scrollsToTop = NO;
     [self setUI];
 }
 
@@ -83,27 +80,29 @@
     }];
 }
 
-//按需加载 - 如果目标行与当前行相差超过指定行数，只在目标滚动范围的前后指定3行加载。
+// 按需加载 - 如果目标行与当前行相差超过指定行数，只在目标滚动范围的前后指定3行加载。
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-    
+    // 将要滚动到的 NSIndexPath
     NSIndexPath *ip = [self.tableView indexPathForRowAtPoint:CGPointMake(0, targetContentOffset->y)];
-    
+    // 当前的 NSIndexPath
     NSIndexPath *cip = [[self.tableView indexPathsForVisibleRows] firstObject];
-    
-    NSInteger skipCount = 8;
+    // 当前位置和结束位置多余 skipCount 就需要按需加载处理（这个数字一般需考虑tableView高度和Cell的平均高度来估计）建议tableView高度 / 最小的Cell的高度
+    NSInteger skipCount = 10;
+    // 目标index的前后多少行
+    NSInteger count = 3;
     if (labs(cip.row-ip.row)>skipCount) {
         NSArray *temp = [self.tableView indexPathsForRowsInRect:CGRectMake(0, targetContentOffset->y, self.tableView.bm_width, self.tableView.bm_height)];
         NSMutableArray *arr = [NSMutableArray arrayWithArray:temp];
         if (velocity.y<0) {
             NSIndexPath *indexPath = [temp lastObject];
-            if (indexPath.row+3<self.dataArray.count) {
+            if (indexPath.row+count<self.dataArray.count) {
                 [arr addObject:[NSIndexPath indexPathForRow:indexPath.row+1 inSection:0]];
                 [arr addObject:[NSIndexPath indexPathForRow:indexPath.row+2 inSection:0]];
                 [arr addObject:[NSIndexPath indexPathForRow:indexPath.row+3 inSection:0]];
             }
         } else {
             NSIndexPath *indexPath = [temp firstObject];
-            if (indexPath.row>3) {
+            if (indexPath.row>count) {
                 [arr addObject:[NSIndexPath indexPathForRow:indexPath.row-3 inSection:0]];
                 [arr addObject:[NSIndexPath indexPathForRow:indexPath.row-2 inSection:0]];
                 [arr addObject:[NSIndexPath indexPathForRow:indexPath.row-1 inSection:0]];
@@ -115,19 +114,11 @@
 
 - (void)drawCell:(BMCell *)cell withIndexPath:(NSIndexPath *)indexPath {
     cell.model = self.dataArray[indexPath.row];
-    // clear
-//    cell.TESTLABEL.text = nil;
-    // 如果没有加载的有 而且不包含当前
     if (needLoadArr.count > 0
         && [needLoadArr indexOfObject:indexPath] == NSNotFound) {
-//        cell.model = self.dataArray[indexPath.row];
         [cell clear];
         return;
     }
-    if (scrollToToping) {
-        [cell clear];
-        return;
-    } 
     [cell draw];
 }
 
@@ -136,14 +127,16 @@
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
-    scrollToToping = NO;
     [self loadContent];
 }
 
+- (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView{
+    CGPoint p = CGPointZero;
+    [self scrollViewWillEndDragging:scrollView withVelocity:scrollView.contentOffset targetContentOffset:&p];
+    return YES;
+}
+
 - (void)loadContent{
-    if (scrollToToping) {
-        return;
-    }
     if (self.tableView.indexPathsForVisibleRows.count<=0) {
         return;
     }
@@ -153,6 +146,7 @@
         }
     }
 }
+
 #pragma mark - 自定义delegate
 #pragma mark - 公有方法
 #pragma mark - 私有方法
@@ -163,7 +157,6 @@
     int arc = 20;
     NSMutableArray *mua = [@[] mutableCopy];
     while (arc--) {
-        
         BMModel *model = [BMModel new];
         int arci = arc4random_uniform(60)+10;
         NSMutableString *string = [NSMutableString string];
@@ -186,9 +179,7 @@
                 [string1 appendString:@"称称称"];
             }
         }
-        
         [string1 appendString:@"。[我的的的的]"];
-        
         model.name = string1;
         if (arc4random_uniform(2)) {
             model.icon = [NSString stringWithFormat:@"%d.jpg", arc4random_uniform(8) + 1];
@@ -199,8 +190,6 @@
         [self.dataArray addObject:model];
         [mua addObject:[NSIndexPath  indexPathForRow:self.dataArray.count - 1 inSection:0]];
     }
-    
-    
     [self.tableView reloadData];
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:self.dataArray.count - 1 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionBottom];
