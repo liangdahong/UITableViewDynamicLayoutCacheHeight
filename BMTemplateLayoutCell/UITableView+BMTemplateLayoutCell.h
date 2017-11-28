@@ -119,6 +119,8 @@ IB_DESIGNABLE
 
 @end
 
+NS_ASSUME_NONNULL_END
+
 #pragma mark - UITableViewCell BMTemplateLayoutCell
 
 IB_DESIGNABLE
