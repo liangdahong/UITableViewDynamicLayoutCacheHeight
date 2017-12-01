@@ -126,6 +126,9 @@ NS_ASSUME_NONNULL_END
 IB_DESIGNABLE
 @interface UITableViewCell (BMTemplateLayoutCell)
 
-@property (assign, nonatomic, getter=isNoFixedBottomView) IBInspectable BOOL noFixedBottomView; ///< 不固定的底部View
+/**
+ 是否固定底部View，默认:NO（不固定）,如果可以保证最底部的View的固定的可置YES,适当提高性能。
+ */
+@property (assign, nonatomic, getter=isFixedBottomView) IBInspectable BOOL fixedBottomView;
 
 @end

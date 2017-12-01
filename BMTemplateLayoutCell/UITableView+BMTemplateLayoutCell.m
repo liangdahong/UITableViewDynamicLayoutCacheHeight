@@ -24,7 +24,31 @@
 #import "UITableView+BMTemplateLayoutCell.h"
 #import <objc/runtime.h>
 
-BOOL isPortraitRotating (UITableView *self) {
+void bm_templateLayoutCell_get_view_subviews_MaxY(UIView *view, CGFloat *maxY, UIView **maxYView) {
+    if (!view)return;
+    __block CGFloat mY = 0;
+    if (maxYView) {
+        __block UIView *v = nil;
+        [view.subviews enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (mY <  CGRectGetMaxY(obj.frame)) {
+                mY = CGRectGetMaxY(obj.frame);
+                v = obj;
+            }
+        }];
+        *maxYView = v;
+    } else {
+        [view.subviews enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (mY <  CGRectGetMaxY(obj.frame)) {
+                mY = CGRectGetMaxY(obj.frame);
+            }
+        }];
+    }
+    if (maxY) {
+        *maxY = mY;
+    }
+}
+
+BOOL bm_templateLayoutCell_is_portrait_rotating (UITableView *self) {
     if (!self.isScreenRotating) {
         return YES;
     }
@@ -130,29 +154,23 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
     cell.frame = CGRectMake(0, 0, self.frame.size.width, 0);
     configuration(cell);
     [cell.superview layoutIfNeeded];
-    if (!cell.isNoFixedBottomView) {
+    if (cell.isFixedBottomView) {
+        // cell 的最底部View是固定的
         if (cell.linView) {
+            // 如果有关联就可直接取最底部View的MaxY为Cell的高度
             return CGRectGetMaxY(cell.linView.frame) + .5;
         } else {
-            __block CGFloat maxY = 0;
+            // 还没有关联就遍历获取最大Y，同时关联
+            CGFloat maxY = 0;
             __block UIView *v = nil;
-            [cell.contentView.subviews enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                if (maxY <  CGRectGetMaxY(obj.frame)) {
-                    maxY = CGRectGetMaxY(obj.frame);
-                    v = obj;
-                }
-            }];
-            maxY += .5;
+            bm_templateLayoutCell_get_view_subviews_MaxY(cell.contentView, &maxY, &v);
             cell.linView = v;
+            maxY += .5;
             return maxY;
         }
     } else {
-        __block CGFloat maxY = 0;
-        [cell.contentView.subviews enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if (maxY <  CGRectGetMaxY(obj.frame)) {
-                maxY = CGRectGetMaxY(obj.frame);
-            }
-        }];
+        CGFloat maxY = 0;
+        bm_templateLayoutCell_get_view_subviews_MaxY(cell.contentView, &maxY, nil);
         maxY += .5;
         return maxY;
     }
@@ -176,14 +194,14 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
         return [self bm_heightForCellWithCellClass:clas configuration:configuration];
     }
     NSString *key = [NSString stringWithFormat:@"%ld-%ld", (long)indexPath.section, (long)indexPath.row];
-    NSNumber *heightValue = (isPortraitRotating(self) ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key];
+    NSNumber *heightValue = (bm_templateLayoutCell_is_portrait_rotating(self) ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key];
     if (heightValue) {
         BMTemplateLayoutCellLog(@"%@已缓存了 取缓存:%@", indexPath, heightValue);
         return bm_templateLayoutCell_height(heightValue);
     }
     UIView *tempView = [self bm_tempViewCellWithCellClass:clas];
     CGFloat height = [self bm_layoutIfNeededCellWith:tempView.subviews[0] configuration:configuration];
-    (isPortraitRotating(self) ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key] = @(height);
+    (bm_templateLayoutCell_is_portrait_rotating(self) ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key] = @(height);
     BMTemplateLayoutCellLog(@"%@没有缓存 布局获取到的高度是:%f", indexPath, height);
     return height;
 }
@@ -195,14 +213,14 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
     if (!key || key.length == 0) {
         return [self bm_heightForCellWithCellClass:clas configuration:configuration];
     }
-    NSNumber *heightValue = (isPortraitRotating(self) ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key];
+    NSNumber *heightValue = (bm_templateLayoutCell_is_portrait_rotating(self) ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key];
     if (heightValue) {
         BMTemplateLayoutCellLog(@"cacheByKey:%@ 取缓存:%@", key, heightValue);
         return bm_templateLayoutCell_height(heightValue);
     }
     UIView *tempView = [self bm_tempViewCellWithCellClass:clas];
     CGFloat height = [self bm_layoutIfNeededCellWith:tempView.subviews[0] configuration:configuration];
-    (isPortraitRotating(self) ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key] = @(height);
+    (bm_templateLayoutCell_is_portrait_rotating(self) ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key] = @(height);
     return height;
 }
 
@@ -393,7 +411,7 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
 
 - (CGFloat)bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:(Class)clas isHeaderView:(BOOL)isHeaderView section:(NSInteger)section configuration:(BMLayoutHeaderFooterViewConfigurationBlock)configuration {
     NSString *key = [NSString stringWithFormat:@"%@:%ld", isHeaderView ? @"Header" : @ "Footer" ,(long)section];
-    NSNumber *heightValue = (isPortraitRotating(self) ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key];
+    NSNumber *heightValue = (bm_templateLayoutCell_is_portrait_rotating(self) ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key];
     // 有缓存就直接返回
     if (heightValue) {
         BMTemplateLayoutCellLog(@"组头部%ld已缓存了 取缓存:%@", (long)section, heightValue);
@@ -404,7 +422,7 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
     // 布局获取高度
     CGFloat height = [self bm_layoutIfNeededHeaderFooterViewWith:tempView.subviews[0] configuration:configuration];
     // 缓存起来
-    (isPortraitRotating(self) ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key] = @(height);
+    (bm_templateLayoutCell_is_portrait_rotating(self) ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key] = @(height);
     BMTemplateLayoutCellLog(@"组头部%ld没有缓存 布局获取到的高度是:%f", (long)section, height);
     return height;
 }
@@ -417,7 +435,7 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
         return [self bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:clas configuration:configuration];
     }
     
-    NSNumber *heightValue = ((isPortraitRotating(self)) ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key];
+    NSNumber *heightValue = ((bm_templateLayoutCell_is_portrait_rotating(self)) ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key];
     // 有缓存就直接返回
     if (heightValue) {
         return bm_templateLayoutCell_height(heightValue);
@@ -427,7 +445,7 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
     // 布局获取高度
     CGFloat height = [self bm_layoutIfNeededHeaderFooterViewWith:tempView.subviews[0] configuration:configuration];
     // 缓存起来
-    (isPortraitRotating(self) ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key] = @(height);
+    (bm_templateLayoutCell_is_portrait_rotating(self) ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key] = @(height);
     return height;
 }
 
@@ -456,12 +474,8 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
     tableViewHeaderFooterView.frame = CGRectMake(0, 0, self.frame.size.width, 0);
     configuration(tableViewHeaderFooterView);
     [tableViewHeaderFooterView.superview layoutIfNeeded];
-    __block CGFloat maxY = 0;
-    [tableViewHeaderFooterView.contentView.subviews enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (maxY <  CGRectGetMaxY(obj.frame)) {
-            maxY = CGRectGetMaxY(obj.frame);
-        }
-    }];
+    CGFloat maxY = 0;
+    bm_templateLayoutCell_get_view_subviews_MaxY(tableViewHeaderFooterView.contentView, &maxY, nil);
     return maxY;
 }
 
@@ -469,12 +483,12 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
 
 @implementation UITableViewCell (BMTemplateLayoutCell)
 
-- (BOOL)isNoFixedBottomView {
+- (BOOL)isFixedBottomView {
     return [objc_getAssociatedObject(self, _cmd) boolValue];
 }
 
-- (void)setNoFixedBottomView:(BOOL)noFixedBottomView {
-    objc_setAssociatedObject(self, @selector(isNoFixedBottomView), @(noFixedBottomView), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setFixedBottomView:(BOOL)fixedBottomView {
+    objc_setAssociatedObject(self, @selector(isFixedBottomView), @(fixedBottomView), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (UIView *)linView {
@@ -486,4 +500,3 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
 }
 
 @end
-
