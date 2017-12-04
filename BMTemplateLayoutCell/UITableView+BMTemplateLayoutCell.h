@@ -127,8 +127,21 @@ IB_DESIGNABLE
 @interface UITableViewCell (BMTemplateLayoutCell)
 
 /**
- 是否固定底部View，默认:NO（不固定）,如果可以保证最底部的View的固定的可置YES,适当提高性能。
+ 最大Y的View是否为变化的，默认:NO（固定）,如果Cell的最大Y的View是变化的请设置为YES,通常是在设置了2个最大View时使用。
  */
-@property (assign, nonatomic, getter=isFixedBottomView) IBInspectable BOOL fixedBottomView;
+@property (assign, nonatomic, getter=isDynamicCellBottomView) IBInspectable BOOL dynamicCellBottomView;
 
 @end
+
+#pragma mark - UITableViewHeaderFooterView BMTemplateLayoutCell
+
+IB_DESIGNABLE
+@interface UITableViewHeaderFooterView (BMTemplateLayoutCell)
+
+/**
+ 最大Y的View是否为变化的，默认:NO（固定）,如果UITableViewHeaderFooterView的最大Y的View是变化的请设置为YES,通常是在设置了2个最大View时使用。
+ */
+@property (assign, nonatomic, getter=isDynamicHeaderFooterBottomView) IBInspectable BOOL dynamicHeaderFooterBottomView;
+
+@end
+

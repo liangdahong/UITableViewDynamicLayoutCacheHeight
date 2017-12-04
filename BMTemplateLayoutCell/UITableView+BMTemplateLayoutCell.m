@@ -24,7 +24,7 @@
 #import "UITableView+BMTemplateLayoutCell.h"
 #import <objc/runtime.h>
 
-void bm_templateLayoutCell_get_view_subviews_MaxY(UIView *view, CGFloat *maxY, UIView **maxYView) {
+void bm_templateLayout_get_view_subviews_MaxY(UIView *view, CGFloat *maxY, UIView **maxYView) {
     if (!view)return;
     __block CGFloat mY = 0;
     if (maxYView) {
@@ -105,6 +105,12 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
 
 @end
 
+@interface  UITableViewHeaderFooterView ()
+
+@property (nonatomic, strong) UIView *linView; ///< linView
+
+@end
+
 @implementation UITableView (BMTemplateLayoutCell)
 
 - (BOOL)isScreenRotating {
@@ -154,7 +160,7 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
     cell.frame = CGRectMake(0, 0, self.frame.size.width, 0);
     configuration(cell);
     [cell.superview layoutIfNeeded];
-    if (cell.isFixedBottomView) {
+    if (!cell.isDynamicCellBottomView) {
         // cell 的最底部View是固定的
         if (cell.linView) {
             // 如果有关联就可直接取最底部View的MaxY为Cell的高度
@@ -163,14 +169,14 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
             // 还没有关联就遍历获取最大Y，同时关联
             CGFloat maxY = 0;
             __block UIView *v = nil;
-            bm_templateLayoutCell_get_view_subviews_MaxY(cell.contentView, &maxY, &v);
+            bm_templateLayout_get_view_subviews_MaxY(cell.contentView, &maxY, &v);
             cell.linView = v;
             maxY += .5;
             return maxY;
         }
     } else {
         CGFloat maxY = 0;
-        bm_templateLayoutCell_get_view_subviews_MaxY(cell.contentView, &maxY, nil);
+        bm_templateLayout_get_view_subviews_MaxY(cell.contentView, &maxY, nil);
         maxY += .5;
         return maxY;
     }
@@ -473,22 +479,61 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
     tableViewHeaderFooterView.superview.frame = CGRectMake(0, 0, self.frame.size.width, 0);
     tableViewHeaderFooterView.frame = CGRectMake(0, 0, self.frame.size.width, 0);
     configuration(tableViewHeaderFooterView);
+
     [tableViewHeaderFooterView.superview layoutIfNeeded];
-    CGFloat maxY = 0;
-    bm_templateLayoutCell_get_view_subviews_MaxY(tableViewHeaderFooterView.contentView, &maxY, nil);
-    return maxY;
+    
+    if (!tableViewHeaderFooterView.isDynamicHeaderFooterBottomView) {
+        // cell 的最底部View是固定的
+        if (tableViewHeaderFooterView.linView) {
+            // 如果有关联就可直接取最底部View的MaxY为Cell的高度
+            return CGRectGetMaxY(tableViewHeaderFooterView.linView.frame);
+        } else {
+            // 还没有关联就遍历获取最大Y，同时关联
+            CGFloat maxY = 0;
+            __block UIView *v = nil;
+            bm_templateLayout_get_view_subviews_MaxY(tableViewHeaderFooterView.contentView, &maxY, &v);
+            tableViewHeaderFooterView.linView = v;
+            return maxY;
+        }
+    } else {
+        CGFloat maxY = 0;
+        bm_templateLayout_get_view_subviews_MaxY(tableViewHeaderFooterView.contentView, &maxY, nil);
+        return maxY;
+    }
 }
 
 @end
 
 @implementation UITableViewCell (BMTemplateLayoutCell)
 
-- (BOOL)isFixedBottomView {
+- (BOOL)isDynamicCellBottomView {
     return [objc_getAssociatedObject(self, _cmd) boolValue];
 }
 
-- (void)setFixedBottomView:(BOOL)fixedBottomView {
-    objc_setAssociatedObject(self, @selector(isFixedBottomView), @(fixedBottomView), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setDynamicCellBottomView:(BOOL)dynamicCellBottomView {
+    objc_setAssociatedObject(self, @selector(isDynamicCellBottomView), @(dynamicCellBottomView), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (UIView *)linView {
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+- (void)setLinView:(UIView *)linView {
+    objc_setAssociatedObject(self, @selector(linView), linView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+@end
+
+#pragma mark - UITableViewHeaderFooterView BMTemplateLayoutCell
+
+@implementation UITableViewHeaderFooterView (BMTemplateLayoutCell)
+
+- (BOOL)isDynamicHeaderFooterBottomView {
+    return [objc_getAssociatedObject(self, _cmd) boolValue];
+}
+
+- (void)setDynamicHeaderFooterBottomView:(BOOL)dynamicHeaderFooterBottomView {
+    objc_setAssociatedObject(self, @selector(isDynamicHeaderFooterBottomView), @(dynamicHeaderFooterBottomView), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (UIView *)linView {

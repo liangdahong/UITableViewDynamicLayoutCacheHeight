@@ -170,7 +170,7 @@
         [string appendString:@"。[我的的的的]"];
 
         model.desc = string;
-        int arcd = arc4random_uniform(20)+10;
+        int arcd = arc4random_uniform(60)+10;
         NSMutableString *string1 = [NSMutableString string];
         while (arcd--) {
             if (arc4random_uniform(2)) {
