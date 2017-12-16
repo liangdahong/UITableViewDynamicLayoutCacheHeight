@@ -139,7 +139,7 @@ IB_DESIGNABLE
 @interface UITableViewHeaderFooterView (BMTemplateLayoutCell)
 
 /**
- 最大Y的View是否为变化的，默认:NO（固定）,如果UITableViewHeaderFooterView的最大Y的View是变化的请设置为YES,通常是在设置了2个最大View时使用。
+ 最大Y的View是否为变化的，默认:NO（固定）,如果UITableViewHeaderFooterView的最大Y的View是变化的请设置为YES,通常是在设置了2个（更多）最大View时使用。
  */
 @property (assign, nonatomic, getter=isDynamicHeaderFooterBottomView) IBInspectable BOOL dynamicHeaderFooterBottomView;
 
