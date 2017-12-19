@@ -30,16 +30,18 @@ void bm_templateLayout_get_view_subviews_MaxY(UIView *view, CGFloat *maxY, UIVie
     if (maxYView) {
         __block UIView *v = nil;
         [view.subviews enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if (mY <  CGRectGetMaxY(obj.frame)) {
-                mY = CGRectGetMaxY(obj.frame);
+            CGFloat objY = CGRectGetMaxY(obj.frame);
+            if (mY < objY) {
+                mY = objY;
                 v = obj;
             }
         }];
         *maxYView = v;
     } else {
         [view.subviews enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if (mY <  CGRectGetMaxY(obj.frame)) {
-                mY = CGRectGetMaxY(obj.frame);
+            CGFloat objY = CGRectGetMaxY(obj.frame);
+            if (mY < objY) {
+                mY = objY;
             }
         }];
     }
