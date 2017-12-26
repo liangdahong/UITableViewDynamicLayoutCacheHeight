@@ -24,9 +24,9 @@
 #import "UITableView+BMTemplateLayoutCell.h"
 #import <objc/runtime.h>
 
-void bm_templateLayout_get_view_subviews_MaxY(UIView *view, CGFloat *maxY, UIView **maxYView) {
+void bm_templateLayout_get_view_subviews_MaxY(UIView *view, CGFloat *maxY, UIView * __autoreleasing *maxYView) {
     if (!view)return;
-    __block CGFloat mY = 0;
+    __block CGFloat mY = 0.0f;
     if (maxYView) {
         __block UIView *v = nil;
         [view.subviews enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -50,26 +50,16 @@ void bm_templateLayout_get_view_subviews_MaxY(UIView *view, CGFloat *maxY, UIVie
     }
 }
 
-BOOL bm_templateLayoutCell_is_portrait_rotating (UITableView *self) {
-    if (!self.isScreenRotating) {
+BOOL bm_templateLayoutCell_is_portrait_rotating (UITableView *tableView) {
+    if (!tableView.isScreenRotating) {
         return YES;
     }
     return (CGRectGetWidth([[UIScreen mainScreen] bounds]) < CGRectGetHeight([[UIScreen mainScreen] bounds]));
 }
 
-/**
- 交换2个方法的调用
- 
- @param class class
- @param originalSelector originalSelector
- @param swizzledSelector swizzledSelector
- */
 void bm_templateLayoutCell_swizzleMethod(Class class, SEL originalSelector, SEL swizzledSelector) {
-    // 1.获取旧 Method
     Method originalMethod = class_getInstanceMethod(class, originalSelector);
-    // 2.获取新 Method
     Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
-    // 3.交换方法
     if (class_addMethod(class, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod))) {
         class_replaceMethod(class, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
     } else {
@@ -158,29 +148,29 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
 }
 
 - (CGFloat)bm_layoutIfNeededCellWith:(UITableViewCell *)cell configuration:(BMLayoutCellConfigurationBlock)configuration {
-    cell.superview.frame = CGRectMake(0, 0, self.frame.size.width, 0);
-    cell.frame = CGRectMake(0, 0, self.frame.size.width, 0);
+    cell.superview.frame = CGRectMake(0.0f, 0.0f, self.frame.size.width, 0.0f);
+    cell.frame           = CGRectMake(0.0f, 0.0f, self.frame.size.width, 0.0f);
     configuration(cell);
     [cell.superview layoutIfNeeded];
     if (!cell.isDynamicCellBottomView) {
         // cell 的最底部View是固定的
         if (cell.linView) {
             // 如果有关联就可直接取最底部View的MaxY为Cell的高度
-            return CGRectGetMaxY(cell.linView.frame) + .5;
+            return CGRectGetMaxY(cell.linView.frame) + .5f;
         } else {
             // 还没有关联就遍历获取最大Y，同时关联
-            CGFloat maxY = 0;
-            __block UIView *v = nil;
+            CGFloat maxY = 0.0f;
+            UIView *v = nil;
             bm_templateLayout_get_view_subviews_MaxY(cell.contentView, &maxY, &v);
             cell.linView = v;
-            maxY += .5;
-            return maxY;
+            // +.5f 是为了处理Cell 的系统分割线问题
+            return (maxY + .5f);
         }
     } else {
-        CGFloat maxY = 0;
+        CGFloat maxY = 0.0f;
         bm_templateLayout_get_view_subviews_MaxY(cell.contentView, &maxY, nil);
-        maxY += .5;
-        return maxY;
+        // +.5f 是为了处理Cell 的系统分割线问题
+        return (maxY + .5f);
     }
 }
 
@@ -216,7 +206,7 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
 
 - (CGFloat)bm_heightForCellWithCellClass:(Class)clas cacheByKey:(NSString *)key configuration:(BMLayoutCellConfigurationBlock)configuration {
     if (!clas || !configuration) {
-        return 0;
+        return 0.0f;
     }
     if (!key || key.length == 0) {
         return [self bm_heightForCellWithCellClass:clas configuration:configuration];
@@ -437,7 +427,7 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
 
 - (CGFloat)bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:(Class)clas cacheByKey:(NSString *)key configuration:(BMLayoutHeaderFooterViewConfigurationBlock)configuration {
     if (!clas || !configuration) {
-        return 0;
+        return 0.0f;
     }
     if (!key || key.length == 0) {
         return [self bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:clas configuration:configuration];
@@ -469,7 +459,7 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
         // 没有绑定就创建
         UITableViewHeaderFooterView *noCachetableViewHeaderFooterView = [[clas alloc] initWithReuseIdentifier:noReuseIdentifier];
         // 绑定起来
-        tempView = [UIView new];
+        tempView = UIView.new;
         [tempView addSubview:noCachetableViewHeaderFooterView];
         objc_setAssociatedObject(self, (__bridge const void *)(noReuseIdentifierChar), tempView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         BMTemplateLayoutCellLog(@"第一次创建 %@ 的布局对象 HeaderFooterView：%@", clas, noCachetableViewHeaderFooterView);
@@ -483,7 +473,7 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
     configuration(tableViewHeaderFooterView);
 
     [tableViewHeaderFooterView.superview layoutIfNeeded];
-    
+
     if (!tableViewHeaderFooterView.isDynamicHeaderFooterBottomView) {
         // cell 的最底部View是固定的
         if (tableViewHeaderFooterView.linView) {
@@ -491,14 +481,14 @@ CGFloat bm_templateLayoutCell_height(NSNumber *value) {
             return CGRectGetMaxY(tableViewHeaderFooterView.linView.frame);
         } else {
             // 还没有关联就遍历获取最大Y，同时关联
-            CGFloat maxY = 0;
-            __block UIView *v = nil;
+            CGFloat maxY = 0.0f;
+            UIView *v    = nil;
             bm_templateLayout_get_view_subviews_MaxY(tableViewHeaderFooterView.contentView, &maxY, &v);
             tableViewHeaderFooterView.linView = v;
             return maxY;
         }
     } else {
-        CGFloat maxY = 0;
+        CGFloat maxY = 0.0f;
         bm_templateLayout_get_view_subviews_MaxY(tableViewHeaderFooterView.contentView, &maxY, nil);
         return maxY;
     }

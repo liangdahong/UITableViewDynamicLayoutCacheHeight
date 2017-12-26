@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @param cell 需要布局的Cell
  */
-typedef void (^BMLayoutCellConfigurationBlock)( __kindof UITableViewCell *cell);
+typedef void (^BMLayoutCellConfigurationBlock)(__kindof UITableViewCell *cell);
 
 /**
  BMLayoutHeaderFooterViewConfigurationBlock
@@ -119,8 +119,6 @@ IB_DESIGNABLE
 
 @end
 
-NS_ASSUME_NONNULL_END
-
 #pragma mark - UITableViewCell BMTemplateLayoutCell
 
 IB_DESIGNABLE
@@ -145,3 +143,4 @@ IB_DESIGNABLE
 
 @end
 
+NS_ASSUME_NONNULL_END
