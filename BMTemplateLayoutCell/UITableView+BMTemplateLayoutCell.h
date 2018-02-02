@@ -50,7 +50,7 @@ IB_DESIGNABLE
 @property (assign, nonatomic, getter=isScreenRotating) IBInspectable BOOL screenRotating; ///< 是否支持屏幕旋转，默认NO
 
 /**
- 获取 Cell 的高度（内部不做任何缓存操作））
+ 获取 Cell 的高度（内部不做任何缓存操作）
  
  @param clas Cell Class
  @param configuration 布局block
@@ -59,7 +59,7 @@ IB_DESIGNABLE
 - (CGFloat)bm_heightForCellWithCellClass:(Class)clas configuration:(BMLayoutCellConfigurationBlock)configuration;
 
 /**
- 获取 Cell 的高度（内部自动处理缓存））
+ 获取 Cell 的高度（内部自动处理缓存）
  
  @param clas Cell Class
  @param indexPath 内部会使用 indexPath 做缓存
@@ -69,10 +69,10 @@ IB_DESIGNABLE
 - (CGFloat)bm_heightForCellWithCellClass:(Class)clas cacheByIndexPath:(NSIndexPath *)indexPath configuration:(BMLayoutCellConfigurationBlock)configuration;
 
 /**
- 获取 Cell 的高度（内部自动处理缓存））
+ 获取 Cell 的高度（内部自动处理缓存，推荐使用）
  
  @param clas Cell Class
- @param key 唯一key，内部会以次key来做缓存
+ @param key 唯一key，内部以此key来做缓存key
  @param configuration 布局block
  @return 应该的高度
  */
