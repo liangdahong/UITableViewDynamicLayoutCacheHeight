@@ -19,7 +19,6 @@
 		32545A341F9DD80C00E3F939 /* UIView+BMExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 32545A301F9DD80C00E3F939 /* UIView+BMExtension.m */; };
 		32545A3A1F9DD8F300E3F939 /* BMTemplateLayoutCell.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 32545A381F9DD8F300E3F939 /* BMTemplateLayoutCell.podspec */; };
 		32545A401F9DD94700E3F939 /* UITableView+BMTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32545A3F1F9DD94700E3F939 /* UITableView+BMTemplateLayoutCell.m */; };
-		3259ABD01F41571800B250DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3259ABCE1F41571800B250DA /* Main.storyboard */; };
 		3259ABD21F41571800B250DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3259ABD11F41571800B250DA /* Assets.xcassets */; };
 		3259ABD51F41571800B250DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3259ABD31F41571800B250DA /* LaunchScreen.storyboard */; };
 		3259ABE01F41571800B250DA /* BMTemplateLayoutCellDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3259ABDF1F41571800B250DA /* BMTemplateLayoutCellDemoTests.m */; };
@@ -92,7 +91,6 @@
 		32545A3E1F9DD94700E3F939 /* UITableView+BMTemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+BMTemplateLayoutCell.h"; sourceTree = "<group>"; };
 		32545A3F1F9DD94700E3F939 /* UITableView+BMTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+BMTemplateLayoutCell.m"; sourceTree = "<group>"; };
 		3259ABC21F41571800B250DA /* BMTemplateLayoutCellDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BMTemplateLayoutCellDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3259ABCF1F41571800B250DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3259ABD11F41571800B250DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3259ABD41F41571800B250DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3259ABD61F41571800B250DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -313,7 +311,6 @@
 				32B095B41F41577F0076096D /* AppDelegate */,
 				32B095B91F41577F0076096D /* Classs */,
 				32B0960E1F4157F40076096D /* Category */,
-				3259ABCE1F41571800B250DA /* Main.storyboard */,
 				3259ABD11F41571800B250DA /* Assets.xcassets */,
 				3259ABD31F41571800B250DA /* LaunchScreen.storyboard */,
 				3259ABD61F41571800B250DA /* Info.plist */,
@@ -655,7 +652,6 @@
 				326871DD20313C3600CB277E /* 7.png in Resources */,
 				32545A3A1F9DD8F300E3F939 /* BMTemplateLayoutCell.podspec in Resources */,
 				32A243CF1F501FF200224A43 /* BMRootVC.xib in Resources */,
-				3259ABD01F41571800B250DA /* Main.storyboard in Resources */,
 				3159AED11F4C8C00003FAF19 /* BMXibCellVC.xib in Resources */,
 				326871D720313C3600CB277E /* 1.png in Resources */,
 				326871DB20313C3600CB277E /* 5.png in Resources */,
@@ -792,14 +788,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3259ABCE1F41571800B250DA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3259ABCF1F41571800B250DA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3259ABD31F41571800B250DA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
