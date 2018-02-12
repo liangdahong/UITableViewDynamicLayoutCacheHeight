@@ -26,7 +26,7 @@
     self.window.rootViewController = nav;
     
     YYFPSLabel *label = [YYFPSLabel new];
-    label.frame = CGRectMake(10, 100, 60, 20);
+    label.frame = CGRectMake(10, 20, 60, 20);
     [self.window addSubview:label];
     return YES;
 }

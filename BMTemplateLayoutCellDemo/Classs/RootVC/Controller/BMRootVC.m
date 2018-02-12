@@ -44,14 +44,21 @@
     if (!_modelArray) {
         _modelArray = @[
                         @[
-                            [BMSettingModel modelWithTitle:@"xib cell" selector:@selector(xibCell:)],
-                            [BMSettingModel modelWithTitle:@"masonry cell" selector:@selector(masonryCell:)]
+                            [BMSettingModel modelWithTitle:@"使用Xib 创建的 Cell" selector:@selector(xibCell:)],
+                            ]
+                        ];
+        /*
+        _modelArray = @[
+                        @[
+                            [BMSettingModel modelWithTitle:@"使用Xib 创建的 Cell" selector:@selector(xibCell:)],
+                            [BMSettingModel modelWithTitle:@"使用Masonry 创建的 Cell" selector:@selector(masonryCell:)]
                             ],
                         @[
-                            [BMSettingModel modelWithTitle:@"xib header footer" selector:@selector(xibHeaderFooter:)],
-                            [BMSettingModel modelWithTitle:@"masonry header footer" selector:@selector(masonryHeaderFooter:)],
-                          ]
+                            [BMSettingModel modelWithTitle:@"使用Xib 创建的 HeaderFooter" selector:@selector(xibHeaderFooter:)],
+                            [BMSettingModel modelWithTitle:@"使用Masonry 创建的 HeaderFooter" selector:@selector(masonryHeaderFooter:)],
+                            ]
                         ];
+         */
     }
     return _modelArray;
 }

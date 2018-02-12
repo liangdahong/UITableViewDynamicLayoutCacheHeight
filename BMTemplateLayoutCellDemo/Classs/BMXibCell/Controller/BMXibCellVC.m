@@ -15,8 +15,7 @@
 #import "BMCell.h"
 #import "UITableView+BMDynamicLoad.h"
 
-@interface BMXibCellVC () <UITableViewDelegate, UITableViewDataSource>
-{
+@interface BMXibCellVC () <UITableViewDelegate, UITableViewDataSource> {
     NSMutableArray *needLoadArr;
 }
 
@@ -37,12 +36,6 @@
         [needLoadArr removeAllObjects];
         [self loadContent];
     };
-//    _tableView.scrollsToTop = NO;
-    [self setUI];
-}
-
-- (void)setUI {
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"加一点数据" style:0 target:self action:@selector(addModelClock)];
 }
 
 #pragma mark - getters setters
@@ -50,6 +43,32 @@
 - (NSMutableArray<BMModel *> *)dataArray {
     if (!_dataArray) {
         _dataArray = [@[] mutableCopy];
+        static NSInteger count = 0;
+        int arc = 100;
+        NSMutableArray *mua = [@[] mutableCopy];
+        while (arc--) {
+            BMModel *model = [BMModel new];
+            int arci = arc4random_uniform(20) + 1;
+            NSMutableString *string = [NSMutableString string];
+            while (arci--) {
+                [string appendString:@"消息消息消息"];
+            }
+            [string appendString:@"详情完~"];
+            
+            model.desc = string;
+            int arcd = arc4random_uniform(5)+1;
+            NSMutableString *string1 = [NSMutableString string];
+            while (arcd--) {
+                [string1 appendString:@"标题标题标题"];
+            }
+            [string1 appendString:@"标题完~"];
+            model.name = string1;
+            model.icon = [NSString stringWithFormat:@"%d.png", arc4random_uniform(8) + 1];
+            model.ID = [NSString stringWithFormat:@"%ld", (long)count++];
+            [self.dataArray addObject:model];
+            [mua addObject:[NSIndexPath indexPathForRow:self.dataArray.count - 1 inSection:0]];
+        }
+        [self.tableView reloadData];
     }
     return _dataArray;
 }
@@ -151,49 +170,4 @@
 #pragma mark - 公有方法
 #pragma mark - 私有方法
 #pragma mark - 事件响应
-
-- (void)addModelClock {
-    static NSInteger count = 0;
-    int arc = 20;
-    NSMutableArray *mua = [@[] mutableCopy];
-    while (arc--) {
-        BMModel *model = [BMModel new];
-        int arci = arc4random_uniform(60)+10;
-        NSMutableString *string = [NSMutableString string];
-        while (arci--) {
-            if (arc4random_uniform(2)) {
-                [string appendString:@"消称称称称"];
-            } else {
-                [string appendString:@"息称称称称称"];
-            }
-        }
-        [string appendString:@"。[我的的的的]"];
-
-        model.desc = string;
-        int arcd = arc4random_uniform(60)+10;
-        NSMutableString *string1 = [NSMutableString string];
-        while (arcd--) {
-            if (arc4random_uniform(2)) {
-                [string1 appendString:@"名称称称称"];
-            } else {
-                [string1 appendString:@"称称称"];
-            }
-        }
-        [string1 appendString:@"。[我的的的的]"];
-        model.name = string1;
-        if (arc4random_uniform(2)) {
-            model.icon = [NSString stringWithFormat:@"%d.jpg", arc4random_uniform(8) + 1];
-        } else {
-            model.icon = [NSString stringWithFormat:@"%d.png", arc4random_uniform(5) + 1];
-        }
-        model.ID = [NSString stringWithFormat:@"%ld", (long)count++];
-        [self.dataArray addObject:model];
-        [mua addObject:[NSIndexPath  indexPathForRow:self.dataArray.count - 1 inSection:0]];
-    }
-    [self.tableView reloadData];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:self.dataArray.count - 1 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionBottom];
-    });
-}
-
 @end
