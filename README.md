@@ -39,6 +39,10 @@
 ###   gif效果图
 
 <p align="center">
+<img src="Resources/0.gif" width="100%">
+</p>
+
+<p align="center">
 <img src="Resources/1.gif" width="100%">
 </p>
 
