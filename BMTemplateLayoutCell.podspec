@@ -6,7 +6,7 @@ s.homepage     = 'https://github.com/asiosldh/UITableView-BMTemplateLayoutCell'
 s.license      = 'MIT'
 s.authors      = {'liangdahong' => 'ios@liangdahong.com'}
 s.platform     = :ios, '6.0'
-s.source       = {:git => 'https://github.com/asiosldh/UITableView-BMTemplateLayoutCell.git', :tag => s.version}
+s.source       = {:git => 'https://github.com/liangdahong/UITableView-BMTemplateLayoutCell.git', :tag => s.version}
 s.source_files = 'BMTemplateLayoutCell/**/*.{h,m}'
 s.requires_arc = true
 end
