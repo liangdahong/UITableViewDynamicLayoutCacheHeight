@@ -95,7 +95,7 @@
 2. 执行 `pod install` 或 `pod update`
 3. 使用的地方导入      
 4. ` #import <BMTemplateLayoutCell/UITableView+BMTemplateLayoutCell.h> `
-5. 如果`pod`无法找到 `BMTemplateLayoutCell`可用 `pod setup`或 `rm ~/Library/Caches/CocoaPods/search_index.json` 在 `pod search BMTemplateLayoutCell`
+5. 如果`pod`无法找到 `BMTemplateLayoutCell`可用 `pod setup`或 `rm ~/Library/Caches/CocoaPods/search_index.json` 在 `pod search UITableView-BMTemplateLayoutCell `
 
 ## 手动安装
 
