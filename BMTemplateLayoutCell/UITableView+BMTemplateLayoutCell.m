@@ -2,6 +2,7 @@
 //  UITableView+BMTemplateLayoutCell.m
 //
 //  Copyright © 2017年 https://github.com/asiosldh/UITableView-BMTemplateLayoutCell All rights reserved.
+//  Copyright © 2017年 https://liangdahong.com All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,7 +25,7 @@
 #import "UITableView+BMTemplateLayoutCell.h"
 #import <objc/runtime.h>
 
-void bm_templateLayout_get_view_subviews_MaxY(UIView *view, CGFloat *maxY, UIView * __autoreleasing *maxYView) {
+static inline void bm_templateLayout_get_view_subviews_MaxY(UIView *view, CGFloat *maxY, UIView * __autoreleasing *maxYView) {
     if (!view)return;
     __block CGFloat mY = 0.0f;
     if (maxYView) {
@@ -50,14 +51,14 @@ void bm_templateLayout_get_view_subviews_MaxY(UIView *view, CGFloat *maxY, UIVie
     }
 }
 
-BOOL bm_templateLayoutCell_is_portrait_rotating (UITableView *tableView) {
+static inline BOOL bm_templateLayoutCell_is_portrait_rotating (UITableView *tableView) {
     if (!tableView.isScreenRotating) {
         return YES;
     }
     return (CGRectGetWidth([[UIScreen mainScreen] bounds]) < CGRectGetHeight([[UIScreen mainScreen] bounds]));
 }
 
-void bm_templateLayoutCell_swizzleMethod(Class class, SEL originalSelector, SEL swizzledSelector) {
+static inline void bm_templateLayoutCell_swizzleMethod(Class class, SEL originalSelector, SEL swizzledSelector) {
     Method originalMethod = class_getInstanceMethod(class, originalSelector);
     Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
     if (class_addMethod(class, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod))) {
@@ -67,7 +68,7 @@ void bm_templateLayoutCell_swizzleMethod(Class class, SEL originalSelector, SEL 
     }
 }
 
-CGFloat bm_templateLayoutCell_height(NSNumber *value) {
+static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
 #if CGFLOAT_IS_DOUBLE
     return value.doubleValue;
 #else
