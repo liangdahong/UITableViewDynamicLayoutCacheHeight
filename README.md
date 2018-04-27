@@ -86,10 +86,12 @@
 ```
 
 # 集成
+
 ## CocoaPods
+
 > 推荐使用 CocoaPods 安装,Cocoapods的使用请点这里[链接1](http://idhong.com/2016/10/26/cocoapods%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/)、[链接2](http://www.pluto-y.com/cocoapods-getting-stared/)、[链接3](http://blog.devtang.com/2014/05/25/use-cocoapod-to-manage-ios-lib-dependency/)
 
-1. 在 `Podfile ` 中添加 `pod 'BMTemplateLayoutCell'
+1. 在 `Podfile ` 中添加 `pod 'UITableView-BMTemplateLayoutCell' `
 2. 执行 `pod install` 或 `pod update`
 3. 使用的地方导入      
 4. ` #import <BMTemplateLayoutCell/UITableView+BMTemplateLayoutCell.h> `
@@ -103,19 +105,10 @@
 
 
 # 期待
-- 如果在使用过程中遇到BUG，希望您能[Issues](https://github.com/asiosldh/UITableView-BMTemplateLayoutCell/issues)我。
+- 如果在使用过程中遇到BUG，希望您能[Issues](https://github.com/liangdahong/UITableView-BMTemplateLayoutCell/issues)我。
 
 # 版本历史
-- v1.0.9
-- v1.0.8
-- v1.0.7
-- v1.0.6
-- v1.0.5
-- v1.0.4
-- v1.0.3
-- v1.0.2
-- v1.0.1
-- v1.0.0
+- 2.0.0
 
 # MIT
 `BMDragCellCollectionView` 使用 MIT 许可证，详情可见 [LICENSE](LICENSE) 文件
