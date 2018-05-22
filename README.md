@@ -93,10 +93,10 @@
 - 手动安装
 
 # 期待
-- 如果在使用过程中遇到BUG，希望您能[Issues](https://github.com/liangdahong/UITableView-BMTemplateLayoutCell/issues)我。
+- [Issues 我](https://github.com/liangdahong/UITableView-BMTemplateLayoutCell/issues)
 
 # 版本历史
+
 - 2.0.0
 
 # MIT
-`BMDragCellCollectionView` 使用 MIT 许可证，详情可见 [LICENSE](LICENSE) 文件
