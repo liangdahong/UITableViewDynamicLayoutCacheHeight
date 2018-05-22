@@ -87,22 +87,10 @@
 
 # 集成
 
-## CocoaPods
+- CocoaPods
+>  推荐使用 CocoaPods 安装,Cocoapods的使用请点这里[链接1](http://idhong.com/2016/10/26/cocoapods%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/)、[链接2](http://www.pluto-y.com/cocoapods-getting-stared/)、[链接3](http://blog.devtang.com/2014/05/25/use-cocoapod-to-manage-ios-lib-dependency/)
 
-> 推荐使用 CocoaPods 安装,Cocoapods的使用请点这里[链接1](http://idhong.com/2016/10/26/cocoapods%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/)、[链接2](http://www.pluto-y.com/cocoapods-getting-stared/)、[链接3](http://blog.devtang.com/2014/05/25/use-cocoapod-to-manage-ios-lib-dependency/)
-
-1. 在 `Podfile ` 中添加 `pod 'UITableView-BMTemplateLayoutCell' `
-2. 执行 `pod install` 或 `pod update`
-3. 使用的地方导入      
-4. ` #import <BMTemplateLayoutCell/UITableView+BMTemplateLayoutCell.h> `
-5. 如果`pod`无法找到 `BMTemplateLayoutCell`可用 `pod setup`或 `rm ~/Library/Caches/CocoaPods/search_index.json` 在 `pod search UITableView-BMTemplateLayoutCell `
-
-## 手动安装
-
-1. 通过 `Clone ` 或者 `download ` 下载`BMTemplateLayoutCell` 文件夹内的所有内容。
-2. 将 `BMTemplateLayoutCell` 内的源文件添加(拖放)到你的工程。
-3. 导入 `"UITableView+BMTemplateLayoutCell.h"`
-
+- 手动安装
 
 # 期待
 - 如果在使用过程中遇到BUG，希望您能[Issues](https://github.com/liangdahong/UITableView-BMTemplateLayoutCell/issues)我。
