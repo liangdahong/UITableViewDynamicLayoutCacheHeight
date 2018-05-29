@@ -157,21 +157,19 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
         // cell 的最底部View是固定的
         if (cell.linView) {
             // 如果有关联就可直接取最底部View的MaxY为Cell的高度
-            return CGRectGetMaxY(cell.linView.frame) + .5f;
+            return CGRectGetMaxY(cell.linView.frame);
         } else {
             // 还没有关联就遍历获取最大Y，同时关联
             CGFloat maxY = 0.0f;
             UIView *v = nil;
             bm_templateLayout_get_view_subviews_MaxY(cell.contentView, &maxY, &v);
             cell.linView = v;
-            // +.5f 是为了处理Cell 的系统分割线问题
-            return (maxY + .5f);
+            return maxY;
         }
     } else {
         CGFloat maxY = 0.0f;
         bm_templateLayout_get_view_subviews_MaxY(cell.contentView, &maxY, nil);
-        // +.5f 是为了处理Cell 的系统分割线问题
-        return (maxY + .5f);
+        return maxY;
     }
 }
 
@@ -472,16 +470,14 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
     tableViewHeaderFooterView.superview.frame = CGRectMake(0, 0, self.frame.size.width, 0);
     tableViewHeaderFooterView.frame = CGRectMake(0, 0, self.frame.size.width, 0);
     configuration(tableViewHeaderFooterView);
-
     [tableViewHeaderFooterView.superview layoutIfNeeded];
-
     if (!tableViewHeaderFooterView.isDynamicHeaderFooterBottomView) {
         // cell 的最底部View是固定的
         if (tableViewHeaderFooterView.linView) {
             // 如果有关联就可直接取最底部View的MaxY为Cell的高度
             return CGRectGetMaxY(tableViewHeaderFooterView.linView.frame);
         } else {
-            // 还没有关联就遍历获取最大Y，同时关联
+            // 还没有关联就遍历获取 MaxY，同时关联
             CGFloat maxY = 0.0f;
             UIView *v    = nil;
             bm_templateLayout_get_view_subviews_MaxY(tableViewHeaderFooterView.contentView, &maxY, &v);
