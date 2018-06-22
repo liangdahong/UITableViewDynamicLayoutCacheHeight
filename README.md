@@ -39,16 +39,16 @@
 ###   gif效果图
 
 <p align="center">
-<img src="Resources/0.gif" width="100%">
+<img src="Resources/0.gif" width="50%">
 </p>
 
 <p align="center">
-<img src="Resources/1.gif" width="100%">
+<img src="Resources/1.gif" width="50%">
 </p>
 
 ###  Xib约束图
 <p align="center">
-<img src="Resources/1.png" width="80%">
+<img src="Resources/1.png" width="50%">
 </p>
 
 ###  代码设置
