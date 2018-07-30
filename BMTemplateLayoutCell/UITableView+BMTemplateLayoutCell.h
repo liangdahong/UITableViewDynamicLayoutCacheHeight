@@ -1,7 +1,7 @@
 //
 //  UITableView+BMTemplateLayoutCell.h
 //
-//  Copyright © 2017年 https://github.com/asiosldh/UITableView-BMTemplateLayoutCell All rights reserved.
+//  Copyright © 2017年 https://github.com/liangdahong/UITableView-BMTemplateLayoutCell All rights reserved.
 //  Copyright © 2017年 https://liangdahong.com All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
