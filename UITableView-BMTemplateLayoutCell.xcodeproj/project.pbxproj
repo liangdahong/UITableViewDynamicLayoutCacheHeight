@@ -12,6 +12,7 @@
 		3209DBF4210ED484009FBF49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3209DBF2210ED484009FBF49 /* LaunchScreen.storyboard */; };
 		3209DBFF210ED484009FBF49 /* UITableView_BMTemplateLayoutCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3209DBFE210ED484009FBF49 /* UITableView_BMTemplateLayoutCellTests.m */; };
 		3209DC0A210ED484009FBF49 /* UITableView_BMTemplateLayoutCellUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3209DC09210ED484009FBF49 /* UITableView_BMTemplateLayoutCellUITests.m */; };
+		320D0DCA210EE0E4008B86E1 /* UITableView-BMTemplateLayoutCell.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 320D0DC9210EE0E4008B86E1 /* UITableView-BMTemplateLayoutCell.podspec */; };
 		320FBF49210ED4EA00204AF4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 320FBEF0210ED4EA00204AF4 /* AppDelegate.m */; };
 		320FBF4A210ED4EA00204AF4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 320FBEF1210ED4EA00204AF4 /* main.m */; };
 		320FBF4D210ED4EA00204AF4 /* UIScrollView+BMExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 320FBEFA210ED4EA00204AF4 /* UIScrollView+BMExtension.m */; };
@@ -82,6 +83,7 @@
 		3209DC05210ED484009FBF49 /* UITableView-BMTemplateLayoutCellUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UITableView-BMTemplateLayoutCellUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3209DC09210ED484009FBF49 /* UITableView_BMTemplateLayoutCellUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITableView_BMTemplateLayoutCellUITests.m; sourceTree = "<group>"; };
 		3209DC0B210ED484009FBF49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		320D0DC9210EE0E4008B86E1 /* UITableView-BMTemplateLayoutCell.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "UITableView-BMTemplateLayoutCell.podspec"; sourceTree = "<group>"; };
 		320FBEEF210ED4EA00204AF4 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		320FBEF0210ED4EA00204AF4 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		320FBEF1210ED4EA00204AF4 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 		3209DBD8210ED483009FBF49 = {
 			isa = PBXGroup;
 			children = (
+				320D0DC9210EE0E4008B86E1 /* UITableView-BMTemplateLayoutCell.podspec */,
 				3256FD25210EDD95001BAC9B /* BMTemplateLayoutCell */,
 				3209DBE3210ED483009FBF49 /* UITableView-BMTemplateLayoutCell */,
 				3209DBFD210ED484009FBF49 /* UITableView-BMTemplateLayoutCellTests */,
@@ -654,6 +657,7 @@
 				320FBF6F210ED4EA00204AF4 /* 7.png in Resources */,
 				320FBF5B210ED4EA00204AF4 /* BMCell.xib in Resources */,
 				320FBF65210ED4EA00204AF4 /* BMRootVC.xib in Resources */,
+				320D0DCA210EE0E4008B86E1 /* UITableView-BMTemplateLayoutCell.podspec in Resources */,
 				320FBF61210ED4EA00204AF4 /* BMXibHeaderFooterVC.xib in Resources */,
 				320FBF62210ED4EA00204AF4 /* BMMasonryView.xib in Resources */,
 				320FBF69210ED4EA00204AF4 /* 1.png in Resources */,
