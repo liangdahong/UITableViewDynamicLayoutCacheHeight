@@ -21,7 +21,8 @@
 
 - This is a Template auto layout cell for automatically UITableViewCell UITableViewHeaderFooterView calculating and cache height
  framework Objective-C Version.
- 
+- [Swift Version](https://github.com/liangdahong/UITableView-BMTemplateLayoutCell-Swift).
+
 ## License 📄
 
 - [MIT license](LICENSE).
