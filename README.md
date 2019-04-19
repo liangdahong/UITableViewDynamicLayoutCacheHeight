@@ -1,5 +1,9 @@
 <p align="center">
-    <img src="logo.jpg"/>
+    <img  width="50%" src="0.gif"/>
+<p/>
+
+
+<p align="center">
 
 <a href="#">
         <img src="https://img.shields.io/badge/platform-iOS-red.svg">
