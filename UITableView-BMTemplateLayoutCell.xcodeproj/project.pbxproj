@@ -10,8 +10,6 @@
 		3209DBEF210ED483009FBF49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3209DBED210ED483009FBF49 /* Main.storyboard */; };
 		3209DBF1210ED484009FBF49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3209DBF0210ED484009FBF49 /* Assets.xcassets */; };
 		3209DBF4210ED484009FBF49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3209DBF2210ED484009FBF49 /* LaunchScreen.storyboard */; };
-		3209DBFF210ED484009FBF49 /* UITableView_BMTemplateLayoutCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3209DBFE210ED484009FBF49 /* UITableView_BMTemplateLayoutCellTests.m */; };
-		3209DC0A210ED484009FBF49 /* UITableView_BMTemplateLayoutCellUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3209DC09210ED484009FBF49 /* UITableView_BMTemplateLayoutCellUITests.m */; };
 		320D0DCA210EE0E4008B86E1 /* UITableView-BMTemplateLayoutCell.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 320D0DC9210EE0E4008B86E1 /* UITableView-BMTemplateLayoutCell.podspec */; };
 		320FBF49210ED4EA00204AF4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 320FBEF0210ED4EA00204AF4 /* AppDelegate.m */; };
 		320FBF4A210ED4EA00204AF4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 320FBEF1210ED4EA00204AF4 /* main.m */; };
@@ -78,11 +76,7 @@
 		3209DBF3210ED484009FBF49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3209DBF5210ED484009FBF49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3209DBFA210ED484009FBF49 /* UITableView-BMTemplateLayoutCellTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UITableView-BMTemplateLayoutCellTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3209DBFE210ED484009FBF49 /* UITableView_BMTemplateLayoutCellTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITableView_BMTemplateLayoutCellTests.m; sourceTree = "<group>"; };
-		3209DC00210ED484009FBF49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3209DC05210ED484009FBF49 /* UITableView-BMTemplateLayoutCellUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UITableView-BMTemplateLayoutCellUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3209DC09210ED484009FBF49 /* UITableView_BMTemplateLayoutCellUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITableView_BMTemplateLayoutCellUITests.m; sourceTree = "<group>"; };
-		3209DC0B210ED484009FBF49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		320D0DC9210EE0E4008B86E1 /* UITableView-BMTemplateLayoutCell.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "UITableView-BMTemplateLayoutCell.podspec"; sourceTree = "<group>"; };
 		320FBEEF210ED4EA00204AF4 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		320FBEF0210ED4EA00204AF4 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -175,8 +169,6 @@
 				320D0DC9210EE0E4008B86E1 /* UITableView-BMTemplateLayoutCell.podspec */,
 				3256FD25210EDD95001BAC9B /* BMTemplateLayoutCell */,
 				3209DBE3210ED483009FBF49 /* UITableView-BMTemplateLayoutCell */,
-				3209DBFD210ED484009FBF49 /* UITableView-BMTemplateLayoutCellTests */,
-				3209DC08210ED484009FBF49 /* UITableView-BMTemplateLayoutCellUITests */,
 				3209DBE2210ED483009FBF49 /* Products */,
 				421B4A063284706D59E4ABA4 /* Pods */,
 				71B9F0729B18461F45A377E8 /* Frameworks */,
@@ -211,24 +203,6 @@
 			children = (
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		3209DBFD210ED484009FBF49 /* UITableView-BMTemplateLayoutCellTests */ = {
-			isa = PBXGroup;
-			children = (
-				3209DBFE210ED484009FBF49 /* UITableView_BMTemplateLayoutCellTests.m */,
-				3209DC00210ED484009FBF49 /* Info.plist */,
-			);
-			path = "UITableView-BMTemplateLayoutCellTests";
-			sourceTree = "<group>";
-		};
-		3209DC08210ED484009FBF49 /* UITableView-BMTemplateLayoutCellUITests */ = {
-			isa = PBXGroup;
-			children = (
-				3209DC09210ED484009FBF49 /* UITableView_BMTemplateLayoutCellUITests.m */,
-				3209DC0B210ED484009FBF49 /* Info.plist */,
-			);
-			path = "UITableView-BMTemplateLayoutCellUITests";
 			sourceTree = "<group>";
 		};
 		320FBEEE210ED4EA00204AF4 /* AppDelegate */ = {
@@ -737,7 +711,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3209DBFF210ED484009FBF49 /* UITableView_BMTemplateLayoutCellTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -745,7 +718,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3209DC0A210ED484009FBF49 /* UITableView_BMTemplateLayoutCellUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

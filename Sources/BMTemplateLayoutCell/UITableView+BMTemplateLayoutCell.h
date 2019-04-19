@@ -52,4 +52,5 @@ IB_DESIGNABLE
 + (instancetype)bm_tableViewHeaderFooterViewWithTableView:(UITableView *)tableView;
 
 @end
+
 NS_ASSUME_NONNULL_END

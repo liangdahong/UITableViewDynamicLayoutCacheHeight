@@ -30,7 +30,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"BMTemplateLayoutCell";
-    [self setUI];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
