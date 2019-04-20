@@ -1,4 +1,24 @@
+//    MIT License
+//
 //    Copyright (c) ( https://github.com/liangdahong )
+//
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the "Software"), to deal
+//    in the Software without restriction, including without limitation the rights
+//    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//    copies of the Software, and to permit persons to whom the Software is
+//    furnished to do so, subject to the following conditions:
+//
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
+//
+//    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//    SOFTWARE.
 
 #import "UITableView+BMTemplateLayoutCell.h"
 #import <objc/runtime.h>
@@ -127,6 +147,11 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
 }
 
 - (CGFloat)bm_layoutIfNeededCellWith:(UITableViewCell *)cell configuration:(BMLayoutCellConfigurationBlock)configuration {
+
+    if (self.superview) {
+        [self.superview layoutIfNeeded];
+    }
+
     cell.superview.frame = CGRectMake(0.0f, 0.0f, self.frame.size.width, 0.0f);
     cell.frame           = CGRectMake(0.0f, 0.0f, self.frame.size.width, 0.0f);
     configuration(cell);
@@ -433,7 +458,7 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
     }
     UIView *tempView = objc_getAssociatedObject(self, (__bridge const void *)(noReuseIdentifierChar));
     if (!tempView) {
-        
+        // 没有绑定就创建
         NSString *path = [[NSBundle mainBundle] pathForResource:NSStringFromClass(clas.class) ofType:@"nib"];
         UITableViewHeaderFooterView *noCachetableViewHeaderFooterView = nil;
         if (path.length) {
@@ -441,7 +466,8 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
         } else {
             noCachetableViewHeaderFooterView = [[clas alloc] initWithReuseIdentifier:noReuseIdentifier];
         }
-        
+
+        // 绑定起来
         tempView = UIView.new;
         [tempView addSubview:noCachetableViewHeaderFooterView];
         objc_setAssociatedObject(self, (__bridge const void *)(noReuseIdentifierChar), tempView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -451,34 +477,38 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
 }
 
 - (CGFloat)bm_layoutIfNeededHeaderFooterViewWith:(UITableViewHeaderFooterView *)tableViewHeaderFooterView configuration:(BMLayoutHeaderFooterViewConfigurationBlock)configuration {
+
+    if (self.superview) {
+        [self.superview layoutIfNeeded];
+    }
+
     tableViewHeaderFooterView.superview.frame = CGRectMake(0, 0, self.frame.size.width, 0);
     tableViewHeaderFooterView.frame = CGRectMake(0, 0, self.frame.size.width, 0);
     configuration(tableViewHeaderFooterView);
     [tableViewHeaderFooterView.superview layoutIfNeeded];
-    CGFloat maxY = 0.0f;
-    bm_templateLayout_get_view_subviews_MaxY(tableViewHeaderFooterView, &maxY, nil);
-    return maxY;
+    if (!tableViewHeaderFooterView.isDynamicHeaderFooterBottomView) {
+        // cell 的最底部View是固定的
+        if (tableViewHeaderFooterView.linView) {
+            // 如果有关联就可直接取最底部View的MaxY为Cell的高度
+            return CGRectGetMaxY(tableViewHeaderFooterView.linView.frame);
+        } else {
+            // 还没有关联就遍历获取 MaxY，同时关联
+            CGFloat maxY = 0.0f;
+            UIView *v    = nil;
+            bm_templateLayout_get_view_subviews_MaxY(tableViewHeaderFooterView, &maxY, &v);
+            tableViewHeaderFooterView.linView = v;
+            return maxY;
+        }
+    } else {
+        CGFloat maxY = 0.0f;
+        bm_templateLayout_get_view_subviews_MaxY(tableViewHeaderFooterView, &maxY, nil);
+        return maxY;
+    }
 }
 
 @end
 
 @implementation UITableViewCell (BMTemplateLayoutCell)
-
-+ (instancetype)bm_tableViewCellWithTableView:(UITableView *)tableView {
-    NSString *selfClassName = NSStringFromClass(self.class);
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:selfClassName];
-    if (cell) {
-        return cell;
-    }
-    NSString *path = [[NSBundle mainBundle] pathForResource:selfClassName ofType:@"nib"];
-    if (path.length) {
-        cell = [[[UINib nibWithNibName:selfClassName bundle:nil] instantiateWithOwner:nil options:nil] firstObject];
-        [cell setValue:selfClassName forKey:@"reuseIdentifier"];
-    } else {
-        cell = [[self alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:selfClassName];
-    }
-    return cell;
-}
 
 - (BOOL)isDynamicCellBottomView {
     return [objc_getAssociatedObject(self, _cmd) boolValue];
@@ -496,9 +526,43 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
     objc_setAssociatedObject(self, @selector(linView), linView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
++ (instancetype)bm_tableViewCellWithTableView:(UITableView *)tableView {
+    NSString *selfClassName = NSStringFromClass(self.class);
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:selfClassName];
+    if (cell) {
+        return cell;
+    }
+    NSString *path = [[NSBundle mainBundle] pathForResource:selfClassName ofType:@"nib"];
+    if (path.length) {
+        cell = [[[UINib nibWithNibName:selfClassName bundle:nil] instantiateWithOwner:nil options:nil] firstObject];
+        [cell setValue:selfClassName forKey:@"reuseIdentifier"];
+    } else {
+        cell = [[self alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:selfClassName];
+    }
+    return cell;
+}
+
 @end
 
+#pragma mark - UITableViewHeaderFooterView BMTemplateLayoutCell
+
 @implementation UITableViewHeaderFooterView (BMTemplateLayoutCell)
+
+- (BOOL)isDynamicHeaderFooterBottomView {
+    return [objc_getAssociatedObject(self, _cmd) boolValue];
+}
+
+- (void)setDynamicHeaderFooterBottomView:(BOOL)dynamicHeaderFooterBottomView {
+    objc_setAssociatedObject(self, @selector(isDynamicHeaderFooterBottomView), @(dynamicHeaderFooterBottomView), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (UIView *)linView {
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+- (void)setLinView:(UIView *)linView {
+    objc_setAssociatedObject(self, @selector(linView), linView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
 
 + (instancetype)bm_tableViewHeaderFooterViewWithTableView:(UITableView *)tableView {
     NSString *selfClassName = NSStringFromClass(self.class);
@@ -517,4 +581,3 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
 }
 
 @end
-

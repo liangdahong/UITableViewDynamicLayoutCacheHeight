@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04F8502B226B87680024E59D /* UIFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F85025226B87680024E59D /* UIFooterView.m */; };
+		04F8502C226B87680024E59D /* UIFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F85026226B87680024E59D /* UIFooterView.xib */; };
+		04F8502D226B87680024E59D /* BMHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F85029226B87680024E59D /* BMHeaderView.m */; };
+		04F8502E226B87680024E59D /* BMHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F8502A226B87680024E59D /* BMHeaderView.xib */; };
 		3209DBEF210ED483009FBF49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3209DBED210ED483009FBF49 /* Main.storyboard */; };
 		3209DBF1210ED484009FBF49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3209DBF0210ED484009FBF49 /* Assets.xcassets */; };
 		3209DBF4210ED484009FBF49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3209DBF2210ED484009FBF49 /* LaunchScreen.storyboard */; };
@@ -68,6 +72,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04F85024226B87680024E59D /* UIFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFooterView.h; sourceTree = "<group>"; };
+		04F85025226B87680024E59D /* UIFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFooterView.m; sourceTree = "<group>"; };
+		04F85026226B87680024E59D /* UIFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIFooterView.xib; sourceTree = "<group>"; };
+		04F85028226B87680024E59D /* BMHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMHeaderView.h; sourceTree = "<group>"; };
+		04F85029226B87680024E59D /* BMHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMHeaderView.m; sourceTree = "<group>"; };
+		04F8502A226B87680024E59D /* BMHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMHeaderView.xib; sourceTree = "<group>"; };
 		0D0CD9EB76A17AC811814CD2 /* Pods-UITableView-BMTemplateLayoutCell.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITableView-BMTemplateLayoutCell.release.xcconfig"; path = "Pods/Target Support Files/Pods-UITableView-BMTemplateLayoutCell/Pods-UITableView-BMTemplateLayoutCell.release.xcconfig"; sourceTree = "<group>"; };
 		166916146ABEF6010B362B9A /* libPods-UITableView-BMTemplateLayoutCell.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UITableView-BMTemplateLayoutCell.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3209DBE1210ED483009FBF49 /* UITableView-BMTemplateLayoutCell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UITableView-BMTemplateLayoutCell.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,6 +173,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04F85023226B87680024E59D /* UIFooterView */ = {
+			isa = PBXGroup;
+			children = (
+				04F85024226B87680024E59D /* UIFooterView.h */,
+				04F85025226B87680024E59D /* UIFooterView.m */,
+				04F85026226B87680024E59D /* UIFooterView.xib */,
+			);
+			path = UIFooterView;
+			sourceTree = "<group>";
+		};
+		04F85027226B87680024E59D /* BMHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				04F85028226B87680024E59D /* BMHeaderView.h */,
+				04F85029226B87680024E59D /* BMHeaderView.m */,
+				04F8502A226B87680024E59D /* BMHeaderView.xib */,
+			);
+			path = BMHeaderView;
+			sourceTree = "<group>";
+		};
 		3209DBD8210ED483009FBF49 = {
 			isa = PBXGroup;
 			children = (
@@ -267,7 +297,6 @@
 			children = (
 				320FBF05210ED4EA00204AF4 /* BMMasonryCell */,
 				320FBF0D210ED4EA00204AF4 /* BMMasonryHeaderFooter */,
-				320FBF15210ED4EA00204AF4 /* BMXibCell */,
 				320FBF29210ED4EA00204AF4 /* BMXibHeaderFooter */,
 				320FBF33210ED4EA00204AF4 /* RootVC */,
 				320FBF3B210ED4EA00204AF4 /* YYFPSLabel */,
@@ -363,6 +392,8 @@
 		320FBF1D210ED4EA00204AF4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04F85027226B87680024E59D /* BMHeaderView */,
+				04F85023226B87680024E59D /* UIFooterView */,
 				320FBF1E210ED4EA00204AF4 /* BMCell */,
 			);
 			path = View;
@@ -474,6 +505,7 @@
 		320FBF71210ED4EE00204AF4 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				320FBF15210ED4EA00204AF4 /* BMXibCell */,
 				320FBEEE210ED4EA00204AF4 /* AppDelegate */,
 				320FBEF7210ED4EA00204AF4 /* Category */,
 				320FBF04210ED4EA00204AF4 /* Classs */,
@@ -622,6 +654,7 @@
 				320FBF6A210ED4EA00204AF4 /* 2.png in Resources */,
 				3209DBF4210ED484009FBF49 /* LaunchScreen.storyboard in Resources */,
 				320FBF55210ED4EA00204AF4 /* BMMasonryHeaderFooterVC.xib in Resources */,
+				04F8502C226B87680024E59D /* UIFooterView.xib in Resources */,
 				320FBF6C210ED4EA00204AF4 /* 4.png in Resources */,
 				320FBF52210ED4EA00204AF4 /* BMMasonryCellVC.xib in Resources */,
 				320FBF6E210ED4EA00204AF4 /* 6.png in Resources */,
@@ -631,6 +664,7 @@
 				320FBF6F210ED4EA00204AF4 /* 7.png in Resources */,
 				320FBF5B210ED4EA00204AF4 /* BMCell.xib in Resources */,
 				320FBF65210ED4EA00204AF4 /* BMRootVC.xib in Resources */,
+				04F8502E226B87680024E59D /* BMHeaderView.xib in Resources */,
 				320D0DCA210EE0E4008B86E1 /* UITableView-BMTemplateLayoutCell.podspec in Resources */,
 				320FBF61210ED4EA00204AF4 /* BMXibHeaderFooterVC.xib in Resources */,
 				320FBF62210ED4EA00204AF4 /* BMMasonryView.xib in Resources */,
@@ -684,6 +718,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				320FBF60210ED4EA00204AF4 /* BMXibHeaderFooterVC.m in Sources */,
+				04F8502D226B87680024E59D /* BMHeaderView.m in Sources */,
+				04F8502B226B87680024E59D /* UIFooterView.m in Sources */,
 				320FBF66210ED4EA00204AF4 /* BMSettingModel.m in Sources */,
 				320FBF4F210ED4EA00204AF4 /* UITableViewHeaderFooterView+BMReusable.m in Sources */,
 				320FBF4D210ED4EA00204AF4 /* UIScrollView+BMExtension.m in Sources */,
