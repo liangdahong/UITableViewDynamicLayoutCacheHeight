@@ -105,7 +105,6 @@
 
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    NSLog(@"====-=-=-=-=-=%ld",section);
     BMHeaderView *view = [BMHeaderView bm_tableViewHeaderFooterViewWithTableView:tableView];
     view.contentView.backgroundColor = [UIColor redColor];
     return view;
@@ -117,18 +116,17 @@
     }];
 }
 
-//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-//    UIFooterView *view = [UIFooterView bm_tableViewHeaderFooterViewWithTableView:tableView];
-//    view.contentView.backgroundColor = [UIColor blueColor];
-//    return view;
-//}
-//
-//
-//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-//    return [tableView bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:UIFooterView.class isHeaderView:NO section:section configuration:^(__kindof UIFooterView * _Nonnull headerFooterView) {
-//    }];
-//}
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UIFooterView *view = [UIFooterView bm_tableViewHeaderFooterViewWithTableView:tableView];
+    view.contentView.backgroundColor = [UIColor blueColor];
+    return view;
+}
 
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return [tableView bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:UIFooterView.class isHeaderView:NO section:section configuration:^(__kindof UIFooterView * _Nonnull headerFooterView) {
+    }];
+}
 
 // 按需加载 - 如果目标行与当前行相差超过指定行数，只在目标滚动范围的前后指定3行加载。
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
