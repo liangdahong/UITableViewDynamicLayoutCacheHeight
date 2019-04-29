@@ -129,6 +129,7 @@ IB_DESIGNABLE
 @property (assign, nonatomic, getter=isDynamicCellBottomView) IBInspectable BOOL dynamicCellBottomView;
 
 + (instancetype)bm_tableViewCellWithTableView:(UITableView *)tableView;
++ (instancetype)bm_tableViewCellWithTableView:(UITableView *)tableView style:(UITableViewCellStyle)style;
 
 @end
 
