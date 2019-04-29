@@ -154,7 +154,7 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
 
     cell.superview.frame = CGRectMake(0.0f, 0.0f, self.frame.size.width, 0.0f);
     cell.frame           = CGRectMake(0.0f, 0.0f, self.frame.size.width, 0.0f);
-    configuration(cell);
+    !configuration ? : configuration(cell);
     [cell.superview layoutIfNeeded];
     if (!cell.isDynamicCellBottomView) {
         // cell 的最底部View是固定的
@@ -177,7 +177,7 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
 }
 
 - (CGFloat)bm_heightForCellWithCellClass:(Class)clas configuration:(BMLayoutCellConfigurationBlock)configuration {
-    if (!clas || !configuration) {
+    if (!clas) {
         return 0;
     }
     UIView *tempView = [self bm_tempViewCellWithCellClass:clas];
@@ -187,7 +187,7 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
 - (CGFloat)bm_heightForCellWithCellClass:(Class)clas
                         cacheByIndexPath:(NSIndexPath *)indexPath
                            configuration:(BMLayoutCellConfigurationBlock)configuration {
-    if (!clas || !configuration) {
+    if (!clas) {
         return 0;
     }
     if (!indexPath) {
@@ -207,7 +207,7 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
 }
 
 - (CGFloat)bm_heightForCellWithCellClass:(Class)clas cacheByKey:(NSString *)key configuration:(BMLayoutCellConfigurationBlock)configuration {
-    if (!clas || !configuration) {
+    if (!clas) {
         return 0.0f;
     }
     if (!key || key.length == 0) {
@@ -403,6 +403,9 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
 @implementation UITableView (BMTemplateLayoutHeaderFooterView)
 
 - (CGFloat)bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:(Class)clas configuration:(BMLayoutHeaderFooterViewConfigurationBlock)configuration {
+    if (!clas) {
+        return 0.0f;
+    }
     // 没有缓存创建临时View来布局获取高度
     UIView *tempView = [self bm_tempViewHeaderFooterViewWithHeaderFooterViewClass:clas];
     // 布局获取高度
@@ -410,6 +413,9 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
 }
 
 - (CGFloat)bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:(Class)clas isHeaderView:(BOOL)isHeaderView section:(NSInteger)section configuration:(BMLayoutHeaderFooterViewConfigurationBlock)configuration {
+    if (!clas) {
+        return 0.0f;
+    }
     NSString *key = [NSString stringWithFormat:@"%@:%ld", isHeaderView ? @"Header" : @ "Footer" ,(long)section];
     NSNumber *heightValue = (bm_templateLayoutCell_is_portrait_rotating(self) ? self.portraitCacheCellHeightMutableDictionary :  self.landscapeCacheCellHeightMutableDictionary)[key];
     // 有缓存就直接返回
@@ -428,7 +434,7 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
 }
 
 - (CGFloat)bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:(Class)clas cacheByKey:(NSString *)key configuration:(BMLayoutHeaderFooterViewConfigurationBlock)configuration {
-    if (!clas || !configuration) {
+    if (!clas) {
         return 0.0f;
     }
     if (!key || key.length == 0) {
@@ -484,12 +490,12 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
 
     tableViewHeaderFooterView.superview.frame = CGRectMake(0, 0, self.frame.size.width, 0);
     tableViewHeaderFooterView.frame = CGRectMake(0, 0, self.frame.size.width, 0);
-    configuration(tableViewHeaderFooterView);
+    !configuration ? : configuration(tableViewHeaderFooterView);
     [tableViewHeaderFooterView.superview layoutIfNeeded];
     if (!tableViewHeaderFooterView.isDynamicHeaderFooterBottomView) {
-        // cell 的最底部View是固定的
+        // UITableViewHeaderFooterView 的最底部 View 是固定的
         if (tableViewHeaderFooterView.linView) {
-            // 如果有关联就可直接取最底部View的MaxY为Cell的高度
+            // 如果有关联就可直接取最底部 View 的 MaxY 为 UITableViewHeaderFooterView 的高度
             return CGRectGetMaxY(tableViewHeaderFooterView.linView.frame);
         } else {
             // 还没有关联就遍历获取 MaxY，同时关联
