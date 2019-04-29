@@ -76,7 +76,7 @@
 #pragma mark - 系统delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 10;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -105,6 +105,7 @@
 
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    NSLog(@"====-=-=-=-=-=%ld",section);
     BMHeaderView *view = [BMHeaderView bm_tableViewHeaderFooterViewWithTableView:tableView];
     view.contentView.backgroundColor = [UIColor redColor];
     return view;
@@ -112,20 +113,21 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return [tableView bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:BMHeaderView.class isHeaderView:YES section:section configuration:^(__kindof BMHeaderView * _Nonnull headerFooterView) {
+        headerFooterView.contentView.backgroundColor = [UIColor redColor];
     }];
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    UIFooterView *view = [UIFooterView bm_tableViewHeaderFooterViewWithTableView:tableView];
-    view.contentView.backgroundColor = [UIColor blueColor];
-    return view;
-}
-
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return [tableView bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:UIFooterView.class isHeaderView:NO section:section configuration:^(__kindof UIFooterView * _Nonnull headerFooterView) {
-    }];
-}
+//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+//    UIFooterView *view = [UIFooterView bm_tableViewHeaderFooterViewWithTableView:tableView];
+//    view.contentView.backgroundColor = [UIColor blueColor];
+//    return view;
+//}
+//
+//
+//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+//    return [tableView bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:UIFooterView.class isHeaderView:NO section:section configuration:^(__kindof UIFooterView * _Nonnull headerFooterView) {
+//    }];
+//}
 
 
 // 按需加载 - 如果目标行与当前行相差超过指定行数，只在目标滚动范围的前后指定3行加载。

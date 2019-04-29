@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		04F8502B226B87680024E59D /* UIFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F85025226B87680024E59D /* UIFooterView.m */; };
 		04F8502C226B87680024E59D /* UIFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F85026226B87680024E59D /* UIFooterView.xib */; };
-		04F8502D226B87680024E59D /* BMHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F85029226B87680024E59D /* BMHeaderView.m */; };
-		04F8502E226B87680024E59D /* BMHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F8502A226B87680024E59D /* BMHeaderView.xib */; };
 		3209DBEF210ED483009FBF49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3209DBED210ED483009FBF49 /* Main.storyboard */; };
 		3209DBF1210ED484009FBF49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3209DBF0210ED484009FBF49 /* Assets.xcassets */; };
 		3209DBF4210ED484009FBF49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3209DBF2210ED484009FBF49 /* LaunchScreen.storyboard */; };
 		320D0DCA210EE0E4008B86E1 /* UITableView-BMTemplateLayoutCell.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 320D0DC9210EE0E4008B86E1 /* UITableView-BMTemplateLayoutCell.podspec */; };
+		320EDBC72276D5A200EE3B71 /* BMHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 320EDBC52276D5A200EE3B71 /* BMHeaderView.m */; };
+		320EDBC82276D5A200EE3B71 /* BMHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 320EDBC62276D5A200EE3B71 /* BMHeaderView.xib */; };
 		320FBF49210ED4EA00204AF4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 320FBEF0210ED4EA00204AF4 /* AppDelegate.m */; };
 		320FBF4A210ED4EA00204AF4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 320FBEF1210ED4EA00204AF4 /* main.m */; };
 		320FBF4D210ED4EA00204AF4 /* UIScrollView+BMExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 320FBEFA210ED4EA00204AF4 /* UIScrollView+BMExtension.m */; };
@@ -75,9 +75,6 @@
 		04F85024226B87680024E59D /* UIFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFooterView.h; sourceTree = "<group>"; };
 		04F85025226B87680024E59D /* UIFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFooterView.m; sourceTree = "<group>"; };
 		04F85026226B87680024E59D /* UIFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIFooterView.xib; sourceTree = "<group>"; };
-		04F85028226B87680024E59D /* BMHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMHeaderView.h; sourceTree = "<group>"; };
-		04F85029226B87680024E59D /* BMHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMHeaderView.m; sourceTree = "<group>"; };
-		04F8502A226B87680024E59D /* BMHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMHeaderView.xib; sourceTree = "<group>"; };
 		0D0CD9EB76A17AC811814CD2 /* Pods-UITableView-BMTemplateLayoutCell.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITableView-BMTemplateLayoutCell.release.xcconfig"; path = "Pods/Target Support Files/Pods-UITableView-BMTemplateLayoutCell/Pods-UITableView-BMTemplateLayoutCell.release.xcconfig"; sourceTree = "<group>"; };
 		166916146ABEF6010B362B9A /* libPods-UITableView-BMTemplateLayoutCell.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UITableView-BMTemplateLayoutCell.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3209DBE1210ED483009FBF49 /* UITableView-BMTemplateLayoutCell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UITableView-BMTemplateLayoutCell.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +85,9 @@
 		3209DBFA210ED484009FBF49 /* UITableView-BMTemplateLayoutCellTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UITableView-BMTemplateLayoutCellTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3209DC05210ED484009FBF49 /* UITableView-BMTemplateLayoutCellUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UITableView-BMTemplateLayoutCellUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		320D0DC9210EE0E4008B86E1 /* UITableView-BMTemplateLayoutCell.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "UITableView-BMTemplateLayoutCell.podspec"; sourceTree = "<group>"; };
+		320EDBC42276D5A200EE3B71 /* BMHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMHeaderView.h; sourceTree = "<group>"; };
+		320EDBC52276D5A200EE3B71 /* BMHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMHeaderView.m; sourceTree = "<group>"; };
+		320EDBC62276D5A200EE3B71 /* BMHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMHeaderView.xib; sourceTree = "<group>"; };
 		320FBEEF210ED4EA00204AF4 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		320FBEF0210ED4EA00204AF4 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		320FBEF1210ED4EA00204AF4 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -186,9 +186,9 @@
 		04F85027226B87680024E59D /* BMHeaderView */ = {
 			isa = PBXGroup;
 			children = (
-				04F85028226B87680024E59D /* BMHeaderView.h */,
-				04F85029226B87680024E59D /* BMHeaderView.m */,
-				04F8502A226B87680024E59D /* BMHeaderView.xib */,
+				320EDBC42276D5A200EE3B71 /* BMHeaderView.h */,
+				320EDBC52276D5A200EE3B71 /* BMHeaderView.m */,
+				320EDBC62276D5A200EE3B71 /* BMHeaderView.xib */,
 			);
 			path = BMHeaderView;
 			sourceTree = "<group>";
@@ -664,11 +664,11 @@
 				320FBF6F210ED4EA00204AF4 /* 7.png in Resources */,
 				320FBF5B210ED4EA00204AF4 /* BMCell.xib in Resources */,
 				320FBF65210ED4EA00204AF4 /* BMRootVC.xib in Resources */,
-				04F8502E226B87680024E59D /* BMHeaderView.xib in Resources */,
 				320D0DCA210EE0E4008B86E1 /* UITableView-BMTemplateLayoutCell.podspec in Resources */,
 				320FBF61210ED4EA00204AF4 /* BMXibHeaderFooterVC.xib in Resources */,
 				320FBF62210ED4EA00204AF4 /* BMMasonryView.xib in Resources */,
 				320FBF69210ED4EA00204AF4 /* 1.png in Resources */,
+				320EDBC82276D5A200EE3B71 /* BMHeaderView.xib in Resources */,
 				320FBF6D210ED4EA00204AF4 /* 5.png in Resources */,
 				3209DBEF210ED483009FBF49 /* Main.storyboard in Resources */,
 				320FBF58210ED4EA00204AF4 /* BMXibCellVC.xib in Resources */,
@@ -718,7 +718,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				320FBF60210ED4EA00204AF4 /* BMXibHeaderFooterVC.m in Sources */,
-				04F8502D226B87680024E59D /* BMHeaderView.m in Sources */,
 				04F8502B226B87680024E59D /* UIFooterView.m in Sources */,
 				320FBF66210ED4EA00204AF4 /* BMSettingModel.m in Sources */,
 				320FBF4F210ED4EA00204AF4 /* UITableViewHeaderFooterView+BMReusable.m in Sources */,
@@ -740,6 +739,7 @@
 				320FBF54210ED4EA00204AF4 /* BMMasonryHeaderFooterVC.m in Sources */,
 				320FBF50210ED4EA00204AF4 /* UIView+BMExtension.m in Sources */,
 				3256FD28210EDD95001BAC9B /* UITableView+BMTemplateLayoutCell.m in Sources */,
+				320EDBC72276D5A200EE3B71 /* BMHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -495,13 +495,15 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
             // 还没有关联就遍历获取 MaxY，同时关联
             CGFloat maxY = 0.0f;
             UIView *v    = nil;
-            bm_templateLayout_get_view_subviews_MaxY(tableViewHeaderFooterView, &maxY, &v);
+            UIView *temp = tableViewHeaderFooterView.contentView.subviews.count ? tableViewHeaderFooterView.contentView : tableViewHeaderFooterView;
+            bm_templateLayout_get_view_subviews_MaxY(temp, &maxY, &v);
             tableViewHeaderFooterView.linView = v;
             return maxY;
         }
     } else {
         CGFloat maxY = 0.0f;
-        bm_templateLayout_get_view_subviews_MaxY(tableViewHeaderFooterView, &maxY, nil);
+        UIView *temp = tableViewHeaderFooterView.contentView.subviews.count ? tableViewHeaderFooterView.contentView : tableViewHeaderFooterView;
+        bm_templateLayout_get_view_subviews_MaxY(temp, &maxY, nil);
         return maxY;
     }
 }
@@ -575,7 +577,7 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
         headerFooterView = [[[UINib nibWithNibName:selfClassName bundle:nil] instantiateWithOwner:nil options:nil] firstObject];
         [headerFooterView setValue:selfClassName forKey:@"reuseIdentifier"];
     } else {
-        headerFooterView = [[self alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:selfClassName];
+        headerFooterView = [[self alloc] initWithReuseIdentifier:selfClassName];
     }
     return headerFooterView;
 }
