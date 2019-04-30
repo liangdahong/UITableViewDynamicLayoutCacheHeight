@@ -147,4 +147,20 @@ IB_DESIGNABLE
 
 @end
 
+
+@interface UICollectionViewCell (UICollectionViewCellRegister)
+
++ (instancetype)bm_collectionViewCellWithCollectionView:(UICollectionView *)collectionView forIndexPath:(NSIndexPath *)indexPath;
+
+@end
+
+@interface UICollectionReusableView (UICollectionReusableViewRegister)
+
++ (instancetype)bm_collectionReusableViewWithCollectionReusableView:(UICollectionView *)collectionView
+                                                           isHeader:(BOOL)isHeader
+                                                       forIndexPath:(NSIndexPath *)indexPath;
+@end
+
+
+
 NS_ASSUME_NONNULL_END
