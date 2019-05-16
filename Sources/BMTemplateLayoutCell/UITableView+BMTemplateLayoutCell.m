@@ -611,11 +611,10 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
     NSString *path = [[NSBundle mainBundle] pathForResource:selfClassName ofType:@"nib"];
     if (path.length) {
         [collectionView registerNib:[UINib nibWithNibName:selfClassName bundle:nil] forCellWithReuseIdentifier:selfClassName];
-        return [self bm_collectionViewCellWithCollectionView:collectionView forIndexPath:indexPath];
     } else {
         [collectionView registerClass:self.class forCellWithReuseIdentifier:selfClassName];
-        return [self bm_collectionViewCellWithCollectionView:collectionView forIndexPath:indexPath];
     }
+    return [self bm_collectionViewCellWithCollectionView:collectionView forIndexPath:indexPath];
 }
 
 @end
@@ -639,11 +638,10 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
     NSString *path = [[NSBundle mainBundle] pathForResource:selfClassName ofType:@"nib"];
     if (path.length) {
         [collectionView registerNib:[UINib nibWithNibName:selfClassName bundle:nil] forSupplementaryViewOfKind:kind withReuseIdentifier:selfClassName];
-        return [self bm_collectionReusableViewWithCollectionReusableView:collectionView isHeader:isHeader forIndexPath:indexPath];
     } else {
         [collectionView registerClass:self.class forSupplementaryViewOfKind:kind withReuseIdentifier:selfClassName];
-        return [self bm_collectionReusableViewWithCollectionReusableView:collectionView isHeader:isHeader forIndexPath:indexPath];
     }
+    return [self bm_collectionReusableViewWithCollectionReusableView:collectionView isHeader:isHeader forIndexPath:indexPath];
 }
 
 @end
