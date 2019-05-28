@@ -1,3 +1,6 @@
+## 介绍
+
+
 <p align="center">
     <img  width="50%" src="0.gif"/>
 <p/>
@@ -27,6 +30,7 @@
  framework Objective-C Version.
 - [Swift Version](https://github.com/liangdahong/UITableView-BMTemplateLayoutCell-Swift).
 
-## License 📄
 
-- [MIT license](LICENSE).
+## 使用
+
+- 请直接将 `BMTemplateLayoutCell` 文件夹中的内容拖拽到项目中即可，目前不支持 `pod` 的方式。
