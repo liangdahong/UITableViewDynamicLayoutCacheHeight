@@ -70,7 +70,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return [tableView bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:BMXibHeader.class configuration:^(__kindof BMXibHeader * _Nonnull headerFooterView) {
+    return [tableView bm_heightForHeaderFooterViewWithHeaderFooterViewClass:BMXibHeader.class configuration:^(__kindof BMXibHeader * _Nonnull headerFooterView) {
         headerFooterView.model = self.dataArray[section];
     }];
 }

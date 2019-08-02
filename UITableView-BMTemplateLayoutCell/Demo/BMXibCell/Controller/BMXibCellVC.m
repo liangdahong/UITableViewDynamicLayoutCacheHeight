@@ -97,12 +97,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     BMModel *model = self.dataArray[indexPath.row];
-    return [tableView bm_heightForCellWithCellClass:BMCell.class cacheByIndexPath:indexPath configuration:^(__kindof BMCell *cell) {
+    return [tableView bm_heightForCellWithCellClass:BMCell.class cacheByIndexPath:indexPath tableViewWidth:UIScreen.mainScreen.bounds.size.width configuration:^(__kindof BMCell *cell) {
         cell.model = model;
         [cell draw];
     }];
 }
-
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     BMHeaderView *view = [BMHeaderView bm_tableViewHeaderFooterViewWithTableView:tableView];
@@ -111,7 +110,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return [tableView bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:BMHeaderView.class isHeaderView:YES section:section configuration:^(__kindof BMHeaderView * _Nonnull headerFooterView) {
+    return [tableView bm_heightForHeaderFooterViewWithHeaderFooterViewClass:BMHeaderView.class isHeaderView:YES section:section configuration:^(__kindof BMHeaderView * _Nonnull headerFooterView) {
         headerFooterView.contentView.backgroundColor = [UIColor redColor];
     }];
 }
@@ -124,7 +123,7 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return [tableView bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:UIFooterView.class isHeaderView:NO section:section configuration:^(__kindof UIFooterView * _Nonnull headerFooterView) {
+    return [tableView bm_heightForHeaderFooterViewWithHeaderFooterViewClass:UIFooterView.class isHeaderView:NO section:section configuration:^(__kindof UIFooterView * _Nonnull headerFooterView) {
     }];
 }
 

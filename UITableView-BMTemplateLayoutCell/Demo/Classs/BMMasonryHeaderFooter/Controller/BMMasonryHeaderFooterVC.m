@@ -63,7 +63,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return [tableView bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:BMMasonryTableViewHeaderView.class configuration:^(__kindof BMMasonryTableViewHeaderView * _Nonnull headerFooterView) {
+    return [tableView bm_heightForHeaderFooterViewWithHeaderFooterViewClass:BMMasonryTableViewHeaderView.class configuration:^(__kindof BMMasonryTableViewHeaderView * _Nonnull headerFooterView) {
         headerFooterView.descLabel.text = @"descLabeldescLabeldescLabeldescLabeldescLabeldescLabeldescLabeldescLabeldescLabeldescLabel";
     }];
 }

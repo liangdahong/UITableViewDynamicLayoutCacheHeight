@@ -7,97 +7,106 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/**
- BMLayoutCellConfigurationBlock
- 
- @param cell 需要布局的Cell
- */
 typedef void (^BMLayoutCellConfigurationBlock)(__kindof UITableViewCell *cell);
-
-/**
- BMLayoutHeaderFooterViewConfigurationBlock
- 
- @param headerFooterView 需要布局的tableViewHeaderFooterView
- */
-typedef void (^BMLayoutHeaderFooterViewConfigurationBlock)(__kindof UITableViewHeaderFooterView *headerFooterView);
+typedef void (^BMLayoutHeaderFooterConfigurationBlock)(__kindof UITableViewHeaderFooterView *headerFooterView);
 
 #pragma mark - BMTemplateLayoutCell
 
-/**
- BMTemplateLayoutCell
- */
 IB_DESIGNABLE
 @interface UITableView (BMTemplateLayoutCell)
 
-@property (assign, nonatomic, getter=isScreenRotating) IBInspectable BOOL screenRotating; ///< 是否支持屏幕旋转，默认NO
+@property (assign, nonatomic, getter=isScreenRotating) IBInspectable BOOL screenRotating; ///< 是否支持屏幕旋转，默认 NO
 
 /**
- 获取 Cell 的高度（内部不做任何缓存操作）
- 
- @param clas Cell Class
- @param configuration 布局block
- @return 应该的高度
+ cell clas configuration
  */
-- (CGFloat)bm_heightForCellWithCellClass:(Class)clas configuration:(BMLayoutCellConfigurationBlock)configuration;
+- (CGFloat)bm_heightForCellWithCellClass:(Class)clas
+                           configuration:(BMLayoutCellConfigurationBlock)configuration;
 
 /**
- 获取 Cell 的高度（内部自动处理缓存）
- 
- @param clas Cell Class
- @param indexPath 内部会使用 indexPath 做缓存
- @param configuration 布局block
- @return 应该的高度
+ cell clas width configuration
  */
-- (CGFloat)bm_heightForCellWithCellClass:(Class)clas cacheByIndexPath:(NSIndexPath *)indexPath configuration:(BMLayoutCellConfigurationBlock)configuration;
+- (CGFloat)bm_heightForCellWithCellClass:(Class)clas
+                          tableViewWidth:(CGFloat)width
+                           configuration:(BMLayoutCellConfigurationBlock)configuration;
 
 /**
- 获取 Cell 的高度（内部自动处理缓存，推荐使用）
- 
- @param clas Cell Class
- @param key 唯一key，内部以此key来做缓存key
- @param configuration 布局block
- @return 应该的高度
+ cell clas indexPath configuration
  */
-- (CGFloat)bm_heightForCellWithCellClass:(Class)clas cacheByKey:(NSString *)key configuration:(BMLayoutCellConfigurationBlock)configuration;
+- (CGFloat)bm_heightForCellWithCellClass:(Class)clas
+                        cacheByIndexPath:(NSIndexPath *)indexPath
+                           configuration:(BMLayoutCellConfigurationBlock)configuration;
+
+/**
+ cell clas indexPath width configuration
+ */
+- (CGFloat)bm_heightForCellWithCellClass:(Class)clas
+                        cacheByIndexPath:(NSIndexPath *)indexPath
+                          tableViewWidth:(CGFloat)width
+                           configuration:(BMLayoutCellConfigurationBlock)configuration;
+
+/**
+ cell clas key configuration
+ */
+- (CGFloat)bm_heightForCellWithCellClass:(Class)clas
+                              cacheByKey:(NSString *)key
+                           configuration:(BMLayoutCellConfigurationBlock)configuration;
+
+/**
+ cell clas key width configuration
+ */
+- (CGFloat)bm_heightForCellWithCellClass:(Class)clas
+                              cacheByKey:(NSString *)key
+                          tableViewWidth:(CGFloat)width
+                           configuration:(BMLayoutCellConfigurationBlock)configuration;
 
 @end
 
 #pragma mark - BMTemplateLayoutHeaderFooterView
 
-/**
- BMTemplateLayoutHeaderFooterView
- */
 @interface UITableView (BMTemplateLayoutHeaderFooterView)
 
 /**
- 获取 HeaderFooterView 的高度（内部不做任何缓存操作）
- 
- @param clas HeaderFooterView class
- @param configuration 布局block
- @return 应该的高度
+ HeaderFooterView clas configuration
  */
-- (CGFloat)bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:(Class)clas configuration:(BMLayoutHeaderFooterViewConfigurationBlock)configuration;
+- (CGFloat)bm_heightForHeaderFooterViewWithHeaderFooterViewClass:(Class)clas
+                                                   configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration;
+/**
+ HeaderFooterView clas width configuration
+ */
+- (CGFloat)bm_heightForHeaderFooterViewWithHeaderFooterViewClass:(Class)clas
+                                                  tableViewWidth:(CGFloat)width
+                                                   configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration;
 
 /**
- 获取 HeaderFooterView 的高度（内部自动处理缓存）
- 
- @param clas HeaderFooterView class
- @param isHeaderView 是否是表头（组的头部：YES 组的尾部：NO）
- @param section 内部会使用 section 做缓存
- @param configuration 布局block
- @return 应该的高度
+ HeaderFooterView clas isHeaderView section configuration
  */
-- (CGFloat)bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:(Class)clas isHeaderView:(BOOL)isHeaderView section:(NSInteger)section configuration:(BMLayoutHeaderFooterViewConfigurationBlock)configuration;
+- (CGFloat)bm_heightForHeaderFooterViewWithHeaderFooterViewClass:(Class)clas
+                                                    isHeaderView:(BOOL)isHeaderView
+                                                         section:(NSInteger)section
+                                                   configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration;
+/**
+ HeaderFooterView clas isHeaderView section width configuration
+ */
+- (CGFloat)bm_heightForHeaderFooterViewWithHeaderFooterViewClass:(Class)clas
+                                                    isHeaderView:(BOOL)isHeaderView
+                                                         section:(NSInteger)section
+                                                  tableViewWidth:(CGFloat)width
+                                                   configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration;
 
 /**
- 获取 HeaderFooterView 的高度（内部自动处理缓存）
- 
- @param clas HeaderFooterView class
- @param key 唯一key，内部会以次key来做缓存
- @param configuration 布局block
- @return 应该的高度
+ HeaderFooterView clas key configuration
  */
-- (CGFloat)bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:(Class)clas cacheByKey:(NSString *)key configuration:(BMLayoutHeaderFooterViewConfigurationBlock)configuration;
+- (CGFloat)bm_heightForHeaderFooterViewWithHeaderFooterViewClass:(Class)clas
+                                                      cacheByKey:(NSString *)key
+                                                   configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration;
+/**
+ HeaderFooterView clas key width configuration
+ */
+- (CGFloat)bm_heightForHeaderFooterViewWithHeaderFooterViewClass:(Class)clas
+                                                      cacheByKey:(NSString *)key
+                                                  tableViewWidth:(CGFloat)width
+                                                   configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration;
 
 @end
 
@@ -143,7 +152,5 @@ IB_DESIGNABLE
                                                            isHeader:(BOOL)isHeader
                                                        forIndexPath:(NSIndexPath *)indexPath;
 @end
-
-
 
 NS_ASSUME_NONNULL_END

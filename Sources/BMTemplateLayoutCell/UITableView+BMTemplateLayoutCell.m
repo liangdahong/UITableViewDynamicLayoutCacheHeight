@@ -168,6 +168,16 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
 }
 
 - (CGFloat)bm_heightForCellWithCellClass:(Class)clas
+                          tableViewWidth:(CGFloat)width
+                           configuration:(BMLayoutCellConfigurationBlock)configuration {
+    return [self bm_heightForCellWithCellClass:clas tableViewWidth:width configuration:^(__kindof UITableViewCell * _Nonnull cell) {
+        cell.superview.frame = CGRectMake(0, 0, width, 0);
+        cell.frame = CGRectMake(0, 0, width, 0);
+        !configuration ? : configuration(cell);
+    }];
+}
+
+- (CGFloat)bm_heightForCellWithCellClass:(Class)clas
                         cacheByIndexPath:(NSIndexPath *)indexPath
                            configuration:(BMLayoutCellConfigurationBlock)configuration {
     if (!clas) {
@@ -189,7 +199,20 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
     return height;
 }
 
-- (CGFloat)bm_heightForCellWithCellClass:(Class)clas cacheByKey:(NSString *)key configuration:(BMLayoutCellConfigurationBlock)configuration {
+- (CGFloat)bm_heightForCellWithCellClass:(Class)clas
+                        cacheByIndexPath:(NSIndexPath *)indexPath
+                          tableViewWidth:(CGFloat)width
+                           configuration:(nonnull BMLayoutCellConfigurationBlock)configuration {
+    return [self bm_heightForCellWithCellClass:clas cacheByIndexPath:indexPath configuration:^(__kindof UITableViewCell * _Nonnull cell) {
+        cell.superview.frame = CGRectMake(0, 0, width, 0);
+        cell.frame = CGRectMake(0, 0, width, 0);
+        !configuration ? : configuration(cell);
+    }];
+}
+
+- (CGFloat)bm_heightForCellWithCellClass:(Class)clas
+                              cacheByKey:(NSString *)key
+                           configuration:(BMLayoutCellConfigurationBlock)configuration {
     if (!clas) {
         return 0.0f;
     }
@@ -205,6 +228,17 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
     CGFloat height = [self bm_layoutIfNeededCellWith:tempView.subviews[0] configuration:configuration];
     (bm_templateLayoutCell_is_portrait_rotating(self) ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key] = @(height);
     return height;
+}
+
+- (CGFloat)bm_heightForCellWithCellClass:(Class)clas
+                              cacheByKey:(NSString *)key
+                          tableViewWidth:(CGFloat)width
+                           configuration:(BMLayoutCellConfigurationBlock)configuration {
+    return [self bm_heightForCellWithCellClass:clas cacheByKey:key configuration:^(__kindof UITableViewCell * _Nonnull cell) {
+        cell.superview.frame = CGRectMake(0, 0, width, 0);
+        cell.frame = CGRectMake(0, 0, width, 0);
+        !configuration ? : configuration(cell);
+    }];
 }
 
 - (NSMutableDictionary *)portraitCacheCellHeightMutableDictionary {
@@ -385,7 +419,7 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
 
 @implementation UITableView (BMTemplateLayoutHeaderFooterView)
 
-- (CGFloat)bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:(Class)clas configuration:(BMLayoutHeaderFooterViewConfigurationBlock)configuration {
+- (CGFloat)bm_heightForHeaderFooterViewWithHeaderFooterViewClass:(Class)clas configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration {
     if (!clas) {
         return 0.0f;
     }
@@ -395,7 +429,16 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
     return [self bm_layoutIfNeededHeaderFooterViewWith:tempView.subviews[0] configuration:configuration];
 }
 
-- (CGFloat)bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:(Class)clas isHeaderView:(BOOL)isHeaderView section:(NSInteger)section configuration:(BMLayoutHeaderFooterViewConfigurationBlock)configuration {
+- (CGFloat)bm_heightForHeaderFooterViewWithHeaderFooterViewClass:(Class)clas tableViewWidth:(CGFloat)width configuration:(nonnull BMLayoutHeaderFooterConfigurationBlock)configuration {
+    return [self bm_heightForHeaderFooterViewWithHeaderFooterViewClass:clas configuration:^(__kindof UITableViewHeaderFooterView * _Nonnull headerFooterView) {
+        headerFooterView.superview.frame = CGRectMake(0, 0, width, 0);
+        headerFooterView.frame = CGRectMake(0, 0, width, 0);
+        !configuration ? : configuration(headerFooterView);
+    }];
+}
+
+
+- (CGFloat)bm_heightForHeaderFooterViewWithHeaderFooterViewClass:(Class)clas isHeaderView:(BOOL)isHeaderView section:(NSInteger)section configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration {
     if (!clas) {
         return 0.0f;
     }
@@ -416,12 +459,20 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
     return height;
 }
 
-- (CGFloat)bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:(Class)clas cacheByKey:(NSString *)key configuration:(BMLayoutHeaderFooterViewConfigurationBlock)configuration {
+- (CGFloat)bm_heightForHeaderFooterViewWithHeaderFooterViewClass:(Class)clas isHeaderView:(BOOL)isHeaderView section:(NSInteger)section tableViewWidth:(CGFloat)width configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration {
+    return [self bm_heightForHeaderFooterViewWithHeaderFooterViewClass:clas isHeaderView:isHeaderView section:section configuration:^(__kindof UITableViewHeaderFooterView * _Nonnull headerFooterView) {
+        headerFooterView.superview.frame = CGRectMake(0, 0, width, 0);
+        headerFooterView.frame = CGRectMake(0, 0, width, 0);
+        !configuration ? : configuration(headerFooterView);
+    }];
+}
+
+- (CGFloat)bm_heightForHeaderFooterViewWithHeaderFooterViewClass:(Class)clas cacheByKey:(NSString *)key configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration {
     if (!clas) {
         return 0.0f;
     }
     if (!key || key.length == 0) {
-        return [self bm_heightForHeaderFooterViewWithWithHeaderFooterViewClass:clas configuration:configuration];
+        return [self bm_heightForHeaderFooterViewWithHeaderFooterViewClass:clas configuration:configuration];
     }
     
     NSNumber *heightValue = ((bm_templateLayoutCell_is_portrait_rotating(self)) ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key];
@@ -436,6 +487,14 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
     // 缓存起来
     (bm_templateLayoutCell_is_portrait_rotating(self) ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key] = @(height);
     return height;
+}
+
+- (CGFloat)bm_heightForHeaderFooterViewWithHeaderFooterViewClass:(Class)clas cacheByKey:(NSString *)key tableViewWidth:(CGFloat)width configuration:(nonnull BMLayoutHeaderFooterConfigurationBlock)configuration {
+    return [self bm_heightForHeaderFooterViewWithHeaderFooterViewClass:clas cacheByKey:key configuration:^(__kindof UITableViewHeaderFooterView * _Nonnull headerFooterView) {
+        headerFooterView.superview.frame = CGRectMake(0, 0, width, 0);
+        headerFooterView.frame = CGRectMake(0, 0, width, 0);
+        !configuration ? : configuration(headerFooterView);
+    }];
 }
 
 - (UIView *)bm_tempViewHeaderFooterViewWithHeaderFooterViewClass:(Class)clas {
@@ -465,8 +524,7 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
     return tempView;
 }
 
-- (CGFloat)bm_layoutIfNeededHeaderFooterViewWith:(UITableViewHeaderFooterView *)tableViewHeaderFooterView configuration:(BMLayoutHeaderFooterViewConfigurationBlock)configuration {
-
+- (CGFloat)bm_layoutIfNeededHeaderFooterViewWith:(UITableViewHeaderFooterView *)tableViewHeaderFooterView configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration {
     if (self.superview) {
         [self.superview layoutIfNeeded];
     }
@@ -580,15 +638,11 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
 @implementation UICollectionViewCell (UICollectionViewCellRegister)
 
 + (instancetype)bm_collectionViewCellWithCollectionView:(UICollectionView *)collectionView forIndexPath:(NSIndexPath *)indexPath {
-    
     NSString *selfClassName = NSStringFromClass(self.class);
-
     BOOL registerCell = [objc_getAssociatedObject(collectionView, (__bridge const void * _Nonnull)(self)) boolValue];
-    
     if (registerCell) {
         return [collectionView dequeueReusableCellWithReuseIdentifier:selfClassName forIndexPath:indexPath];
     }
-
     objc_setAssociatedObject(collectionView, (__bridge const void * _Nonnull)(self), @(YES) , OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
     NSString *path = [[NSBundle mainBundle] pathForResource:selfClassName ofType:@"nib"];
