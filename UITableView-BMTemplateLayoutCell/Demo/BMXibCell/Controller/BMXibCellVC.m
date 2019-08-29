@@ -14,6 +14,7 @@
 #import "BMModel.h"
 #import "BMCell.h"
 #import "UITableView+BMDynamicLoad.h"
+#import "BMCollectionViewVC.h"
 
 @interface BMXibCellVC () <UITableViewDelegate, UITableViewDataSource> {
     NSMutableArray *needLoadArr;
@@ -32,10 +33,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     needLoadArr = [@[] mutableCopy];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemAdd) target:self action:@selector(otherClick)];
+
     _tableView.hitTestBlock = ^{
         [needLoadArr removeAllObjects];
         [self loadContent];
     };
+}
+
+- (void)otherClick {
+    [self.navigationController pushViewController:BMCollectionViewVC.new animated:YES];
 }
 
 #pragma mark - getters setters

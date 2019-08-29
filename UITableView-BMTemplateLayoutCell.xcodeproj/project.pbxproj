@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		048F0CBA23180BEB0018757C /* UICollectionView+BMTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 048F0CB923180BEB0018757C /* UICollectionView+BMTemplateLayoutCell.m */; };
+		048F0CBE23180CF90018757C /* BMCollectionViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 048F0CBC23180CF90018757C /* BMCollectionViewVC.m */; };
+		048F0CBF23180CF90018757C /* BMCollectionViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048F0CBD23180CF90018757C /* BMCollectionViewVC.xib */; };
+		048F0CC723180D410018757C /* BMCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 048F0CC523180D410018757C /* BMCollectionCell.m */; };
+		048F0CC823180D410018757C /* BMCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048F0CC623180D410018757C /* BMCollectionCell.xib */; };
+		048F0CCB231816180018757C /* BMLeftCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 048F0CCA231816180018757C /* BMLeftCollectionViewFlowLayout.m */; };
 		04F8502B226B87680024E59D /* UIFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F85025226B87680024E59D /* UIFooterView.m */; };
 		04F8502C226B87680024E59D /* UIFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F85026226B87680024E59D /* UIFooterView.xib */; };
 		3209DBEF210ED483009FBF49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3209DBED210ED483009FBF49 /* Main.storyboard */; };
@@ -71,6 +77,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		048F0CB823180BEB0018757C /* UICollectionView+BMTemplateLayoutCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+BMTemplateLayoutCell.h"; sourceTree = "<group>"; };
+		048F0CB923180BEB0018757C /* UICollectionView+BMTemplateLayoutCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+BMTemplateLayoutCell.m"; sourceTree = "<group>"; };
+		048F0CBB23180CF90018757C /* BMCollectionViewVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMCollectionViewVC.h; sourceTree = "<group>"; };
+		048F0CBC23180CF90018757C /* BMCollectionViewVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMCollectionViewVC.m; sourceTree = "<group>"; };
+		048F0CBD23180CF90018757C /* BMCollectionViewVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BMCollectionViewVC.xib; sourceTree = "<group>"; };
+		048F0CC423180D400018757C /* BMCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMCollectionCell.h; sourceTree = "<group>"; };
+		048F0CC523180D410018757C /* BMCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMCollectionCell.m; sourceTree = "<group>"; };
+		048F0CC623180D410018757C /* BMCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BMCollectionCell.xib; sourceTree = "<group>"; };
+		048F0CC9231816180018757C /* BMLeftCollectionViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMLeftCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		048F0CCA231816180018757C /* BMLeftCollectionViewFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMLeftCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		04F85024226B87680024E59D /* UIFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFooterView.h; sourceTree = "<group>"; };
 		04F85025226B87680024E59D /* UIFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFooterView.m; sourceTree = "<group>"; };
 		04F85026226B87680024E59D /* UIFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIFooterView.xib; sourceTree = "<group>"; };
@@ -171,6 +187,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		048F0CC023180D020018757C /* BMCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				048F0CC323180D140018757C /* View */,
+				048F0CC223180D120018757C /* Model */,
+				048F0CC123180D0F0018757C /* Controller */,
+			);
+			path = BMCollectionView;
+			sourceTree = "<group>";
+		};
+		048F0CC123180D0F0018757C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				048F0CBB23180CF90018757C /* BMCollectionViewVC.h */,
+				048F0CBC23180CF90018757C /* BMCollectionViewVC.m */,
+				048F0CBD23180CF90018757C /* BMCollectionViewVC.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		048F0CC223180D120018757C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		048F0CC323180D140018757C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				048F0CC423180D400018757C /* BMCollectionCell.h */,
+				048F0CC523180D410018757C /* BMCollectionCell.m */,
+				048F0CC623180D410018757C /* BMCollectionCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		04F85023226B87680024E59D /* UIFooterView */ = {
 			isa = PBXGroup;
 			children = (
@@ -360,6 +413,7 @@
 		320FBF15210ED4EA00204AF4 /* BMXibCell */ = {
 			isa = PBXGroup;
 			children = (
+				048F0CC023180D020018757C /* BMCollectionView */,
 				320FBF16210ED4EA00204AF4 /* Controller */,
 				320FBF1A210ED4EA00204AF4 /* Model */,
 				320FBF1D210ED4EA00204AF4 /* View */,
@@ -516,6 +570,10 @@
 			children = (
 				3256FD26210EDD95001BAC9B /* UITableView+BMTemplateLayoutCell.h */,
 				3256FD27210EDD95001BAC9B /* UITableView+BMTemplateLayoutCell.m */,
+				048F0CB823180BEB0018757C /* UICollectionView+BMTemplateLayoutCell.h */,
+				048F0CB923180BEB0018757C /* UICollectionView+BMTemplateLayoutCell.m */,
+				048F0CC9231816180018757C /* BMLeftCollectionViewFlowLayout.h */,
+				048F0CCA231816180018757C /* BMLeftCollectionViewFlowLayout.m */,
 			);
 			name = BMTemplateLayoutCell;
 			path = Sources/BMTemplateLayoutCell;
@@ -664,9 +722,11 @@
 				320FBF61210ED4EA00204AF4 /* BMXibHeaderFooterVC.xib in Resources */,
 				320FBF62210ED4EA00204AF4 /* BMMasonryView.xib in Resources */,
 				320FBF69210ED4EA00204AF4 /* 1.png in Resources */,
+				048F0CBF23180CF90018757C /* BMCollectionViewVC.xib in Resources */,
 				320EDBC82276D5A200EE3B71 /* BMHeaderView.xib in Resources */,
 				320FBF6D210ED4EA00204AF4 /* 5.png in Resources */,
 				3209DBEF210ED483009FBF49 /* Main.storyboard in Resources */,
+				048F0CC823180D410018757C /* BMCollectionCell.xib in Resources */,
 				320FBF58210ED4EA00204AF4 /* BMXibCellVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -721,8 +781,10 @@
 				320FBF5F210ED4EA00204AF4 /* UITableView+BMDynamicLoad.m in Sources */,
 				320FBF59210ED4EA00204AF4 /* BMModel.m in Sources */,
 				320FBF53210ED4EA00204AF4 /* BMMasonryCell.m in Sources */,
+				048F0CC723180D410018757C /* BMCollectionCell.m in Sources */,
 				320FBF57210ED4EA00204AF4 /* BMXibCellVC.m in Sources */,
 				320FBF67210ED4EA00204AF4 /* YYFPSLabel.m in Sources */,
+				048F0CCB231816180018757C /* BMLeftCollectionViewFlowLayout.m in Sources */,
 				320FBF51210ED4EA00204AF4 /* BMMasonryCellVC.m in Sources */,
 				320FBF5A210ED4EA00204AF4 /* BMCell.m in Sources */,
 				320FBF4E210ED4EA00204AF4 /* UITableViewCell+BMReusable.m in Sources */,
@@ -732,6 +794,8 @@
 				320FBF63210ED4EA00204AF4 /* BMXibHeader.m in Sources */,
 				320FBF49210ED4EA00204AF4 /* AppDelegate.m in Sources */,
 				320FBF68210ED4EA00204AF4 /* YYWeakProxy.m in Sources */,
+				048F0CBE23180CF90018757C /* BMCollectionViewVC.m in Sources */,
+				048F0CBA23180BEB0018757C /* UICollectionView+BMTemplateLayoutCell.m in Sources */,
 				320FBF54210ED4EA00204AF4 /* BMMasonryHeaderFooterVC.m in Sources */,
 				320FBF50210ED4EA00204AF4 /* UIView+BMExtension.m in Sources */,
 				3256FD28210EDD95001BAC9B /* UITableView+BMTemplateLayoutCell.m in Sources */,
