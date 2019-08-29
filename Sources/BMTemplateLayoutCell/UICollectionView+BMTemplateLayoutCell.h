@@ -5,8 +5,6 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 typedef void (^UICollectionViewLayoutCellConfigurationBlock)(__kindof UICollectionViewCell *cell);
 
 @interface UICollectionView (BMTemplateLayoutCell)
@@ -31,5 +29,3 @@ typedef void (^UICollectionViewLayoutCellConfigurationBlock)(__kindof UICollecti
                         configuration:(UICollectionViewLayoutCellConfigurationBlock)configuration;
 
 @end
-
-NS_ASSUME_NONNULL_END
