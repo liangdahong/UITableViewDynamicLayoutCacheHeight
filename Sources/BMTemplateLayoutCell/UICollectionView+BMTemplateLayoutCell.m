@@ -43,14 +43,16 @@
                                   key:(NSString *)key
                         configuration:(UICollectionViewLayoutCellConfigurationBlock)configuration {
 
-    NSMutableDictionary <NSString *, NSNumber *> *dict = objc_getAssociatedObject(self, &clas);
+    NSMutableDictionary <NSString *, NSValue *> *dict = objc_getAssociatedObject(self, &clas);
     if (!dict) {
         dict = @{}.mutableCopy;
         objc_setAssociatedObject(self, &clas, dict, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
 
     if (key && dict[key]) {
+#if DEBUG
         NSLog(@"取缓存 %@ size %@", key, dict[key]);
+#endif
         return dict[key].CGSizeValue;
     }
 
@@ -79,11 +81,63 @@
         }
     }];
     if (key) {
-        NSLog(@"保存 %@ size %@", key, [NSNumber valueWithCGSize:CGSizeMake(maxX, maxY)]);
-        dict[key] = (NSNumber *)[NSNumber valueWithCGSize:CGSizeMake(maxX, maxY)];
+#if DEBUG
+        NSLog(@"保存 %@ size %@", key, [NSValue valueWithCGSize:CGSizeMake(maxX, maxY)]);
+#endif
+        dict[key] = (NSValue *)[NSValue valueWithCGSize:CGSizeMake(maxX, maxY)];
     }
     return CGSizeMake(maxX, maxY);
 }
 
 @end
 
+@implementation UICollectionViewCell (UICollectionViewCellRegister)
+
++ (instancetype)bm_collectionViewCellWithCollectionView:(UICollectionView *)collectionView forIndexPath:(NSIndexPath *)indexPath {
+    NSString *selfClassName = NSStringFromClass(self.class);
+    BOOL registerCell = [objc_getAssociatedObject(collectionView, (__bridge const void * _Nonnull)(self)) boolValue];
+    if (registerCell) {
+        return [collectionView dequeueReusableCellWithReuseIdentifier:selfClassName forIndexPath:indexPath];
+    }
+    objc_setAssociatedObject(collectionView, (__bridge const void * _Nonnull)(self), @(YES) , OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:selfClassName ofType:@"nib"];
+    if (path.length) {
+        [collectionView registerNib:[UINib nibWithNibName:selfClassName bundle:nil] forCellWithReuseIdentifier:selfClassName];
+    } else {
+        [collectionView registerClass:self.class forCellWithReuseIdentifier:selfClassName];
+    }
+    return [self bm_collectionViewCellWithCollectionView:collectionView forIndexPath:indexPath];
+}
+
+@end
+
+@implementation UICollectionReusableView (UICollectionReusableViewRegister)
+
++ (instancetype)bm_collectionReusableViewWithCollectionReusableView:(UICollectionView *)collectionView
+                                                           isHeader:(BOOL)isHeader
+                                                       forIndexPath:(NSIndexPath *)indexPath {
+    
+    NSString *kind = isHeader ? UICollectionElementKindSectionHeader : UICollectionElementKindSectionFooter;
+    
+    NSString *selfClassName = NSStringFromClass(self.class);
+    
+    BOOL registerFooter = [objc_getAssociatedObject(collectionView, (__bridge const void * _Nonnull)(self)) boolValue];
+    
+    if (registerFooter) {
+        return [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:selfClassName forIndexPath:indexPath];
+    }
+    
+    // 绑定
+    objc_setAssociatedObject(collectionView, (__bridge const void * _Nonnull)(self), @(YES), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:selfClassName ofType:@"nib"];
+    if (path.length) {
+        [collectionView registerNib:[UINib nibWithNibName:selfClassName bundle:nil] forSupplementaryViewOfKind:kind withReuseIdentifier:selfClassName];
+    } else {
+        [collectionView registerClass:self.class forSupplementaryViewOfKind:kind withReuseIdentifier:selfClassName];
+    }
+    return [self bm_collectionReusableViewWithCollectionReusableView:collectionView isHeader:isHeader forIndexPath:indexPath];
+}
+
+@end
