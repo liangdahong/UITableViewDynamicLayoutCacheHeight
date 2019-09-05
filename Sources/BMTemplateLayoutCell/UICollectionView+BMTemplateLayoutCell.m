@@ -51,7 +51,7 @@
 
     if (key && dict[key]) {
 #if DEBUG
-        NSLog(@"读缓存 (key: %@) (size: %@)", key, dict[key]);
+        NSLog(@"读缓存 { (key: %@) (size: %@) }", key, dict[key]);
 #endif
         return dict[key].CGSizeValue;
     }
@@ -82,7 +82,7 @@
     }];
     if (key) {
 #if DEBUG
-        NSLog(@"保存缓存 (key: %@) (size: %@)", key, [NSValue valueWithCGSize:CGSizeMake(maxX, maxY)]);
+        NSLog(@"保存缓存 { (key: %@) (size: %@) }", key, [NSValue valueWithCGSize:CGSizeMake(maxX, maxY)]);
 #endif
         dict[key] = (NSValue *)[NSValue valueWithCGSize:CGSizeMake(maxX, maxY)];
     }
