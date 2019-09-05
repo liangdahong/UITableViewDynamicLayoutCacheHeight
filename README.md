@@ -1,29 +1,30 @@
 ## 介绍
 
-
 <p align="center">
-    <img  width="50%" src="0.gif"/>
+    <img  width="40%" src="0.gif"/>
+    <img  width="40%" src="1.gif"/>
 <p/>
 
 
+
 <p align="center">
 
 <a href="#">
-        <img src="https://img.shields.io/badge/platform-iOS-red.svg">
-    </a>
+​        <img src="https://img.shields.io/badge/platform-iOS-red.svg">
+​    </a>
 
 <a href="#">
-        <img src="https://img.shields.io/badge/language-Objective--C-orange.svg">
-    </a>
-    
+​        <img src="https://img.shields.io/badge/language-Objective--C-orange.svg">
+​    </a>
+​    
 <a href="#">
-        <img src="https://img.shields.io/badge/support-iOS%207%2B%20-blue.svg?style=flat">
-    </a>
-    
+​        <img src="https://img.shields.io/badge/support-iOS%207%2B%20-blue.svg?style=flat">
+​    </a>
+​    
 <a href="https://github.com/996icu/996.ICU/blob/master/LICENSE">
-        <img src="https://img.shields.io/badge/license-Anti%20996-blue.svg">
-    </a>
-    
+​        <img src="https://img.shields.io/badge/license-Anti%20996-blue.svg">
+​    </a>
+​    
 </p>
 
 - This is a Template auto layout cell for automatically UITableViewCell UITableViewHeaderFooterView calculating and cache height
