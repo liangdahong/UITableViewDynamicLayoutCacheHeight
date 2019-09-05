@@ -38,6 +38,11 @@
                             <constraint firstItem="8eO-ee-bfJ" firstAttribute="leading" secondItem="Vu5-1r-gpY" secondAttribute="leading" constant="20" id="kJ9-ZU-ivm"/>
                             <constraint firstItem="8eO-ee-bfJ" firstAttribute="top" secondItem="Vu5-1r-gpY" secondAttribute="top" constant="10" id="zxK-rM-jnG"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="bm_cornerRadius">
+                                <real key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="etU-aO-gZH">
                         <rect key="frame" x="133.5" y="0.0" width="0.0" height="0.0"/>
