@@ -6,7 +6,7 @@
 #import "UICollectionView+BMTemplateLayoutCell.h"
 #import <objc/runtime.h>
 
-#define maxHeightWidth 88888.0f
+#define maxHeightWidth 888888.0f
 
 @implementation UICollectionView (BMTemplateLayoutCell)
 
@@ -51,16 +51,16 @@
 
     if (key && dict[key]) {
 #if DEBUG
-        NSLog(@"取缓存 %@ size %@", key, dict[key]);
+        NSLog(@"读缓存 (key: %@) (size: %@)", key, dict[key]);
 #endif
         return dict[key].CGSizeValue;
     }
-
+    
     UICollectionViewCell *cell = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(clas) owner:nil options:nil].firstObject;
 
     UIView *sview = [UIView new];
     sview.frame = CGRectMake(0, 0, maxSize.width, maxSize.height);
-
+    
     [sview addSubview:cell];
     cell.frame = CGRectMake(0, 0, maxSize.width, maxSize.height);
 
@@ -82,7 +82,7 @@
     }];
     if (key) {
 #if DEBUG
-        NSLog(@"保存 %@ size %@", key, [NSValue valueWithCGSize:CGSizeMake(maxX, maxY)]);
+        NSLog(@"保存缓存 (key: %@) (size: %@)", key, [NSValue valueWithCGSize:CGSizeMake(maxX, maxY)]);
 #endif
         dict[key] = (NSValue *)[NSValue valueWithCGSize:CGSizeMake(maxX, maxY)];
     }
