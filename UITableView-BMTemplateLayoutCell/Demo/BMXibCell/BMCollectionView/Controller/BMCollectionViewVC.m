@@ -21,11 +21,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     self.collectionView.collectionViewLayout = BMLeftCollectionViewFlowLayout.new;
-    int arc = arc4random_uniform(100)+10;
+    int arc = arc4random_uniform(100)+40;
     self.histroyArray = @[].mutableCopy;
     while (arc--) {
-        int arc1 = arc4random_uniform(15);
+        int arc1 = arc4random_uniform(3);
         NSMutableString *str = @"我".mutableCopy;
         while (arc1--) {
             [str appendString:@"我"];
