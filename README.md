@@ -27,7 +27,7 @@
 ​    
 </p>
 
-- This is a Template auto layout cell for automatically UITableViewCell UITableViewHeaderFooterView BMCollectionCell calculating and cache height
+- This is a Template auto layout cell for automatically UITableViewCell UITableViewHeaderFooterView UICollectionViewCell calculating and cache height
  framework.
  
 ## 使用
