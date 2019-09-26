@@ -17,7 +17,6 @@ DerivedData
 *.ipa
 Podfile.lock
 .DS_Store
-BMTemplateLayoutCellDemo.xcworkspace/
 /build
 /test_history
 /test
