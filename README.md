@@ -2,7 +2,6 @@
 
 <p align="center">
     <img  width="40%" src="0.gif"/>
-    <img  width="40%" src="1.gif"/>
 <p/>
 
 
@@ -27,7 +26,7 @@
 ​    
 </p>
 
-- This is a Template auto layout cell for automatically UITableViewCell UITableViewHeaderFooterView UICollectionViewCell calculating and cache height
+- This is a Template auto layout cell for automatically UITableViewCell UITableViewHeaderFooterView calculating and cache height
  framework.
  
 ## 使用
