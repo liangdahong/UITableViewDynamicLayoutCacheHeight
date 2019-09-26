@@ -10,7 +10,7 @@
 #import "Masonry.h"
 #import "BMModel.h"
 #import "BMMasonryCell.h"
-#import "UITableView+BMTemplateLayoutCell.h"
+#import "UITableView-BMDynamicLayout.h"
 #import "UITableViewCell+BMReusable.h"
 
 @interface BMMasonryCellVC () <UITableViewDelegate, UITableViewDataSource>

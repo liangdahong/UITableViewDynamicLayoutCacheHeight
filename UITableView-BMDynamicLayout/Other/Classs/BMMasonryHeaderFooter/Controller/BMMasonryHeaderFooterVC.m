@@ -8,7 +8,7 @@
 
 #import "BMMasonryHeaderFooterVC.h"
 #import "BMMasonryTableViewHeaderView.h"
-#import "UITableView+BMTemplateLayoutCell.h"
+#import "UITableView-BMDynamicLayout.h"
 #import "UITableViewHeaderFooterView+BMReusable.h"
 #import "UITableViewCell+BMReusable.h"
 

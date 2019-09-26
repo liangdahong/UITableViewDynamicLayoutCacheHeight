@@ -8,7 +8,7 @@
 
 #import "BMXibHeaderFooterVC.h"
 #import "BMXibHeader.h"
-#import "UITableView+BMTemplateLayoutCell.h"
+#import "UITableView-BMDynamicLayout.h"
 #import "BMModel.h"
 #import "UITableViewHeaderFooterView+BMReusable.h"
 #import "UITableViewCell+BMReusable.h"

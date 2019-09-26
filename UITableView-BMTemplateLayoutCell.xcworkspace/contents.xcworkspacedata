@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:UITableView-BMTemplateLayoutCell.xcodeproj">
+      location = "group:/Volumes/APP/&#x5b66;&#x4e60;/&#x5f00;&#x6e90;/UITableView-BMDynamicLayout/UITableView-BMDynamicLayout.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

@@ -1,9 +1,12 @@
-//    996 License https://github.com/996icu/996.ICU/blob/master/LICENSE
 //
-//    Copyright (c) https://github.com/liangdahong/UITableView-BMTemplateLayoutCell
+//  UITableView+BMDynamicLayout.m
+//  UITableView-BMTemplateLayoutCell
+//
+//  Created by Mac on 2019/9/27.
+//  Copyright © 2019年 ( https://liangdahong.com ). All rights reserved.
 //
 
-#import "UITableView+BMTemplateLayoutCell.h"
+#import "UITableView+BMDynamicLayout.h"
 #import <objc/runtime.h>
 
 static inline void bm_templateLayout_get_view_subviews_MaxY(UIView *view, CGFloat *maxY, UIView * __autoreleasing *maxYView) {
@@ -85,7 +88,7 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
 
 @end
 
-@implementation UITableView (BMTemplateLayoutCell)
+@implementation UITableView (BMDynamicLayout)
 
 - (BOOL)isScreenRotating {
     return [objc_getAssociatedObject(self, _cmd) boolValue];
@@ -102,7 +105,7 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
 - (UIView *)bm_tempViewCellWithCellClass:(Class)clas {
     // 创建新的重用标识
     NSString *noReuseIdentifier = [NSString stringWithFormat:@"noReuse%@", NSStringFromClass(clas.class)];
-    
+
     NSString *noReuseIdentifierChar = self.reusableCellWithIdentifierMutableDictionary[noReuseIdentifier];
     if (!noReuseIdentifierChar) {
         noReuseIdentifierChar = noReuseIdentifier;
@@ -130,11 +133,11 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
 }
 
 - (CGFloat)bm_layoutIfNeededCellWith:(UITableViewCell *)cell configuration:(BMLayoutCellConfigurationBlock)configuration {
-    
+
     if (self.superview) {
         [self.superview layoutIfNeeded];
     }
-    
+
     cell.superview.frame = CGRectMake(0.0f, 0.0f, self.frame.size.width, 0.0f);
     cell.frame           = CGRectMake(0.0f, 0.0f, self.frame.size.width, 0.0f);
     !configuration ? : configuration(cell);
@@ -339,10 +342,10 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
         }
         [self.portraitCacheCellHeightMutableDictionary  removeObjectForKey:[NSString stringWithFormat:@"Header:%ld", (long)idx]];
         [self.portraitCacheCellHeightMutableDictionary  removeObjectForKey:[NSString stringWithFormat:@"Footer:%ld", (long)idx]];
-        
+
         [self.landscapeCacheCellHeightMutableDictionary  removeObjectForKey:[NSString stringWithFormat:@"Header:%ld", (long)idx]];
         [self.landscapeCacheCellHeightMutableDictionary  removeObjectForKey:[NSString stringWithFormat:@"Footer:%ld", (long)idx]];
-        
+
     }];
     [self bm_templateLayoutCell_reloadSections:sections withRowAnimation:animation];
 }
@@ -474,7 +477,7 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
     if (!key || key.length == 0) {
         return [self bm_heightForHeaderFooterViewWithHeaderFooterViewClass:clas configuration:configuration];
     }
-    
+
     NSNumber *heightValue = ((bm_templateLayoutCell_is_portrait_rotating(self)) ? self.portraitCacheKeyCellHeightMutableDictionary :  self.landscapeCacheKeyCellHeightMutableDictionary)[key];
     // 有缓存就直接返回
     if (heightValue) {
@@ -514,7 +517,7 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
         } else {
             noCachetableViewHeaderFooterView = [[clas alloc] initWithReuseIdentifier:noReuseIdentifier];
         }
-        
+
         // 绑定起来
         tempView = UIView.new;
         [tempView addSubview:noCachetableViewHeaderFooterView];
@@ -528,7 +531,7 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
     if (self.superview) {
         [self.superview layoutIfNeeded];
     }
-    
+
     tableViewHeaderFooterView.superview.frame = CGRectMake(0, 0, self.frame.size.width, 0);
     tableViewHeaderFooterView.frame = CGRectMake(0, 0, self.frame.size.width, 0);
     !configuration ? : configuration(tableViewHeaderFooterView);
@@ -575,26 +578,6 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
     objc_setAssociatedObject(self, @selector(linView), linView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-+ (instancetype)bm_tableViewCellWithTableView:(UITableView *)tableView {
-    return [self bm_tableViewCellWithTableView:tableView style:UITableViewCellStyleDefault];
-}
-
-+ (instancetype)bm_tableViewCellWithTableView:(UITableView *)tableView style:(UITableViewCellStyle)style {
-    NSString *selfClassName = NSStringFromClass(self.class);
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:selfClassName];
-    if (cell) {
-        return cell;
-    }
-    NSString *path = [[NSBundle mainBundle] pathForResource:selfClassName ofType:@"nib"];
-    if (path.length) {
-        cell = [[[UINib nibWithNibName:selfClassName bundle:nil] instantiateWithOwner:nil options:nil] firstObject];
-        [cell setValue:selfClassName forKey:@"reuseIdentifier"];
-    } else {
-        cell = [[self alloc] initWithStyle:style reuseIdentifier:selfClassName];
-    }
-    return cell;
-}
-
 @end
 
 #pragma mark - UITableViewHeaderFooterView BMTemplateLayoutCell
@@ -615,22 +598,6 @@ static inline CGFloat bm_templateLayoutCell_height(NSNumber *value) {
 
 - (void)setLinView:(UIView *)linView {
     objc_setAssociatedObject(self, @selector(linView), linView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-+ (instancetype)bm_tableViewHeaderFooterViewWithTableView:(UITableView *)tableView {
-    NSString *selfClassName = NSStringFromClass(self.class);
-    UITableViewHeaderFooterView *headerFooterView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:selfClassName];
-    if (headerFooterView) {
-        return headerFooterView;
-    }
-    NSString *path = [[NSBundle mainBundle] pathForResource:selfClassName ofType:@"nib"];
-    if (path.length) {
-        headerFooterView = [[[UINib nibWithNibName:selfClassName bundle:nil] instantiateWithOwner:nil options:nil] firstObject];
-        [headerFooterView setValue:selfClassName forKey:@"reuseIdentifier"];
-    } else {
-        headerFooterView = [[self alloc] initWithReuseIdentifier:selfClassName];
-    }
-    return headerFooterView;
 }
 
 @end

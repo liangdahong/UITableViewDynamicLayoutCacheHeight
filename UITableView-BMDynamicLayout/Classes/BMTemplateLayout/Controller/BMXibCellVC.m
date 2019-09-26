@@ -8,7 +8,7 @@
 
 #import "BMXibCellVC.h"
 #import "UIView+BMExtension.h"
-#import "UITableView+BMTemplateLayoutCell.h"
+#import "UITableView-BMDynamicLayout.h"
 #import "UIScrollView+BMExtension.h"
 #import "UITableViewCell+BMReusable.h"
 #import "BMModel.h"

@@ -1,4 +1,4 @@
-target 'UITableView-BMTemplateLayoutCell' do
+target 'UITableView-BMDynamicLayout' do
     pod 'Masonry'
     pod 'XXNibBridge'
 end

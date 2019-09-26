@@ -1,6 +1,9 @@
-//    996 License https://github.com/996icu/996.ICU/blob/master/LICENSE
 //
-//    Copyright (c) https://github.com/liangdahong/UITableView-BMTemplateLayoutCell
+//  UITableView+BMDynamicLayout.h
+//  UITableView-BMTemplateLayoutCell
+//
+//  Created by Mac on 2019/9/27.
+//  Copyright © 2019年 ( https://liangdahong.com ). All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -10,10 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void (^BMLayoutCellConfigurationBlock)(__kindof UITableViewCell *cell);
 typedef void (^BMLayoutHeaderFooterConfigurationBlock)(__kindof UITableViewHeaderFooterView *headerFooterView);
 
-#pragma mark - BMTemplateLayoutCell
-
 IB_DESIGNABLE
-@interface UITableView (BMTemplateLayoutCell)
+@interface UITableView (BMDynamicLayout)
 
 @property (assign, nonatomic, getter=isScreenRotating) IBInspectable BOOL screenRotating; ///< 是否支持屏幕旋转，默认 NO
 
@@ -61,8 +62,6 @@ IB_DESIGNABLE
                            configuration:(BMLayoutCellConfigurationBlock)configuration;
 
 @end
-
-#pragma mark - BMTemplateLayoutHeaderFooterView
 
 @interface UITableView (BMTemplateLayoutHeaderFooterView)
 
@@ -120,9 +119,6 @@ IB_DESIGNABLE
  */
 @property (assign, nonatomic, getter=isDynamicCellBottomView) IBInspectable BOOL dynamicCellBottomView;
 
-+ (instancetype)bm_tableViewCellWithTableView:(UITableView *)tableView;
-+ (instancetype)bm_tableViewCellWithTableView:(UITableView *)tableView style:(UITableViewCellStyle)style;
-
 @end
 
 #pragma mark - UITableViewHeaderFooterView BMTemplateLayoutCell
@@ -134,8 +130,6 @@ IB_DESIGNABLE
  最大 Y 的 View 是否为变化的，默认:NO（固定）,如果 UITableViewHeaderFooterView 的最大 Y 的 View 是变化的请设置为 YES, 通常是在设置了 2 个（更多）最大 View 时使用。
  */
 @property (assign, nonatomic, getter=isDynamicHeaderFooterBottomView) IBInspectable BOOL dynamicHeaderFooterBottomView;
-
-+ (instancetype)bm_tableViewHeaderFooterViewWithTableView:(UITableView *)tableView;
 
 @end
 
