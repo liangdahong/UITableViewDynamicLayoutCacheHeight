@@ -702,7 +702,7 @@
 				TargetAttributes = {
 					3209DBE0210ED483009FBF49 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 8RB35RM424;
+						DevelopmentTeam = VG78JT6CG8;
 						ProvisioningStyle = Automatic;
 					};
 					3209DBF9210ED484009FBF49 = {
@@ -1005,8 +1005,9 @@
 			baseConfigurationReference = F0CBCC9CA515A8D53D8F12D8 /* Pods-UITableView-BMTemplateLayoutCell.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8RB35RM424;
+				DEVELOPMENT_TEAM = VG78JT6CG8;
 				INFOPLIST_FILE = "UITableView-BMTemplateLayoutCell/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.liangdahong.UITableView-BMTemplateLayoutCell";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1018,8 +1019,9 @@
 			baseConfigurationReference = 0D0CD9EB76A17AC811814CD2 /* Pods-UITableView-BMTemplateLayoutCell.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8RB35RM424;
+				DEVELOPMENT_TEAM = VG78JT6CG8;
 				INFOPLIST_FILE = "UITableView-BMTemplateLayoutCell/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.liangdahong.UITableView-BMTemplateLayoutCell";
 				PRODUCT_NAME = "$(TARGET_NAME)";
