@@ -13,39 +13,36 @@
 #import "UITableViewCell+BMReusable.h"
 #import "BMModel.h"
 #import "BMCell.h"
-#import "UITableView+BMDynamicLoad.h"
-#import "BMCollectionViewVC.h"
+#import "BMHeaderView.h"
+#import "UIFooterView.h"
+#import "BMSystemAdaptiveHeightVC.h"
 
-@interface BMXibCellVC () <UITableViewDelegate, UITableViewDataSource> {
-    NSMutableArray *needLoadArr;
-}
+@interface BMXibCellVC () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray <BMModel *> *dataArray;
+@property (nonatomic, strong) BMSystemAdaptiveHeightVC *systemAdaptiveHeightVC; ///< systemAdaptiveHeightVC
 
 @end
 
 @implementation BMXibCellVC
-#pragma mark -
-#pragma mark - init
-#pragma mark - 生命周期
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    needLoadArr = [@[] mutableCopy];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemAdd) target:self action:@selector(otherClick)];
-
-    _tableView.hitTestBlock = ^{
-        [needLoadArr removeAllObjects];
-        [self loadContent];
-    };
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"系统自适应" style:0 target:self action:@selector(otherClick)];
 }
 
 - (void)otherClick {
-    [self.navigationController pushViewController:BMCollectionViewVC.new animated:YES];
+    [self.navigationController pushViewController:self.systemAdaptiveHeightVC animated:YES];
 }
 
-#pragma mark - getters setters
+- (BMSystemAdaptiveHeightVC *)systemAdaptiveHeightVC {
+    if (!_systemAdaptiveHeightVC) {
+        _systemAdaptiveHeightVC = [BMSystemAdaptiveHeightVC new];
+        _systemAdaptiveHeightVC.dataArray = self.dataArray;
+    }
+    return _systemAdaptiveHeightVC;
+}
 
 - (NSMutableArray<BMModel *> *)dataArray {
     if (!_dataArray) {
@@ -95,7 +92,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(BMCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self drawCell:cell withIndexPath:indexPath];
+    cell.model = self.dataArray[indexPath.row];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -106,7 +103,6 @@
     BMModel *model = self.dataArray[indexPath.row];
     return [tableView bm_heightForCellWithCellClass:BMCell.class cacheByIndexPath:indexPath tableViewWidth:UIScreen.mainScreen.bounds.size.width configuration:^(__kindof BMCell *cell) {
         cell.model = model;
-        [cell draw];
     }];
 }
 
@@ -128,81 +124,9 @@
     return view;
 }
 
-
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return [tableView bm_heightForHeaderFooterViewWithHeaderFooterViewClass:UIFooterView.class isHeaderView:NO section:section configuration:^(__kindof UIFooterView * _Nonnull headerFooterView) {
     }];
 }
 
-// 按需加载 - 如果目标行与当前行相差超过指定行数，只在目标滚动范围的前后指定3行加载。
-- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-    // 将要滚动到的 NSIndexPath
-    NSIndexPath *ip = [self.tableView indexPathForRowAtPoint:CGPointMake(0, targetContentOffset->y)];
-    // 当前的 NSIndexPath
-    NSIndexPath *cip = [[self.tableView indexPathsForVisibleRows] firstObject];
-    // 当前位置和结束位置多余 skipCount 就需要按需加载处理（这个数字一般需考虑tableView高度和Cell的平均高度来估计）建议tableView高度 / 最小的Cell的高度
-    NSInteger skipCount = 10;
-    // 目标index的前后多少行
-    NSInteger count = 3;
-    if (labs(cip.row-ip.row)>skipCount) {
-        NSArray *temp = [self.tableView indexPathsForRowsInRect:CGRectMake(0, targetContentOffset->y, self.tableView.bm_width, self.tableView.bm_height)];
-        NSMutableArray *arr = [NSMutableArray arrayWithArray:temp];
-        if (velocity.y<0) {
-            NSIndexPath *indexPath = [temp lastObject];
-            if (indexPath.row+count<self.dataArray.count) {
-                [arr addObject:[NSIndexPath indexPathForRow:indexPath.row+1 inSection:0]];
-                [arr addObject:[NSIndexPath indexPathForRow:indexPath.row+2 inSection:0]];
-                [arr addObject:[NSIndexPath indexPathForRow:indexPath.row+3 inSection:0]];
-            }
-        } else {
-            NSIndexPath *indexPath = [temp firstObject];
-            if (indexPath.row>count) {
-                [arr addObject:[NSIndexPath indexPathForRow:indexPath.row-3 inSection:0]];
-                [arr addObject:[NSIndexPath indexPathForRow:indexPath.row-2 inSection:0]];
-                [arr addObject:[NSIndexPath indexPathForRow:indexPath.row-1 inSection:0]];
-            }
-        }
-        [needLoadArr addObjectsFromArray:arr];
-    }
-}
-
-- (void)drawCell:(BMCell *)cell withIndexPath:(NSIndexPath *)indexPath {
-    cell.model = self.dataArray[indexPath.row];
-    if (needLoadArr.count > 0
-        && [needLoadArr indexOfObject:indexPath] == NSNotFound) {
-        [cell clear];
-        return;
-    }
-    [cell draw];
-}
-
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    [needLoadArr removeAllObjects];
-}
-
-- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
-    [self loadContent];
-}
-
-- (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView{
-    CGPoint p = CGPointZero;
-    [self scrollViewWillEndDragging:scrollView withVelocity:scrollView.contentOffset targetContentOffset:&p];
-    return YES;
-}
-
-- (void)loadContent{
-    if (self.tableView.indexPathsForVisibleRows.count<=0) {
-        return;
-    }
-    if (self.tableView.visibleCells&&self.tableView.visibleCells.count>0) {
-        for (id temp in [self.tableView.visibleCells copy]) {
-            [(BMCell *)temp draw];
-        }
-    }
-}
-
-#pragma mark - 自定义delegate
-#pragma mark - 公有方法
-#pragma mark - 私有方法
-#pragma mark - 事件响应
 @end

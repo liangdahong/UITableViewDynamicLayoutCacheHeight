@@ -10,10 +10,6 @@
 #import "BMXibCellVC.h"
 #import "YYFPSLabel.h"
 
-@interface AppDelegate ()
-
-@end
-
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -26,7 +22,7 @@
     self.window.rootViewController = nav;
     YYFPSLabel *label = [YYFPSLabel new];
     label.frame = CGRectMake(10, 20, 60, 20);
-//    [self.window addSubview:label];
+    [self.window addSubview:label];
     return YES;
 }
 

@@ -13,7 +13,4 @@
 
 @property (strong, nonatomic) BMModel *model;
 
-- (void)draw;
-- (void)clear;
-
 @end

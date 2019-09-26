@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BMHeaderView.h"
-#import "UIFooterView.h"
 
 @interface BMXibCellVC : UIViewController
 

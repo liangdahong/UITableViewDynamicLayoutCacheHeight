@@ -1,8 +1,8 @@
 //
-//  BMCollectionCell.h
+//  UIFooterView.h
 //  UITableView-BMTemplateLayoutCell
 //
-//  Created by Mac on 2019/8/29.
+//  Created by MacBook on 2019/4/20.
 //  Copyright © 2019年 ( https://liangdahong.com ). All rights reserved.
 //
 
@@ -10,9 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BMCollectionCell : UICollectionViewCell
-
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel1;
+@interface BMSystemAdaptiveHeighFooterView : UITableViewHeaderFooterView
 
 @end
 
