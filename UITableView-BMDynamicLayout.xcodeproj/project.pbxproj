@@ -43,6 +43,7 @@
 		05D4DBA4233D9D1400180628 /* UITableViewCell+BMAutomaticRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D4DBA0233D9D1300180628 /* UITableViewCell+BMAutomaticRegister.m */; };
 		05D4DBA5233D9D1400180628 /* UITableView+BMDynamicLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D4DBA1233D9D1300180628 /* UITableView+BMDynamicLayout.m */; };
 		05D4DBA6233D9D1400180628 /* UITableViewHeaderFooterView+BMAutomaticRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D4DBA3233D9D1400180628 /* UITableViewHeaderFooterView+BMAutomaticRegister.m */; };
+		05D4DBA8233D9E7100180628 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 05D4DBA7233D9E7100180628 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +119,7 @@
 		05D4DBA1233D9D1300180628 /* UITableView+BMDynamicLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+BMDynamicLayout.m"; sourceTree = "<group>"; };
 		05D4DBA2233D9D1400180628 /* UITableViewHeaderFooterView+BMAutomaticRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewHeaderFooterView+BMAutomaticRegister.h"; sourceTree = "<group>"; };
 		05D4DBA3233D9D1400180628 /* UITableViewHeaderFooterView+BMAutomaticRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewHeaderFooterView+BMAutomaticRegister.m"; sourceTree = "<group>"; };
+		05D4DBA7233D9E7100180628 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				05D4DB9C233D9C7200180628 /* UITableView-BMDynamicLayout.podspec */,
+				05D4DBA7233D9E7100180628 /* README.md */,
 				0558C1A0233D9528007BD374 /* UITableView-BMDynamicLayout */,
 				0558C19F233D9528007BD374 /* Products */,
 			);
@@ -488,6 +491,7 @@
 				0558C22E233D954E007BD374 /* 8.png in Resources */,
 				05D4DB9D233D9C7200180628 /* UITableView-BMDynamicLayout.podspec in Resources */,
 				0558C227233D954E007BD374 /* BMHeaderView.xib in Resources */,
+				05D4DBA8233D9E7100180628 /* README.md in Resources */,
 				0558C233233D954E007BD374 /* 2.png in Resources */,
 				0558C234233D954E007BD374 /* 3.png in Resources */,
 				0558C1AE233D952A007BD374 /* LaunchScreen.storyboard in Resources */,

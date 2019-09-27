@@ -19,11 +19,7 @@
 <a href="#">
 ​        <img src="https://img.shields.io/badge/support-iOS%207%2B%20-blue.svg?style=flat">
 ​    </a>
-​    
-<a href="https://github.com/996icu/996.ICU/blob/master/LICENSE">
-​        <img src="https://img.shields.io/badge/license-Anti%20996-blue.svg">
-​    </a>
-​    
+​    ​ 
 </p>
 
 - This is a Template auto layout cell for automatically UITableViewCell UITableViewHeaderFooterView calculating and cache height
