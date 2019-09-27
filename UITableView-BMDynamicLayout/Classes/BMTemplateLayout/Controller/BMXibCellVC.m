@@ -7,10 +7,7 @@
 //
 
 #import "BMXibCellVC.h"
-#import "UIView+BMExtension.h"
-#import "UITableView-BMDynamicLayout.h"
-#import "UIScrollView+BMExtension.h"
-#import "UITableViewCell+BMReusable.h"
+#import "UITableView+BMDynamicLayout.h"
 #import "BMModel.h"
 #import "BMCell.h"
 #import "BMHeaderView.h"
@@ -88,7 +85,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [BMCell bm_cellWithTableView:tableView];
+    return [BMCell bm_tableViewCellWithTableView:tableView];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(BMCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {

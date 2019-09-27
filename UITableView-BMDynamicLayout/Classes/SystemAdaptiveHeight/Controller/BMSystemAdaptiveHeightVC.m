@@ -7,10 +7,7 @@
 //
 
 #import "BMSystemAdaptiveHeightVC.h"
-#import "UIView+BMExtension.h"
-#import "UITableView-BMDynamicLayout.h"
-#import "UIScrollView+BMExtension.h"
-#import "UITableViewCell+BMReusable.h"
+#import "UITableView+BMDynamicLayout.h"
 #import "BMSystemAdaptiveHeighCell.h"
 #import "BMSystemAdaptiveHeighHeaderView.h"
 #import "BMSystemAdaptiveHeighFooterView.h"
@@ -47,7 +44,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [BMSystemAdaptiveHeighCell bm_cellWithTableView:tableView];
+    return [BMSystemAdaptiveHeighCell bm_tableViewCellWithTableView:tableView];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(BMSystemAdaptiveHeighCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UITableViewCell+BMAutomaticRegister.h"
+#import "UITableViewHeaderFooterView+BMAutomaticRegister.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
