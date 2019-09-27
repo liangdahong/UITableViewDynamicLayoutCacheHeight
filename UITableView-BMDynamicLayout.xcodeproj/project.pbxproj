@@ -44,6 +44,7 @@
 		05D4DBA5233D9D1400180628 /* UITableView+BMDynamicLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D4DBA1233D9D1300180628 /* UITableView+BMDynamicLayout.m */; };
 		05D4DBA6233D9D1400180628 /* UITableViewHeaderFooterView+BMAutomaticRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D4DBA3233D9D1400180628 /* UITableViewHeaderFooterView+BMAutomaticRegister.m */; };
 		05D4DBA8233D9E7100180628 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 05D4DBA7233D9E7100180628 /* README.md */; };
+		05D4DBAE233DA2DD00180628 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 05D4DBAD233DA2DD00180628 /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,7 @@
 		05D4DBA2233D9D1400180628 /* UITableViewHeaderFooterView+BMAutomaticRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewHeaderFooterView+BMAutomaticRegister.h"; sourceTree = "<group>"; };
 		05D4DBA3233D9D1400180628 /* UITableViewHeaderFooterView+BMAutomaticRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewHeaderFooterView+BMAutomaticRegister.m"; sourceTree = "<group>"; };
 		05D4DBA7233D9E7100180628 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		05D4DBAD233DA2DD00180628 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 			children = (
 				05D4DB9C233D9C7200180628 /* UITableView-BMDynamicLayout.podspec */,
 				05D4DBA7233D9E7100180628 /* README.md */,
+				05D4DBAD233DA2DD00180628 /* LICENSE */,
 				0558C1A0233D9528007BD374 /* UITableView-BMDynamicLayout */,
 				0558C19F233D9528007BD374 /* Products */,
 			);
@@ -504,6 +507,7 @@
 				0558C1AB233D952A007BD374 /* Assets.xcassets in Resources */,
 				0558C1A9233D9528007BD374 /* Main.storyboard in Resources */,
 				0558C21C233D954E007BD374 /* BMSystemAdaptiveHeighFooterView.xib in Resources */,
+				05D4DBAE233DA2DD00180628 /* LICENSE in Resources */,
 				0558C230233D954E007BD374 /* 5.png in Resources */,
 				0558C231233D954E007BD374 /* 7.png in Resources */,
 				0558C220233D954E007BD374 /* BMSystemAdaptiveHeighCell.xib in Resources */,
