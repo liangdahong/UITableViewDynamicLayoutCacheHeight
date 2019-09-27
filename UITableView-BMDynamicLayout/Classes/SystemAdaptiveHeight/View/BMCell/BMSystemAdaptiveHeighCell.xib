@@ -74,7 +74,7 @@
                 <outlet property="titleLabel" destination="fFh-wW-ISV" id="tF1-xP-XR3"/>
                 <outlet property="userLabel" destination="AIe-Bw-kL1" id="SjD-S4-hgv"/>
             </connections>
-            <point key="canvasLocation" x="485.60000000000002" y="-1032.2338830584708"/>
+            <point key="canvasLocation" x="-172" y="-1118"/>
         </tableViewCell>
     </objects>
     <resources>

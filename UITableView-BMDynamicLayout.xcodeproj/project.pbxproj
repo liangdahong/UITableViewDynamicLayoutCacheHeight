@@ -327,9 +327,9 @@
 		0558C1FB233D954D007BD374 /* BMHeaderView */ = {
 			isa = PBXGroup;
 			children = (
+				0558C1FE233D954D007BD374 /* BMHeaderView.h */,
 				0558C1FC233D954D007BD374 /* BMHeaderView.m */,
 				0558C1FD233D954D007BD374 /* BMHeaderView.xib */,
-				0558C1FE233D954D007BD374 /* BMHeaderView.h */,
 			);
 			path = BMHeaderView;
 			sourceTree = "<group>";
@@ -338,8 +338,8 @@
 			isa = PBXGroup;
 			children = (
 				0558C200233D954D007BD374 /* BMCell.h */,
-				0558C201233D954D007BD374 /* BMCell.xib */,
 				0558C202233D954D007BD374 /* BMCell.m */,
+				0558C201233D954D007BD374 /* BMCell.xib */,
 			);
 			path = BMCell;
 			sourceTree = "<group>";

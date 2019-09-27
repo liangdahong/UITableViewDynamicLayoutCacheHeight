@@ -7,7 +7,6 @@
     <img  width="40%" src="1.gif"/>
 <p/>
 
-
 <p align="center">
 
 <a href="#">
@@ -24,7 +23,6 @@
 
 </p>
 
-
 ## Introduction
 
 - This is a Template auto layout cell for automatically UITableViewCell UITableViewHeaderFooterView calculating and cache height
@@ -32,23 +30,114 @@
 
 ##  CocoaPods
 
-CocoaPods is the recommended way to add UITableView-BMDynamicLayout to your project.
-
-First, add a pod entry for UITableView-BMDynamicLayout to your Podfile.
-
 ```ruby
 pod 'UITableView-BMDynamicLayout'
 ```
-
-Second, install UITableView-BMDynamicLayout into your project:
 
 ```ruby
 pod install
 ```
 
-Third, include UITableView-BMDynamicLayout wherever you need it with:
-
 ```objective-c
 #import "UITableView-BMDynamicLayout.h"
 ```
 
+## Usage
+
+if your cell use autolayout , all you need just to do like this:
+
+<p align="center">
+    <img width="60%" src="1-1.png"/>
+<p/>
+
+### Cell height
+
+```objective-c
+/**
+ cell clas configuration
+ */
+- (CGFloat)bm_heightForCellWithCellClass:(Class)clas
+                           configuration:(BMLayoutCellConfigurationBlock)configuration;
+
+/**
+ cell clas width configuration
+ */
+- (CGFloat)bm_heightForCellWithCellClass:(Class)clas
+                          tableViewWidth:(CGFloat)width
+                           configuration:(BMLayoutCellConfigurationBlock)configuration;
+
+/**
+ cell clas indexPath configuration
+ */
+- (CGFloat)bm_heightForCellWithCellClass:(Class)clas
+                        cacheByIndexPath:(NSIndexPath *)indexPath
+                           configuration:(BMLayoutCellConfigurationBlock)configuration;
+
+/**
+ cell clas indexPath width configuration
+ */
+- (CGFloat)bm_heightForCellWithCellClass:(Class)clas
+                        cacheByIndexPath:(NSIndexPath *)indexPath
+                          tableViewWidth:(CGFloat)width
+                           configuration:(BMLayoutCellConfigurationBlock)configuration;
+
+/**
+ cell clas key configuration
+ */
+- (CGFloat)bm_heightForCellWithCellClass:(Class)clas
+                              cacheByKey:(NSString *)key
+                           configuration:(BMLayoutCellConfigurationBlock)configuration;
+
+/**
+ cell clas key width configuration
+ */
+- (CGFloat)bm_heightForCellWithCellClass:(Class)clas
+                              cacheByKey:(NSString *)key
+                          tableViewWidth:(CGFloat)width
+                           configuration:(BMLayoutCellConfigurationBlock)configuration;
+```
+### UITableViewHeaderFooterView height
+
+```objective-c
+/**
+ HeaderFooterView clas configuration
+ */
+- (CGFloat)bm_heightForHeaderFooterViewWithHeaderFooterViewClass:(Class)clas
+                                                   configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration;
+/**
+ HeaderFooterView clas width configuration
+ */
+- (CGFloat)bm_heightForHeaderFooterViewWithHeaderFooterViewClass:(Class)clas
+                                                  tableViewWidth:(CGFloat)width
+                                                   configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration;
+
+/**
+ HeaderFooterView clas isHeaderView section configuration
+ */
+- (CGFloat)bm_heightForHeaderFooterViewWithHeaderFooterViewClass:(Class)clas
+                                                    isHeaderView:(BOOL)isHeaderView
+                                                         section:(NSInteger)section
+                                                   configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration;
+/**
+ HeaderFooterView clas isHeaderView section width configuration
+ */
+- (CGFloat)bm_heightForHeaderFooterViewWithHeaderFooterViewClass:(Class)clas
+                                                    isHeaderView:(BOOL)isHeaderView
+                                                         section:(NSInteger)section
+                                                  tableViewWidth:(CGFloat)width
+                                                   configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration;
+
+/**
+ HeaderFooterView clas key configuration
+ */
+- (CGFloat)bm_heightForHeaderFooterViewWithHeaderFooterViewClass:(Class)clas
+                                                      cacheByKey:(NSString *)key
+                                                   configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration;
+/**
+ HeaderFooterView clas key width configuration
+ */
+- (CGFloat)bm_heightForHeaderFooterViewWithHeaderFooterViewClass:(Class)clas
+                                                      cacheByKey:(NSString *)key
+                                                  tableViewWidth:(CGFloat)width
+                                                   configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration;
+```
