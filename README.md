@@ -141,3 +141,7 @@ if your cell use autolayout , all you need just to do like this:
                                                   tableViewWidth:(CGFloat)width
                                                    configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration;
 ```
+
+## License    
+
+UITableView-BMDynamicLayout is released under the [MIT license](LICENSE). See LICENSE for details.
