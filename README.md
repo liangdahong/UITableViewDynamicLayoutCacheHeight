@@ -1,9 +1,11 @@
-## 介绍
+
+# UITableView-BMDynamicLayout
+
+## Demonstration
 
 <p align="center">
     <img  width="40%" src="1.gif"/>
 <p/>
-
 
 
 <p align="center">
@@ -19,12 +21,34 @@
 <a href="#">
 ​        <img src="https://img.shields.io/badge/support-iOS%207%2B%20-blue.svg?style=flat">
 ​    </a>
-​    ​ 
+
 </p>
+
+
+## Introduction
 
 - This is a Template auto layout cell for automatically UITableViewCell UITableViewHeaderFooterView calculating and cache height
  framework.
- 
-## 使用
 
-- 请直接将 `Sources/BMTemplateLayoutCell` 文件夹中的内容拖拽到项目中即可，目前不支持 `pod` 的方式。
+##  CocoaPods
+
+CocoaPods is the recommended way to add UITableView-BMDynamicLayout to your project.
+
+First, add a pod entry for UITableView-BMDynamicLayout to your Podfile.
+
+```ruby
+pod 'UITableView-BMDynamicLayout'
+```
+
+Second, install UITableView-BMDynamicLayout into your project:
+
+```ruby
+pod install
+```
+
+Third, include UITableView-BMDynamicLayout wherever you need it with:
+
+```objective-c
+#import "UITableView-BMDynamicLayout.h"
+```
+
