@@ -10,9 +10,4 @@
 
 @implementation BMHeaderView
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    self.backgroundColor = [UIColor yellowColor];
-}
-
 @end

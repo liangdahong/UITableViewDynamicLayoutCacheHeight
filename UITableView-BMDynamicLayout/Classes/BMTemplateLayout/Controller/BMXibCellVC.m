@@ -85,10 +85,10 @@
             obj.headerTitle = string;
 
             {
-                int arci = arc4random_uniform(20) + 1;
+                int arci = arc4random_uniform(30) + 1;
                 NSMutableString *string = [NSMutableString string];
                 while (arci--) {
-                    [string appendString:@"尾部尾部尾部尾部尾部尾部"];
+                    [string appendString:@"尾部尾部尾部尾部尾"];
                 }
                 [string appendString:@"~"];
                 obj.footerTitle = string;
@@ -133,7 +133,7 @@
     id obj = self.dataArray[0];
     [self.dataArray removeObjectAtIndex:0];
 
-    NSInteger se = arc4random_uniform(5);
+    NSInteger se = 1;
     [self.dataArray insertObject:obj atIndex:se];
     [tableView moveSection:0 toSection:se];
     
@@ -158,7 +158,6 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     BMHeaderView *view = [BMHeaderView bm_tableViewHeaderFooterViewWithTableView:tableView];
-    view.contentView.backgroundColor = [UIColor redColor];
     view.titleLabel.text = self.dataArray[section].headerTitle;
     return view;
 }
@@ -171,7 +170,6 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     UIFooterView *view = [UIFooterView bm_tableViewHeaderFooterViewWithTableView:tableView];
-    view.contentView.backgroundColor = [UIColor blueColor];
     view.titleLabel.text = self.dataArray[section].footerTitle;
     return view;
 }

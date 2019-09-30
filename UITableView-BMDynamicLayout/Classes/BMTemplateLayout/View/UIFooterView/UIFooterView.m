@@ -10,9 +10,4 @@
 
 @implementation UIFooterView
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    self.backgroundColor = [UIColor blueColor];
-}
-
 @end
