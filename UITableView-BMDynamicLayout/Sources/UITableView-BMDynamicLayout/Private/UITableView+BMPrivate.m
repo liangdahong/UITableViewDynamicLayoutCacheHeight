@@ -9,6 +9,8 @@
 #import "UITableView+BMPrivate.h"
 #import <objc/runtime.h>
 
+#define KISVertical UIScreen.mainScreen.bounds.size.height > UIScreen.mainScreen.bounds.size.width
+
 @implementation UITableView (BMPrivate)
 
 #pragma mark - header property
@@ -23,9 +25,7 @@
 }
 
 - (NSMutableDictionary<NSString *,NSNumber *> *)headerHeightDictionary {
-    CGFloat width  = UIScreen.mainScreen.bounds.size.width;
-    CGFloat height = UIScreen.mainScreen.bounds.size.height;
-    return (height > width) ? self.headerVerticalDictionary : self.headerHorizontalDictionary;
+    return KISVertical ? self.headerVerticalDictionary : self.headerHorizontalDictionary;
 }
 
 - (NSMutableDictionary<NSString *,NSNumber *> *)headerVerticalDictionary {
@@ -47,9 +47,7 @@
 }
 
 - (NSMutableArray<NSNumber *> *)headerHeightArray {
-    CGFloat width  = UIScreen.mainScreen.bounds.size.width;
-    CGFloat height = UIScreen.mainScreen.bounds.size.height;
-    return (height > width) ? self.headerVerticalArray : self.headerHorizontalArray;
+    return KISVertical ? self.headerVerticalArray : self.headerHorizontalArray;
 }
 
 - (NSMutableArray<NSNumber *> *)headerVerticalArray {
@@ -82,9 +80,7 @@
 }
 
 - (NSMutableDictionary<NSString *, NSNumber *> *)heightDictionary {
-    CGFloat width  = UIScreen.mainScreen.bounds.size.width;
-    CGFloat height = UIScreen.mainScreen.bounds.size.height;
-    return (height > width) ? self.verticalDictionary : self.horizontalDictionary;
+    return KISVertical ? self.verticalDictionary : self.horizontalDictionary;
 }
 
 - (NSMutableDictionary<NSString *,NSNumber *> *)verticalDictionary {
@@ -106,9 +102,7 @@
 }
 
 - (NSMutableArray<NSMutableArray<NSNumber *> *> *)heightArray {
-    CGFloat width  = UIScreen.mainScreen.bounds.size.width;
-    CGFloat height = UIScreen.mainScreen.bounds.size.height;
-    return (height > width) ? self.verticalArray : self.horizontalArray;
+    return KISVertical ? self.verticalArray : self.horizontalArray;
 }
 
 - (NSMutableArray<NSMutableArray<NSNumber *> *> *)verticalArray {
@@ -141,9 +135,7 @@
 }
 
 - (NSMutableDictionary<NSString *,NSNumber *> *)footerHeightDictionary {
-    CGFloat width  = UIScreen.mainScreen.bounds.size.width;
-    CGFloat height = UIScreen.mainScreen.bounds.size.height;
-    return (height > width) ? self.headerVerticalDictionary : self.headerHorizontalDictionary;
+    return KISVertical ? self.footerVerticalDictionary : self.footerHorizontalDictionary;
 }
 
 - (NSMutableDictionary<NSString *,NSNumber *> *)footerVerticalDictionary {
@@ -165,9 +157,7 @@
 }
 
 - (NSMutableArray<NSNumber *> *)footerHeightArray {
-    CGFloat width  = UIScreen.mainScreen.bounds.size.width;
-    CGFloat height = UIScreen.mainScreen.bounds.size.height;
-    return (height > width) ? self.footerVerticalArray : self.footerHorizontalArray;
+    return KISVertical ? self.footerVerticalArray : self.footerHorizontalArray;
 }
 
 - (NSMutableArray<NSNumber *> *)footerVerticalArray {
@@ -218,19 +208,16 @@
 }
 
 - (void)tableView_dynamicLayout_reloadData {
-    // cell
     if (self.isIndexPathHeightCache) {
         [self.verticalArray removeAllObjects];
         [self.horizontalArray removeAllObjects];
     }
     
-    // header
     if (self.isSectionHeaderHeightCache) {
         [self.headerVerticalArray removeAllObjects];
         [self.footerHorizontalArray removeAllObjects];
     }
     
-    // footer
     if (self.isSectionFooterHeightCache) {
         [self.footerVerticalArray removeAllObjects];
         [self.footerHorizontalArray removeAllObjects];
@@ -240,7 +227,6 @@
 }
 
 - (void)tableView_dynamicLayout_insertSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation {
-    // cell
     if (self.isIndexPathHeightCache) {
         [sections enumerateIndexesUsingBlock:^(NSUInteger section, BOOL * _Nonnull stop) {
             [self.verticalArray insertObject:@[].mutableCopy atIndex:section];
@@ -248,7 +234,6 @@
         }];
     }
     
-    // header
     if (self.isSectionHeaderHeightCache) {
         [sections enumerateIndexesUsingBlock:^(NSUInteger section, BOOL * _Nonnull stop) {
             [self.headerVerticalArray insertObject:@(-1) atIndex:section];
@@ -256,7 +241,6 @@
         }];
     }
     
-    // footer
     if (self.isSectionFooterHeightCache) {
         [sections enumerateIndexesUsingBlock:^(NSUInteger section, BOOL * _Nonnull stop) {
             [self.footerVerticalArray insertObject:@(-1) atIndex:section];
@@ -268,7 +252,6 @@
 }
 
 - (void)tableView_dynamicLayout_deleteSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation {
-    // cell
     if (self.isIndexPathHeightCache) {
         [sections enumerateIndexesUsingBlock:^(NSUInteger section, BOOL * _Nonnull stop) {
             [self.verticalArray removeObjectAtIndex:section];
@@ -276,7 +259,6 @@
         }];
     }
     
-    // header
     if (self.isSectionHeaderHeightCache) {
         [sections enumerateIndexesUsingBlock:^(NSUInteger section, BOOL * _Nonnull stop) {
             [self.headerVerticalArray removeObjectAtIndex:section];
@@ -284,7 +266,6 @@
         }];
     }
     
-    // footer
     if (self.isSectionFooterHeightCache) {
         [sections enumerateIndexesUsingBlock:^(NSUInteger section, BOOL * _Nonnull stop) {
             [self.footerVerticalArray removeObjectAtIndex:section];
@@ -302,7 +283,6 @@
         }];
     }
     
-    // header
     if (self.isSectionHeaderHeightCache) {
         [sections enumerateIndexesUsingBlock:^(NSUInteger section, BOOL * _Nonnull stop) {
             self.headerVerticalArray[section] = @(-1);
@@ -310,7 +290,6 @@
         }];
     }
     
-    // footer
     if (self.isSectionFooterHeightCache) {
         [sections enumerateIndexesUsingBlock:^(NSUInteger section, BOOL * _Nonnull stop) {
             self.footerVerticalArray[section] = @(-1);
@@ -332,8 +311,6 @@
         [self.horizontalArray insertObject:obj1 atIndex:newSection];
     }
     
-    
-    // header
     if (self.isSectionHeaderHeightCache) {
         id obj = self.headerVerticalArray[section];
         [self.headerVerticalArray removeObjectAtIndex:section];
@@ -343,10 +320,9 @@
         [self.headerHorizontalArray removeObjectAtIndex:section];
         [self.headerHorizontalArray insertObject:obj1 atIndex:newSection];
     }
-    
-    // footer
+
     if (self.isSectionFooterHeightCache) {
-        id obj = self.headerVerticalArray[section];
+        id obj = self.footerVerticalArray[section];
         [self.footerVerticalArray removeObjectAtIndex:section];
         [self.footerVerticalArray insertObject:obj atIndex:newSection];
         

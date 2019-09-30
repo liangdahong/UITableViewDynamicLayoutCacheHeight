@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BMGroupModel.h"
 
 @interface BMXibCellVC : UIViewController
 

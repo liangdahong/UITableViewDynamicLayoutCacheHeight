@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BMModel.h"
+#import "BMGroupModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BMSystemAdaptiveHeightVC : UIViewController
 
-@property (strong, nonatomic) NSMutableArray <NSMutableArray <BMModel *> *> *dataArray;
+@property (strong, nonatomic) NSMutableArray <BMGroupModel *> *dataArray;
 
 @end
 

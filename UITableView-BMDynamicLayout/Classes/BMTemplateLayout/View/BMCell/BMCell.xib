@@ -75,6 +75,7 @@
             </tableViewCellContentView>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="boolean" keyPath="dynamicCellBottomView" value="YES"/>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="bm_maxYViewFixed" value="YES"/>
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="descLabel" destination="vAq-Z6-PP4" id="cGc-eL-wLf"/>

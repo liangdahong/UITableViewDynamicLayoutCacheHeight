@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0542934E2341B539008BE466 /* UITableView+BMDynamicLayout1.m in Sources */ = {isa = PBXBuildFile; fileRef = 0542934D2341B539008BE466 /* UITableView+BMDynamicLayout1.m */; };
+		0446126C23425C5500378B34 /* BMGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0446126B23425C5500378B34 /* BMGroupModel.m */; };
+		0542934E2341B539008BE466 /* UITableView+BMDynamicLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0542934D2341B539008BE466 /* UITableView+BMDynamicLayout.m */; };
 		0542EBEB2341F59A00D29FE0 /* UITableView+BMPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0542EBEA2341F59A00D29FE0 /* UITableView+BMPrivate.m */; };
 		0542EBEE2341F61100D29FE0 /* UITableViewCell+BMPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0542EBED2341F61100D29FE0 /* UITableViewCell+BMPrivate.m */; };
 		0542EBF12341F61800D29FE0 /* UITableViewHeaderFooterView+BMPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0542EBF02341F61800D29FE0 /* UITableViewHeaderFooterView+BMPrivate.m */; };
@@ -45,7 +46,6 @@
 		0558C235233D954E007BD374 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0558C215233D954D007BD374 /* 1.png */; };
 		05D4DB9D233D9C7200180628 /* UITableView-BMDynamicLayout.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 05D4DB9C233D9C7200180628 /* UITableView-BMDynamicLayout.podspec */; };
 		05D4DBA4233D9D1400180628 /* UITableViewCell+BMAutomaticRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D4DBA0233D9D1300180628 /* UITableViewCell+BMAutomaticRegister.m */; };
-		05D4DBA5233D9D1400180628 /* UITableView+BMDynamicLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D4DBA1233D9D1300180628 /* UITableView+BMDynamicLayout.m */; };
 		05D4DBA6233D9D1400180628 /* UITableViewHeaderFooterView+BMAutomaticRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D4DBA3233D9D1400180628 /* UITableViewHeaderFooterView+BMAutomaticRegister.m */; };
 		05D4DBA8233D9E7100180628 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 05D4DBA7233D9E7100180628 /* README.md */; };
 		05D4DBAE233DA2DD00180628 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 05D4DBAD233DA2DD00180628 /* LICENSE */; };
@@ -69,8 +69,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0542934C2341B539008BE466 /* UITableView+BMDynamicLayout1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+BMDynamicLayout1.h"; sourceTree = "<group>"; };
-		0542934D2341B539008BE466 /* UITableView+BMDynamicLayout1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+BMDynamicLayout1.m"; sourceTree = "<group>"; };
+		0446126A23425C5500378B34 /* BMGroupModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMGroupModel.h; sourceTree = "<group>"; };
+		0446126B23425C5500378B34 /* BMGroupModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMGroupModel.m; sourceTree = "<group>"; };
+		0542934C2341B539008BE466 /* UITableView+BMDynamicLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+BMDynamicLayout.h"; sourceTree = "<group>"; };
+		0542934D2341B539008BE466 /* UITableView+BMDynamicLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+BMDynamicLayout.m"; sourceTree = "<group>"; };
 		0542EBE92341F59A00D29FE0 /* UITableView+BMPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+BMPrivate.h"; sourceTree = "<group>"; };
 		0542EBEA2341F59A00D29FE0 /* UITableView+BMPrivate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+BMPrivate.m"; sourceTree = "<group>"; };
 		0542EBEC2341F61100D29FE0 /* UITableViewCell+BMPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+BMPrivate.h"; sourceTree = "<group>"; };
@@ -127,9 +129,7 @@
 		0558C215233D954D007BD374 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		05D4DB9C233D9C7200180628 /* UITableView-BMDynamicLayout.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "UITableView-BMDynamicLayout.podspec"; sourceTree = "<group>"; };
 		05D4DB9E233D9D1300180628 /* UITableViewCell+BMAutomaticRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+BMAutomaticRegister.h"; sourceTree = "<group>"; };
-		05D4DB9F233D9D1300180628 /* UITableView+BMDynamicLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+BMDynamicLayout.h"; sourceTree = "<group>"; };
 		05D4DBA0233D9D1300180628 /* UITableViewCell+BMAutomaticRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+BMAutomaticRegister.m"; sourceTree = "<group>"; };
-		05D4DBA1233D9D1300180628 /* UITableView+BMDynamicLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+BMDynamicLayout.m"; sourceTree = "<group>"; };
 		05D4DBA2233D9D1400180628 /* UITableViewHeaderFooterView+BMAutomaticRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewHeaderFooterView+BMAutomaticRegister.h"; sourceTree = "<group>"; };
 		05D4DBA3233D9D1400180628 /* UITableViewHeaderFooterView+BMAutomaticRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewHeaderFooterView+BMAutomaticRegister.m"; sourceTree = "<group>"; };
 		05D4DBA7233D9E7100180628 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -209,10 +209,8 @@
 			isa = PBXGroup;
 			children = (
 				05FCD43A2341EF7C00B29689 /* Private */,
-				05D4DB9F233D9D1300180628 /* UITableView+BMDynamicLayout.h */,
-				05D4DBA1233D9D1300180628 /* UITableView+BMDynamicLayout.m */,
-				0542934C2341B539008BE466 /* UITableView+BMDynamicLayout1.h */,
-				0542934D2341B539008BE466 /* UITableView+BMDynamicLayout1.m */,
+				0542934C2341B539008BE466 /* UITableView+BMDynamicLayout.h */,
+				0542934D2341B539008BE466 /* UITableView+BMDynamicLayout.m */,
 				05D4DB9E233D9D1300180628 /* UITableViewCell+BMAutomaticRegister.h */,
 				05D4DBA0233D9D1300180628 /* UITableViewCell+BMAutomaticRegister.m */,
 				05D4DBA2233D9D1400180628 /* UITableViewHeaderFooterView+BMAutomaticRegister.h */,
@@ -313,8 +311,10 @@
 		0558C1F3233D954D007BD374 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0558C1F4233D954D007BD374 /* BMModel.m */,
+				0446126A23425C5500378B34 /* BMGroupModel.h */,
+				0446126B23425C5500378B34 /* BMGroupModel.m */,
 				0558C1F5233D954D007BD374 /* BMModel.h */,
+				0558C1F4233D954D007BD374 /* BMModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -569,13 +569,13 @@
 				0558C22D233D954E007BD374 /* YYFPSLabel.m in Sources */,
 				0558C225233D954E007BD374 /* UIFooterView.m in Sources */,
 				0542EBF12341F61800D29FE0 /* UITableViewHeaderFooterView+BMPrivate.m in Sources */,
-				05D4DBA5233D9D1400180628 /* UITableView+BMDynamicLayout.m in Sources */,
 				0558C229233D954E007BD374 /* BMCell.m in Sources */,
 				0558C21F233D954E007BD374 /* BMSystemAdaptiveHeighCell.m in Sources */,
 				05D4DBA6233D9D1400180628 /* UITableViewHeaderFooterView+BMAutomaticRegister.m in Sources */,
 				0542EBEE2341F61100D29FE0 /* UITableViewCell+BMPrivate.m in Sources */,
-				0542934E2341B539008BE466 /* UITableView+BMDynamicLayout1.m in Sources */,
+				0542934E2341B539008BE466 /* UITableView+BMDynamicLayout.m in Sources */,
 				05D4DBA4233D9D1400180628 /* UITableViewCell+BMAutomaticRegister.m in Sources */,
+				0446126C23425C5500378B34 /* BMGroupModel.m in Sources */,
 				0558C21A233D954E007BD374 /* BMSystemAdaptiveHeightVC.m in Sources */,
 				0558C22B233D954E007BD374 /* AppDelegate.m in Sources */,
 				0558C222233D954E007BD374 /* BMXibCellVC.m in Sources */,
