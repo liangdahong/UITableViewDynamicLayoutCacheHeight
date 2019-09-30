@@ -10,7 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+IB_DESIGNABLE
 @interface UITableViewHeaderFooterView (BMAutomaticRegister)
+
+@property (nonatomic, assign) IBInspectable BOOL bm_maxYViewFixed; ///< maxY view whether fixed, default NO.
 
 + (instancetype)bm_tableViewHeaderFooterViewWithTableView:(UITableView *)tableView;
 

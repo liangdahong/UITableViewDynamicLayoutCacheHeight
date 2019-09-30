@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BMSystemAdaptiveHeightVC : UIViewController
 
-@property (strong, nonatomic) NSMutableArray <BMModel *> *dataArray;
+@property (strong, nonatomic) NSMutableArray <NSMutableArray <BMModel *> *> *dataArray;
 
 @end
 

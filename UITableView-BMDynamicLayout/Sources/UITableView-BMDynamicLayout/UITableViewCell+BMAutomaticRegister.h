@@ -10,7 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+IB_DESIGNABLE
 @interface UITableViewCell (BMAutomaticRegister)
+
+@property (nonatomic, assign) IBInspectable BOOL bm_maxYViewFixed; ///< maxY view whether fixed, default NO.
 
 + (instancetype)bm_tableViewCellWithTableView:(UITableView *)tableView;
 + (instancetype)bm_tableViewCellWithTableView:(UITableView *)tableView style:(UITableViewCellStyle)style;

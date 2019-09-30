@@ -7,8 +7,17 @@
 //
 
 #import "UITableViewCell+BMAutomaticRegister.h"
+#import <objc/runtime.h>
 
 @implementation UITableViewCell (BMAutomaticRegister)
+
+- (BOOL)bm_maxYViewFixed {
+    return [objc_getAssociatedObject(self, _cmd) boolValue];
+}
+
+- (void)setBm_maxYViewFixed:(BOOL)bm_maxYViewFixed {
+    objc_setAssociatedObject(self, @selector(bm_maxYViewFixed), @(bm_maxYViewFixed), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
 
 + (instancetype)bm_tableViewCellWithTableView:(UITableView *)tableView {
     return [self bm_tableViewCellWithTableView:tableView style:UITableViewCellStyleDefault];
