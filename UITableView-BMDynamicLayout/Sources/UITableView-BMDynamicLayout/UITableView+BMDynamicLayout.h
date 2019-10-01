@@ -12,9 +12,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSInteger, BMDynamicLayoutType) {
-    BMDynamicLayoutTypeHeader,
-    BMDynamicLayoutTypeFooter,
+typedef NS_ENUM(NSInteger, BMHeaderFooterViewDynamicLayoutType) {
+    BMHeaderFooterViewDynamicLayoutTypeHeader,
+    BMHeaderFooterViewDynamicLayoutTypeFooter,
 };
 
 typedef void (^BMLayoutCellConfigurationBlock)(__kindof UITableViewCell *cell);
@@ -22,31 +22,31 @@ typedef void (^BMLayoutHeaderFooterConfigurationBlock)(__kindof UITableViewHeade
 
 @interface UITableView (BMDynamicLayout)
 
-- (CGFloat)bm_heightForCellWithCellClass:(Class)clas
+- (CGFloat)bm_heightWithCellClass:(Class)clas
                            configuration:(BMLayoutCellConfigurationBlock)configuration;
 
-- (CGFloat)bm_heightForCellWithCellClass:(Class)clas
+- (CGFloat)bm_heightWithCellClass:(Class)clas
                         cacheByIndexPath:(NSIndexPath *)indexPath
                            configuration:(BMLayoutCellConfigurationBlock)configuration;
 
-- (CGFloat)bm_heightForCellWithCellClass:(Class)clas
+- (CGFloat)bm_heightWithCellClass:(Class)clas
                               cacheByKey:(NSString *)key
                            configuration:(BMLayoutCellConfigurationBlock)configuration;
 
 
-- (CGFloat)bm_heightForHeaderFooterViewWithHeaderFooterViewClass:(Class)clas
-                                                            type:(BMDynamicLayoutType)type
-                                                   configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration;
+- (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
+                                         type:(BMHeaderFooterViewDynamicLayoutType)type
+                                configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration;
 
-- (CGFloat)bm_heightForHeaderFooterViewWithHeaderFooterViewClass:(Class)clas
-                                                            type:(BMDynamicLayoutType)type
-                                                         section:(NSInteger)section
-                                                   configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration;
+- (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
+                                         type:(BMHeaderFooterViewDynamicLayoutType)type
+                                      section:(NSInteger)section
+                                configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration;
 
-- (CGFloat)bm_heightForHeaderFooterViewWithHeaderFooterViewClass:(Class)clas
-                                                            type:(BMDynamicLayoutType)type
-                                                      cacheByKey:(NSString *)key
-                                                   configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration;
+- (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
+                                         type:(BMHeaderFooterViewDynamicLayoutType)type
+                                   cacheByKey:(NSString *)key
+                                configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration;
 @end
 
 NS_ASSUME_NONNULL_END

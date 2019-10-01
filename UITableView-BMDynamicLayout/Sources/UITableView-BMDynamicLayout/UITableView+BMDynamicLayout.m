@@ -191,14 +191,14 @@
 
 #pragma mark - Public cell
 
-- (CGFloat)bm_heightForCellWithCellClass:(Class)clas
-                           configuration:(BMLayoutCellConfigurationBlock)configuration {
+- (CGFloat)bm_heightWithCellClass:(Class)clas
+                    configuration:(BMLayoutCellConfigurationBlock)configuration {
     return [self _heightWithCellClass:clas configuration:configuration];
 }
 
-- (CGFloat)bm_heightForCellWithCellClass:(Class)clas
-                        cacheByIndexPath:(NSIndexPath *)indexPath
-                           configuration:(BMLayoutCellConfigurationBlock)configuration {
+- (CGFloat)bm_heightWithCellClass:(Class)clas
+                 cacheByIndexPath:(NSIndexPath *)indexPath
+                    configuration:(BMLayoutCellConfigurationBlock)configuration {
     // init arr
     {
         NSMutableArray <NSMutableArray <NSNumber *> *> *arr = self.verticalArray;
@@ -248,9 +248,9 @@
     }
 }
 
-- (CGFloat)bm_heightForCellWithCellClass:(Class)clas
-                              cacheByKey:(NSString *)key
-                           configuration:(BMLayoutCellConfigurationBlock)configuration {
+- (CGFloat)bm_heightWithCellClass:(Class)clas
+                       cacheByKey:(NSString *)key
+                    configuration:(BMLayoutCellConfigurationBlock)configuration {
     if (key && self.heightDictionary[key]) {
         BM_LOG(@"get cache height { (key: %@) (height: %@) }", key, self.heightDictionary[key]);
         return self.heightDictionary[key].doubleValue;
@@ -266,21 +266,21 @@
 
 #pragma mark - Public HeaderFooter
 
-- (CGFloat)bm_heightForHeaderFooterViewWithHeaderFooterViewClass:(Class)clas
-                                                            type:(BMDynamicLayoutType)type
-                                                   configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration {
-    if (type == BMDynamicLayoutTypeHeader) {
+- (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
+                                         type:(BMHeaderFooterViewDynamicLayoutType)type
+                                configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration {
+    if (type == BMHeaderFooterViewDynamicLayoutTypeHeader) {
         return [self _heightWithHeaderViewClass:clas configuration:configuration];
     } else {
         return [self _heightWithFooterViewClass:clas configuration:configuration];
     }
 }
 
-- (CGFloat)bm_heightForHeaderFooterViewWithHeaderFooterViewClass:(Class)clas
-                                                            type:(BMDynamicLayoutType)type
-                                                         section:(NSInteger)section
-                                                   configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration {
-    if (type == BMDynamicLayoutTypeHeader) {
+- (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
+                                         type:(BMHeaderFooterViewDynamicLayoutType)type
+                                      section:(NSInteger)section
+                                configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration {
+    if (type == BMHeaderFooterViewDynamicLayoutTypeHeader) {
         // init arr
         NSMutableArray <NSNumber *> *arr1 = self.headerVerticalArray;
         long i1 = (section + 1 - arr1.count);
@@ -342,11 +342,11 @@
     }
 }
 
-- (CGFloat)bm_heightForHeaderFooterViewWithHeaderFooterViewClass:(Class)clas
-                                                            type:(BMDynamicLayoutType)type
-                                                      cacheByKey:(NSString *)key
-                                                   configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration {
-    if (type == BMDynamicLayoutTypeHeader) {
+- (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
+                                         type:(BMHeaderFooterViewDynamicLayoutType)type
+                                   cacheByKey:(NSString *)key
+                                configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration {
+    if (type == BMHeaderFooterViewDynamicLayoutTypeHeader) {
         if (key && self.headerHeightDictionary[key]) {
             BM_LOG(@"Header get cache height { (key: %@) (height: %@) }", key, self.headerHeightDictionary[key]);
             return self.headerHeightDictionary[key].doubleValue;

@@ -60,7 +60,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [tableView bm_heightForCellWithCellClass:BMCell.class cacheByIndexPath:indexPath configuration:^(__kindof BMCell * _Nonnull cell) {
+    return [tableView bm_heightWithCellClass:BMCell.class cacheByIndexPath:indexPath configuration:^(__kindof BMCell * _Nonnull cell) {
         cell.model = self.dataArray[indexPath.section].modelArray[indexPath.row];
     }];
 }
@@ -72,7 +72,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return [tableView bm_heightForHeaderFooterViewWithHeaderFooterViewClass:BMHeaderView.class type:(BMDynamicLayoutTypeHeader) section:section configuration:^(__kindof BMHeaderView * _Nonnull headerFooterView) {
+    return [tableView bm_heightWithHeaderFooterViewClass:BMHeaderView.class type:(BMHeaderFooterViewDynamicLayoutTypeHeader) section:section configuration:^(__kindof BMHeaderView * _Nonnull headerFooterView) {
         headerFooterView.titleLabel.text = self.dataArray[section].headerTitle;
     }];
 }
@@ -84,7 +84,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return [tableView bm_heightForHeaderFooterViewWithHeaderFooterViewClass:UIFooterView.class type:(BMDynamicLayoutTypeFooter) section:section configuration:^(__kindof UIFooterView * _Nonnull headerFooterView) {
+    return [tableView bm_heightWithHeaderFooterViewClass:UIFooterView.class type:(BMHeaderFooterViewDynamicLayoutTypeFooter) section:section configuration:^(__kindof UIFooterView * _Nonnull headerFooterView) {
         headerFooterView.titleLabel.text = self.dataArray[section].footerTitle;
     }];
 }
