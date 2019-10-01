@@ -267,7 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				0558C1DC233D954D007BD374 /* SystemAdaptiveHeight */,
-				0558C1EE233D954D007BD374 /* BMTemplateLayout */,
+				0558C1EE233D954D007BD374 /* BMDynamicLayout */,
 				0558C203233D954D007BD374 /* AppDelegate */,
 			);
 			path = Classes;
@@ -332,14 +332,14 @@
 			path = BMCell;
 			sourceTree = "<group>";
 		};
-		0558C1EE233D954D007BD374 /* BMTemplateLayout */ = {
+		0558C1EE233D954D007BD374 /* BMDynamicLayout */ = {
 			isa = PBXGroup;
 			children = (
 				0558C1EF233D954D007BD374 /* Controller */,
 				0558C1F3233D954D007BD374 /* Model */,
 				0558C1F6233D954D007BD374 /* View */,
 			);
-			path = BMTemplateLayout;
+			path = BMDynamicLayout;
 			sourceTree = "<group>";
 		};
 		0558C1EF233D954D007BD374 /* Controller */ = {
@@ -406,8 +406,8 @@
 		0558C203233D954D007BD374 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				0558C204233D954D007BD374 /* AppDelegate.h */,
 				0558C205233D954D007BD374 /* main.m */,
+				0558C204233D954D007BD374 /* AppDelegate.h */,
 				0558C206233D954D007BD374 /* AppDelegate.m */,
 			);
 			path = AppDelegate;

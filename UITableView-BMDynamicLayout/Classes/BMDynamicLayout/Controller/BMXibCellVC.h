@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "BMGroupModel.h"
+
 #define KISVertical UIScreen.mainScreen.bounds.size.height > UIScreen.mainScreen.bounds.size.width
 
 @interface BMXibCellVC : UIViewController
+
+    @property (strong, nonatomic) NSMutableArray <BMGroupModel *> *dataArray;
 
 @end
