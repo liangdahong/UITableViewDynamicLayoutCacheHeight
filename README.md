@@ -4,24 +4,9 @@
 ## Demonstration
 
 <p align="center">
-    <img  width="40%" src="1.gif"/>
+    <img  width="100%" src="./Images/001.gif"/>
 <p/>
 
-<p align="center">
-
-<a href="#">
-​        <img src="https://img.shields.io/badge/platform-iOS-red.svg">
-​    </a>
-
-<a href="#">
-​        <img src="https://img.shields.io/badge/language-Objective--C-orange.svg">
-​    </a>
-​    
-<a href="#">
-​        <img src="https://img.shields.io/badge/support-iOS%207%2B%20-blue.svg?style=flat">
-​    </a>
-
-</p>
 
 ## Introduction
 
@@ -47,8 +32,9 @@ pod install
 if your cell use autolayout , all you need just to do like this:
 
 <p align="center">
-    <img width="60%" src="1-1.png"/>
+    <img width="60%" src="./Images/100.png"/>
 <p/>
+
 
 ### Cell height
 

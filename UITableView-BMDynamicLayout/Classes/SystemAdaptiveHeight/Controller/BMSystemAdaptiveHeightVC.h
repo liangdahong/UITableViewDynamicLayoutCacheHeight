@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BMGroupModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
+
+@class BMGroupModel;
 
 @interface BMSystemAdaptiveHeightVC : UIViewController
 

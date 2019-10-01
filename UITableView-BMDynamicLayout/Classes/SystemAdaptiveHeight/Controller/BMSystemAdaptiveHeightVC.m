@@ -11,6 +11,7 @@
 #import "BMSystemAdaptiveHeighCell.h"
 #import "BMSystemAdaptiveHeighHeaderView.h"
 #import "BMSystemAdaptiveHeighFooterView.h"
+#import "BMGroupModel.h"
 
 @interface BMSystemAdaptiveHeightVC () <UITableViewDelegate, UITableViewDataSource>
 
