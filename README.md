@@ -17,13 +17,7 @@
 
 ```ruby
 pod 'UITableView-BMDynamicLayout'
-```
-
-```ruby
 pod install
-```
-
-```objective-c
 #import "UITableView-BMDynamicLayout.h"
 ```
 
