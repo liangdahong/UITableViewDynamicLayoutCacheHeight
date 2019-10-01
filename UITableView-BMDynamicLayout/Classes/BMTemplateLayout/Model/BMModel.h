@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface BMModel : NSObject
 
@@ -14,5 +15,8 @@
 @property (copy, nonatomic) NSString *name;
 @property (copy, nonatomic) NSString *icon;
 @property (copy, nonatomic) NSString *desc;
+
+@property (nonatomic, assign) CGSize vsize; ///< size
+@property (nonatomic, assign) CGSize hsize; ///< size
 
 @end

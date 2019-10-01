@@ -16,14 +16,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ExX-sw-1Df">
-                    <rect key="frame" x="10" y="10" width="530" height="84"/>
+                    <rect key="frame" x="10" y="10" width="530" height="88"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <string key="text">BMHeaderViewBMHeaderViewBMHeaderViewBMHeaderViewBMHeaderViewBMHeaderViewBMHeaderViewBMHeaderViewBMHeaderViewBMHeaderViewBMHeaderViewBMHeaderViewBMHeaderViewBMHeaderViewBMHeaderViewBMHeaderViewBMHeaderViewBMHeaderViewBMHeaderViewBMHeaderViewBMHeaderViewBMHeaderViewBMHeaderViewBMHeaderView</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pRP-Mg-wSj">
-                    <rect key="frame" x="0.0" y="104" width="550" height="0.0"/>
+                    <rect key="frame" x="0.0" y="108" width="550" height="0.0"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" id="KsM-BG-sGr"/>

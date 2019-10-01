@@ -47,7 +47,7 @@
         int arc = arc4random_uniform(10)+4;
         while (arc--) {
             NSMutableArray *arr1 = @[].mutableCopy;
-            int arc1 = arc4random_uniform(3)+4;
+            int arc1 = arc4random_uniform(3)+10;
             while (arc1--) {
                 BMModel *model = [BMModel new];
                 int arci = arc4random_uniform(20) + 1;
@@ -65,7 +65,49 @@
                 }
                 [string1 appendString:@"标题完~"];
                 model.name = string1;
-                model.icon = [NSString stringWithFormat:@"%d.png", arc4random_uniform(8) + 1];
+                model.icon = [NSString stringWithFormat:@"%d.png", arc4random_uniform(30) + 1];
+                UIImage *img = [UIImage imageNamed:model.icon];
+
+{
+                    CGFloat width = img.size.width;
+                    CGFloat height = img.size.height;
+
+                    CGFloat swidth = UIScreen.mainScreen.bounds.size.width-20;
+
+                    CGFloat imgwidth = 0;
+                    CGFloat imgheight = 0;
+
+                    if (width <= swidth) {
+                        imgwidth = width;
+                        imgheight = height;
+                    } else {
+                        imgwidth = swidth;
+                        imgheight = height * (swidth/width);
+                    }
+                    model.vsize = CGSizeMake(imgwidth, imgheight);
+
+                }
+
+                {
+
+                    CGFloat width = img.size.width;
+                    CGFloat height = img.size.height;
+
+                    CGFloat swidth = UIScreen.mainScreen.bounds.size.height-20;
+
+                    CGFloat imgwidth = 0;
+                    CGFloat imgheight = 0;
+
+                    if (width <= swidth) {
+                        imgwidth = width;
+                        imgheight = height;
+                    } else {
+                        imgwidth = swidth;
+                        imgheight = height * (swidth/width);
+                    }
+                    model.hsize = CGSizeMake(imgwidth, imgheight);
+                }
+
                 [arr1 addObject:model];
             }
 

@@ -10,7 +10,6 @@
 #import "BMModel.h"
 
 @interface BMSystemAdaptiveHeighCell : UITableViewCell
-
 @property (strong, nonatomic) BMModel *model;
 
 @end

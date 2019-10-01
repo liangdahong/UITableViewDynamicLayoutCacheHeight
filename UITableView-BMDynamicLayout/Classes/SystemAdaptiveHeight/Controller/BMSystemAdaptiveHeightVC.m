@@ -36,11 +36,11 @@
 #pragma mark - 系统delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 10;
+    return self.dataArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dataArray.count;
+    return self.dataArray[section].modelArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -48,7 +48,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(BMSystemAdaptiveHeighCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    cell.model = self.dataArray[indexPath.row];
+    cell.model = self.dataArray[indexPath.section].modelArray[indexPath.row];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -58,12 +58,14 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     BMSystemAdaptiveHeighHeaderView *view = [BMSystemAdaptiveHeighHeaderView bm_tableViewHeaderFooterViewWithTableView:tableView];
     view.contentView.backgroundColor = [UIColor redColor];
+    view.titleLabel.text = self.dataArray[section].headerTitle;
     return view;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     BMSystemAdaptiveHeighFooterView *view = [BMSystemAdaptiveHeighFooterView bm_tableViewHeaderFooterViewWithTableView:tableView];
     view.contentView.backgroundColor = [UIColor blueColor];
+    view.titleLabel.text = self.dataArray[section].footerTitle;
     return view;
 }
 

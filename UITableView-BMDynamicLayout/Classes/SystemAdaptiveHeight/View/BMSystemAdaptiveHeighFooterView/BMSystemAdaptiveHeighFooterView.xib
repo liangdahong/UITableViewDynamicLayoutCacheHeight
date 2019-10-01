@@ -31,6 +31,9 @@
                 <constraint firstAttribute="trailing" secondItem="bhf-w1-Mcv" secondAttribute="trailing" constant="10" id="IaL-6G-fOa"/>
                 <constraint firstItem="bhf-w1-Mcv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="ig0-wm-hkq"/>
             </constraints>
+            <connections>
+                <outlet property="titleLabel" destination="bhf-w1-Mcv" id="WZ6-AP-mln"/>
+            </connections>
         </view>
     </objects>
 </document>
