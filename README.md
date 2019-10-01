@@ -39,33 +39,33 @@ if your cell use autolayout , all you need just to do like this:
 ### Cell height
 
 ```objective-c
-- (CGFloat)bm_heightForCellWithCellClass:(Class)clas
-configuration:(BMLayoutCellConfigurationBlock)configuration;
+- (CGFloat)bm_heightWithCellClass:(Class)clas
+                    configuration:(BMLayoutCellConfigurationBlock)configuration;
 
-- (CGFloat)bm_heightForCellWithCellClass:(Class)clas
-cacheByIndexPath:(NSIndexPath *)indexPath
-configuration:(BMLayoutCellConfigurationBlock)configuration;
+- (CGFloat)bm_heightWithCellClass:(Class)clas
+                 cacheByIndexPath:(NSIndexPath *)indexPath
+                    configuration:(BMLayoutCellConfigurationBlock)configuration;
 
-- (CGFloat)bm_heightForCellWithCellClass:(Class)clas
-cacheByKey:(NSString *)key
-configuration:(BMLayoutCellConfigurationBlock)configuration;
+- (CGFloat)bm_heightWithCellClass:(Class)clas
+                       cacheByKey:(NSString *)key
+                    configuration:(BMLayoutCellConfigurationBlock)configuration;
 ```
 ### UITableViewHeaderFooterView height
 
 ```objective-c
-- (CGFloat)bm_heightForHeaderFooterViewWithHeaderFooterViewClass:(Class)clas
-type:(BMDynamicLayoutType)type
-configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration;
+- (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
+                                         type:(BMHeaderFooterViewDynamicLayoutType)type
+                                configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration;
 
-- (CGFloat)bm_heightForHeaderFooterViewWithHeaderFooterViewClass:(Class)clas
-type:(BMDynamicLayoutType)type
-section:(NSInteger)section
-configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration;
+- (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
+                                         type:(BMHeaderFooterViewDynamicLayoutType)type
+                                      section:(NSInteger)section
+                                configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration;
 
-- (CGFloat)bm_heightForHeaderFooterViewWithHeaderFooterViewClass:(Class)clas
-type:(BMDynamicLayoutType)type
-cacheByKey:(NSString *)key
-configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration;
+- (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
+                                         type:(BMHeaderFooterViewDynamicLayoutType)type
+                                   cacheByKey:(NSString *)key
+                                configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration;
 ```
 
 ## License    

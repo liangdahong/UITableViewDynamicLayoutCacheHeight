@@ -23,16 +23,15 @@ typedef void (^BMLayoutHeaderFooterConfigurationBlock)(__kindof UITableViewHeade
 @interface UITableView (BMDynamicLayout)
 
 - (CGFloat)bm_heightWithCellClass:(Class)clas
-                           configuration:(BMLayoutCellConfigurationBlock)configuration;
+                    configuration:(BMLayoutCellConfigurationBlock)configuration;
 
 - (CGFloat)bm_heightWithCellClass:(Class)clas
-                        cacheByIndexPath:(NSIndexPath *)indexPath
-                           configuration:(BMLayoutCellConfigurationBlock)configuration;
+                 cacheByIndexPath:(NSIndexPath *)indexPath
+                    configuration:(BMLayoutCellConfigurationBlock)configuration;
 
 - (CGFloat)bm_heightWithCellClass:(Class)clas
-                              cacheByKey:(NSString *)key
-                           configuration:(BMLayoutCellConfigurationBlock)configuration;
-
+                       cacheByKey:(NSString *)key
+                    configuration:(BMLayoutCellConfigurationBlock)configuration;
 
 - (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
                                          type:(BMHeaderFooterViewDynamicLayoutType)type
