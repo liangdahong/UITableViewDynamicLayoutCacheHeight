@@ -33,13 +33,22 @@ if your cell use autolayout , all you need just to do like this:
 ### Cell height
 
 ```objective-c
+/**
+ get cell height with class configuration
+ */
 - (CGFloat)bm_heightWithCellClass:(Class)clas
                     configuration:(BMLayoutCellConfigurationBlock)configuration;
 
+/**
+ get cell height with class indexPath configuration
+ */
 - (CGFloat)bm_heightWithCellClass:(Class)clas
                  cacheByIndexPath:(NSIndexPath *)indexPath
                     configuration:(BMLayoutCellConfigurationBlock)configuration;
 
+/**
+ get cell height with class key configuration
+ */
 - (CGFloat)bm_heightWithCellClass:(Class)clas
                        cacheByKey:(NSString *)key
                     configuration:(BMLayoutCellConfigurationBlock)configuration;
@@ -47,15 +56,24 @@ if your cell use autolayout , all you need just to do like this:
 ### UITableViewHeaderFooterView height
 
 ```objective-c
+/**
+ get headerFooterView height with class type configuration
+ */
 - (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
                                          type:(BMHeaderFooterViewDynamicLayoutType)type
                                 configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration;
 
+/**
+ get headerFooterView height with class type section configuration
+ */
 - (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
                                          type:(BMHeaderFooterViewDynamicLayoutType)type
-                                      section:(NSInteger)section
+                               cacheBySection:(NSInteger)section
                                 configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration;
 
+/**
+ get headerFooterView height with class type key configuration
+ */
 - (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
                                          type:(BMHeaderFooterViewDynamicLayoutType)type
                                    cacheByKey:(NSString *)key
