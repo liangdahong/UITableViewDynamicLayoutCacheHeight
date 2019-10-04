@@ -18,6 +18,7 @@
     #define BM_LOG(...)
 #endif
 
+void tableViewDynamicLayoutLayoutIfNeeded(UIView *view);
 inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
     // https://juejin.im/post/5a30f24bf265da432e5c0070
     // https://objccn.io/issue-3-5/
