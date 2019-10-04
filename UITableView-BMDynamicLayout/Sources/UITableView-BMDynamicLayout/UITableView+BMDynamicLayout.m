@@ -20,11 +20,10 @@
 
 @implementation UITableView (BMDynamicLayout)
 
-#pragma mark - private
+#pragma mark - private cell
 
 - (CGFloat)_heightWithCellClass:(Class)clas
                   configuration:(BMLayoutCellConfigurationBlock)configuration {
-    
     NSMutableDictionary *dict = objc_getAssociatedObject(self, _cmd);
     if (!dict) {
         dict = @{}.mutableCopy;
@@ -46,22 +45,16 @@
         dict[NSStringFromClass(clas)] = view;
     }
 
-    if (self.superview) {
-        [self.superview setNeedsUpdateConstraints];
-        [self.superview setNeedsLayout];
-        [self.superview layoutIfNeeded];
-        [self.superview setNeedsDisplay];
-    } else {
-        [self setNeedsUpdateConstraints];
-        [self setNeedsLayout];
-        [self layoutIfNeeded];
-        [self setNeedsDisplay];
-    }
+    UIView *temp = self.superview ? self.superview : self;
+    [temp setNeedsUpdateConstraints];
+    [temp setNeedsLayout];
+    [temp layoutIfNeeded];
+    [temp setNeedsDisplay];
 
     view.frame = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.frame), 0.0f);
     UITableViewCell *cell = view.subviews.firstObject;
     cell.frame = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.frame), 0.0f);
-    
+
     !configuration ? : configuration(cell);
 
     // https://juejin.im/post/5a30f24bf265da432e5c0070
@@ -72,7 +65,6 @@
     [view setNeedsDisplay];
 
     __block CGFloat maxY  = 0.0f;
-    
     if (cell.bm_maxYViewFixed) {
         if (cell.maxYView) {
             return CGRectGetMaxY(cell.maxYView.frame);
@@ -99,6 +91,8 @@
     }
 }
 
+#pragma mark - private HeaderFooterView
+
 - (CGFloat)_heightWithHeaderFooterViewClass:(Class)clas
                                         sel:(SEL)sel
                               configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration {
@@ -123,20 +117,14 @@
         [view addSubview:headerView];
         dict[NSStringFromClass(clas)] = view;
     }
-    
-    if (self.superview) {
-        [self.superview setNeedsUpdateConstraints];
-        [self.superview setNeedsLayout];
-        [self.superview layoutIfNeeded];
-        [self.superview setNeedsDisplay];
-    } else {
-        [self setNeedsUpdateConstraints];
-        [self setNeedsLayout];
-        [self layoutIfNeeded];
-        [self setNeedsDisplay];
-    }
-    
-    view.frame = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.frame), 0.0f);
+
+    UIView *temp = self.superview ? self.superview : self;
+    [temp setNeedsUpdateConstraints];
+    [temp setNeedsLayout];
+    [temp layoutIfNeeded];
+    [temp setNeedsDisplay];
+
+        view.frame = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.frame), 0.0f);
     UITableViewHeaderFooterView *headerFooterView = view.subviews.firstObject;
     headerFooterView.frame = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.frame), 0.0f);
     
@@ -148,11 +136,9 @@
     [view setNeedsLayout];
     [view layoutIfNeeded];
     [view setNeedsDisplay];
-    
-    __block CGFloat maxY  = 0.0f;
-    
+
     UIView *contentView = headerFooterView.contentView.subviews.count ? headerFooterView.contentView : headerFooterView;
-    
+    __block CGFloat maxY  = 0.0f;
     if (headerFooterView.bm_maxYViewFixed) {
         if (headerFooterView.maxYView) {
             return CGRectGetMaxY(headerFooterView.maxYView.frame);
@@ -353,7 +339,6 @@
         }
         self.isSectionHeaderHeightCache = NO;
         CGFloat cellHeight = [self _heightWithHeaderViewClass:clas configuration:configuration];
-
         if (key) {
             BM_LOG(@"Header save height { (key: %@) (height: %@) }", key, @(cellHeight));
             self.heightDictionary[key] = @(cellHeight);
