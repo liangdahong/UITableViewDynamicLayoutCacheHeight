@@ -18,6 +18,15 @@
     #define BM_LOG(...)
 #endif
 
+inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
+    // https://juejin.im/post/5a30f24bf265da432e5c0070
+    // https://objccn.io/issue-3-5/
+    [view setNeedsUpdateConstraints];
+    [view setNeedsLayout];
+    [view layoutIfNeeded];
+    [view setNeedsDisplay];
+}
+
 @implementation UITableView (BMDynamicLayout)
 
 #pragma mark - private cell
@@ -57,12 +66,7 @@
 
     !configuration ? : configuration(cell);
 
-    // https://juejin.im/post/5a30f24bf265da432e5c0070
-    // https://objccn.io/issue-3-5/
-    [view setNeedsUpdateConstraints];
-    [view setNeedsLayout];
-    [view layoutIfNeeded];
-    [view setNeedsDisplay];
+    tableViewDynamicLayoutLayoutIfNeeded(view);
 
     __block CGFloat maxY  = 0.0f;
     if (cell.bm_maxYViewFixed) {
@@ -129,13 +133,8 @@
     headerFooterView.frame = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.frame), 0.0f);
     
     !configuration ? : configuration(headerFooterView);
-    
-    // https://juejin.im/post/5a30f24bf265da432e5c0070
-    // https://objccn.io/issue-3-5/
-    [view setNeedsUpdateConstraints];
-    [view setNeedsLayout];
-    [view layoutIfNeeded];
-    [view setNeedsDisplay];
+
+    tableViewDynamicLayoutLayoutIfNeeded(view);
 
     UIView *contentView = headerFooterView.contentView.subviews.count ? headerFooterView.contentView : headerFooterView;
     __block CGFloat maxY  = 0.0f;
