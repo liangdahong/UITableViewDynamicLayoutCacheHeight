@@ -264,7 +264,7 @@
 
 - (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
                                          type:(BMHeaderFooterViewDynamicLayoutType)type
-                                      section:(NSInteger)section
+                               cacheBySection:(NSInteger)section
                                 configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration {
     if (type == BMHeaderFooterViewDynamicLayoutTypeHeader) {
         // init arr

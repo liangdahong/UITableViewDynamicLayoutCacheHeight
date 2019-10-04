@@ -1,9 +1,9 @@
 //
-//  UITableViewHeaderFooterView+BMAutomaticRegister.h
-//  UITableView-BMTemplateLayoutCell
+//  UITableViewHeaderFooterView+BMDynamicLayout.h
+//  UITableView-BMDynamicLayout
 //
-//  Created by Mac on 2019/9/27.
-//  Copyright © 2019年 ( https://liangdahong.com ). All rights reserved.
+//  Created by Mac on 2019/10/4.
+//  Copyright © 2019年 liangdahong. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 IB_DESIGNABLE
-@interface UITableViewHeaderFooterView (BMAutomaticRegister)
+@interface UITableViewHeaderFooterView (BMDynamicLayout)
 
 @property (nonatomic, assign) IBInspectable BOOL bm_maxYViewFixed; ///< maxY view whether fixed, default NO.
 

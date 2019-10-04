@@ -1,15 +1,15 @@
 //
-//  UITableViewCell+BMAutomaticRegister.m
-//  UITableView-BMTemplateLayoutCell
+//  UITableViewCell+BMDynamicLayout.m
+//  UITableView-BMDynamicLayout
 //
-//  Created by Mac on 2019/9/27.
-//  Copyright © 2019年 ( https://liangdahong.com ). All rights reserved.
+//  Created by Mac on 2019/10/4.
+//  Copyright © 2019年 liangdahong. All rights reserved.
 //
 
-#import "UITableViewCell+BMAutomaticRegister.h"
+#import "UITableViewCell+BMDynamicLayout.h"
 #import <objc/runtime.h>
 
-@implementation UITableViewCell (BMAutomaticRegister)
+@implementation UITableViewCell (BMDynamicLayout)
 
 - (BOOL)bm_maxYViewFixed {
     return [objc_getAssociatedObject(self, _cmd) boolValue];

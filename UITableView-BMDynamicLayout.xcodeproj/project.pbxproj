@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0404091B2346E23C00689FC2 /* UITableViewHeaderFooterView+BMDynamicLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0404091A2346E23C00689FC2 /* UITableViewHeaderFooterView+BMDynamicLayout.m */; };
+		0404091E2346E24600689FC2 /* UITableViewCell+BMDynamicLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0404091D2346E24600689FC2 /* UITableViewCell+BMDynamicLayout.m */; };
 		0446126C23425C5500378B34 /* BMGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0446126B23425C5500378B34 /* BMGroupModel.m */; };
 		04DDE7432343415700DCFC7B /* 26.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DDE7252343415100DCFC7B /* 26.png */; };
 		04DDE7442343415700DCFC7B /* 29.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DDE7262343415100DCFC7B /* 29.png */; };
@@ -67,8 +69,6 @@
 		0558C22C233D954E007BD374 /* YYWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0558C209233D954D007BD374 /* YYWeakProxy.m */; };
 		0558C22D233D954E007BD374 /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0558C20B233D954D007BD374 /* YYFPSLabel.m */; };
 		05D4DB9D233D9C7200180628 /* UITableView-BMDynamicLayout.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 05D4DB9C233D9C7200180628 /* UITableView-BMDynamicLayout.podspec */; };
-		05D4DBA4233D9D1400180628 /* UITableViewCell+BMAutomaticRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D4DBA0233D9D1300180628 /* UITableViewCell+BMAutomaticRegister.m */; };
-		05D4DBA6233D9D1400180628 /* UITableViewHeaderFooterView+BMAutomaticRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D4DBA3233D9D1400180628 /* UITableViewHeaderFooterView+BMAutomaticRegister.m */; };
 		05D4DBA8233D9E7100180628 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 05D4DBA7233D9E7100180628 /* README.md */; };
 		05D4DBAE233DA2DD00180628 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 05D4DBAD233DA2DD00180628 /* LICENSE */; };
 /* End PBXBuildFile section */
@@ -91,6 +91,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		040409192346E23C00689FC2 /* UITableViewHeaderFooterView+BMDynamicLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableViewHeaderFooterView+BMDynamicLayout.h"; sourceTree = "<group>"; };
+		0404091A2346E23C00689FC2 /* UITableViewHeaderFooterView+BMDynamicLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableViewHeaderFooterView+BMDynamicLayout.m"; sourceTree = "<group>"; };
+		0404091C2346E24600689FC2 /* UITableViewCell+BMDynamicLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+BMDynamicLayout.h"; sourceTree = "<group>"; };
+		0404091D2346E24600689FC2 /* UITableViewCell+BMDynamicLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+BMDynamicLayout.m"; sourceTree = "<group>"; };
 		0446126A23425C5500378B34 /* BMGroupModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMGroupModel.h; sourceTree = "<group>"; };
 		0446126B23425C5500378B34 /* BMGroupModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMGroupModel.m; sourceTree = "<group>"; };
 		04DDE7252343415100DCFC7B /* 26.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 26.png; sourceTree = "<group>"; };
@@ -172,10 +176,6 @@
 		0558C20B233D954D007BD374 /* YYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFPSLabel.m; sourceTree = "<group>"; };
 		0558C20C233D954D007BD374 /* YYWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYWeakProxy.h; sourceTree = "<group>"; };
 		05D4DB9C233D9C7200180628 /* UITableView-BMDynamicLayout.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "UITableView-BMDynamicLayout.podspec"; sourceTree = "<group>"; };
-		05D4DB9E233D9D1300180628 /* UITableViewCell+BMAutomaticRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+BMAutomaticRegister.h"; sourceTree = "<group>"; };
-		05D4DBA0233D9D1300180628 /* UITableViewCell+BMAutomaticRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+BMAutomaticRegister.m"; sourceTree = "<group>"; };
-		05D4DBA2233D9D1400180628 /* UITableViewHeaderFooterView+BMAutomaticRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewHeaderFooterView+BMAutomaticRegister.h"; sourceTree = "<group>"; };
-		05D4DBA3233D9D1400180628 /* UITableViewHeaderFooterView+BMAutomaticRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewHeaderFooterView+BMAutomaticRegister.m"; sourceTree = "<group>"; };
 		05D4DBA7233D9E7100180628 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		05D4DBAD233DA2DD00180628 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -255,10 +255,10 @@
 				05FCD43A2341EF7C00B29689 /* Private */,
 				0542934C2341B539008BE466 /* UITableView+BMDynamicLayout.h */,
 				0542934D2341B539008BE466 /* UITableView+BMDynamicLayout.m */,
-				05D4DB9E233D9D1300180628 /* UITableViewCell+BMAutomaticRegister.h */,
-				05D4DBA0233D9D1300180628 /* UITableViewCell+BMAutomaticRegister.m */,
-				05D4DBA2233D9D1400180628 /* UITableViewHeaderFooterView+BMAutomaticRegister.h */,
-				05D4DBA3233D9D1400180628 /* UITableViewHeaderFooterView+BMAutomaticRegister.m */,
+				0404091C2346E24600689FC2 /* UITableViewCell+BMDynamicLayout.h */,
+				0404091D2346E24600689FC2 /* UITableViewCell+BMDynamicLayout.m */,
+				040409192346E23C00689FC2 /* UITableViewHeaderFooterView+BMDynamicLayout.h */,
+				0404091A2346E23C00689FC2 /* UITableViewHeaderFooterView+BMDynamicLayout.m */,
 			);
 			path = "UITableView-BMDynamicLayout";
 			sourceTree = "<group>";
@@ -653,21 +653,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0404091B2346E23C00689FC2 /* UITableViewHeaderFooterView+BMDynamicLayout.m in Sources */,
 				0558C22A233D954E007BD374 /* main.m in Sources */,
 				0558C22D233D954E007BD374 /* YYFPSLabel.m in Sources */,
 				0558C225233D954E007BD374 /* UIFooterView.m in Sources */,
 				0542EBF12341F61800D29FE0 /* UITableViewHeaderFooterView+BMPrivate.m in Sources */,
 				0558C229233D954E007BD374 /* BMCell.m in Sources */,
 				0558C21F233D954E007BD374 /* BMSystemAdaptiveHeighCell.m in Sources */,
-				05D4DBA6233D9D1400180628 /* UITableViewHeaderFooterView+BMAutomaticRegister.m in Sources */,
 				0542EBEE2341F61100D29FE0 /* UITableViewCell+BMPrivate.m in Sources */,
 				0542934E2341B539008BE466 /* UITableView+BMDynamicLayout.m in Sources */,
-				05D4DBA4233D9D1400180628 /* UITableViewCell+BMAutomaticRegister.m in Sources */,
 				0446126C23425C5500378B34 /* BMGroupModel.m in Sources */,
 				0558C21A233D954E007BD374 /* BMSystemAdaptiveHeightVC.m in Sources */,
 				0558C22B233D954E007BD374 /* AppDelegate.m in Sources */,
 				0558C222233D954E007BD374 /* BMXibCellVC.m in Sources */,
 				0558C226233D954E007BD374 /* BMHeaderView.m in Sources */,
+				0404091E2346E24600689FC2 /* UITableViewCell+BMDynamicLayout.m in Sources */,
 				0558C21B233D954E007BD374 /* BMSystemAdaptiveHeighFooterView.m in Sources */,
 				0558C223233D954E007BD374 /* BMModel.m in Sources */,
 				0558C21E233D954E007BD374 /* BMSystemAdaptiveHeighHeaderView.m in Sources */,

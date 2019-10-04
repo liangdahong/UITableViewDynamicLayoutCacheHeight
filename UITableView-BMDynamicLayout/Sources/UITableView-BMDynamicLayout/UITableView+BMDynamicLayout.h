@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UITableViewCell+BMAutomaticRegister.h"
-#import "UITableViewHeaderFooterView+BMAutomaticRegister.h"
+#import "UITableViewCell+BMDynamicLayout.h"
+#import "UITableViewHeaderFooterView+BMDynamicLayout.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -22,26 +22,44 @@ typedef void (^BMLayoutHeaderFooterConfigurationBlock)(__kindof UITableViewHeade
 
 @interface UITableView (BMDynamicLayout)
 
+/**
+ get cell height with class configuration
+ */
 - (CGFloat)bm_heightWithCellClass:(Class)clas
                     configuration:(BMLayoutCellConfigurationBlock)configuration;
 
+/**
+ get cell height with class indexPath configuration
+ */
 - (CGFloat)bm_heightWithCellClass:(Class)clas
                  cacheByIndexPath:(NSIndexPath *)indexPath
                     configuration:(BMLayoutCellConfigurationBlock)configuration;
 
+/**
+ get cell height with class key configuration
+ */
 - (CGFloat)bm_heightWithCellClass:(Class)clas
                        cacheByKey:(NSString *)key
                     configuration:(BMLayoutCellConfigurationBlock)configuration;
 
+/**
+ get headerFooterView height with class type configuration
+ */
 - (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
                                          type:(BMHeaderFooterViewDynamicLayoutType)type
                                 configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration;
 
+/**
+ get headerFooterView height with class type section configuration
+ */
 - (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
                                          type:(BMHeaderFooterViewDynamicLayoutType)type
-                                      section:(NSInteger)section
+                               cacheBySection:(NSInteger)section
                                 configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration;
 
+/**
+ get headerFooterView height with class type key configuration
+ */
 - (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
                                          type:(BMHeaderFooterViewDynamicLayoutType)type
                                    cacheByKey:(NSString *)key
