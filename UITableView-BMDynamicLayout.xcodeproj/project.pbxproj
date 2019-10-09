@@ -253,7 +253,12 @@
 			isa = PBXGroup;
 			children = (
 				055B1DBB234D7963008109E6 /* Private */,
-				055B1DB4234D7963008109E6 /* Public */,
+				055B1DB5234D7963008109E6 /* UITableView+BMDynamicLayout.h */,
+				055B1DB6234D7963008109E6 /* UITableView+BMDynamicLayout.m */,
+				055B1DB7234D7963008109E6 /* UITableViewCell+BMDynamicLayout.h */,
+				055B1DB8234D7963008109E6 /* UITableViewCell+BMDynamicLayout.m */,
+				055B1DB9234D7963008109E6 /* UITableViewHeaderFooterView+BMDynamicLayout.h */,
+				055B1DBA234D7963008109E6 /* UITableViewHeaderFooterView+BMDynamicLayout.m */,
 			);
 			path = "UITableView-BMDynamicLayout";
 			sourceTree = "<group>";
@@ -462,19 +467,6 @@
 				04DDE72F2343415200DCFC7B /* 30.png */,
 			);
 			path = Images;
-			sourceTree = "<group>";
-		};
-		055B1DB4234D7963008109E6 /* Public */ = {
-			isa = PBXGroup;
-			children = (
-				055B1DB5234D7963008109E6 /* UITableView+BMDynamicLayout.h */,
-				055B1DB6234D7963008109E6 /* UITableView+BMDynamicLayout.m */,
-				055B1DB7234D7963008109E6 /* UITableViewCell+BMDynamicLayout.h */,
-				055B1DB8234D7963008109E6 /* UITableViewCell+BMDynamicLayout.m */,
-				055B1DB9234D7963008109E6 /* UITableViewHeaderFooterView+BMDynamicLayout.h */,
-				055B1DBA234D7963008109E6 /* UITableViewHeaderFooterView+BMDynamicLayout.m */,
-			);
-			path = Public;
 			sourceTree = "<group>";
 		};
 		055B1DBB234D7963008109E6 /* Private */ = {
