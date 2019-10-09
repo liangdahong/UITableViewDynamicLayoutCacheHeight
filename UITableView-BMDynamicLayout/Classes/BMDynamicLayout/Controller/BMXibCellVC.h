@@ -13,6 +13,6 @@
 
 @interface BMXibCellVC : UIViewController
 
-    @property (strong, nonatomic) NSMutableArray <BMGroupModel *> *dataArray;
+@property (strong, nonatomic) NSMutableArray <BMGroupModel *> *dataArray;
 
 @end

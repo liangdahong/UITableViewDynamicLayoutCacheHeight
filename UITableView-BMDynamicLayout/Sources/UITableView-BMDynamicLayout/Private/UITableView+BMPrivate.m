@@ -9,7 +9,7 @@
 #import "UITableView+BMPrivate.h"
 #import <objc/runtime.h>
 
-#define KISVertical UIScreen.mainScreen.bounds.size.height > UIScreen.mainScreen.bounds.size.width
+#define KISVertical (UIScreen.mainScreen.bounds.size.height > UIScreen.mainScreen.bounds.size.width)
 
 @implementation UITableView (BMPrivate)
 
