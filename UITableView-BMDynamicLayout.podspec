@@ -14,7 +14,8 @@ s.requires_arc = true
     end
 
     s.subspec 'Public' do |ss|
-        ss.source_files = 'UITableView-BMDynamicLayout/Sources/UITableView-BMDynamicLayout/Public/*.{h,m}'
+        ss.source_files = 'UITableView-BMDynamicLayout/Sources/UITableView-BMDynamicLayout/UITableView+BMDynamicLayout.{h,m}','UITableView-BMDynamicLayout/Sources/UITableView-BMDynamicLayout/UITableViewCell+BMDynamicLayout.{h,m}','UITableView-BMDynamicLayout/Sources/UITableView-BMDynamicLayout/UITableViewHeaderFooterView+BMDynamicLayout.{h,m}'
     end
 
 end
+
