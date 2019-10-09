@@ -10,11 +10,11 @@ s.source       = {:git => 'https://github.com/liangdahong/UITableView-BMDynamicL
 s.requires_arc = true
 
     s.subspec 'Private' do |ss|
-    ss.source_files = 'UITableView-BMDynamicLayout/Sources/UITableView-BMDynamicLayout/Private/*.{h,m}'
+        ss.source_files = 'UITableView-BMDynamicLayout/Sources/UITableView-BMDynamicLayout/Private/*.{h,m}'
     end
 
     s.subspec 'Public' do |ss|
-    ss.source_files = 'UITableView-BMDynamicLayout/Sources/UITableView-BMDynamicLayout/Public/*.{h,m}'
+        ss.source_files = 'UITableView-BMDynamicLayout/Sources/UITableView-BMDynamicLayout/Public/*.{h,m}'
     end
 
 end
