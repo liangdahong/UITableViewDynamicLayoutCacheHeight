@@ -7,6 +7,21 @@
     <img  width="100%" src="./Images/001.gif"/>
 <p/>
 
+<p align="center">
+
+<a href="#">
+​        <img src="https://img.shields.io/badge/platform-iOS-red.svg">
+​    </a>
+
+<a href="#">
+​        <img src="https://img.shields.io/badge/language-Objective--C-orange.svg">
+​    </a>
+​    
+<a href="#">
+​        <img src="https://img.shields.io/cocoapods/v/UITableView-BMDynamicLayout.svg">
+​    </a>
+
+</p>
 
 ## Introduction
 
@@ -17,6 +32,9 @@
 
 ```ruby
 pod 'UITableView-BMDynamicLayout'
+```
+
+```ruby
 pod install
 ```
 
