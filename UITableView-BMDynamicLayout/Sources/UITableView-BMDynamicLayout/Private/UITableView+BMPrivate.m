@@ -229,7 +229,7 @@
     
     if (self.isSectionHeaderHeightCache) {
         [self.headerVerticalArray removeAllObjects];
-        [self.footerHorizontalArray removeAllObjects];
+        [self.headerHorizontalArray removeAllObjects];
     }
     
     if (self.isSectionFooterHeightCache) {
