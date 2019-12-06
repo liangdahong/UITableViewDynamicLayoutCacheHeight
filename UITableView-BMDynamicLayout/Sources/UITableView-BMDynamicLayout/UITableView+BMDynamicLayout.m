@@ -47,7 +47,7 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
 #pragma mark - private cell
 
 - (CGFloat)_heightWithCellClass:(Class)clas
-                  configuration:(BMLayoutCellConfigurationBlock)configuration {
+                  configuration:(void (^)(__kindof UITableViewCell *cell))configuration {
     NSMutableDictionary *dict = objc_getAssociatedObject(self, _cmd);
     if (!dict) {
         dict = @{}.mutableCopy;
@@ -111,8 +111,8 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
 
 - (CGFloat)_heightWithHeaderFooterViewClass:(Class)clas
                                         sel:(SEL)sel
-                              configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration {
-    
+                              configuration:(void (^)(__kindof UITableViewHeaderFooterView *headerFooterView))configuration {
+
     NSMutableDictionary *dict = objc_getAssociatedObject(self, sel);
     if (!dict) {
         dict = @{}.mutableCopy;
@@ -174,25 +174,25 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
 }
 
 - (CGFloat)_heightWithHeaderViewClass:(Class)clas
-                        configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration {
+                        configuration:(void (^)(__kindof UITableViewHeaderFooterView *headerFooterView))configuration {
     return [self _heightWithHeaderFooterViewClass:clas sel:_cmd configuration:configuration];
 }
 
 - (CGFloat)_heightWithFooterViewClass:(Class)clas
-                        configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration {
+                        configuration:(void (^)(__kindof UITableViewHeaderFooterView *headerFooterView))configuration {
     return [self _heightWithHeaderFooterViewClass:clas sel:_cmd configuration:configuration];
 }
 
 #pragma mark - Public cell
 
 - (CGFloat)bm_heightWithCellClass:(Class)clas
-                    configuration:(BMLayoutCellConfigurationBlock)configuration {
+                    configuration:(void (^)(__kindof UITableViewCell *cell))configuration {
     return [self _heightWithCellClass:clas configuration:configuration];
 }
 
 - (CGFloat)bm_heightWithCellClass:(Class)clas
                  cacheByIndexPath:(NSIndexPath *)indexPath
-                    configuration:(BMLayoutCellConfigurationBlock)configuration {
+                    configuration:(void (^)(__kindof UITableViewCell *cell))configuration {
     // init arr
     NSMutableArray <NSMutableArray <NSNumber *> *> *arr1 = self.verticalArray;
     long i1 = (indexPath.section + 1 - arr1.count);
@@ -238,7 +238,7 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
 
 - (CGFloat)bm_heightWithCellClass:(Class)clas
                        cacheByKey:(NSString *)key
-                    configuration:(BMLayoutCellConfigurationBlock)configuration {
+                    configuration:(void (^)(__kindof UITableViewCell *cell))configuration {
     if (key && self.heightDictionary[key]) {
         BM_UITableView_DynamicLayout_LOG(@"cell get cache height { (key: %@) (height: %@) }", key, self.heightDictionary[key]);
         return self.heightDictionary[key].doubleValue;
@@ -256,7 +256,7 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
 
 - (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
                                          type:(BMHeaderFooterViewDynamicLayoutType)type
-                                configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration {
+                                configuration:(void (^)(__kindof UITableViewHeaderFooterView *headerFooterView))configuration {
     if (type == BMHeaderFooterViewDynamicLayoutTypeHeader) {
         return [self _heightWithHeaderViewClass:clas configuration:configuration];
     } else {
@@ -267,7 +267,7 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
 - (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
                                          type:(BMHeaderFooterViewDynamicLayoutType)type
                                cacheBySection:(NSInteger)section
-                                configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration {
+                                configuration:(void (^)(__kindof UITableViewHeaderFooterView *headerFooterView))configuration {
     if (type == BMHeaderFooterViewDynamicLayoutTypeHeader) {
         // init arr
         NSMutableArray <NSNumber *> *arr1 = self.headerVerticalArray;
@@ -333,7 +333,7 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
 - (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
                                          type:(BMHeaderFooterViewDynamicLayoutType)type
                                    cacheByKey:(NSString *)key
-                                configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration {
+                                configuration:(void (^)(__kindof UITableViewHeaderFooterView *headerFooterView))configuration {
     if (type == BMHeaderFooterViewDynamicLayoutTypeHeader) {
         if (key && self.headerHeightDictionary[key]) {
             BM_UITableView_DynamicLayout_LOG(@"Header get cache height { (key: %@) (height: %@) }", key, self.headerHeightDictionary[key]);

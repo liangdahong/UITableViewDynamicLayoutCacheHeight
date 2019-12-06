@@ -126,9 +126,10 @@
         }
 
         [obj.modelArray enumerateObjectsUsingBlock:^(BMModel * _Nonnull obj1, NSUInteger idx1, BOOL * _Nonnull stop1) {
-            obj1.ID = [NSString stringWithFormat:@"%lu-%lu", (unsigned long)idx, idx1];
+            obj1.ID = [NSString stringWithFormat:@"%lu-%lu", (unsigned long)idx, (unsigned long)idx1];
         }];
     }];
+    
     return _dataArray;
 }
 
