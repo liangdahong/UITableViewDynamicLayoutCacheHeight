@@ -72,9 +72,10 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
     UIView *temp = self.superview ? self.superview : self;
     tableViewDynamicLayoutLayoutIfNeeded(temp);
 
-    view.frame = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.frame), 0.0f);
+    CGFloat width = self.fixedWidth > 0 ? self.fixedWidth : CGRectGetWidth(self.frame);
+    view.frame = CGRectMake(0.0f, 0.0f, width, 0.0f);
     UITableViewCell *cell = view.subviews.firstObject;
-    cell.frame = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.frame), 0.0f);
+    cell.frame = CGRectMake(0.0f, 0.0f, width, 0.0f);
 
     !configuration ? : configuration(cell);
 
@@ -137,9 +138,10 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
     UIView *temp = self.superview ? self.superview : self;
     tableViewDynamicLayoutLayoutIfNeeded(temp);
 
-    view.frame = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.frame), 0.0f);
+    CGFloat width = self.fixedWidth > 0 ? self.fixedWidth : CGRectGetWidth(self.frame);
+    view.frame = CGRectMake(0.0f, 0.0f, width, 0.0f);
     UITableViewHeaderFooterView *headerFooterView = view.subviews.firstObject;
-    headerFooterView.frame = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.frame), 0.0f);
+    headerFooterView.frame = CGRectMake(0.0f, 0.0f, width, 0.0f);
     
     !configuration ? : configuration(headerFooterView);
 
@@ -181,6 +183,16 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
 - (CGFloat)_heightWithFooterViewClass:(Class)clas
                         configuration:(void (^)(__kindof UITableViewHeaderFooterView *headerFooterView))configuration {
     return [self _heightWithHeaderFooterViewClass:clas sel:_cmd configuration:configuration];
+}
+
+#pragma mark - set get
+
+- (CGFloat)fixedWidth {
+    return [objc_getAssociatedObject(self, _cmd) doubleValue];
+}
+
+- (void)setFixedWidth:(CGFloat)fixedWidth {
+    objc_setAssociatedObject(self, @selector(fixedWidth), @(fixedWidth), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 #pragma mark - Public cell

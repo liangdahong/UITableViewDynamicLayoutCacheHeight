@@ -31,7 +31,10 @@ typedef NS_ENUM(NSInteger, BMHeaderFooterViewDynamicLayoutType) {
     BMHeaderFooterViewDynamicLayoutTypeFooter,
 };
 
+IB_DESIGNABLE
 @interface UITableView (BMDynamicLayout)
+
+@property (nonatomic, assign) IBInspectable CGFloat fixedWidth; ///< fixedWidth
 
 /**
  get cell height with class configuration
