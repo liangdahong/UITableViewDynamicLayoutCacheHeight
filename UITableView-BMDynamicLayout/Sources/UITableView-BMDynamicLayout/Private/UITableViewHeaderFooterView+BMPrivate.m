@@ -22,15 +22,10 @@
 
 #import "UITableViewHeaderFooterView+BMPrivate.h"
 #import <objc/runtime.h>
+#import "UITableViewDynamicLayoutMacro.h"
 
 @implementation UITableViewHeaderFooterView (BMPrivate)
 
-- (UIView *)maxYView {
-    return objc_getAssociatedObject(self, _cmd);
-}
-
-- (void)setMaxYView:(UIView *)maxYView {
-    objc_setAssociatedObject(self, @selector(maxYView), maxYView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
+BMTABLEVIEWVIEW_DYNAMICLAYOUT_DYNAMIC_PROPERTY_OBJECT(maxYView, setMaxYView, RETAIN_NONATOMIC, UIView *)
 
 @end

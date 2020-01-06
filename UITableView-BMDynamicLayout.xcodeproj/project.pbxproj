@@ -178,6 +178,7 @@
 		05D4DB9C233D9C7200180628 /* UITableView-BMDynamicLayout.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "UITableView-BMDynamicLayout.podspec"; sourceTree = "<group>"; };
 		05D4DBA7233D9E7100180628 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		05D4DBAD233DA2DD00180628 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		05E797DF23C32E1E00BAA11B /* UITableViewDynamicLayoutMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITableViewDynamicLayoutMacro.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -472,6 +473,7 @@
 		055B1DBB234D7963008109E6 /* Private */ = {
 			isa = PBXGroup;
 			children = (
+				05E797DF23C32E1E00BAA11B /* UITableViewDynamicLayoutMacro.h */,
 				055B1DBC234D7963008109E6 /* UITableView+BMPrivate.h */,
 				055B1DBD234D7963008109E6 /* UITableView+BMPrivate.m */,
 				055B1DBE234D7963008109E6 /* UITableViewCell+BMPrivate.h */,

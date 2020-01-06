@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,6 +13,10 @@
             <rect key="frame" x="0.0" y="0.0" width="550" height="200"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ag-14-tuz">
+                    <rect key="frame" x="0.0" y="0.0" width="550" height="200"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ExX-sw-1Df">
                     <rect key="frame" x="10" y="10" width="530" height="88"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -30,12 +32,15 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.96078431369999995" green="0.65098039220000004" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="pRP-Mg-wSj" firstAttribute="top" secondItem="ExX-sw-1Df" secondAttribute="bottom" constant="10" id="9cG-Dk-XLm"/>
                 <constraint firstItem="ExX-sw-1Df" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="Oh4-Tg-Xbe"/>
+                <constraint firstAttribute="bottom" secondItem="6ag-14-tuz" secondAttribute="bottom" id="T5V-co-MeO"/>
                 <constraint firstAttribute="trailing" secondItem="pRP-Mg-wSj" secondAttribute="trailing" id="WBc-N1-hJ9"/>
+                <constraint firstItem="6ag-14-tuz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Wha-5I-bc3"/>
+                <constraint firstItem="6ag-14-tuz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="atb-sd-XVh"/>
                 <constraint firstItem="pRP-Mg-wSj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="iwM-w0-u7g"/>
+                <constraint firstAttribute="trailing" secondItem="6ag-14-tuz" secondAttribute="trailing" id="skJ-Oy-ZRi"/>
                 <constraint firstItem="ExX-sw-1Df" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="xhO-oq-37t"/>
                 <constraint firstAttribute="trailing" secondItem="ExX-sw-1Df" secondAttribute="trailing" constant="10" id="yjQ-s9-BOu"/>
             </constraints>
@@ -46,7 +51,7 @@
             <connections>
                 <outlet property="titleLabel" destination="ExX-sw-1Df" id="Fk4-Lo-usu"/>
             </connections>
-            <point key="canvasLocation" x="109" y="11"/>
+            <point key="canvasLocation" x="108.8" y="10.794602698650676"/>
         </view>
     </objects>
 </document>
