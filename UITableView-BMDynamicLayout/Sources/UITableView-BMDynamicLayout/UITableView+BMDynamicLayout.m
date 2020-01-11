@@ -69,10 +69,14 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
         dict[NSStringFromClass(clas)] = view;
     }
 
-    UIView *temp = self.superview ? self.superview : self;
-    tableViewDynamicLayoutLayoutIfNeeded(temp);
+    CGFloat width = self.fixedWidth;
+    if (width <= 1.0) {
+        // 使用 tableView 的宽度
+        UIView *temp = self.superview ? self.superview : self;
+        tableViewDynamicLayoutLayoutIfNeeded(temp);
+        width = CGRectGetWidth(self.frame);
+    }
 
-    CGFloat width = self.fixedWidth > 0 ? self.fixedWidth : CGRectGetWidth(self.frame);
     view.frame = CGRectMake(0.0f, 0.0f, width, 0.0f);
     UITableViewCell *cell = view.subviews.firstObject;
     cell.frame = CGRectMake(0.0f, 0.0f, width, 0.0f);
@@ -134,11 +138,15 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
         [view addSubview:headerView];
         dict[NSStringFromClass(clas)] = view;
     }
+    
+    CGFloat width = self.fixedWidth;
+    if (width <= 1.0) {
+        // 使用 tableView 的宽度
+        UIView *temp = self.superview ? self.superview : self;
+        tableViewDynamicLayoutLayoutIfNeeded(temp);
+        width = CGRectGetWidth(self.frame);
+    }
 
-    UIView *temp = self.superview ? self.superview : self;
-    tableViewDynamicLayoutLayoutIfNeeded(temp);
-
-    CGFloat width = self.fixedWidth > 0 ? self.fixedWidth : CGRectGetWidth(self.frame);
     view.frame = CGRectMake(0.0f, 0.0f, width, 0.0f);
     UITableViewHeaderFooterView *headerFooterView = view.subviews.firstObject;
     headerFooterView.frame = CGRectMake(0.0f, 0.0f, width, 0.0f);
