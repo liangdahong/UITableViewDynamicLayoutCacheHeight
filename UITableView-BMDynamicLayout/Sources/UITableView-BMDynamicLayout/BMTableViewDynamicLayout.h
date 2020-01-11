@@ -25,8 +25,8 @@
 #ifndef BMTableViewDynamicLayout_h
 #define BMTableViewDynamicLayout_h
 
-#import "UITableViewCell+BMDynamicLayout.h"
 #import "UITableViewHeaderFooterView+BMDynamicLayout.h"
+#import "UITableViewCell+BMDynamicLayout.h"
 #import "UITableView+BMDynamicLayout.h"
 
 #endif

@@ -31,7 +31,7 @@ pod install
 ```
 
 ```objective-c
-#import "UITableView-BMDynamicLayout.h"
+#import "BMTableViewDynamicLayout.h"
 ```
 
 ## Usage
