@@ -19,4 +19,6 @@
 }
 #endif
 
+#define KIS_VERTICAL (UIScreen.mainScreen.bounds.size.height > UIScreen.mainScreen.bounds.size.width)
+
 #endif

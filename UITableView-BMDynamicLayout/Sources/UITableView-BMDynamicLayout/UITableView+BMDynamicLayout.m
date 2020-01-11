@@ -25,6 +25,8 @@
 #import "UITableView+BMPrivate.h"
 #import "UITableViewCell+BMPrivate.h"
 #import "UITableViewHeaderFooterView+BMPrivate.h"
+#import "UITableViewHeaderFooterView+BMDynamicLayout.h"
+#import "UITableViewCell+BMDynamicLayout.h"
 
 #ifdef DEBUG
     #define BM_UITableView_DynamicLayout_LOG(...) NSLog(__VA_ARGS__)
@@ -35,7 +37,7 @@
 void tableViewDynamicLayoutLayoutIfNeeded(UIView *view);
 inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
     // https://juejin.im/post/5a30f24bf265da432e5c0070
-    // https://objccn.io/issue-3-5/
+    // https://objccn.io/issue-3-5
     [view setNeedsUpdateConstraints];
     [view setNeedsLayout];
     [view layoutIfNeeded];
@@ -71,7 +73,7 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
 
     CGFloat width = self.fixedWidth;
     if (width <= 1.0) {
-        // 使用 tableView 的宽度
+        // 如果 tableView 的宽度不固定， 就使用 tableView 的宽度
         UIView *temp = self.superview ? self.superview : self;
         tableViewDynamicLayoutLayoutIfNeeded(temp);
         width = CGRectGetWidth(self.frame);
@@ -117,7 +119,7 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
 - (CGFloat)_heightWithHeaderFooterViewClass:(Class)clas
                                         sel:(SEL)sel
                               configuration:(void (^)(__kindof UITableViewHeaderFooterView *headerFooterView))configuration {
-
+    
     NSMutableDictionary *dict = objc_getAssociatedObject(self, sel);
     if (!dict) {
         dict = @{}.mutableCopy;
@@ -140,8 +142,9 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
     }
     
     CGFloat width = self.fixedWidth;
+
     if (width <= 1.0) {
-        // 使用 tableView 的宽度
+        // 如果 tableView 的宽度不固定， 就使用 tableView 的宽度
         UIView *temp = self.superview ? self.superview : self;
         tableViewDynamicLayoutLayoutIfNeeded(temp);
         width = CGRectGetWidth(self.frame);
@@ -213,7 +216,7 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
 - (CGFloat)bm_heightWithCellClass:(Class)clas
                  cacheByIndexPath:(NSIndexPath *)indexPath
                     configuration:(void (^)(__kindof UITableViewCell *cell))configuration {
-    // init arr
+    // init cache Array
     NSMutableArray <NSMutableArray <NSNumber *> *> *arr1 = self.verticalArray;
     long i1 = (indexPath.section + 1 - arr1.count);
     while (i1-- > 0) {
@@ -241,13 +244,10 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
     if (number.doubleValue == -1) {
         // not cache
         self.isIndexPathHeightCache = YES;
-
         // get cache height
         CGFloat cellHeight = [self _heightWithCellClass:clas configuration:configuration];
-        
         // save cache height
         self.heightArray[indexPath.section][indexPath.row] = @(cellHeight);
-        
         BM_UITableView_DynamicLayout_LOG(@"BMLog: Cell: %@ save height { (indexPath: %ld %ld ) (height: %@) }", NSStringFromClass(clas), indexPath.section, indexPath.row, @(cellHeight));
         return cellHeight;
         
@@ -290,7 +290,7 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
                                cacheBySection:(NSInteger)section
                                 configuration:(void (^)(__kindof UITableViewHeaderFooterView *headerFooterView))configuration {
     if (type == BMHeaderFooterViewDynamicLayoutTypeHeader) {
-        // init arr
+        // init cache Array
         NSMutableArray <NSNumber *> *arr1 = self.headerVerticalArray;
         long i1 = (section + 1 - arr1.count);
         while (i1-- > 0) {
@@ -320,7 +320,7 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
         }
     } else {
         
-        // init arr
+        // init cache Array
         NSMutableArray <NSNumber *> *arr1 = self.footerVerticalArray;
         long i1 = (section + 1 - arr1.count);
         while (i1-- > 0) {

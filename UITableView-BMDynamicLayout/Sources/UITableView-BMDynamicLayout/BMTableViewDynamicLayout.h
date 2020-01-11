@@ -20,20 +20,13 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
-#import <UIKit/UIKit.h>
+//    v3.1.3
 
-NS_ASSUME_NONNULL_BEGIN
+#ifndef BMTableViewDynamicLayout_h
+#define BMTableViewDynamicLayout_h
 
-IB_DESIGNABLE
-@interface UITableViewCell (BMDynamicLayout)
+#import "UITableViewCell+BMDynamicLayout.h"
+#import "UITableViewHeaderFooterView+BMDynamicLayout.h"
+#import "UITableView+BMDynamicLayout.h"
 
-/// 如果你的 Cell 中用来确定 Cell 所需高度的 View 是唯一的,
-/// 请把此值设置为 YES，可提升一定的性能。
-@property (nonatomic, assign) IBInspectable BOOL bm_maxYViewFixed;
-
-+ (instancetype)bm_tableViewCellWithTableView:(UITableView *)tableView;
-+ (instancetype)bm_tableViewCellWithTableView:(UITableView *)tableView style:(UITableViewCellStyle)style;
-
-@end
-
-NS_ASSUME_NONNULL_END
+#endif

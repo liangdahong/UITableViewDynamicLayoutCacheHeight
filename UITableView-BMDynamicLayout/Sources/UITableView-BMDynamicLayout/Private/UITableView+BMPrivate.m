@@ -21,9 +21,8 @@
 //    SOFTWARE.
 
 #import "UITableView+BMPrivate.h"
+#import "UITableViewDynamicLayoutMacro.h"
 #import <objc/runtime.h>
-
-#define KISVertical (UIScreen.mainScreen.bounds.size.height > UIScreen.mainScreen.bounds.size.width)
 
 @implementation UITableView (BMPrivate)
 
@@ -39,7 +38,7 @@
 }
 
 - (NSMutableDictionary<NSString *,NSNumber *> *)headerHeightDictionary {
-    return KISVertical ? self.headerVerticalDictionary : self.headerHorizontalDictionary;
+    return KIS_VERTICAL ? self.headerVerticalDictionary : self.headerHorizontalDictionary;
 }
 
 - (NSMutableDictionary<NSString *,NSNumber *> *)headerVerticalDictionary {
@@ -61,7 +60,7 @@
 }
 
 - (NSMutableArray<NSNumber *> *)headerHeightArray {
-    return KISVertical ? self.headerVerticalArray : self.headerHorizontalArray;
+    return KIS_VERTICAL ? self.headerVerticalArray : self.headerHorizontalArray;
 }
 
 - (NSMutableArray<NSNumber *> *)headerVerticalArray {
@@ -94,7 +93,7 @@
 }
 
 - (NSMutableDictionary<NSString *, NSNumber *> *)heightDictionary {
-    return KISVertical ? self.verticalDictionary : self.horizontalDictionary;
+    return KIS_VERTICAL ? self.verticalDictionary : self.horizontalDictionary;
 }
 
 - (NSMutableDictionary<NSString *,NSNumber *> *)verticalDictionary {
@@ -116,7 +115,7 @@
 }
 
 - (NSMutableArray<NSMutableArray<NSNumber *> *> *)heightArray {
-    return KISVertical ? self.verticalArray : self.horizontalArray;
+    return KIS_VERTICAL ? self.verticalArray : self.horizontalArray;
 }
 
 - (NSMutableArray<NSMutableArray<NSNumber *> *> *)verticalArray {
@@ -149,7 +148,7 @@
 }
 
 - (NSMutableDictionary<NSString *,NSNumber *> *)footerHeightDictionary {
-    return KISVertical ? self.footerVerticalDictionary : self.footerHorizontalDictionary;
+    return KIS_VERTICAL ? self.footerVerticalDictionary : self.footerHorizontalDictionary;
 }
 
 - (NSMutableDictionary<NSString *,NSNumber *> *)footerVerticalDictionary {
@@ -171,7 +170,7 @@
 }
 
 - (NSMutableArray<NSNumber *> *)footerHeightArray {
-    return KISVertical ? self.footerVerticalArray : self.footerHorizontalArray;
+    return KIS_VERTICAL ? self.footerVerticalArray : self.footerHorizontalArray;
 }
 
 - (NSMutableArray<NSNumber *> *)footerVerticalArray {

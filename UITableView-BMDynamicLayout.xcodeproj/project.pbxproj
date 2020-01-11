@@ -177,6 +177,7 @@
 		055B1DBF234D7963008109E6 /* UITableViewCell+BMPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+BMPrivate.m"; sourceTree = "<group>"; };
 		055B1DC0234D7963008109E6 /* UITableViewHeaderFooterView+BMPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewHeaderFooterView+BMPrivate.h"; sourceTree = "<group>"; };
 		055B1DC1234D7963008109E6 /* UITableViewHeaderFooterView+BMPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewHeaderFooterView+BMPrivate.m"; sourceTree = "<group>"; };
+		05BC3DA923C9AC3500B3F1FA /* BMTableViewDynamicLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMTableViewDynamicLayout.h; sourceTree = "<group>"; };
 		05D4DB9C233D9C7200180628 /* UITableView-BMDynamicLayout.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "UITableView-BMDynamicLayout.podspec"; sourceTree = "<group>"; };
 		05D4DBA7233D9E7100180628 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		05D4DBAD233DA2DD00180628 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -257,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				055B1DBB234D7963008109E6 /* Private */,
+				05BC3DA923C9AC3500B3F1FA /* BMTableViewDynamicLayout.h */,
 				055B1DB5234D7963008109E6 /* UITableView+BMDynamicLayout.h */,
 				055B1DB6234D7963008109E6 /* UITableView+BMDynamicLayout.m */,
 				055B1DB7234D7963008109E6 /* UITableViewCell+BMDynamicLayout.h */,
