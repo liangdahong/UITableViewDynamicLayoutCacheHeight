@@ -27,7 +27,10 @@ NS_ASSUME_NONNULL_BEGIN
 IB_DESIGNABLE
 @interface UITableViewCell (BMDynamicLayout)
 
-@property (nonatomic, assign) IBInspectable BOOL bm_maxYViewFixed; ///< maxY view whether fixed, default NO.
+///< 如果你的 Cell 中用来确定 Cell 所需高度的 View 是唯一的
+///< 请把此值设置为 YES，可提升一定的性能。
+///< maxY view whether fixed, default NO.
+@property (nonatomic, assign) IBInspectable BOOL bm_maxYViewFixed;
 
 + (instancetype)bm_tableViewCellWithTableView:(UITableView *)tableView;
 + (instancetype)bm_tableViewCellWithTableView:(UITableView *)tableView style:(UITableViewCellStyle)style;

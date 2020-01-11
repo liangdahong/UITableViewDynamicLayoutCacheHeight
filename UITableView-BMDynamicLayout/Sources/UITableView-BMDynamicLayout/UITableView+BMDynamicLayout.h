@@ -34,7 +34,8 @@ typedef NS_ENUM(NSInteger, BMHeaderFooterViewDynamicLayoutType) {
 IB_DESIGNABLE
 @interface UITableView (BMDynamicLayout)
 
-/// 如果你的应用是不支持屏幕旋转的，建议设置此值为 TableView 的宽度（通常是屏幕宽度），可提升一定的性能。
+///< 如果你的应用是不支持屏幕旋转的，建议设置此值为 TableView 的宽度（通常是屏幕宽度），可提升一定的性能。
+///< fixedWidth
 @property (nonatomic, assign) IBInspectable CGFloat fixedWidth;
 
 /**
