@@ -10,4 +10,3 @@ s.source       = {:git => 'https://github.com/liangdahong/UITableView-BMDynamicL
 s.requires_arc = true
 s.source_files = 'UITableView-BMDynamicLayout/Sources/UITableView-BMDynamicLayout/**/*.{h,m}'
 end
-
