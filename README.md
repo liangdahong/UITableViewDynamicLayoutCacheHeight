@@ -93,12 +93,30 @@ if your cell use autolayout , all you need just to do like this:
                                 configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration;
 ```
 
-### 优化配置
+### 优化配置项
+
+#### UITableView
 
 ```objective-c
 // 如果你的应用是不支持屏幕旋转的，建议设置此值为 TableView 的宽度（通常是屏幕宽度），可提升一定的性能。
 @property (nonatomic, assign) IBInspectable CGFloat fixedWidth; ///< fixedWidth
 ```
+
+#### Cell
+
+```objective-c
+// 如果你的 Cell 中用来确定 Cell 所需高度的 View 是唯一的，请把此值设置为 YES，可提升一定的性能。
+@property (nonatomic, assign) IBInspectable BOOL bm_maxYViewFixed; ///< maxY view whether fixed, default NO.
+```
+
+
+#### HeaderFooterView
+
+```objective-c
+// 如果你的 HeaderFooterView 中用来确定 HeaderFooterView 所需高度的 View 是唯一的，请把此值设置为 YES，可提升一定的性能。
+@property (nonatomic, assign) IBInspectable CGFloat fixedWidth; ///< fixedWidth
+```
+
 
 
 
