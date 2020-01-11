@@ -43,7 +43,7 @@ if your cell use autolayout , all you need just to do like this:
 <p/>
 
 
-### Cell height
+### Cell 的高度计算
 
 ```objective-c
 /**
@@ -66,7 +66,7 @@ if your cell use autolayout , all you need just to do like this:
                        cacheByKey:(NSString *)key
                     configuration:(BMLayoutCellConfigurationBlock)configuration;
 ```
-### UITableViewHeaderFooterView height
+### UITableViewHeaderFooterView 的高度计算
 
 ```objective-c
 /**
@@ -92,6 +92,15 @@ if your cell use autolayout , all you need just to do like this:
                                    cacheByKey:(NSString *)key
                                 configuration:(BMLayoutHeaderFooterConfigurationBlock)configuration;
 ```
+
+### 优化配置
+
+```objective-c
+// 如果你的应用是不支持屏幕旋转的，建议设置此值为 TableView 的宽度（通常是屏幕宽度），可提升一定的性能。
+@property (nonatomic, assign) IBInspectable CGFloat fixedWidth; ///< fixedWidth
+```
+
+
 
 ## License    
 
