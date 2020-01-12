@@ -19,7 +19,7 @@
 
 - This is a Template auto layout cell for automatically UITableViewCell UITableViewHeaderFooterView calculating and cache height
    framework.
-- 本框架是一个便捷的，高性能的自动计算采用 Autolayout 布局的 UITableViewCell 和 UITableViewHeaderFooterView 的高度，同时自动处理高度缓存。
+- 本框架是一个便捷的，高性能的自动计算采用 Autolayout 布局的 UITableViewCell 和 UITableViewHeaderFooterView 的高度，同时支持横竖屏，Masonry等采用系统Autolayout布局的框架，同时自动处理高度缓存，
 
 ##  CocoaPods
 
