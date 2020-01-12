@@ -74,11 +74,9 @@
                     imgheight = height * (swidth/width);
                 }
                 model.vsize = CGSizeMake(imgwidth, imgheight);
-
             }
 
             {
-
                 CGFloat width = img.size.width;
                 CGFloat height = img.size.height;
 

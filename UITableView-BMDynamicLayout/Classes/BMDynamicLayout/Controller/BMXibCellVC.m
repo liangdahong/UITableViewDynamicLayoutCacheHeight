@@ -27,7 +27,7 @@
     [super viewDidLoad];
     self.title = @"UITableView-BMDynamicLayout";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"系统自适应" style:0 target:self action:@selector(otherClick)];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"TableView 宽度是否固定" style:0 target:self action:@selector(tableViewWidthClick)];
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"TableView 宽度是否固定" style:0 target:self action:@selector(tableViewWidthClick)];
 }
 
 - (void)otherClick {
@@ -35,18 +35,17 @@
 }
 
 - (void)tableViewWidthClick {
-    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"TableView 宽度是否固定 ？" message:nil preferredStyle:UIAlertControllerStyleAlert];
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"固定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        CGSize size = [UIScreen mainScreen].bounds.size;
-        self.tableView.fixedWidth = size.height > size.width ? size.width : size.height;
-        [self.tableView reloadData];
-    }]];
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"不固定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        self.tableView.fixedWidth = 0;
-        [self.tableView reloadData];
-    }]];
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-    [self presentViewController:alertVC animated:YES completion:nil];
+//    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"TableView 宽度是否固定 ？" message:nil preferredStyle:UIAlertControllerStyleAlert];
+//    [alertVC addAction:[UIAlertAction actionWithTitle:@"width" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        [self.tableView setBm_fixedWidthType:(BMDynamicLayoutFixedWidthTypeScreenWidth)];
+//        [self.tableView reloadData];
+//    }]];
+//    [alertVC addAction:[UIAlertAction actionWithTitle:@"height" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        [self.tableView setBm_fixedWidthType:(BMDynamicLayoutFixedWidthTypeScreenHeight)];
+//        [self.tableView reloadData];
+//    }]];
+//    [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+//    [self presentViewController:alertVC animated:YES completion:nil];
 }
 
 - (BMSystemAdaptiveHeightVC *)systemAdaptiveHeightVC {
