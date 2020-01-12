@@ -18,7 +18,8 @@
 ## Introduction
 
 - This is a Template auto layout cell for automatically UITableViewCell UITableViewHeaderFooterView calculating and cache height
- framework.
+   framework.
+- 本框架是一个便捷的，高性能的自动计算采用 Autolayout 布局的 UITableViewCell 和 UITableViewHeaderFooterView 的高度，同时自动处理高度缓存。
 
 ##  CocoaPods
 
@@ -36,7 +37,11 @@ pod install
 
 ## Usage
 
-if your cell use autolayout , all you need just to do like this:
+如果你想使用此框架，你的 Cell 或 UITableViewHeaderFooterView 必须使用 Autolayout 布局，且保证其中一个 View 的最大 Y 刚好是 Cell 或 UITableViewHeaderFooterView 需要的高度。
+
+
+
+- 下面的 Cell 布局中，箭头指向的 View 的最大 Y 刚好就是这个 Cell 所需的高度。
 
 <p align="center">
     <img width="60%" src="./Images/100.png"/>
