@@ -62,7 +62,7 @@
 		0558C22B233D954E007BD374 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0558C206233D954D007BD374 /* AppDelegate.m */; };
 		0558C22C233D954E007BD374 /* YYWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0558C209233D954D007BD374 /* YYWeakProxy.m */; };
 		0558C22D233D954E007BD374 /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0558C20B233D954D007BD374 /* YYFPSLabel.m */; };
-		0559757D23C9777700421DCE /* coco.sh in Resources */ = {isa = PBXBuildFile; fileRef = 0559757C23C9777700421DCE /* coco.sh */; };
+		0559757D23C9777700421DCE /* pod.sh in Resources */ = {isa = PBXBuildFile; fileRef = 0559757C23C9777700421DCE /* pod.sh */; };
 		05D4DB9D233D9C7200180628 /* UITableView-BMDynamicLayout.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 05D4DB9C233D9C7200180628 /* UITableView-BMDynamicLayout.podspec */; };
 		05D4DBA8233D9E7100180628 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 05D4DBA7233D9E7100180628 /* README.md */; };
 		05D4DBAE233DA2DD00180628 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 05D4DBAD233DA2DD00180628 /* LICENSE */; };
@@ -159,7 +159,7 @@
 		0558C20A233D954D007BD374 /* YYFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYFPSLabel.h; sourceTree = "<group>"; };
 		0558C20B233D954D007BD374 /* YYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFPSLabel.m; sourceTree = "<group>"; };
 		0558C20C233D954D007BD374 /* YYWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYWeakProxy.h; sourceTree = "<group>"; };
-		0559757C23C9777700421DCE /* coco.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = coco.sh; sourceTree = "<group>"; };
+		0559757C23C9777700421DCE /* pod.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = pod.sh; sourceTree = "<group>"; };
 		05D4DB9C233D9C7200180628 /* UITableView-BMDynamicLayout.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "UITableView-BMDynamicLayout.podspec"; sourceTree = "<group>"; };
 		05D4DBA7233D9E7100180628 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		05D4DBAD233DA2DD00180628 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				05D4DB9C233D9C7200180628 /* UITableView-BMDynamicLayout.podspec */,
-				0559757C23C9777700421DCE /* coco.sh */,
+				0559757C23C9777700421DCE /* pod.sh */,
 				05D4DBA7233D9E7100180628 /* README.md */,
 				05D4DBAD233DA2DD00180628 /* LICENSE */,
 				0558C1A0233D9528007BD374 /* UITableView-BMDynamicLayout */,
@@ -602,7 +602,7 @@
 				04DDE7552343415700DCFC7B /* 16.png in Resources */,
 				04DDE7472343415700DCFC7B /* 27.png in Resources */,
 				0558C220233D954E007BD374 /* BMSystemAdaptiveHeighCell.xib in Resources */,
-				0559757D23C9777700421DCE /* coco.sh in Resources */,
+				0559757D23C9777700421DCE /* pod.sh in Resources */,
 				0558C228233D954E007BD374 /* BMCell.xib in Resources */,
 				04DDE75D2343415700DCFC7B /* 6.png in Resources */,
 			);
