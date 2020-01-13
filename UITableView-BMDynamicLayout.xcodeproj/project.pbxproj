@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -63,15 +63,10 @@
 		0558C22C233D954E007BD374 /* YYWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0558C209233D954D007BD374 /* YYWeakProxy.m */; };
 		0558C22D233D954E007BD374 /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0558C20B233D954D007BD374 /* YYFPSLabel.m */; };
 		0559757D23C9777700421DCE /* coco.sh in Resources */ = {isa = PBXBuildFile; fileRef = 0559757C23C9777700421DCE /* coco.sh */; };
-		055B1DC2234D7963008109E6 /* UITableView+BMDynamicLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 055B1DB6234D7963008109E6 /* UITableView+BMDynamicLayout.m */; };
-		055B1DC3234D7963008109E6 /* UITableViewCell+BMDynamicLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 055B1DB8234D7963008109E6 /* UITableViewCell+BMDynamicLayout.m */; };
-		055B1DC4234D7963008109E6 /* UITableViewHeaderFooterView+BMDynamicLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 055B1DBA234D7963008109E6 /* UITableViewHeaderFooterView+BMDynamicLayout.m */; };
-		055B1DC5234D7963008109E6 /* UITableView+BMPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 055B1DBD234D7963008109E6 /* UITableView+BMPrivate.m */; };
-		055B1DC6234D7963008109E6 /* UITableViewCell+BMPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 055B1DBF234D7963008109E6 /* UITableViewCell+BMPrivate.m */; };
-		055B1DC7234D7963008109E6 /* UITableViewHeaderFooterView+BMPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 055B1DC1234D7963008109E6 /* UITableViewHeaderFooterView+BMPrivate.m */; };
 		05D4DB9D233D9C7200180628 /* UITableView-BMDynamicLayout.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 05D4DB9C233D9C7200180628 /* UITableView-BMDynamicLayout.podspec */; };
 		05D4DBA8233D9E7100180628 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 05D4DBA7233D9E7100180628 /* README.md */; };
 		05D4DBAE233DA2DD00180628 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 05D4DBAD233DA2DD00180628 /* LICENSE */; };
+		5832842507E92859EDAB2B43 /* Pods_UITableView_BMDynamicLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C414B7C3A8AAE9009B31A0A6 /* Pods_UITableView_BMDynamicLayout.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,23 +160,12 @@
 		0558C20B233D954D007BD374 /* YYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFPSLabel.m; sourceTree = "<group>"; };
 		0558C20C233D954D007BD374 /* YYWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYWeakProxy.h; sourceTree = "<group>"; };
 		0559757C23C9777700421DCE /* coco.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = coco.sh; sourceTree = "<group>"; };
-		055B1DB5234D7963008109E6 /* UITableView+BMDynamicLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+BMDynamicLayout.h"; sourceTree = "<group>"; };
-		055B1DB6234D7963008109E6 /* UITableView+BMDynamicLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+BMDynamicLayout.m"; sourceTree = "<group>"; };
-		055B1DB7234D7963008109E6 /* UITableViewCell+BMDynamicLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+BMDynamicLayout.h"; sourceTree = "<group>"; };
-		055B1DB8234D7963008109E6 /* UITableViewCell+BMDynamicLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+BMDynamicLayout.m"; sourceTree = "<group>"; };
-		055B1DB9234D7963008109E6 /* UITableViewHeaderFooterView+BMDynamicLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewHeaderFooterView+BMDynamicLayout.h"; sourceTree = "<group>"; };
-		055B1DBA234D7963008109E6 /* UITableViewHeaderFooterView+BMDynamicLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewHeaderFooterView+BMDynamicLayout.m"; sourceTree = "<group>"; };
-		055B1DBC234D7963008109E6 /* UITableView+BMPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+BMPrivate.h"; sourceTree = "<group>"; };
-		055B1DBD234D7963008109E6 /* UITableView+BMPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+BMPrivate.m"; sourceTree = "<group>"; };
-		055B1DBE234D7963008109E6 /* UITableViewCell+BMPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+BMPrivate.h"; sourceTree = "<group>"; };
-		055B1DBF234D7963008109E6 /* UITableViewCell+BMPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+BMPrivate.m"; sourceTree = "<group>"; };
-		055B1DC0234D7963008109E6 /* UITableViewHeaderFooterView+BMPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewHeaderFooterView+BMPrivate.h"; sourceTree = "<group>"; };
-		055B1DC1234D7963008109E6 /* UITableViewHeaderFooterView+BMPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewHeaderFooterView+BMPrivate.m"; sourceTree = "<group>"; };
-		05BC3DA923C9AC3500B3F1FA /* BMTableViewDynamicLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMTableViewDynamicLayout.h; sourceTree = "<group>"; };
 		05D4DB9C233D9C7200180628 /* UITableView-BMDynamicLayout.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "UITableView-BMDynamicLayout.podspec"; sourceTree = "<group>"; };
 		05D4DBA7233D9E7100180628 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		05D4DBAD233DA2DD00180628 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		05E797DF23C32E1E00BAA11B /* UITableViewDynamicLayoutMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITableViewDynamicLayoutMacro.h; sourceTree = "<group>"; };
+		45305C6466B0BC11D21ADE37 /* Pods-UITableView-BMDynamicLayout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITableView-BMDynamicLayout.release.xcconfig"; path = "Target Support Files/Pods-UITableView-BMDynamicLayout/Pods-UITableView-BMDynamicLayout.release.xcconfig"; sourceTree = "<group>"; };
+		C414B7C3A8AAE9009B31A0A6 /* Pods_UITableView_BMDynamicLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UITableView_BMDynamicLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F411A2FF5CF7674AE83AA962 /* Pods-UITableView-BMDynamicLayout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITableView-BMDynamicLayout.debug.xcconfig"; path = "Target Support Files/Pods-UITableView-BMDynamicLayout/Pods-UITableView-BMDynamicLayout.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +173,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5832842507E92859EDAB2B43 /* Pods_UITableView_BMDynamicLayout.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +203,8 @@
 				05D4DBAD233DA2DD00180628 /* LICENSE */,
 				0558C1A0233D9528007BD374 /* UITableView-BMDynamicLayout */,
 				0558C19F233D9528007BD374 /* Products */,
+				50BD5ABDB02981A4AC80444A /* Pods */,
+				662CCE86B7FF890D66B0CCC0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -237,34 +224,10 @@
 				0558C1DB233D954D007BD374 /* Classes */,
 				0558C20D233D954D007BD374 /* Images */,
 				0558C207233D954D007BD374 /* Lib */,
-				0558C1D3233D954D007BD374 /* Sources */,
 				0558C1A7233D9528007BD374 /* Main.storyboard */,
 				0558C1AA233D952A007BD374 /* Assets.xcassets */,
 				0558C1AC233D952A007BD374 /* LaunchScreen.storyboard */,
 				0558C1AF233D952A007BD374 /* Info.plist */,
-			);
-			path = "UITableView-BMDynamicLayout";
-			sourceTree = "<group>";
-		};
-		0558C1D3233D954D007BD374 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				0558C1D4233D954D007BD374 /* UITableView-BMDynamicLayout */,
-			);
-			path = Sources;
-			sourceTree = "<group>";
-		};
-		0558C1D4233D954D007BD374 /* UITableView-BMDynamicLayout */ = {
-			isa = PBXGroup;
-			children = (
-				055B1DBB234D7963008109E6 /* Private */,
-				05BC3DA923C9AC3500B3F1FA /* BMTableViewDynamicLayout.h */,
-				055B1DB5234D7963008109E6 /* UITableView+BMDynamicLayout.h */,
-				055B1DB6234D7963008109E6 /* UITableView+BMDynamicLayout.m */,
-				055B1DB7234D7963008109E6 /* UITableViewCell+BMDynamicLayout.h */,
-				055B1DB8234D7963008109E6 /* UITableViewCell+BMDynamicLayout.m */,
-				055B1DB9234D7963008109E6 /* UITableViewHeaderFooterView+BMDynamicLayout.h */,
-				055B1DBA234D7963008109E6 /* UITableViewHeaderFooterView+BMDynamicLayout.m */,
 			);
 			path = "UITableView-BMDynamicLayout";
 			sourceTree = "<group>";
@@ -475,18 +438,21 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
-		055B1DBB234D7963008109E6 /* Private */ = {
+		50BD5ABDB02981A4AC80444A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				05E797DF23C32E1E00BAA11B /* UITableViewDynamicLayoutMacro.h */,
-				055B1DBC234D7963008109E6 /* UITableView+BMPrivate.h */,
-				055B1DBD234D7963008109E6 /* UITableView+BMPrivate.m */,
-				055B1DBE234D7963008109E6 /* UITableViewCell+BMPrivate.h */,
-				055B1DBF234D7963008109E6 /* UITableViewCell+BMPrivate.m */,
-				055B1DC0234D7963008109E6 /* UITableViewHeaderFooterView+BMPrivate.h */,
-				055B1DC1234D7963008109E6 /* UITableViewHeaderFooterView+BMPrivate.m */,
+				F411A2FF5CF7674AE83AA962 /* Pods-UITableView-BMDynamicLayout.debug.xcconfig */,
+				45305C6466B0BC11D21ADE37 /* Pods-UITableView-BMDynamicLayout.release.xcconfig */,
 			);
-			path = Private;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		662CCE86B7FF890D66B0CCC0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C414B7C3A8AAE9009B31A0A6 /* Pods_UITableView_BMDynamicLayout.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -496,9 +462,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0558C1CA233D952A007BD374 /* Build configuration list for PBXNativeTarget "UITableView-BMDynamicLayout" */;
 			buildPhases = (
+				12243B4C7EC78AC36B62285A /* [CP] Check Pods Manifest.lock */,
 				0558C19A233D9528007BD374 /* Sources */,
 				0558C19B233D9528007BD374 /* Frameworks */,
 				0558C19C233D9528007BD374 /* Resources */,
+				FD35A34DCA01510757B664C9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -656,30 +624,66 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		12243B4C7EC78AC36B62285A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UITableView-BMDynamicLayout-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD35A34DCA01510757B664C9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UITableView-BMDynamicLayout/Pods-UITableView-BMDynamicLayout-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UITableView-BMDynamicLayout/Pods-UITableView-BMDynamicLayout-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UITableView-BMDynamicLayout/Pods-UITableView-BMDynamicLayout-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0558C19A233D9528007BD374 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				055B1DC5234D7963008109E6 /* UITableView+BMPrivate.m in Sources */,
 				0558C22A233D954E007BD374 /* main.m in Sources */,
 				0558C22D233D954E007BD374 /* YYFPSLabel.m in Sources */,
-				055B1DC7234D7963008109E6 /* UITableViewHeaderFooterView+BMPrivate.m in Sources */,
 				0558C225233D954E007BD374 /* UIFooterView.m in Sources */,
-				055B1DC2234D7963008109E6 /* UITableView+BMDynamicLayout.m in Sources */,
 				0558C229233D954E007BD374 /* BMCell.m in Sources */,
 				0558C21F233D954E007BD374 /* BMSystemAdaptiveHeighCell.m in Sources */,
-				055B1DC6234D7963008109E6 /* UITableViewCell+BMPrivate.m in Sources */,
 				0446126C23425C5500378B34 /* BMGroupModel.m in Sources */,
 				0558C21A233D954E007BD374 /* BMSystemAdaptiveHeightVC.m in Sources */,
-				055B1DC4234D7963008109E6 /* UITableViewHeaderFooterView+BMDynamicLayout.m in Sources */,
 				0558C22B233D954E007BD374 /* AppDelegate.m in Sources */,
 				0558C222233D954E007BD374 /* BMXibCellVC.m in Sources */,
 				0558C226233D954E007BD374 /* BMHeaderView.m in Sources */,
 				0558C21B233D954E007BD374 /* BMSystemAdaptiveHeighFooterView.m in Sources */,
 				0558C223233D954E007BD374 /* BMModel.m in Sources */,
 				0558C21E233D954E007BD374 /* BMSystemAdaptiveHeighHeaderView.m in Sources */,
-				055B1DC3234D7963008109E6 /* UITableViewCell+BMDynamicLayout.m in Sources */,
 				0558C22C233D954E007BD374 /* YYWeakProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -847,6 +851,7 @@
 		};
 		0558C1CB233D952A007BD374 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F411A2FF5CF7674AE83AA962 /* Pods-UITableView-BMDynamicLayout.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -865,6 +870,7 @@
 		};
 		0558C1CC233D952A007BD374 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45305C6466B0BC11D21ADE37 /* Pods-UITableView-BMDynamicLayout.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
