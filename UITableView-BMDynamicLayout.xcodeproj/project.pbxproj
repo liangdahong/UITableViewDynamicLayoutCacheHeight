@@ -221,6 +221,7 @@
 		0558C1A0233D9528007BD374 /* UITableView-BMDynamicLayout */ = {
 			isa = PBXGroup;
 			children = (
+				0558C203233D954D007BD374 /* AppDelegate */,
 				0558C1DB233D954D007BD374 /* Classes */,
 				0558C20D233D954D007BD374 /* Images */,
 				0558C207233D954D007BD374 /* Lib */,
@@ -236,8 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				0558C1DC233D954D007BD374 /* SystemAdaptiveHeight */,
-				0558C1EE233D954D007BD374 /* BMDynamicLayout */,
-				0558C203233D954D007BD374 /* AppDelegate */,
+				0558C1EE233D954D007BD374 /* DynamicLayout */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -301,14 +301,14 @@
 			path = BMCell;
 			sourceTree = "<group>";
 		};
-		0558C1EE233D954D007BD374 /* BMDynamicLayout */ = {
+		0558C1EE233D954D007BD374 /* DynamicLayout */ = {
 			isa = PBXGroup;
 			children = (
 				0558C1EF233D954D007BD374 /* Controller */,
 				0558C1F3233D954D007BD374 /* Model */,
 				0558C1F6233D954D007BD374 /* View */,
 			);
-			path = BMDynamicLayout;
+			path = DynamicLayout;
 			sourceTree = "<group>";
 		};
 		0558C1EF233D954D007BD374 /* Controller */ = {
