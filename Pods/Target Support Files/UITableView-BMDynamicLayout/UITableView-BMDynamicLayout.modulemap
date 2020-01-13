@@ -1,0 +1,6 @@
+framework module UITableView_BMDynamicLayout {
+  umbrella header "UITableView-BMDynamicLayout-umbrella.h"
+
+  export *
+  module * { export * }
+}

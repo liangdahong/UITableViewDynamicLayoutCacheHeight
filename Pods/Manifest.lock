@@ -1,0 +1,16 @@
+PODS:
+  - UITableView-BMDynamicLayout (3.1.5)
+
+DEPENDENCIES:
+  - UITableView-BMDynamicLayout (from `.././UITableView-BMDynamicLayout/`)
+
+EXTERNAL SOURCES:
+  UITableView-BMDynamicLayout:
+    :path: ".././UITableView-BMDynamicLayout/"
+
+SPEC CHECKSUMS:
+  UITableView-BMDynamicLayout: 224986392dd8eb08dc8cbdb80e162d710d5360bd
+
+PODFILE CHECKSUM: 7b066efd00bfaf1ae42972bc0739b65004c5cc12
+
+COCOAPODS: 1.8.4

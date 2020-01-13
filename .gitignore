@@ -15,7 +15,6 @@ DerivedData
 *.hmap
 *.py
 *.ipa
-Podfile.lock
 .DS_Store
 /build
 /test_history
@@ -23,4 +22,3 @@ Podfile.lock
 /product
 /product_history
 /history
-/Pods
