@@ -25,8 +25,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"UITableView-BMDynamicLayout";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"系统自适应" style:0 target:self action:@selector(otherClick)];
+    self.title = @"BM";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"系统" style:0 target:self action:@selector(otherClick)];
 //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"TableView 宽度是否固定" style:0 target:self action:@selector(tableViewWidthClick)];
 }
 

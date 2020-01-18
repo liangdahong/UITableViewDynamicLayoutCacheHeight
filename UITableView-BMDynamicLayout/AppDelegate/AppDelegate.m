@@ -32,6 +32,7 @@
 }
 
 - (NSMutableArray<BMGroupModel *> *)dataArray {
+
     NSMutableArray<BMGroupModel *> * _dataArray = [@[] mutableCopy];
     int arc = arc4random_uniform(10)+4;
     while (arc--) {
@@ -127,7 +128,29 @@
             obj1.ID = [NSString stringWithFormat:@"%lu-%lu", (unsigned long)idx, (unsigned long)idx1];
         }];
     }];
-    
+
+
+
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"text"];
+    NSString *string = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
+    NSArray <NSDictionary *> *arr = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:NULL];
+
+
+    __block NSInteger count = 0;
+    [_dataArray enumerateObjectsUsingBlock:^(BMGroupModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj.modelArray enumerateObjectsUsingBlock:^(BMModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (count > arr.count) {
+                obj.name =  arr[(unsigned long)arc4random_uniform((unsigned int)arr.count)][@"title"];
+                obj.desc =  arr[(unsigned long)arc4random_uniform((unsigned int)arr.count)][@"summary"];
+            } else {
+                obj.name =  arr[(unsigned long)arc4random_uniform((unsigned int)count)][@"title"];
+                obj.desc =  arr[(unsigned long)arc4random_uniform((unsigned int)arr.count)][@"summary"];
+            }
+            count++;
+        }];
+    }];
+
     return _dataArray;
 }
 
