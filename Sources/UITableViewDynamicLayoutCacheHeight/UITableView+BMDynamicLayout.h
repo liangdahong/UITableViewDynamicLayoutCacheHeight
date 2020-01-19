@@ -38,9 +38,23 @@ IB_DESIGNABLE
 
 #pragma mark - cell
 
-/// 获取 Cell 需要的高度 ，内部无缓存操作
-/// @param clas cell class
-/// @param configuration 布局 cell
+/*
+ 获取 Cell 需要的高度 ，内部无缓存操作
+ @param clas cell class
+ @param configuration 布局 cell
+ 
+ ...
+ 
+ #import <UITableViewDynamicLayoutCacheHeight/UITableViewDynamicLayoutCacheHeight.h>
+
+ - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+     return [tableView bm_heightWithCellClass:UITableViewCell.class
+                                configuration:^(__kindof UITableViewCell * _Nonnull cell) {
+         cell.textLabel.text = @"My Text";
+     }];
+ }
+ 
+ */
 - (CGFloat)bm_heightWithCellClass:(Class)clas
                     configuration:(void (^)(__kindof UITableViewCell *cell))configuration;
 
