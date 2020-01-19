@@ -1,5 +1,5 @@
 
-# UITableView-BMDynamicLayout
+# UITableViewDynamicLayoutCacheHeight
 
 ## Demonstration
 
@@ -8,7 +8,7 @@
 <p/>
 
 <p align="center">
-<a href="#"><img src="https://img.shields.io/cocoapods/v/UITableView-BMDynamicLayout.svg"></a>
+<a href="#"><img src="https://img.shields.io/cocoapods/v/UITableViewDynamicLayoutCacheHeight.svg"></a>
 <a href="#"><img src="https://img.shields.io/badge/platform-iOS-red.svg"></a>
 <a href="#"><img src="https://img.shields.io/badge/language-Objective--C-orange.svg"></a>
 <a href="#"><img src="https://img.shields.io/badge/licenses-MIT-red.svg"></a>
@@ -19,13 +19,13 @@
 
 - This is a Template auto layout cell for automatically UITableViewCell UITableViewHeaderFooterView calculating and cache height
    framework.
-- 本框架是一个便捷的，高性能的自动计算采用 Autolayout 布局的 UITableViewCell 和 UITableViewHeaderFooterView 的高度，同时支持横竖屏，Masonry等采用系统Autolayout布局的框架，同时自动处理高度缓存，
+-  UITableViewDynamicLayoutCacheHeight 是一个便捷的，高性能的自动计算采用 Autolayout 布局的 UITableViewCell 和 UITableViewHeaderFooterView 的高度，同时支持横竖屏，Masonry等采用系统Autolayout布局的框架，同时自动处理高度缓存，
 - 最简单的使用说明 [使用说明](https://juejin.im/post/5e231e9a51882536cc0cc975)
 
 ##  CocoaPods
 
 ```ruby
-pod 'UITableView-BMDynamicLayout'
+pod 'UITableViewDynamicLayoutCacheHeight'
 ```
 
 ```ruby
@@ -33,7 +33,7 @@ pod install
 ```
 
 ```objective-c
-#import "BMTableViewDynamicLayout.h"
+#import <UITableViewDynamicLayoutCacheHeight/UITableViewDynamicLayoutCacheHeight.h>
 ```
 
 ## Usage
@@ -126,4 +126,4 @@ pod install
 
 ## License    
 
-UITableView-BMDynamicLayout is released under the [MIT license](LICENSE). See LICENSE for details.
+UITableViewDynamicLayoutCacheHeight is released under the [MIT license](LICENSE). See LICENSE for details.
