@@ -7,7 +7,7 @@
 //
 
 #import "BMSystemAdaptiveHeightVC.h"
-#import "BMTableViewDynamicLayout.h"
+#import <UITableView+BMDynamicLayout.h>
 #import "BMSystemAdaptiveHeighCell.h"
 #import "BMSystemAdaptiveHeighHeaderView.h"
 #import "BMSystemAdaptiveHeighFooterView.h"

@@ -10,7 +10,6 @@
 #endif
 #endif
 
-#import "BMTableViewDynamicLayout.h"
 #import "UITableView+BMPrivate.h"
 #import "UITableViewCell+BMPrivate.h"
 #import "UITableViewDynamicLayoutMacro.h"

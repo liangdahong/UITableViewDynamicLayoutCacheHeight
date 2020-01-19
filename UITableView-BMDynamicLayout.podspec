@@ -8,5 +8,5 @@ s.authors      = {'liangdahong' => 'ios@liangdahong.com'}
 s.platform     = :ios, '8.0'
 s.source       = {:git => 'https://github.com/liangdahong/UITableView-BMDynamicLayout.git', :tag => s.version}
 s.requires_arc = true
-s.source_files = 'Sources/UITableView-BMDynamicLayout/**/*.{h,m}'
+s.source_files = 'Sources/UITableView+BMDynamicLayout/**/*.{h,m}'
 end
