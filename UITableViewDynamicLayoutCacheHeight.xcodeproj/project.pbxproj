@@ -454,8 +454,8 @@
 			isa = PBXGroup;
 			children = (
 				05610AE623D3FF1D0019AA74 /* UIFooterView.h */,
-				05610AE723D3FF1D0019AA74 /* UIFooterView.xib */,
 				05610AE823D3FF1D0019AA74 /* UIFooterView.m */,
+				05610AE723D3FF1D0019AA74 /* UIFooterView.xib */,
 			);
 			path = UIFooterView;
 			sourceTree = "<group>";
@@ -463,9 +463,9 @@
 		05610AE923D3FF1D0019AA74 /* BMHeaderView */ = {
 			isa = PBXGroup;
 			children = (
+				05610AEC23D3FF1D0019AA74 /* BMHeaderView.h */,
 				05610AEA23D3FF1D0019AA74 /* BMHeaderView.m */,
 				05610AEB23D3FF1D0019AA74 /* BMHeaderView.xib */,
-				05610AEC23D3FF1D0019AA74 /* BMHeaderView.h */,
 			);
 			path = BMHeaderView;
 			sourceTree = "<group>";
