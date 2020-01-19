@@ -3,170 +3,180 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05F6BF2543C7EB25D50356A82EEBFBA1 /* UITableViewHeaderFooterView+BMDynamicLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 052E148713256EC880C5AFDDADC895E6 /* UITableViewHeaderFooterView+BMDynamicLayout.m */; };
-		0ECB3A61F2C4E860E4B4E63062793932 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		27D71EE9582243800B7BEF1A4F916548 /* UITableViewCell+BMPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4910FF47B2C4FACBD63F77B9760A2157 /* UITableViewCell+BMPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3258B5F79F8582F5896CEA5662B871C6 /* UITableView-BMDynamicLayout-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BE56424A1BC63F881A4955ADDD768B37 /* UITableView-BMDynamicLayout-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3D4F7B6EF0FBF08D468303BFFB1C6D33 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		3EA60C7FC363545B4190A10233593FAD /* UITableView+BMPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = FA0181DFA30E5BB38DD669AEA3A932D4 /* UITableView+BMPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		52AF82686AD2557FFD35939078399444 /* UITableView+BMDynamicLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 19EBA96E789DBDA5D4CCEDCE59B3CD0F /* UITableView+BMDynamicLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6A3B4B5A1279AEA617BA6D1F9FA5163D /* UITableViewHeaderFooterView+BMPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F837286E2A3922EF7E54F855236171B /* UITableViewHeaderFooterView+BMPrivate.m */; };
-		6AD54A0CC632A57F70F13F668C9263E2 /* UITableViewCell+BMPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1D1B092F4BF7A64B39698D63B6619D /* UITableViewCell+BMPrivate.m */; };
-		74B9026E614D7201F532093444355D1D /* UITableView+BMDynamicLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B32F3497EE924976D2357BAEE10EAA /* UITableView+BMDynamicLayout.m */; };
-		8D4ED09D348A7AFDB70745FD3CC0C381 /* UITableView+BMPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D8277697C50E2237325DBB171348B7 /* UITableView+BMPrivate.m */; };
-		8EFA9382729FE1E1E8A189D991D47D30 /* UITableView-BMDynamicLayout-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B6E46049D4F1F8FC490BB3AFFBC575 /* UITableView-BMDynamicLayout-dummy.m */; };
-		9598A7D061722353D52B29874DC2819D /* UITableViewHeaderFooterView+BMPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = AFC916F257605B9A901F2BFFD50EE815 /* UITableViewHeaderFooterView+BMPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BFE9A30432F76A2781FFDE2DEEFCCA0F /* Pods-UITableView-BMDynamicLayout-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C92552F099C0ED808413FFBD3A9BB3C4 /* Pods-UITableView-BMDynamicLayout-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CABEF0F12263211596AE5A1667ABADE5 /* UITableViewCell+BMDynamicLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = A485A318DAEE42768E889DEE26895B96 /* UITableViewCell+BMDynamicLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D1FE845A29E76229170B7C7EE7AD2471 /* Pods-UITableView-BMDynamicLayout-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D70054BDBED20E90C7CBC08604023CB /* Pods-UITableView-BMDynamicLayout-dummy.m */; };
-		D8DEB3CD1240DF659F9F2311297D607F /* UITableViewHeaderFooterView+BMDynamicLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = BCD0C1216B36ADCBE00A276A20063FF0 /* UITableViewHeaderFooterView+BMDynamicLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DE8A023126F5477EBDB59ACDED334C02 /* UITableViewCell+BMDynamicLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BC585211C9CF073251EDF1B6AA07CA20 /* UITableViewCell+BMDynamicLayout.m */; };
-		F4353172E3831E0CFC5566EE1EF7080E /* UITableViewDynamicLayoutMacro.h in Headers */ = {isa = PBXBuildFile; fileRef = 64AC26C8A796F94505B585EEC20942A8 /* UITableViewDynamicLayoutMacro.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		03C7A150514F374350ECE31BCA9108BF /* UITableViewCell+BMPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = BD30B397314ADB1B5F7A47086BF92160 /* UITableViewCell+BMPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0E780EFCCDA40336DBEEDD935AE5A4FA /* UITableView+BMPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = AC31D7404A53596F1B712845FAB54CF3 /* UITableView+BMPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		13AEB024D9ED6FCC0BE77835777CBE06 /* UITableViewCell+BMPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F590847F4D1AAA2CD00127B3DBD271 /* UITableViewCell+BMPrivate.m */; };
+		16CD90DA4F9C99DA4B8771D7A1680DF8 /* Pods-UITableViewDynamicLayoutCacheHeight-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B37434D01C3162F034CF904BB0E727D /* Pods-UITableViewDynamicLayoutCacheHeight-dummy.m */; };
+		34467A8C41D75826D857561B7AE1891D /* UITableViewCell+BMDynamicLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CC56024612FF71FB4EE36B35E7226C64 /* UITableViewCell+BMDynamicLayout.m */; };
+		40683FA5A492DB73B4BBFD34BCFCC614 /* UITableViewHeaderFooterView+BMPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 505567024D1EDC37F32CD5BE58931E11 /* UITableViewHeaderFooterView+BMPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4DE7DC07A64CA5F8B99EBC3E88AC448B /* UITableView+BMDynamicLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 031E05531B9A860932F6BDA2D4E8DA33 /* UITableView+BMDynamicLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		50603A3A4257467703B9FC0D0A141741 /* UITableViewHeaderFooterView+BMDynamicLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E40EE59E8CB1CE5A535CB9BA5313262B /* UITableViewHeaderFooterView+BMDynamicLayout.m */; };
+		5FB663ACF7D54F8D4572D600881BFE0F /* UITableViewDynamicLayoutCacheHeight-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D6686EA69FE1CAA020DE58AC3157A55B /* UITableViewDynamicLayoutCacheHeight-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		74F8D0B551D6CB8509AF0E04D3B7D662 /* UITableViewDynamicLayoutMacro.h in Headers */ = {isa = PBXBuildFile; fileRef = 02AFB5DBADE2D8BD84004753831704FA /* UITableViewDynamicLayoutMacro.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7B1DEE315C0E85C2D1A0C5FFE80211D7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		9C38508ED4086B6580EA4531EC0D7BBC /* UITableViewDynamicLayoutCacheHeight-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3AE5E96674E5D1DB6CC1D5370181E3 /* UITableViewDynamicLayoutCacheHeight-dummy.m */; };
+		B23B158739C34719FFDBAFE76235EE7F /* UITableViewHeaderFooterView+BMPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 249D21AE677C0E2889F538AF3F018B91 /* UITableViewHeaderFooterView+BMPrivate.m */; };
+		BE35A3BADCD2076F3C4C22D59BBC6897 /* UITableViewHeaderFooterView+BMDynamicLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 75DC6E60A6FD1DDBB47C4369BB24AF34 /* UITableViewHeaderFooterView+BMDynamicLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C7E1511C595B64E6EBEB52CD7E8CE295 /* Pods-UITableViewDynamicLayoutCacheHeight-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BA2E924BB393101DE1325740ED73CD7 /* Pods-UITableViewDynamicLayoutCacheHeight-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CB7BA3222A0FEC7315B459F9ABE367E4 /* UITableViewCell+BMDynamicLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D40FCDCBBC51CFDBE486411BBE9A1C3 /* UITableViewCell+BMDynamicLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DF53FC0113EDD351A087371554C679C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		E747483B3E2DBAB38D8411BCB1BD68A2 /* UITableView+BMPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E9F7ED900FA55409D0B87C26AA514F /* UITableView+BMPrivate.m */; };
+		ECE6DD7DDFA9556F0C34D3A29BD624F0 /* UITableViewDynamicLayoutCacheHeight.h in Headers */ = {isa = PBXBuildFile; fileRef = D0AC57DB8E6402E4E39584B4E6350661 /* UITableViewDynamicLayoutCacheHeight.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EE7A8A1FB3345D4C0E4ACF0FF79BD815 /* UITableView+BMDynamicLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE29C35AF020F6556A2A1907AB9B88 /* UITableView+BMDynamicLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		64FE41D18143B592AD060812537203D0 /* PBXContainerItemProxy */ = {
+		10E0C315CD2BC1DE6FECC77E0C9AE4B6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = E721C7957A25978A9F19AC92ECB56AC5;
-			remoteInfo = "UITableView-BMDynamicLayout";
+			remoteGlobalIDString = E0B0168CDF0A336B9A2CDCD98DD9833D;
+			remoteInfo = UITableViewDynamicLayoutCacheHeight;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		018CA91C9F8C34CFB8F24D4293D20C1B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		052E148713256EC880C5AFDDADC895E6 /* UITableViewHeaderFooterView+BMDynamicLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITableViewHeaderFooterView+BMDynamicLayout.m"; path = "Sources/UITableView+BMDynamicLayout/UITableViewHeaderFooterView+BMDynamicLayout.m"; sourceTree = "<group>"; };
-		0D87703E218E5029271571E6C3225F9D /* UITableView_BMDynamicLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = UITableView_BMDynamicLayout.framework; path = "UITableView-BMDynamicLayout.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		18B6E46049D4F1F8FC490BB3AFFBC575 /* UITableView-BMDynamicLayout-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UITableView-BMDynamicLayout-dummy.m"; sourceTree = "<group>"; };
-		19EBA96E789DBDA5D4CCEDCE59B3CD0F /* UITableView+BMDynamicLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITableView+BMDynamicLayout.h"; path = "Sources/UITableView+BMDynamicLayout/UITableView+BMDynamicLayout.h"; sourceTree = "<group>"; };
-		2A7AE1D167C564A309B7602288CD80EB /* Pods-UITableView-BMDynamicLayout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UITableView-BMDynamicLayout.debug.xcconfig"; sourceTree = "<group>"; };
-		318163E1D4C2470F2A87146EF1CA1A82 /* Pods-UITableView-BMDynamicLayout.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-UITableView-BMDynamicLayout.modulemap"; sourceTree = "<group>"; };
+		02AFB5DBADE2D8BD84004753831704FA /* UITableViewDynamicLayoutMacro.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = UITableViewDynamicLayoutMacro.h; sourceTree = "<group>"; };
+		031E05531B9A860932F6BDA2D4E8DA33 /* UITableView+BMDynamicLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITableView+BMDynamicLayout.h"; path = "Sources/UITableViewDynamicLayoutCacheHeight/UITableView+BMDynamicLayout.h"; sourceTree = "<group>"; };
+		1A8CB5C8E4D6C2776482C44654AD329C /* UITableViewDynamicLayoutCacheHeight-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "UITableViewDynamicLayoutCacheHeight-Info.plist"; sourceTree = "<group>"; };
+		1BA27A3421C744EE06E82EA7800F3F52 /* Pods-UITableViewDynamicLayoutCacheHeight-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-UITableViewDynamicLayoutCacheHeight-Info.plist"; sourceTree = "<group>"; };
+		1D40FCDCBBC51CFDBE486411BBE9A1C3 /* UITableViewCell+BMDynamicLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITableViewCell+BMDynamicLayout.h"; path = "Sources/UITableViewDynamicLayoutCacheHeight/UITableViewCell+BMDynamicLayout.h"; sourceTree = "<group>"; };
+		249D21AE677C0E2889F538AF3F018B91 /* UITableViewHeaderFooterView+BMPrivate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UITableViewHeaderFooterView+BMPrivate.m"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		3C7F123B6D2C04145CA0F1460B04E0A0 /* Pods_UITableView_BMDynamicLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_UITableView_BMDynamicLayout.framework; path = "Pods-UITableView-BMDynamicLayout.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		47B32F3497EE924976D2357BAEE10EAA /* UITableView+BMDynamicLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITableView+BMDynamicLayout.m"; path = "Sources/UITableView+BMDynamicLayout/UITableView+BMDynamicLayout.m"; sourceTree = "<group>"; };
-		4910FF47B2C4FACBD63F77B9760A2157 /* UITableViewCell+BMPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+BMPrivate.h"; sourceTree = "<group>"; };
-		4E19A06C4A2036AFB806FD8DC030B551 /* Pods-UITableView-BMDynamicLayout-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-UITableView-BMDynamicLayout-acknowledgements.markdown"; sourceTree = "<group>"; };
-		4F837286E2A3922EF7E54F855236171B /* UITableViewHeaderFooterView+BMPrivate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UITableViewHeaderFooterView+BMPrivate.m"; sourceTree = "<group>"; };
-		5A69B31003ED9210488B7A0FA42E3878 /* Pods-UITableView-BMDynamicLayout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UITableView-BMDynamicLayout.release.xcconfig"; sourceTree = "<group>"; };
-		64AC26C8A796F94505B585EEC20942A8 /* UITableViewDynamicLayoutMacro.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = UITableViewDynamicLayoutMacro.h; sourceTree = "<group>"; };
-		731AC186DBB2464AFF0FCB321E6EAFB1 /* UITableView-BMDynamicLayout.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "UITableView-BMDynamicLayout.xcconfig"; sourceTree = "<group>"; };
-		8D70054BDBED20E90C7CBC08604023CB /* Pods-UITableView-BMDynamicLayout-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-UITableView-BMDynamicLayout-dummy.m"; sourceTree = "<group>"; };
-		8DB23CB3C3ADBB542D87D4EEDBC3BA56 /* UITableView-BMDynamicLayout.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = "UITableView-BMDynamicLayout.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		8E72D54D92D7AAFB5BECF4C3BD92700F /* Pods-UITableView-BMDynamicLayout-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-UITableView-BMDynamicLayout-Info.plist"; sourceTree = "<group>"; };
-		90E1DA87B71981CD7C7E7526BE36FC29 /* UITableView-BMDynamicLayout.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "UITableView-BMDynamicLayout.modulemap"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9E37BCEA90B80D5A622344B0D9F9FCA0 /* UITableView-BMDynamicLayout-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UITableView-BMDynamicLayout-prefix.pch"; sourceTree = "<group>"; };
-		A485A318DAEE42768E889DEE26895B96 /* UITableViewCell+BMDynamicLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITableViewCell+BMDynamicLayout.h"; path = "Sources/UITableView+BMDynamicLayout/UITableViewCell+BMDynamicLayout.h"; sourceTree = "<group>"; };
-		AFC916F257605B9A901F2BFFD50EE815 /* UITableViewHeaderFooterView+BMPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UITableViewHeaderFooterView+BMPrivate.h"; sourceTree = "<group>"; };
-		BC585211C9CF073251EDF1B6AA07CA20 /* UITableViewCell+BMDynamicLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITableViewCell+BMDynamicLayout.m"; path = "Sources/UITableView+BMDynamicLayout/UITableViewCell+BMDynamicLayout.m"; sourceTree = "<group>"; };
-		BCD0C1216B36ADCBE00A276A20063FF0 /* UITableViewHeaderFooterView+BMDynamicLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITableViewHeaderFooterView+BMDynamicLayout.h"; path = "Sources/UITableView+BMDynamicLayout/UITableViewHeaderFooterView+BMDynamicLayout.h"; sourceTree = "<group>"; };
-		BE1D1B092F4BF7A64B39698D63B6619D /* UITableViewCell+BMPrivate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+BMPrivate.m"; sourceTree = "<group>"; };
-		BE56424A1BC63F881A4955ADDD768B37 /* UITableView-BMDynamicLayout-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UITableView-BMDynamicLayout-umbrella.h"; sourceTree = "<group>"; };
-		C92552F099C0ED808413FFBD3A9BB3C4 /* Pods-UITableView-BMDynamicLayout-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-UITableView-BMDynamicLayout-umbrella.h"; sourceTree = "<group>"; };
-		D1D8277697C50E2237325DBB171348B7 /* UITableView+BMPrivate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UITableView+BMPrivate.m"; sourceTree = "<group>"; };
-		DEBD2F65814737D6EB151BD63B3EB008 /* Pods-UITableView-BMDynamicLayout-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-UITableView-BMDynamicLayout-acknowledgements.plist"; sourceTree = "<group>"; };
-		F007851FA149BBF3776EE84BD4C6AFFA /* Pods-UITableView-BMDynamicLayout-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-UITableView-BMDynamicLayout-frameworks.sh"; sourceTree = "<group>"; };
-		F0C3B450CCA769DDB2C8F4E6CB4FC18F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
-		FA0181DFA30E5BB38DD669AEA3A932D4 /* UITableView+BMPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UITableView+BMPrivate.h"; sourceTree = "<group>"; };
-		FE2FA986F0E7B098CFDD51047FB9A880 /* UITableView-BMDynamicLayout-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "UITableView-BMDynamicLayout-Info.plist"; sourceTree = "<group>"; };
+		395A35DF28DA4013927251FF67B98ABF /* UITableViewDynamicLayoutCacheHeight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UITableViewDynamicLayoutCacheHeight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F69757868CC0C30A8C7FE683CC47E8E /* UITableViewDynamicLayoutCacheHeight.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = UITableViewDynamicLayoutCacheHeight.xcconfig; sourceTree = "<group>"; };
+		505567024D1EDC37F32CD5BE58931E11 /* UITableViewHeaderFooterView+BMPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UITableViewHeaderFooterView+BMPrivate.h"; sourceTree = "<group>"; };
+		5BA2E924BB393101DE1325740ED73CD7 /* Pods-UITableViewDynamicLayoutCacheHeight-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-UITableViewDynamicLayoutCacheHeight-umbrella.h"; sourceTree = "<group>"; };
+		670AB79CE0F390A12D22BBFA176D3F01 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		75DC6E60A6FD1DDBB47C4369BB24AF34 /* UITableViewHeaderFooterView+BMDynamicLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITableViewHeaderFooterView+BMDynamicLayout.h"; path = "Sources/UITableViewDynamicLayoutCacheHeight/UITableViewHeaderFooterView+BMDynamicLayout.h"; sourceTree = "<group>"; };
+		7ACE29C35AF020F6556A2A1907AB9B88 /* UITableView+BMDynamicLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITableView+BMDynamicLayout.m"; path = "Sources/UITableViewDynamicLayoutCacheHeight/UITableView+BMDynamicLayout.m"; sourceTree = "<group>"; };
+		8495FB116C58153F4D0901303430E65F /* Pods-UITableViewDynamicLayoutCacheHeight-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-UITableViewDynamicLayoutCacheHeight-acknowledgements.markdown"; sourceTree = "<group>"; };
+		8FCF0B518F7B2C19FD1099A65CF4A016 /* UITableViewDynamicLayoutCacheHeight-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UITableViewDynamicLayoutCacheHeight-prefix.pch"; sourceTree = "<group>"; };
+		931713D3206C570611AE0F564DE8A1B4 /* Pods-UITableViewDynamicLayoutCacheHeight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UITableViewDynamicLayoutCacheHeight.release.xcconfig"; sourceTree = "<group>"; };
+		95758E48ABEA0803B47EB1F04CFE712E /* Pods-UITableViewDynamicLayoutCacheHeight.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UITableViewDynamicLayoutCacheHeight.debug.xcconfig"; sourceTree = "<group>"; };
+		9B37434D01C3162F034CF904BB0E727D /* Pods-UITableViewDynamicLayoutCacheHeight-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-UITableViewDynamicLayoutCacheHeight-dummy.m"; sourceTree = "<group>"; };
+		9D03622C0391943B61CB3FEBBE0F91D1 /* UITableViewDynamicLayoutCacheHeight.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = UITableViewDynamicLayoutCacheHeight.podspec; sourceTree = "<group>"; tabWidth = 2; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9F3AE5E96674E5D1DB6CC1D5370181E3 /* UITableViewDynamicLayoutCacheHeight-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UITableViewDynamicLayoutCacheHeight-dummy.m"; sourceTree = "<group>"; };
+		A47174A51E241998FDE3464588A30ACF /* Pods-UITableViewDynamicLayoutCacheHeight-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-UITableViewDynamicLayoutCacheHeight-frameworks.sh"; sourceTree = "<group>"; };
+		AB827EF783DB740186BE0A9659ACFA35 /* Pods-UITableViewDynamicLayoutCacheHeight-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-UITableViewDynamicLayoutCacheHeight-acknowledgements.plist"; sourceTree = "<group>"; };
+		AC31D7404A53596F1B712845FAB54CF3 /* UITableView+BMPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UITableView+BMPrivate.h"; sourceTree = "<group>"; };
+		AF4CF015BED9811B03B15CAC8ED04DC4 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B1B9802BF600B2922FEC34133EE14AFE /* Pods_UITableViewDynamicLayoutCacheHeight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UITableViewDynamicLayoutCacheHeight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD30B397314ADB1B5F7A47086BF92160 /* UITableViewCell+BMPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+BMPrivate.h"; sourceTree = "<group>"; };
+		BE441DF23CE959B8841B16310474D31E /* Pods-UITableViewDynamicLayoutCacheHeight.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-UITableViewDynamicLayoutCacheHeight.modulemap"; sourceTree = "<group>"; };
+		CC56024612FF71FB4EE36B35E7226C64 /* UITableViewCell+BMDynamicLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITableViewCell+BMDynamicLayout.m"; path = "Sources/UITableViewDynamicLayoutCacheHeight/UITableViewCell+BMDynamicLayout.m"; sourceTree = "<group>"; };
+		D0AC57DB8E6402E4E39584B4E6350661 /* UITableViewDynamicLayoutCacheHeight.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UITableViewDynamicLayoutCacheHeight.h; path = Sources/UITableViewDynamicLayoutCacheHeight/UITableViewDynamicLayoutCacheHeight.h; sourceTree = "<group>"; };
+		D6686EA69FE1CAA020DE58AC3157A55B /* UITableViewDynamicLayoutCacheHeight-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UITableViewDynamicLayoutCacheHeight-umbrella.h"; sourceTree = "<group>"; };
+		DFB96F4DD01F9DE9E86D50782DE61BFF /* UITableViewDynamicLayoutCacheHeight.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = UITableViewDynamicLayoutCacheHeight.modulemap; sourceTree = "<group>"; };
+		E40EE59E8CB1CE5A535CB9BA5313262B /* UITableViewHeaderFooterView+BMDynamicLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITableViewHeaderFooterView+BMDynamicLayout.m"; path = "Sources/UITableViewDynamicLayoutCacheHeight/UITableViewHeaderFooterView+BMDynamicLayout.m"; sourceTree = "<group>"; };
+		F2F590847F4D1AAA2CD00127B3DBD271 /* UITableViewCell+BMPrivate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+BMPrivate.m"; sourceTree = "<group>"; };
+		F9E9F7ED900FA55409D0B87C26AA514F /* UITableView+BMPrivate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UITableView+BMPrivate.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0A2EABA1822AAE50517DDD5FE8856B1C /* Frameworks */ = {
+		B7DAEA4F308FD199A4CF13D4A6870260 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0ECB3A61F2C4E860E4B4E63062793932 /* Foundation.framework in Frameworks */,
+				DF53FC0113EDD351A087371554C679C0 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1FAB6E42D5A9837B22C375BB8464D035 /* Frameworks */ = {
+		D383AA38EE5FED57920FE0C372F83028 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D4F7B6EF0FBF08D468303BFFB1C6D33 /* Foundation.framework in Frameworks */,
+				7B1DEE315C0E85C2D1A0C5FFE80211D7 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		02D1B1265D7164092B822EB545D28EEC /* Development Pods */ = {
+		006C442A65604240C56E78892C8CFDFE /* Pods-UITableViewDynamicLayoutCacheHeight */ = {
 			isa = PBXGroup;
 			children = (
-				AB19CA5C84D496F3F280E00250DBA376 /* UITableView-BMDynamicLayout */,
+				BE441DF23CE959B8841B16310474D31E /* Pods-UITableViewDynamicLayoutCacheHeight.modulemap */,
+				8495FB116C58153F4D0901303430E65F /* Pods-UITableViewDynamicLayoutCacheHeight-acknowledgements.markdown */,
+				AB827EF783DB740186BE0A9659ACFA35 /* Pods-UITableViewDynamicLayoutCacheHeight-acknowledgements.plist */,
+				9B37434D01C3162F034CF904BB0E727D /* Pods-UITableViewDynamicLayoutCacheHeight-dummy.m */,
+				A47174A51E241998FDE3464588A30ACF /* Pods-UITableViewDynamicLayoutCacheHeight-frameworks.sh */,
+				1BA27A3421C744EE06E82EA7800F3F52 /* Pods-UITableViewDynamicLayoutCacheHeight-Info.plist */,
+				5BA2E924BB393101DE1325740ED73CD7 /* Pods-UITableViewDynamicLayoutCacheHeight-umbrella.h */,
+				95758E48ABEA0803B47EB1F04CFE712E /* Pods-UITableViewDynamicLayoutCacheHeight.debug.xcconfig */,
+				931713D3206C570611AE0F564DE8A1B4 /* Pods-UITableViewDynamicLayoutCacheHeight.release.xcconfig */,
 			);
-			name = "Development Pods";
+			name = "Pods-UITableViewDynamicLayoutCacheHeight";
+			path = "Target Support Files/Pods-UITableViewDynamicLayoutCacheHeight";
 			sourceTree = "<group>";
 		};
-		0775556F78FA49E1778945CC74DF989F /* Products */ = {
+		02FE29446AF822209E949610FAE8F3D2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3C7F123B6D2C04145CA0F1460B04E0A0 /* Pods_UITableView_BMDynamicLayout.framework */,
-				0D87703E218E5029271571E6C3225F9D /* UITableView_BMDynamicLayout.framework */,
+				B1B9802BF600B2922FEC34133EE14AFE /* Pods_UITableViewDynamicLayoutCacheHeight.framework */,
+				395A35DF28DA4013927251FF67B98ABF /* UITableViewDynamicLayoutCacheHeight.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5EDACD2219CDA91216B477CA9BD6F4BB /* Support Files */ = {
+		0CFC02BD141532C14A3FFAEF6CDF403B /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				90E1DA87B71981CD7C7E7526BE36FC29 /* UITableView-BMDynamicLayout.modulemap */,
-				731AC186DBB2464AFF0FCB321E6EAFB1 /* UITableView-BMDynamicLayout.xcconfig */,
-				18B6E46049D4F1F8FC490BB3AFFBC575 /* UITableView-BMDynamicLayout-dummy.m */,
-				FE2FA986F0E7B098CFDD51047FB9A880 /* UITableView-BMDynamicLayout-Info.plist */,
-				9E37BCEA90B80D5A622344B0D9F9FCA0 /* UITableView-BMDynamicLayout-prefix.pch */,
-				BE56424A1BC63F881A4955ADDD768B37 /* UITableView-BMDynamicLayout-umbrella.h */,
+				D9E06B460E3F362A7D8EAFB6BB126A8E /* UITableViewDynamicLayoutCacheHeight */,
 			);
-			name = "Support Files";
-			path = "Pods/Target Support Files/UITableView-BMDynamicLayout";
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		8E854490BE3C0007BDC9261F042BF079 /* Targets Support Files */ = {
+		4012CF5D7AC54DFBCD141D5F51779B4B /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				A8DA53537ECC806EB03D3C1E2FFDD6EC /* Pods-UITableView-BMDynamicLayout */,
+				006C442A65604240C56E78892C8CFDFE /* Pods-UITableViewDynamicLayoutCacheHeight */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		A8DA53537ECC806EB03D3C1E2FFDD6EC /* Pods-UITableView-BMDynamicLayout */ = {
+		4E2013BACF0378B14DDE43375E4BF4A4 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				318163E1D4C2470F2A87146EF1CA1A82 /* Pods-UITableView-BMDynamicLayout.modulemap */,
-				4E19A06C4A2036AFB806FD8DC030B551 /* Pods-UITableView-BMDynamicLayout-acknowledgements.markdown */,
-				DEBD2F65814737D6EB151BD63B3EB008 /* Pods-UITableView-BMDynamicLayout-acknowledgements.plist */,
-				8D70054BDBED20E90C7CBC08604023CB /* Pods-UITableView-BMDynamicLayout-dummy.m */,
-				F007851FA149BBF3776EE84BD4C6AFFA /* Pods-UITableView-BMDynamicLayout-frameworks.sh */,
-				8E72D54D92D7AAFB5BECF4C3BD92700F /* Pods-UITableView-BMDynamicLayout-Info.plist */,
-				C92552F099C0ED808413FFBD3A9BB3C4 /* Pods-UITableView-BMDynamicLayout-umbrella.h */,
-				2A7AE1D167C564A309B7602288CD80EB /* Pods-UITableView-BMDynamicLayout.debug.xcconfig */,
-				5A69B31003ED9210488B7A0FA42E3878 /* Pods-UITableView-BMDynamicLayout.release.xcconfig */,
+				DFB96F4DD01F9DE9E86D50782DE61BFF /* UITableViewDynamicLayoutCacheHeight.modulemap */,
+				4F69757868CC0C30A8C7FE683CC47E8E /* UITableViewDynamicLayoutCacheHeight.xcconfig */,
+				9F3AE5E96674E5D1DB6CC1D5370181E3 /* UITableViewDynamicLayoutCacheHeight-dummy.m */,
+				1A8CB5C8E4D6C2776482C44654AD329C /* UITableViewDynamicLayoutCacheHeight-Info.plist */,
+				8FCF0B518F7B2C19FD1099A65CF4A016 /* UITableViewDynamicLayoutCacheHeight-prefix.pch */,
+				D6686EA69FE1CAA020DE58AC3157A55B /* UITableViewDynamicLayoutCacheHeight-umbrella.h */,
 			);
-			name = "Pods-UITableView-BMDynamicLayout";
-			path = "Target Support Files/Pods-UITableView-BMDynamicLayout";
+			name = "Support Files";
+			path = "Pods/Target Support Files/UITableViewDynamicLayoutCacheHeight";
 			sourceTree = "<group>";
 		};
-		AB19CA5C84D496F3F280E00250DBA376 /* UITableView-BMDynamicLayout */ = {
+		8C0D94710E9E4C24069DDDDB7FD59176 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				19EBA96E789DBDA5D4CCEDCE59B3CD0F /* UITableView+BMDynamicLayout.h */,
-				47B32F3497EE924976D2357BAEE10EAA /* UITableView+BMDynamicLayout.m */,
-				A485A318DAEE42768E889DEE26895B96 /* UITableViewCell+BMDynamicLayout.h */,
-				BC585211C9CF073251EDF1B6AA07CA20 /* UITableViewCell+BMDynamicLayout.m */,
-				BCD0C1216B36ADCBE00A276A20063FF0 /* UITableViewHeaderFooterView+BMDynamicLayout.h */,
-				052E148713256EC880C5AFDDADC895E6 /* UITableViewHeaderFooterView+BMDynamicLayout.m */,
-				E08B1E1B811A4391C6A257FEF89F0CD7 /* Pod */,
-				EE964FAA242A773F65E80C03D40B12F0 /* Private */,
-				5EDACD2219CDA91216B477CA9BD6F4BB /* Support Files */,
+				670AB79CE0F390A12D22BBFA176D3F01 /* LICENSE */,
+				AF4CF015BED9811B03B15CAC8ED04DC4 /* README.md */,
+				9D03622C0391943B61CB3FEBBE0F91D1 /* UITableViewDynamicLayoutCacheHeight.podspec */,
 			);
-			name = "UITableView-BMDynamicLayout";
-			path = ..;
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		975F4BF5EE005494F971AC1630E93165 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				AC31D7404A53596F1B712845FAB54CF3 /* UITableView+BMPrivate.h */,
+				F9E9F7ED900FA55409D0B87C26AA514F /* UITableView+BMPrivate.m */,
+				BD30B397314ADB1B5F7A47086BF92160 /* UITableViewCell+BMPrivate.h */,
+				F2F590847F4D1AAA2CD00127B3DBD271 /* UITableViewCell+BMPrivate.m */,
+				02AFB5DBADE2D8BD84004753831704FA /* UITableViewDynamicLayoutMacro.h */,
+				505567024D1EDC37F32CD5BE58931E11 /* UITableViewHeaderFooterView+BMPrivate.h */,
+				249D21AE677C0E2889F538AF3F018B91 /* UITableViewHeaderFooterView+BMPrivate.m */,
+			);
+			name = Private;
+			path = Sources/UITableViewDynamicLayoutCacheHeight/Private;
 			sourceTree = "<group>";
 		};
 		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
@@ -181,10 +191,10 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				02D1B1265D7164092B822EB545D28EEC /* Development Pods */,
+				0CFC02BD141532C14A3FFAEF6CDF403B /* Development Pods */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				0775556F78FA49E1778945CC74DF989F /* Products */,
-				8E854490BE3C0007BDC9261F042BF079 /* Targets Support Files */,
+				02FE29446AF822209E949610FAE8F3D2 /* Products */,
+				4012CF5D7AC54DFBCD141D5F51779B4B /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -196,95 +206,89 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E08B1E1B811A4391C6A257FEF89F0CD7 /* Pod */ = {
+		D9E06B460E3F362A7D8EAFB6BB126A8E /* UITableViewDynamicLayoutCacheHeight */ = {
 			isa = PBXGroup;
 			children = (
-				018CA91C9F8C34CFB8F24D4293D20C1B /* LICENSE */,
-				F0C3B450CCA769DDB2C8F4E6CB4FC18F /* README.md */,
-				8DB23CB3C3ADBB542D87D4EEDBC3BA56 /* UITableView-BMDynamicLayout.podspec */,
+				031E05531B9A860932F6BDA2D4E8DA33 /* UITableView+BMDynamicLayout.h */,
+				7ACE29C35AF020F6556A2A1907AB9B88 /* UITableView+BMDynamicLayout.m */,
+				1D40FCDCBBC51CFDBE486411BBE9A1C3 /* UITableViewCell+BMDynamicLayout.h */,
+				CC56024612FF71FB4EE36B35E7226C64 /* UITableViewCell+BMDynamicLayout.m */,
+				D0AC57DB8E6402E4E39584B4E6350661 /* UITableViewDynamicLayoutCacheHeight.h */,
+				75DC6E60A6FD1DDBB47C4369BB24AF34 /* UITableViewHeaderFooterView+BMDynamicLayout.h */,
+				E40EE59E8CB1CE5A535CB9BA5313262B /* UITableViewHeaderFooterView+BMDynamicLayout.m */,
+				8C0D94710E9E4C24069DDDDB7FD59176 /* Pod */,
+				975F4BF5EE005494F971AC1630E93165 /* Private */,
+				4E2013BACF0378B14DDE43375E4BF4A4 /* Support Files */,
 			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
-		EE964FAA242A773F65E80C03D40B12F0 /* Private */ = {
-			isa = PBXGroup;
-			children = (
-				FA0181DFA30E5BB38DD669AEA3A932D4 /* UITableView+BMPrivate.h */,
-				D1D8277697C50E2237325DBB171348B7 /* UITableView+BMPrivate.m */,
-				4910FF47B2C4FACBD63F77B9760A2157 /* UITableViewCell+BMPrivate.h */,
-				BE1D1B092F4BF7A64B39698D63B6619D /* UITableViewCell+BMPrivate.m */,
-				64AC26C8A796F94505B585EEC20942A8 /* UITableViewDynamicLayoutMacro.h */,
-				AFC916F257605B9A901F2BFFD50EE815 /* UITableViewHeaderFooterView+BMPrivate.h */,
-				4F837286E2A3922EF7E54F855236171B /* UITableViewHeaderFooterView+BMPrivate.m */,
-			);
-			name = Private;
-			path = "Sources/UITableView+BMDynamicLayout/Private";
+			name = UITableViewDynamicLayoutCacheHeight;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		88C8148900925F969BED24C9C9B2D356 /* Headers */ = {
+		125CC154F06FE5312C955F85C28AEECC /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFE9A30432F76A2781FFDE2DEEFCCA0F /* Pods-UITableView-BMDynamicLayout-umbrella.h in Headers */,
+				C7E1511C595B64E6EBEB52CD7E8CE295 /* Pods-UITableViewDynamicLayoutCacheHeight-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD0C77B25748CF2A26238BC9445C3712 /* Headers */ = {
+		19AED9777E1DF9269A4AE097C786618E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52AF82686AD2557FFD35939078399444 /* UITableView+BMDynamicLayout.h in Headers */,
-				3EA60C7FC363545B4190A10233593FAD /* UITableView+BMPrivate.h in Headers */,
-				3258B5F79F8582F5896CEA5662B871C6 /* UITableView-BMDynamicLayout-umbrella.h in Headers */,
-				CABEF0F12263211596AE5A1667ABADE5 /* UITableViewCell+BMDynamicLayout.h in Headers */,
-				27D71EE9582243800B7BEF1A4F916548 /* UITableViewCell+BMPrivate.h in Headers */,
-				F4353172E3831E0CFC5566EE1EF7080E /* UITableViewDynamicLayoutMacro.h in Headers */,
-				D8DEB3CD1240DF659F9F2311297D607F /* UITableViewHeaderFooterView+BMDynamicLayout.h in Headers */,
-				9598A7D061722353D52B29874DC2819D /* UITableViewHeaderFooterView+BMPrivate.h in Headers */,
+				4DE7DC07A64CA5F8B99EBC3E88AC448B /* UITableView+BMDynamicLayout.h in Headers */,
+				0E780EFCCDA40336DBEEDD935AE5A4FA /* UITableView+BMPrivate.h in Headers */,
+				CB7BA3222A0FEC7315B459F9ABE367E4 /* UITableViewCell+BMDynamicLayout.h in Headers */,
+				03C7A150514F374350ECE31BCA9108BF /* UITableViewCell+BMPrivate.h in Headers */,
+				5FB663ACF7D54F8D4572D600881BFE0F /* UITableViewDynamicLayoutCacheHeight-umbrella.h in Headers */,
+				ECE6DD7DDFA9556F0C34D3A29BD624F0 /* UITableViewDynamicLayoutCacheHeight.h in Headers */,
+				74F8D0B551D6CB8509AF0E04D3B7D662 /* UITableViewDynamicLayoutMacro.h in Headers */,
+				BE35A3BADCD2076F3C4C22D59BBC6897 /* UITableViewHeaderFooterView+BMDynamicLayout.h in Headers */,
+				40683FA5A492DB73B4BBFD34BCFCC614 /* UITableViewHeaderFooterView+BMPrivate.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		BE886DC9FCE642A1B3474A98954B623D /* Pods-UITableView-BMDynamicLayout */ = {
+		6372CDA4DD8F289064B43AFBB3DE61CD /* Pods-UITableViewDynamicLayoutCacheHeight */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 159464D3C7D9EC65C002507EC5DACF6E /* Build configuration list for PBXNativeTarget "Pods-UITableView-BMDynamicLayout" */;
+			buildConfigurationList = 26F6069E05B3735C6FDB546AC170C667 /* Build configuration list for PBXNativeTarget "Pods-UITableViewDynamicLayoutCacheHeight" */;
 			buildPhases = (
-				88C8148900925F969BED24C9C9B2D356 /* Headers */,
-				A2A7E371C412B85BD458B336D3364E28 /* Sources */,
-				1FAB6E42D5A9837B22C375BB8464D035 /* Frameworks */,
-				DFB83BE5FB67EBB47A890068F56F42EA /* Resources */,
+				125CC154F06FE5312C955F85C28AEECC /* Headers */,
+				EADE80E84AEB32F98252E72497EBC88B /* Sources */,
+				D383AA38EE5FED57920FE0C372F83028 /* Frameworks */,
+				B0DF2C3B79208132C78665957D015C8E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B13D1245897B2DEDB695DCDC112F9161 /* PBXTargetDependency */,
+				6128730E2A6D374C60014F07CEA79A73 /* PBXTargetDependency */,
 			);
-			name = "Pods-UITableView-BMDynamicLayout";
-			productName = "Pods-UITableView-BMDynamicLayout";
-			productReference = 3C7F123B6D2C04145CA0F1460B04E0A0 /* Pods_UITableView_BMDynamicLayout.framework */;
+			name = "Pods-UITableViewDynamicLayoutCacheHeight";
+			productName = "Pods-UITableViewDynamicLayoutCacheHeight";
+			productReference = B1B9802BF600B2922FEC34133EE14AFE /* Pods_UITableViewDynamicLayoutCacheHeight.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		E721C7957A25978A9F19AC92ECB56AC5 /* UITableView-BMDynamicLayout */ = {
+		E0B0168CDF0A336B9A2CDCD98DD9833D /* UITableViewDynamicLayoutCacheHeight */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 95BFD42361305F6A70469C188F300247 /* Build configuration list for PBXNativeTarget "UITableView-BMDynamicLayout" */;
+			buildConfigurationList = 58FC6E02ADF09D910E7D35606F879058 /* Build configuration list for PBXNativeTarget "UITableViewDynamicLayoutCacheHeight" */;
 			buildPhases = (
-				DD0C77B25748CF2A26238BC9445C3712 /* Headers */,
-				0C8EC3BBF360D4E0169AE586CAA38F8A /* Sources */,
-				0A2EABA1822AAE50517DDD5FE8856B1C /* Frameworks */,
-				A57DD26ED253140B341B4A4029B7D5AD /* Resources */,
+				19AED9777E1DF9269A4AE097C786618E /* Headers */,
+				5550F6B6FE3534D3759B9F85A18478CB /* Sources */,
+				B7DAEA4F308FD199A4CF13D4A6870260 /* Frameworks */,
+				81736C84CDA6B8277F920DA77A601EAF /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "UITableView-BMDynamicLayout";
-			productName = "UITableView-BMDynamicLayout";
-			productReference = 0D87703E218E5029271571E6C3225F9D /* UITableView_BMDynamicLayout.framework */;
+			name = UITableViewDynamicLayoutCacheHeight;
+			productName = UITableViewDynamicLayoutCacheHeight;
+			productReference = 395A35DF28DA4013927251FF67B98ABF /* UITableViewDynamicLayoutCacheHeight.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -297,32 +301,32 @@
 				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 10.0";
+			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 0775556F78FA49E1778945CC74DF989F /* Products */;
+			productRefGroup = 02FE29446AF822209E949610FAE8F3D2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BE886DC9FCE642A1B3474A98954B623D /* Pods-UITableView-BMDynamicLayout */,
-				E721C7957A25978A9F19AC92ECB56AC5 /* UITableView-BMDynamicLayout */,
+				6372CDA4DD8F289064B43AFBB3DE61CD /* Pods-UITableViewDynamicLayoutCacheHeight */,
+				E0B0168CDF0A336B9A2CDCD98DD9833D /* UITableViewDynamicLayoutCacheHeight */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A57DD26ED253140B341B4A4029B7D5AD /* Resources */ = {
+		81736C84CDA6B8277F920DA77A601EAF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DFB83BE5FB67EBB47A890068F56F42EA /* Resources */ = {
+		B0DF2C3B79208132C78665957D015C8E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -332,43 +336,43 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0C8EC3BBF360D4E0169AE586CAA38F8A /* Sources */ = {
+		5550F6B6FE3534D3759B9F85A18478CB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74B9026E614D7201F532093444355D1D /* UITableView+BMDynamicLayout.m in Sources */,
-				8D4ED09D348A7AFDB70745FD3CC0C381 /* UITableView+BMPrivate.m in Sources */,
-				8EFA9382729FE1E1E8A189D991D47D30 /* UITableView-BMDynamicLayout-dummy.m in Sources */,
-				DE8A023126F5477EBDB59ACDED334C02 /* UITableViewCell+BMDynamicLayout.m in Sources */,
-				6AD54A0CC632A57F70F13F668C9263E2 /* UITableViewCell+BMPrivate.m in Sources */,
-				05F6BF2543C7EB25D50356A82EEBFBA1 /* UITableViewHeaderFooterView+BMDynamicLayout.m in Sources */,
-				6A3B4B5A1279AEA617BA6D1F9FA5163D /* UITableViewHeaderFooterView+BMPrivate.m in Sources */,
+				EE7A8A1FB3345D4C0E4ACF0FF79BD815 /* UITableView+BMDynamicLayout.m in Sources */,
+				E747483B3E2DBAB38D8411BCB1BD68A2 /* UITableView+BMPrivate.m in Sources */,
+				34467A8C41D75826D857561B7AE1891D /* UITableViewCell+BMDynamicLayout.m in Sources */,
+				13AEB024D9ED6FCC0BE77835777CBE06 /* UITableViewCell+BMPrivate.m in Sources */,
+				9C38508ED4086B6580EA4531EC0D7BBC /* UITableViewDynamicLayoutCacheHeight-dummy.m in Sources */,
+				50603A3A4257467703B9FC0D0A141741 /* UITableViewHeaderFooterView+BMDynamicLayout.m in Sources */,
+				B23B158739C34719FFDBAFE76235EE7F /* UITableViewHeaderFooterView+BMPrivate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A2A7E371C412B85BD458B336D3364E28 /* Sources */ = {
+		EADE80E84AEB32F98252E72497EBC88B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1FE845A29E76229170B7C7EE7AD2471 /* Pods-UITableView-BMDynamicLayout-dummy.m in Sources */,
+				16CD90DA4F9C99DA4B8771D7A1680DF8 /* Pods-UITableViewDynamicLayoutCacheHeight-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B13D1245897B2DEDB695DCDC112F9161 /* PBXTargetDependency */ = {
+		6128730E2A6D374C60014F07CEA79A73 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "UITableView-BMDynamicLayout";
-			target = E721C7957A25978A9F19AC92ECB56AC5 /* UITableView-BMDynamicLayout */;
-			targetProxy = 64FE41D18143B592AD060812537203D0 /* PBXContainerItemProxy */;
+			name = UITableViewDynamicLayoutCacheHeight;
+			target = E0B0168CDF0A336B9A2CDCD98DD9833D /* UITableViewDynamicLayoutCacheHeight */;
+			targetProxy = 10E0C315CD2BC1DE6FECC77E0C9AE4B6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		05D1505CB1489A91D609CD73B1208701 /* Release */ = {
+		1318F93D9FA1CF82EAA826354966D2F6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A69B31003ED9210488B7A0FA42E3878 /* Pods-UITableView-BMDynamicLayout.release.xcconfig */;
+			baseConfigurationReference = 931713D3206C570611AE0F564DE8A1B4 /* Pods-UITableViewDynamicLayoutCacheHeight.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -380,16 +384,16 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-UITableView-BMDynamicLayout/Pods-UITableView-BMDynamicLayout-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-UITableViewDynamicLayoutCacheHeight/Pods-UITableViewDynamicLayoutCacheHeight-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-UITableView-BMDynamicLayout/Pods-UITableView-BMDynamicLayout.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-UITableViewDynamicLayoutCacheHeight/Pods-UITableViewDynamicLayoutCacheHeight.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -404,10 +408,11 @@
 			};
 			name = Release;
 		};
-		28E4272746450D060B8E52B73E84D2F7 /* Release */ = {
+		2584CD43C40D24AA390AD2B17A9C2BB7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 731AC186DBB2464AFF0FCB321E6EAFB1 /* UITableView-BMDynamicLayout.xcconfig */;
+			baseConfigurationReference = 95758E48ABEA0803B47EB1F04CFE712E /* Pods-UITableViewDynamicLayoutCacheHeight.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -417,8 +422,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/UITableView-BMDynamicLayout/UITableView-BMDynamicLayout-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/UITableView-BMDynamicLayout/UITableView-BMDynamicLayout-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-UITableViewDynamicLayoutCacheHeight/Pods-UITableViewDynamicLayoutCacheHeight-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -426,22 +430,24 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/UITableView-BMDynamicLayout/UITableView-BMDynamicLayout.modulemap";
-				PRODUCT_MODULE_NAME = UITableView_BMDynamicLayout;
-				PRODUCT_NAME = UITableView_BMDynamicLayout;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-UITableViewDynamicLayoutCacheHeight/Pods-UITableViewDynamicLayoutCacheHeight.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
-		5AFE2C83936C9D15A96B6A432E34F959 /* Debug */ = {
+		30AD57422A3C296AE84EBBE3104819DF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 731AC186DBB2464AFF0FCB321E6EAFB1 /* UITableView-BMDynamicLayout.xcconfig */;
+			baseConfigurationReference = 4F69757868CC0C30A8C7FE683CC47E8E /* UITableViewDynamicLayoutCacheHeight.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -452,8 +458,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/UITableView-BMDynamicLayout/UITableView-BMDynamicLayout-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/UITableView-BMDynamicLayout/UITableView-BMDynamicLayout-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/UITableViewDynamicLayoutCacheHeight/UITableViewDynamicLayoutCacheHeight-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UITableViewDynamicLayoutCacheHeight/UITableViewDynamicLayoutCacheHeight-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -461,9 +467,9 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/UITableView-BMDynamicLayout/UITableView-BMDynamicLayout.modulemap";
-				PRODUCT_MODULE_NAME = UITableView_BMDynamicLayout;
-				PRODUCT_NAME = UITableView_BMDynamicLayout;
+				MODULEMAP_FILE = "Target Support Files/UITableViewDynamicLayoutCacheHeight/UITableViewDynamicLayoutCacheHeight.modulemap";
+				PRODUCT_MODULE_NAME = UITableViewDynamicLayoutCacheHeight;
+				PRODUCT_NAME = UITableViewDynamicLayoutCacheHeight;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
@@ -473,7 +479,7 @@
 			};
 			name = Debug;
 		};
-		8F17DC3A99F99FBAD606CE6963886315 /* Release */ = {
+		4BE66A09A74FD25164AAB3C2645B9B93 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -521,7 +527,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -533,7 +539,42 @@
 			};
 			name = Release;
 		};
-		916E0404255105F480DC4950B7625F7A /* Debug */ = {
+		6949BC385A38EF3BB494FD3EBEE908B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F69757868CC0C30A8C7FE683CC47E8E /* UITableViewDynamicLayoutCacheHeight.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/UITableViewDynamicLayoutCacheHeight/UITableViewDynamicLayoutCacheHeight-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UITableViewDynamicLayoutCacheHeight/UITableViewDynamicLayoutCacheHeight-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/UITableViewDynamicLayoutCacheHeight/UITableViewDynamicLayoutCacheHeight.modulemap";
+				PRODUCT_MODULE_NAME = UITableViewDynamicLayoutCacheHeight;
+				PRODUCT_NAME = UITableViewDynamicLayoutCacheHeight;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7EF7227D9B20A1D549000096ACCB23D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -584,7 +625,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -597,51 +638,14 @@
 			};
 			name = Debug;
 		};
-		D45C9D45815F5D8B44CA56B6BD2D1DB2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2A7AE1D167C564A309B7602288CD80EB /* Pods-UITableView-BMDynamicLayout.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-UITableView-BMDynamicLayout/Pods-UITableView-BMDynamicLayout-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-UITableView-BMDynamicLayout/Pods-UITableView-BMDynamicLayout.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		159464D3C7D9EC65C002507EC5DACF6E /* Build configuration list for PBXNativeTarget "Pods-UITableView-BMDynamicLayout" */ = {
+		26F6069E05B3735C6FDB546AC170C667 /* Build configuration list for PBXNativeTarget "Pods-UITableViewDynamicLayoutCacheHeight" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D45C9D45815F5D8B44CA56B6BD2D1DB2 /* Debug */,
-				05D1505CB1489A91D609CD73B1208701 /* Release */,
+				2584CD43C40D24AA390AD2B17A9C2BB7 /* Debug */,
+				1318F93D9FA1CF82EAA826354966D2F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -649,17 +653,17 @@
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				916E0404255105F480DC4950B7625F7A /* Debug */,
-				8F17DC3A99F99FBAD606CE6963886315 /* Release */,
+				7EF7227D9B20A1D549000096ACCB23D7 /* Debug */,
+				4BE66A09A74FD25164AAB3C2645B9B93 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		95BFD42361305F6A70469C188F300247 /* Build configuration list for PBXNativeTarget "UITableView-BMDynamicLayout" */ = {
+		58FC6E02ADF09D910E7D35606F879058 /* Build configuration list for PBXNativeTarget "UITableViewDynamicLayoutCacheHeight" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5AFE2C83936C9D15A96B6A432E34F959 /* Debug */,
-				28E4272746450D060B8E52B73E84D2F7 /* Release */,
+				30AD57422A3C296AE84EBBE3104819DF /* Debug */,
+				6949BC385A38EF3BB494FD3EBEE908B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

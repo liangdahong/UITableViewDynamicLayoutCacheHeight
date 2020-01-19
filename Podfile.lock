@@ -1,16 +1,16 @@
 PODS:
-  - UITableView-BMDynamicLayout (3.1.6)
+  - UITableViewDynamicLayoutCacheHeight (1.0.0)
 
 DEPENDENCIES:
-  - UITableView-BMDynamicLayout (from `.././UITableView-BMDynamicLayout/`)
+  - UITableViewDynamicLayoutCacheHeight (from `../UITableViewDynamicLayoutCacheHeight/`)
 
 EXTERNAL SOURCES:
-  UITableView-BMDynamicLayout:
-    :path: ".././UITableView-BMDynamicLayout/"
+  UITableViewDynamicLayoutCacheHeight:
+    :path: "../UITableViewDynamicLayoutCacheHeight/"
 
 SPEC CHECKSUMS:
-  UITableView-BMDynamicLayout: 5edcdc4b49ab799805ead946520dd32738433da7
+  UITableViewDynamicLayoutCacheHeight: 6ae8f38d8b280df1b9295934435d01228f64e7f3
 
-PODFILE CHECKSUM: 7b066efd00bfaf1ae42972bc0739b65004c5cc12
+PODFILE CHECKSUM: d54dd3dafb8042c3e3ac0d6e96fc3d11879252c0
 
 COCOAPODS: 1.8.3

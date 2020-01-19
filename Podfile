@@ -1,5 +1,5 @@
-platform :ios, '9.0'
-target 'UITableView-BMDynamicLayout' do
+platform :ios, '8.0'
+target 'UITableViewDynamicLayoutCacheHeight' do
   use_frameworks!
-    pod 'UITableView-BMDynamicLayout', :path => '.././UITableView-BMDynamicLayout/'
+    pod 'UITableViewDynamicLayoutCacheHeight', :path => '../UITableViewDynamicLayoutCacheHeight/'
 end
