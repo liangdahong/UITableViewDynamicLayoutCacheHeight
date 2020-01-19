@@ -209,11 +209,11 @@
 		D9E06B460E3F362A7D8EAFB6BB126A8E /* UITableViewDynamicLayoutCacheHeight */ = {
 			isa = PBXGroup;
 			children = (
+				D0AC57DB8E6402E4E39584B4E6350661 /* UITableViewDynamicLayoutCacheHeight.h */,
 				031E05531B9A860932F6BDA2D4E8DA33 /* UITableView+BMDynamicLayout.h */,
 				7ACE29C35AF020F6556A2A1907AB9B88 /* UITableView+BMDynamicLayout.m */,
 				1D40FCDCBBC51CFDBE486411BBE9A1C3 /* UITableViewCell+BMDynamicLayout.h */,
 				CC56024612FF71FB4EE36B35E7226C64 /* UITableViewCell+BMDynamicLayout.m */,
-				D0AC57DB8E6402E4E39584B4E6350661 /* UITableViewDynamicLayoutCacheHeight.h */,
 				75DC6E60A6FD1DDBB47C4369BB24AF34 /* UITableViewHeaderFooterView+BMDynamicLayout.h */,
 				E40EE59E8CB1CE5A535CB9BA5313262B /* UITableViewHeaderFooterView+BMDynamicLayout.m */,
 				8C0D94710E9E4C24069DDDDB7FD59176 /* Pod */,
