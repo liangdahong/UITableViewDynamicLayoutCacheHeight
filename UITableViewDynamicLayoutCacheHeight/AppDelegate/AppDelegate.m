@@ -146,6 +146,8 @@
                 obj.name =  arr[(unsigned long)arc4random_uniform((unsigned int)count)][@"title"];
                 obj.desc =  arr[(unsigned long)arc4random_uniform((unsigned int)arr.count)][@"summary"];
             }
+            obj.vsize = CGSizeMake(obj.vsize.width*.4, obj.vsize.height*.4);
+            obj.hsize = CGSizeMake(obj.hsize.width*.4, obj.hsize.height*.4);
             count++;
         }];
     }];

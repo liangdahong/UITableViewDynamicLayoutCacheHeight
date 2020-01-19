@@ -16,7 +16,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UILabel *userLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
-
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *widthCons;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightCons;
 
@@ -29,9 +28,8 @@
     _titleLabel.text = [NSString stringWithFormat:@"%@ - %@", _model.name, _model.ID];
     _iconImageView.image = [UIImage imageNamed:_model.icon];
     _descLabel.text = _model.desc;
-    _userLabel.text = @"idhong";
-    _timeLabel.text = @"2018年02月12日09:48";
-
+    _userLabel.text = @"Jack";
+    _timeLabel.text = @"2018年02月12日";
     if (KISVertical) {
         _widthCons.constant = model.vsize.width;
         _heightCons.constant = model.vsize.height;
