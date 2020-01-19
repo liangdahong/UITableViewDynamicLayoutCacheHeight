@@ -17,10 +17,12 @@
 
 ## Introduction
 
-- This is a Template auto layout cell for automatically UITableViewCell UITableViewHeaderFooterView calculating and cache height
-   framework.
--  UITableViewDynamicLayoutCacheHeight 是一个便捷的，高性能的自动计算采用 Autolayout 布局的 UITableViewCell 和 UITableViewHeaderFooterView 的高度，同时支持横竖屏，Masonry等采用系统Autolayout布局的框架，同时自动处理高度缓存，
-- 最简单的使用说明 [使用说明](https://juejin.im/post/5e231e9a51882536cc0cc975)
+-  UITableViewDynamicLayoutCacheHeight 是一个便捷的，高性能的自动计算采用 Autolayout 布局的 UITableViewCell 和 UITableViewHeaderFooterView 的高度，同时支持横竖屏，Masonry等采用系统Autolayout布局的框架，同时自动处理高度缓存。
+
+-  [使用说明](https://juejin.im/post/5e231e9a51882536cc0cc975)
+-  [原理篇 - 未完](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight)
+-  [做了哪些优化 - 未完](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight)
+-  [高级使用 - 未完](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight)
 
 ##  CocoaPods
 
