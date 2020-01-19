@@ -422,9 +422,9 @@
 		05610ADB23D3FF1D0019AA74 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				05610ADC23D3FF1D0019AA74 /* BMXibCellVC.xib */,
-				05610ADD23D3FF1D0019AA74 /* BMXibCellVC.m */,
 				05610ADE23D3FF1D0019AA74 /* BMXibCellVC.h */,
+				05610ADD23D3FF1D0019AA74 /* BMXibCellVC.m */,
+				05610ADC23D3FF1D0019AA74 /* BMXibCellVC.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

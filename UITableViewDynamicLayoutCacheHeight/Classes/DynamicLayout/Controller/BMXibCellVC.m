@@ -26,34 +26,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"BM";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"系统" style:0 target:self action:@selector(otherClick)];
-//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"TableView 宽度是否固定" style:0 target:self action:@selector(tableViewWidthClick)];
-}
-
-- (void)otherClick {
-    [self.navigationController pushViewController:self.systemAdaptiveHeightVC animated:YES];
-}
-
-- (void)tableViewWidthClick {
-//    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"TableView 宽度是否固定 ？" message:nil preferredStyle:UIAlertControllerStyleAlert];
-//    [alertVC addAction:[UIAlertAction actionWithTitle:@"width" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//        [self.tableView setBm_fixedWidthType:(BMDynamicLayoutFixedWidthTypeScreenWidth)];
-//        [self.tableView reloadData];
-//    }]];
-//    [alertVC addAction:[UIAlertAction actionWithTitle:@"height" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//        [self.tableView setBm_fixedWidthType:(BMDynamicLayoutFixedWidthTypeScreenHeight)];
-//        [self.tableView reloadData];
-//    }]];
-//    [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-//    [self presentViewController:alertVC animated:YES completion:nil];
-}
-
-- (BMSystemAdaptiveHeightVC *)systemAdaptiveHeightVC {
-    if (!_systemAdaptiveHeightVC) {
-        _systemAdaptiveHeightVC = [BMSystemAdaptiveHeightVC new];
-        _systemAdaptiveHeightVC.dataArray = self.dataArray;
-    }
-    return _systemAdaptiveHeightVC;
 }
 
 #pragma mark - 系统delegate
