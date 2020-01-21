@@ -7,7 +7,7 @@
 //
 
 #import "BMXibCellVC.h"
-#import <UITableViewDynamicLayoutCacheHeight/UITableViewDynamicLayoutCacheHeight.h>
+#import "UITableViewDynamicLayoutCacheHeight.h"
 #import "BMModel.h"
 #import "BMCell.h"
 #import "BMHeaderView.h"

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name         = 'UITableViewDynamicLayoutCacheHeight'
-s.version      = '4.0.1'
+s.version      = '4.0.2'
 s.summary      = '🖖 Template auto layout cell for automatically UITableViewCell UITableViewHeaderFooterView calculating and cache height framework.'
 s.homepage     = 'https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight'
 s.license      = 'MIT'
@@ -10,3 +10,4 @@ s.source       = {:git => 'https://github.com/liangdahong/UITableViewDynamicLayo
 s.requires_arc = true
 s.source_files = 'Sources/UITableViewDynamicLayoutCacheHeight/**/*.{h,m}'
 end
+
