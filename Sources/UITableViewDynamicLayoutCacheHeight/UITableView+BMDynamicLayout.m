@@ -219,23 +219,23 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
     // init cache Array
     NSMutableArray <NSMutableArray <NSNumber *> *> *arr1 = self.verticalArray;
     long i1 = (indexPath.section + 1 - arr1.count);
-    while (i1-- > 0) {
+    while (i1--) {
         [self.verticalArray addObject:@[].mutableCopy];
     }
     NSMutableArray <NSNumber *> *arr2 = arr1[indexPath.section];
     long i2 = (indexPath.row + 1 - arr2.count);
-    while (i2-- > 0) {
+    while (i2--) {
         [arr2 addObject:@(-1)];
     }
 
     NSMutableArray <NSMutableArray <NSNumber *> *> *arr3 = self.horizontalArray;
     long i3 = (indexPath.section + 1 - arr3.count);
-    while (i3-- > 0) {
+    while (i3--) {
         [arr3 addObject:@[].mutableCopy];
     }
     NSMutableArray <NSNumber *> *arr4 = arr3[indexPath.section];
     long i4 = (indexPath.row + 1 - arr4.count);
-    while (i4-- > 0) {
+    while (i4--) {
         [arr4 addObject:@(-1)];
     }
 
@@ -293,13 +293,13 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
         // init cache Array
         NSMutableArray <NSNumber *> *arr1 = self.headerVerticalArray;
         long i1 = (section + 1 - arr1.count);
-        while (i1-- > 0) {
+        while (i1--) {
             [self.headerVerticalArray addObject:@(-1)];
         }
         
         NSMutableArray <NSNumber *> *arr2 = self.headerHorizontalArray;
         long i2 = (section + 1 - arr2.count);
-        while (i2-- > 0) {
+        while (i2--) {
             [self.headerHorizontalArray addObject:@(-1)];
         }
 
@@ -323,13 +323,13 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
         // init cache Array
         NSMutableArray <NSNumber *> *arr1 = self.footerVerticalArray;
         long i1 = (section + 1 - arr1.count);
-        while (i1-- > 0) {
+        while (i1--) {
             [self.footerVerticalArray addObject:@(-1)];
         }
 
         NSMutableArray <NSNumber *> *arr2 = self.footerHorizontalArray;
         long i2 = (section + 1 - arr2.count);
-        while (i2-- > 0) {
+        while (i2--) {
             [self.footerHorizontalArray addObject:@(-1)];
         }
         
