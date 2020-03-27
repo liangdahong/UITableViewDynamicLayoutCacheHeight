@@ -20,7 +20,9 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
-//    v4.0.2
+////////////////////
+///// v4.0.4 ///////
+////////////////////
 
 #ifndef UITableViewDynamicLayoutCacheHeight_h
 #define UITableViewDynamicLayoutCacheHeight_h

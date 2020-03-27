@@ -20,8 +20,6 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
-//    v3.1.5
-
 #import <UIKit/UIKit.h>
 #import "UITableViewHeaderFooterView+BMDynamicLayout.h"
 #import "UITableViewCell+BMDynamicLayout.h"
