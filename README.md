@@ -17,7 +17,7 @@
 
 ## Introduction
 
--  UITableViewDynamicLayoutCacheHeight 是一个便捷的，高性能的自动计算采用 Autolayout 布局的 UITableViewCell 和 UITableViewHeaderFooterView 的高度，同时支持横竖屏，Masonry等采用系统Autolayout布局的框架，同时自动处理高度缓存。
+-  UITableViewDynamicLayoutCacheHeight 是一个便捷的，高性能的自动计算使用 Autolayout 布局【Xib、StoryBoard、Masonry 等】的 UITableViewCell 和 UITableViewHeaderFooterView 的高度，支持横竖屏，内部自动管理高度缓存。
 
 -  [使用说明](https://juejin.im/post/5e231e9a51882536cc0cc975)
 -  [原理篇 - 未完](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight)
