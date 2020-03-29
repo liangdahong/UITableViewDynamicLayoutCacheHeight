@@ -7,7 +7,6 @@
 //
 
 #import "BMCell.h"
-#define KISVertical UIScreen.mainScreen.bounds.size.height > UIScreen.mainScreen.bounds.size.width
 
 @interface BMCell ()
 
@@ -25,18 +24,13 @@
 
 - (void)setModel:(BMModel *)model {
     _model = model;
-    _titleLabel.text = [NSString stringWithFormat:@"%@ - %@", _model.name, _model.ID];
+    _titleLabel.text = _model.name;
     _iconImageView.image = [UIImage imageNamed:_model.icon];
     _descLabel.text = _model.desc;
     _userLabel.text = @"Jack";
     _timeLabel.text = @"2018年02月12日";
-    if (KISVertical) {
-        _widthCons.constant = model.vsize.width;
-        _heightCons.constant = model.vsize.height;
-    } else {
-        _widthCons.constant = model.hsize.width;
-        _heightCons.constant = model.hsize.height;
-    }
+    _widthCons.constant = model.size.width;
+    _heightCons.constant = model.size.height;
 }
 
 @end

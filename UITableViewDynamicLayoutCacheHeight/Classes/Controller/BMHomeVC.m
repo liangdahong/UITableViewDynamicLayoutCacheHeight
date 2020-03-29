@@ -1,31 +1,29 @@
 //
-//  BMXibCellVC.m
+//  BMHomeVC.m
 //  BMTemplateLayoutCellDemo
 //
 //  Created by __liangdahong on 2017/8/22.
 //  Copyright © 2017年 ___liangdahong. All rights reserved.
 //
 
-#import "BMXibCellVC.h"
+#import "BMHomeVC.h"
 #import "BMModel.h"
 #import "BMCell.h"
 #import "BMHeaderView.h"
 #import "UIFooterView.h"
-#import "BMSystemAdaptiveHeightVC.h"
 #import "UITableViewDynamicLayoutCacheHeight.h"
 
-@interface BMXibCellVC () <UITableViewDelegate, UITableViewDataSource>
+@interface BMHomeVC () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) BMSystemAdaptiveHeightVC *systemAdaptiveHeightVC; ///< systemAdaptiveHeightVC
 
 @end
 
-@implementation BMXibCellVC
+@implementation BMHomeVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"BM";
+    self.title = @"UITableViewDynamicLayoutCacheHeight";
 }
 
 #pragma mark - 系统delegate
@@ -48,6 +46,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [tableView bm_heightWithCellClass:BMCell.class cacheByIndexPath:indexPath configuration:^(__kindof BMCell * _Nonnull cell) {
+        // 这里对 cell 继续和 willDisplayCell 类似此填充数据
         cell.model = self.dataArray[indexPath.section].modelArray[indexPath.row];
     }];
 }
@@ -55,6 +54,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
+#pragma mark - UITableViewHeaderFooterView
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     BMHeaderView *view = [BMHeaderView bm_tableViewHeaderFooterViewWithTableView:tableView];

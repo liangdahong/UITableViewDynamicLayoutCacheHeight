@@ -15,7 +15,6 @@
 @property (copy, nonatomic) NSString *name;
 @property (copy, nonatomic) NSString *desc;
 @property (copy, nonatomic) NSString *icon;
-@property (nonatomic, assign) CGSize vsize; ///< size
-@property (nonatomic, assign) CGSize hsize; ///< size
+@property (nonatomic, assign) CGSize size;
 
 @end

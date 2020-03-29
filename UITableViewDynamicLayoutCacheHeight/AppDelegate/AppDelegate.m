@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "BMXibCellVC.h"
+#import "BMHomeVC.h"
 #import "YYFPSLabel.h"
 #import "UITableViewDynamicLayoutCacheHeight.h"
 
@@ -20,11 +20,11 @@
 
     // UITableViewDynamicLayoutCacheHeight.debugLog = NO;
 
-    BMXibCellVC *vc = BMXibCellVC.new;
+    BMHomeVC *vc = BMHomeVC.new;
     vc.dataArray = self.dataArray;
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    UINavigationController *nav   = [[UINavigationController alloc] initWithRootViewController:vc];
     nav.navigationBar.translucent = NO;
-    nav.navigationBar.hidden = NO;
+    nav.navigationBar.hidden      = NO;
     self.window.rootViewController = nav;
 
     YYFPSLabel *label = [YYFPSLabel new];
@@ -33,6 +33,8 @@
 
     return YES;
 }
+
+#pragma mark - 构造数据
 
 - (NSMutableArray<BMGroupModel *> *)dataArray {
 
@@ -43,94 +45,30 @@
         int arc1 = arc4random_uniform(3)+10;
         while (arc1--) {
             BMModel *model = [BMModel new];
-            int arci = arc4random_uniform(20) + 1;
-            NSMutableString *string = [NSMutableString string];
-            while (arci--) {
-                [string appendString:@"消息消息消息消息消息"];
-            }
-            [string appendString:@"详情完~"];
-            model.desc = string;
-
-            int arcd = arc4random_uniform(5)+1;
-            NSMutableString *string1 = [NSMutableString string];
-            while (arcd--) {
-                [string1 appendString:@"标题"];
-            }
-            [string1 appendString:@"标题完~"];
-            model.name = string1;
             model.icon = [NSString stringWithFormat:@"%d.png", arc4random_uniform(30) + 1];
             UIImage *img = [UIImage imageNamed:model.icon];
+            CGFloat imageWidth = img.size.width;
+            CGFloat imageHeight = img.size.height;
 
-            {
-                CGFloat width = img.size.width;
-                CGFloat height = img.size.height;
+            CGFloat screenWidth = MIN(UIScreen.mainScreen.bounds.size.height, UIScreen.mainScreen.bounds.size.width)-20;
 
-                CGFloat swidth = UIScreen.mainScreen.bounds.size.width-20;
+            CGFloat modelWidth = 0;
+            CGFloat modelHeight = 0;
 
-                CGFloat imgwidth = 0;
-                CGFloat imgheight = 0;
-
-                if (width <= swidth) {
-                    imgwidth = width;
-                    imgheight = height;
-                } else {
-                    imgwidth = swidth;
-                    imgheight = height * (swidth/width);
-                }
-                model.vsize = CGSizeMake(imgwidth, imgheight);
+            if (imageWidth <= screenWidth) {
+                modelWidth = imageWidth;
+                modelHeight = imageHeight;
+            } else {
+                modelWidth = screenWidth;
+                modelHeight = imageHeight * (screenWidth/imageWidth);
             }
-
-            {
-                CGFloat width = img.size.width;
-                CGFloat height = img.size.height;
-
-                CGFloat swidth = UIScreen.mainScreen.bounds.size.height-20;
-
-                CGFloat imgwidth = 0;
-                CGFloat imgheight = 0;
-
-                if (width <= swidth) {
-                    imgwidth = width;
-                    imgheight = height;
-                } else {
-                    imgwidth = swidth;
-                    imgheight = height * (swidth/width);
-                }
-                model.hsize = CGSizeMake(imgwidth, imgheight);
-            }
-
+            model.size = CGSizeMake(modelWidth, modelHeight);
             [arr1 addObject:model];
         }
-
         BMGroupModel *obj = BMGroupModel.new;
         obj.modelArray = arr1.mutableCopy;
         [_dataArray addObject:obj];
     }
-
-    [_dataArray enumerateObjectsUsingBlock:^(BMGroupModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-
-        int arci = arc4random_uniform(20) + 1;
-        NSMutableString *string = [NSMutableString string];
-        while (arci--) {
-            [string appendString:@"头部头部头部"];
-        }
-        [string appendString:@"~"];
-        obj.headerTitle = string;
-
-        {
-            int arci = arc4random_uniform(30) + 1;
-            NSMutableString *string = [NSMutableString string];
-            while (arci--) {
-                [string appendString:@"尾部尾部尾部尾部尾"];
-            }
-            [string appendString:@"~"];
-            obj.footerTitle = string;
-        }
-
-        [obj.modelArray enumerateObjectsUsingBlock:^(BMModel * _Nonnull obj1, NSUInteger idx1, BOOL * _Nonnull stop1) {
-            obj1.ID = [NSString stringWithFormat:@"%lu-%lu", (unsigned long)idx, (unsigned long)idx1];
-        }];
-    }];
 
     NSString *path = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"text"];
     NSString *string = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
@@ -139,8 +77,8 @@
 
     __block NSInteger count = 0;
     [_dataArray enumerateObjectsUsingBlock:^(BMGroupModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        obj.headerTitle = arr[(unsigned long)arc4random_uniform((unsigned int)arr.count)][@"title"];;
-        obj.footerTitle = arr[(unsigned long)arc4random_uniform((unsigned int)arr.count)][@"artist"];;
+        obj.headerTitle = arr[(unsigned long)arc4random_uniform((unsigned int)arr.count)][@"title"];
+        obj.footerTitle = arr[(unsigned long)arc4random_uniform((unsigned int)arr.count)][@"artist"];
         [obj.modelArray enumerateObjectsUsingBlock:^(BMModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             if (count > arr.count) {
                 obj.name =  arr[(unsigned long)arc4random_uniform((unsigned int)arr.count)][@"title"];
@@ -149,14 +87,11 @@
                 obj.name =  arr[(unsigned long)arc4random_uniform((unsigned int)count)][@"title"];
                 obj.desc =  arr[(unsigned long)arc4random_uniform((unsigned int)arr.count)][@"summary"];
             }
-            obj.vsize = CGSizeMake(obj.vsize.width*.4, obj.vsize.height*.4);
-            obj.hsize = CGSizeMake(obj.hsize.width*.4, obj.hsize.height*.4);
+            obj.size = CGSizeMake(obj.size.width*.4, obj.size.height*.4);
             count++;
         }];
     }];
-
     return _dataArray;
 }
-
 
 @end

@@ -1,5 +1,5 @@
 //
-//  BMXibCellVC.h
+//  BMHomeVC.h
 //  BMTemplateLayoutCellDemo
 //
 //  Created by __liangdahong on 2017/8/22.
@@ -9,9 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "BMGroupModel.h"
 
-#define KISVertical UIScreen.mainScreen.bounds.size.height > UIScreen.mainScreen.bounds.size.width
 
-@interface BMXibCellVC : UIViewController
+@interface BMHomeVC : UIViewController
 
 @property (strong, nonatomic) NSMutableArray <BMGroupModel *> *dataArray;
 

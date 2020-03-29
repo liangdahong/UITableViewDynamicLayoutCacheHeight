@@ -13,16 +13,8 @@
 		05BF900123D696FF00A248AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05BF8FFF23D696FF00A248AC /* LaunchScreen.storyboard */; };
 		05BF900E23D696FF00A248AC /* UITableViewDynamicLayoutCacheHeightTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BF900D23D696FF00A248AC /* UITableViewDynamicLayoutCacheHeightTests.m */; };
 		05BF901923D696FF00A248AC /* UITableViewDynamicLayoutCacheHeightUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BF901823D696FF00A248AC /* UITableViewDynamicLayoutCacheHeightUITests.m */; };
-		05BF907D23D6972C00A248AC /* BMSystemAdaptiveHeightVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05BF902A23D6972C00A248AC /* BMSystemAdaptiveHeightVC.xib */; };
-		05BF907E23D6972C00A248AC /* BMSystemAdaptiveHeightVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BF902B23D6972C00A248AC /* BMSystemAdaptiveHeightVC.m */; };
-		05BF907F23D6972C00A248AC /* BMSystemAdaptiveHeighFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BF902E23D6972C00A248AC /* BMSystemAdaptiveHeighFooterView.m */; };
-		05BF908023D6972C00A248AC /* BMSystemAdaptiveHeighFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05BF903023D6972C00A248AC /* BMSystemAdaptiveHeighFooterView.xib */; };
-		05BF908123D6972C00A248AC /* BMSystemAdaptiveHeighHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05BF903323D6972C00A248AC /* BMSystemAdaptiveHeighHeaderView.xib */; };
-		05BF908223D6972C00A248AC /* BMSystemAdaptiveHeighHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BF903423D6972C00A248AC /* BMSystemAdaptiveHeighHeaderView.m */; };
-		05BF908323D6972C00A248AC /* BMSystemAdaptiveHeighCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BF903623D6972C00A248AC /* BMSystemAdaptiveHeighCell.m */; };
-		05BF908423D6972C00A248AC /* BMSystemAdaptiveHeighCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05BF903823D6972C00A248AC /* BMSystemAdaptiveHeighCell.xib */; };
-		05BF908523D6972C00A248AC /* BMXibCellVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05BF903B23D6972C00A248AC /* BMXibCellVC.xib */; };
-		05BF908623D6972C00A248AC /* BMXibCellVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BF903C23D6972C00A248AC /* BMXibCellVC.m */; };
+		05BF908523D6972C00A248AC /* BMHomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05BF903B23D6972C00A248AC /* BMHomeVC.xib */; };
+		05BF908623D6972C00A248AC /* BMHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BF903C23D6972C00A248AC /* BMHomeVC.m */; };
 		05BF908723D6972C00A248AC /* BMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BF904023D6972C00A248AC /* BMModel.m */; };
 		05BF908823D6972C00A248AC /* BMGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BF904123D6972C00A248AC /* BMGroupModel.m */; };
 		05BF908923D6972C00A248AC /* UIFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05BF904623D6972C00A248AC /* UIFooterView.xib */; };
@@ -108,21 +100,9 @@
 		05BF901423D696FF00A248AC /* UITableViewDynamicLayoutCacheHeightUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITableViewDynamicLayoutCacheHeightUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		05BF901823D696FF00A248AC /* UITableViewDynamicLayoutCacheHeightUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITableViewDynamicLayoutCacheHeightUITests.m; sourceTree = "<group>"; };
 		05BF901A23D696FF00A248AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		05BF902923D6972C00A248AC /* BMSystemAdaptiveHeightVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMSystemAdaptiveHeightVC.h; sourceTree = "<group>"; };
-		05BF902A23D6972C00A248AC /* BMSystemAdaptiveHeightVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMSystemAdaptiveHeightVC.xib; sourceTree = "<group>"; };
-		05BF902B23D6972C00A248AC /* BMSystemAdaptiveHeightVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMSystemAdaptiveHeightVC.m; sourceTree = "<group>"; };
-		05BF902E23D6972C00A248AC /* BMSystemAdaptiveHeighFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMSystemAdaptiveHeighFooterView.m; sourceTree = "<group>"; };
-		05BF902F23D6972C00A248AC /* BMSystemAdaptiveHeighFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMSystemAdaptiveHeighFooterView.h; sourceTree = "<group>"; };
-		05BF903023D6972C00A248AC /* BMSystemAdaptiveHeighFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMSystemAdaptiveHeighFooterView.xib; sourceTree = "<group>"; };
-		05BF903223D6972C00A248AC /* BMSystemAdaptiveHeighHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMSystemAdaptiveHeighHeaderView.h; sourceTree = "<group>"; };
-		05BF903323D6972C00A248AC /* BMSystemAdaptiveHeighHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMSystemAdaptiveHeighHeaderView.xib; sourceTree = "<group>"; };
-		05BF903423D6972C00A248AC /* BMSystemAdaptiveHeighHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMSystemAdaptiveHeighHeaderView.m; sourceTree = "<group>"; };
-		05BF903623D6972C00A248AC /* BMSystemAdaptiveHeighCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMSystemAdaptiveHeighCell.m; sourceTree = "<group>"; };
-		05BF903723D6972C00A248AC /* BMSystemAdaptiveHeighCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMSystemAdaptiveHeighCell.h; sourceTree = "<group>"; };
-		05BF903823D6972C00A248AC /* BMSystemAdaptiveHeighCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMSystemAdaptiveHeighCell.xib; sourceTree = "<group>"; };
-		05BF903B23D6972C00A248AC /* BMXibCellVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMXibCellVC.xib; sourceTree = "<group>"; };
-		05BF903C23D6972C00A248AC /* BMXibCellVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMXibCellVC.m; sourceTree = "<group>"; };
-		05BF903D23D6972C00A248AC /* BMXibCellVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMXibCellVC.h; sourceTree = "<group>"; };
+		05BF903B23D6972C00A248AC /* BMHomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMHomeVC.xib; sourceTree = "<group>"; };
+		05BF903C23D6972C00A248AC /* BMHomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMHomeVC.m; sourceTree = "<group>"; };
+		05BF903D23D6972C00A248AC /* BMHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMHomeVC.h; sourceTree = "<group>"; };
 		05BF903F23D6972C00A248AC /* BMGroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMGroupModel.h; sourceTree = "<group>"; };
 		05BF904023D6972C00A248AC /* BMModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMModel.m; sourceTree = "<group>"; };
 		05BF904123D6972C00A248AC /* BMGroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMGroupModel.m; sourceTree = "<group>"; };
@@ -218,6 +198,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04FA439F2430FD16007FDA54 /* BMModel */ = {
+			isa = PBXGroup;
+			children = (
+				05BF904023D6972C00A248AC /* BMModel.m */,
+				05BF904223D6972C00A248AC /* BMModel.h */,
+			);
+			path = BMModel;
+			sourceTree = "<group>";
+		};
+		04FA43A02430FD18007FDA54 /* BMGroupModel */ = {
+			isa = PBXGroup;
+			children = (
+				05BF903F23D6972C00A248AC /* BMGroupModel.h */,
+				05BF904123D6972C00A248AC /* BMGroupModel.m */,
+			);
+			path = BMGroupModel;
+			sourceTree = "<group>";
+		};
 		05BF8FE523D696FE00A248AC = {
 			isa = PBXGroup;
 			children = (
@@ -279,87 +277,19 @@
 		05BF902623D6972C00A248AC /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				05BF902723D6972C00A248AC /* SystemAdaptiveHeight */,
-				05BF903923D6972C00A248AC /* DynamicLayout */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		05BF902723D6972C00A248AC /* SystemAdaptiveHeight */ = {
-			isa = PBXGroup;
-			children = (
-				05BF902823D6972C00A248AC /* Controller */,
-				05BF902C23D6972C00A248AC /* View */,
-			);
-			path = SystemAdaptiveHeight;
-			sourceTree = "<group>";
-		};
-		05BF902823D6972C00A248AC /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				05BF902923D6972C00A248AC /* BMSystemAdaptiveHeightVC.h */,
-				05BF902A23D6972C00A248AC /* BMSystemAdaptiveHeightVC.xib */,
-				05BF902B23D6972C00A248AC /* BMSystemAdaptiveHeightVC.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		05BF902C23D6972C00A248AC /* View */ = {
-			isa = PBXGroup;
-			children = (
-				05BF902D23D6972C00A248AC /* BMSystemAdaptiveHeighFooterView */,
-				05BF903123D6972C00A248AC /* BMSystemAdaptiveHeighHeaderView */,
-				05BF903523D6972C00A248AC /* BMCell */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		05BF902D23D6972C00A248AC /* BMSystemAdaptiveHeighFooterView */ = {
-			isa = PBXGroup;
-			children = (
-				05BF902E23D6972C00A248AC /* BMSystemAdaptiveHeighFooterView.m */,
-				05BF902F23D6972C00A248AC /* BMSystemAdaptiveHeighFooterView.h */,
-				05BF903023D6972C00A248AC /* BMSystemAdaptiveHeighFooterView.xib */,
-			);
-			path = BMSystemAdaptiveHeighFooterView;
-			sourceTree = "<group>";
-		};
-		05BF903123D6972C00A248AC /* BMSystemAdaptiveHeighHeaderView */ = {
-			isa = PBXGroup;
-			children = (
-				05BF903223D6972C00A248AC /* BMSystemAdaptiveHeighHeaderView.h */,
-				05BF903323D6972C00A248AC /* BMSystemAdaptiveHeighHeaderView.xib */,
-				05BF903423D6972C00A248AC /* BMSystemAdaptiveHeighHeaderView.m */,
-			);
-			path = BMSystemAdaptiveHeighHeaderView;
-			sourceTree = "<group>";
-		};
-		05BF903523D6972C00A248AC /* BMCell */ = {
-			isa = PBXGroup;
-			children = (
-				05BF903623D6972C00A248AC /* BMSystemAdaptiveHeighCell.m */,
-				05BF903723D6972C00A248AC /* BMSystemAdaptiveHeighCell.h */,
-				05BF903823D6972C00A248AC /* BMSystemAdaptiveHeighCell.xib */,
-			);
-			path = BMCell;
-			sourceTree = "<group>";
-		};
-		05BF903923D6972C00A248AC /* DynamicLayout */ = {
-			isa = PBXGroup;
-			children = (
 				05BF903A23D6972C00A248AC /* Controller */,
 				05BF903E23D6972C00A248AC /* Model */,
 				05BF904323D6972C00A248AC /* View */,
 			);
-			path = DynamicLayout;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		05BF903A23D6972C00A248AC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				05BF903D23D6972C00A248AC /* BMXibCellVC.h */,
-				05BF903C23D6972C00A248AC /* BMXibCellVC.m */,
-				05BF903B23D6972C00A248AC /* BMXibCellVC.xib */,
+				05BF903D23D6972C00A248AC /* BMHomeVC.h */,
+				05BF903C23D6972C00A248AC /* BMHomeVC.m */,
+				05BF903B23D6972C00A248AC /* BMHomeVC.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -367,10 +297,8 @@
 		05BF903E23D6972C00A248AC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				05BF903F23D6972C00A248AC /* BMGroupModel.h */,
-				05BF904023D6972C00A248AC /* BMModel.m */,
-				05BF904123D6972C00A248AC /* BMGroupModel.m */,
-				05BF904223D6972C00A248AC /* BMModel.h */,
+				04FA43A02430FD18007FDA54 /* BMGroupModel */,
+				04FA439F2430FD16007FDA54 /* BMModel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -409,8 +337,8 @@
 			isa = PBXGroup;
 			children = (
 				05BF904D23D6972C00A248AC /* BMCell.h */,
-				05BF904E23D6972C00A248AC /* BMCell.xib */,
 				05BF904F23D6972C00A248AC /* BMCell.m */,
+				05BF904E23D6972C00A248AC /* BMCell.xib */,
 			);
 			path = BMCell;
 			sourceTree = "<group>";
@@ -647,7 +575,7 @@
 				05BF909123D6972C00A248AC /* 8.png in Resources */,
 				05BF909E23D6972C00A248AC /* 20.png in Resources */,
 				05BF90CE23D6976600A248AC /* pod.sh in Resources */,
-				05BF908523D6972C00A248AC /* BMXibCellVC.xib in Resources */,
+				05BF908523D6972C00A248AC /* BMHomeVC.xib in Resources */,
 				05BF90AE23D6972C00A248AC /* 1.png in Resources */,
 				05BF908923D6972C00A248AC /* UIFooterView.xib in Resources */,
 				05BF909A23D6972C00A248AC /* 13.png in Resources */,
@@ -660,7 +588,6 @@
 				05BF908C23D6972C00A248AC /* BMHeaderView.xib in Resources */,
 				05BF90A123D6972C00A248AC /* 27.png in Resources */,
 				05BF909F23D6972C00A248AC /* 22.png in Resources */,
-				05BF908123D6972C00A248AC /* BMSystemAdaptiveHeighHeaderView.xib in Resources */,
 				05BF90AD23D6972C00A248AC /* 3.png in Resources */,
 				05BF909823D6972C00A248AC /* 16.png in Resources */,
 				05BF90CD23D6976600A248AC /* LICENSE in Resources */,
@@ -670,14 +597,11 @@
 				05BF900123D696FF00A248AC /* LaunchScreen.storyboard in Resources */,
 				05BF90A723D6972C00A248AC /* 19.png in Resources */,
 				05BF90A223D6972C00A248AC /* 26.png in Resources */,
-				05BF908023D6972C00A248AC /* BMSystemAdaptiveHeighFooterView.xib in Resources */,
 				05BF8FFE23D696FF00A248AC /* Assets.xcassets in Resources */,
 				05BF909C23D6972C00A248AC /* 10.png in Resources */,
 				05BF90AA23D6972C00A248AC /* 7.png in Resources */,
 				05BF909223D6972C00A248AC /* 9.png in Resources */,
 				05BF909423D6972C00A248AC /* 28.png in Resources */,
-				05BF907D23D6972C00A248AC /* BMSystemAdaptiveHeightVC.xib in Resources */,
-				05BF908423D6972C00A248AC /* BMSystemAdaptiveHeighCell.xib in Resources */,
 				05BF909623D6972C00A248AC /* 15.png in Resources */,
 				05BF909B23D6972C00A248AC /* 11.png in Resources */,
 				05BF90A323D6972C00A248AC /* 18.png in Resources */,
@@ -708,13 +632,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				05BF8FFC23D696FE00A248AC /* UITableViewDynamicLayoutCacheHeight.xcdatamodeld in Sources */,
-				05BF908623D6972C00A248AC /* BMXibCellVC.m in Sources */,
-				05BF908223D6972C00A248AC /* BMSystemAdaptiveHeighHeaderView.m in Sources */,
+				05BF908623D6972C00A248AC /* BMHomeVC.m in Sources */,
 				04FA439E2430F2CF007FDA54 /* UITableViewDynamicLayoutCacheHeight.m in Sources */,
 				05BF90C723D6974A00A248AC /* UITableViewHeaderFooterView+BMPrivate.m in Sources */,
-				05BF907F23D6972C00A248AC /* BMSystemAdaptiveHeighFooterView.m in Sources */,
 				05BF908723D6972C00A248AC /* BMModel.m in Sources */,
-				05BF908323D6972C00A248AC /* BMSystemAdaptiveHeighCell.m in Sources */,
 				05BF90C323D6974A00A248AC /* UITableView+BMDynamicLayout.m in Sources */,
 				05BF908B23D6972C00A248AC /* BMHeaderView.m in Sources */,
 				05BF90C423D6974A00A248AC /* UITableViewHeaderFooterView+BMDynamicLayout.m in Sources */,
@@ -726,7 +647,6 @@
 				05BF908823D6972C00A248AC /* BMGroupModel.m in Sources */,
 				05BF908A23D6972C00A248AC /* UIFooterView.m in Sources */,
 				05BF90B023D6972C00A248AC /* main.m in Sources */,
-				05BF907E23D6972C00A248AC /* BMSystemAdaptiveHeightVC.m in Sources */,
 				05BF90B123D6972C00A248AC /* AppDelegate.m in Sources */,
 				05BF90C623D6974A00A248AC /* UITableView+BMPrivate.m in Sources */,
 			);
