@@ -1,6 +1,6 @@
 //    MIT License
 //
-//    Copyright (c) 2019 https://liangdahong.com
+//    Copyright (c) 2019 https://github.com/liangdahong
 //
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the "Software"), to deal
@@ -22,10 +22,15 @@
 
 #import "UITableViewHeaderFooterView+BMPrivate.h"
 #import <objc/runtime.h>
-#import "UITableViewDynamicLayoutMacro.h"
 
 @implementation UITableViewHeaderFooterView (BMPrivate)
 
-BMTABLEVIEWVIEW_DYNAMICLAYOUT_DYNAMIC_PROPERTY_OBJECT(maxYView, setMaxYView, RETAIN_NONATOMIC, UIView *)
+- (UIView *)maxYView {
+    return objc_getAssociatedObject(self, @selector(setMaxYView:));
+}
+
+- (void)setMaxYView:(UIView *)maxYView {
+    objc_setAssociatedObject(self, _cmd, maxYView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
 
 @end

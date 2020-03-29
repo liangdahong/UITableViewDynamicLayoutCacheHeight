@@ -1,6 +1,6 @@
 //    MIT License
 //
-//    Copyright (c) 2019 https://liangdahong.com
+//    Copyright (c) 2019 https://github.com/liangdahong
 //
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the "Software"), to deal
@@ -21,8 +21,9 @@
 //    SOFTWARE.
 
 #import "UITableView+BMPrivate.h"
-#import "UITableViewDynamicLayoutMacro.h"
 #import <objc/runtime.h>
+
+#define KIS_VERTICAL (UIScreen.mainScreen.bounds.size.height > UIScreen.mainScreen.bounds.size.width)
 
 @implementation UITableView (BMPrivate)
 
@@ -37,11 +38,11 @@
     objc_setAssociatedObject(self, @selector(isSectionHeaderHeightCache), @(isSectionHeaderHeightCache), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (NSMutableDictionary<NSString *,NSNumber *> *)headerHeightDictionary {
+- (NSMutableDictionary<id<NSCopying>, NSNumber *> *)headerHeightDictionary {
     return KIS_VERTICAL ? self.headerVerticalDictionary : self.headerHorizontalDictionary;
 }
 
-- (NSMutableDictionary<NSString *,NSNumber *> *)headerVerticalDictionary {
+- (NSMutableDictionary<id<NSCopying>, NSNumber *> *)headerVerticalDictionary {
     NSMutableDictionary *dict = objc_getAssociatedObject(self, _cmd);
     if (!dict) {
         dict = @{}.mutableCopy;
@@ -50,7 +51,7 @@
     return dict;
 }
 
-- (NSMutableDictionary<NSString *,NSNumber *> *)headerHorizontalDictionary {
+- (NSMutableDictionary<id<NSCopying>, NSNumber *> *)headerHorizontalDictionary {
     NSMutableDictionary *dict = objc_getAssociatedObject(self, _cmd);
     if (!dict) {
         dict = @{}.mutableCopy;
@@ -92,11 +93,11 @@
     objc_setAssociatedObject(self, @selector(isIndexPathHeightCache), @(isIndexPathHeightCache), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (NSMutableDictionary<NSString *, NSNumber *> *)heightDictionary {
+- (NSMutableDictionary<id<NSCopying>, NSNumber *> *)heightDictionary {
     return KIS_VERTICAL ? self.verticalDictionary : self.horizontalDictionary;
 }
 
-- (NSMutableDictionary<NSString *,NSNumber *> *)verticalDictionary {
+- (NSMutableDictionary<id<NSCopying>, NSNumber *> *)verticalDictionary {
     NSMutableDictionary *dict = objc_getAssociatedObject(self, _cmd);
     if (!dict) {
         dict = @{}.mutableCopy;
@@ -105,7 +106,7 @@
     return dict;
 }
 
-- (NSMutableDictionary<NSString *,NSNumber *> *)horizontalDictionary {
+- (NSMutableDictionary<id<NSCopying>, NSNumber *> *)horizontalDictionary {
     NSMutableDictionary *dict = objc_getAssociatedObject(self, _cmd);
     if (!dict) {
         dict = @{}.mutableCopy;
@@ -147,11 +148,11 @@
     objc_setAssociatedObject(self, @selector(isSectionFooterHeightCache), @(isSectionFooterHeightCache), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (NSMutableDictionary<NSString *,NSNumber *> *)footerHeightDictionary {
+- (NSMutableDictionary<id<NSCopying>, NSNumber *> *)footerHeightDictionary {
     return KIS_VERTICAL ? self.footerVerticalDictionary : self.footerHorizontalDictionary;
 }
 
-- (NSMutableDictionary<NSString *,NSNumber *> *)footerVerticalDictionary {
+- (NSMutableDictionary<id<NSCopying>, NSNumber *> *)footerVerticalDictionary {
     NSMutableDictionary *dict = objc_getAssociatedObject(self, _cmd);
     if (!dict) {
         dict = @{}.mutableCopy;
@@ -160,7 +161,7 @@
     return dict;
 }
 
-- (NSMutableDictionary<NSString *,NSNumber *> *)footerHorizontalDictionary {
+- (NSMutableDictionary<id<NSCopying>, NSNumber *> *)footerHorizontalDictionary {
     NSMutableDictionary *dict = objc_getAssociatedObject(self, _cmd);
     if (!dict) {
         dict = @{}.mutableCopy;

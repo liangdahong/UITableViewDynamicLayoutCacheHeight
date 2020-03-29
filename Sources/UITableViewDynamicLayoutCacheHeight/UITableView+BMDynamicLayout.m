@@ -1,6 +1,6 @@
 //    MIT License
 //
-//    Copyright (c) 2019 https://liangdahong.com
+//    Copyright (c) 2019 https://github.com/liangdahong
 //
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the "Software"), to deal
@@ -27,9 +27,10 @@
 #import "UITableViewHeaderFooterView+BMPrivate.h"
 #import "UITableViewHeaderFooterView+BMDynamicLayout.h"
 #import "UITableViewCell+BMDynamicLayout.h"
+#import "UITableViewDynamicLayoutCacheHeight.h"
 
 #ifdef DEBUG
-    #define BM_UITableView_DynamicLayout_LOG(...) NSLog(__VA_ARGS__)
+#define BM_UITableView_DynamicLayout_LOG(...) if (UITableViewDynamicLayoutCacheHeight.isDebugLog) {NSLog(__VA_ARGS__);}
 #else
     #define BM_UITableView_DynamicLayout_LOG(...)
 #endif
@@ -196,16 +197,6 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
     return [self _heightWithHeaderFooterViewClass:clas sel:_cmd configuration:configuration];
 }
 
-#pragma mark - set get
-
-- (CGFloat)fixedWidth {
-    return [objc_getAssociatedObject(self, _cmd) doubleValue];
-}
-
-- (void)setFixedWidth:(CGFloat)fixedWidth {
-    objc_setAssociatedObject(self, @selector(fixedWidth), @(fixedWidth), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
 #pragma mark - Public cell
 
 - (CGFloat)bm_heightWithCellClass:(Class)clas
@@ -258,7 +249,7 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
 }
 
 - (CGFloat)bm_heightWithCellClass:(Class)clas
-                       cacheByKey:(NSString *)key
+                       cacheByKey:(id<NSCopying>)key
                     configuration:(void (^)(__kindof UITableViewCell *cell))configuration {
     if (key && self.heightDictionary[key]) {
         BM_UITableView_DynamicLayout_LOG(@"BMLog:✅ Cell: %@ get cache height { (key: %@) (height: %@) }", NSStringFromClass(clas), key, self.heightDictionary[key]);
@@ -353,7 +344,7 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
 
 - (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
                                          type:(BMHeaderFooterViewDynamicLayoutType)type
-                                   cacheByKey:(NSString *)key
+                                   cacheByKey:(id<NSCopying>)key
                                 configuration:(void (^)(__kindof UITableViewHeaderFooterView *headerFooterView))configuration {
     if (type == BMHeaderFooterViewDynamicLayoutTypeHeader) {
         if (key && self.headerHeightDictionary[key]) {

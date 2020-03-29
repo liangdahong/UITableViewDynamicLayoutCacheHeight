@@ -1,6 +1,6 @@
 //    MIT License
 //
-//    Copyright (c) 2019 https://liangdahong.com
+//    Copyright (c) 2019 https://github.com/liangdahong
 //
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the "Software"), to deal
@@ -23,8 +23,6 @@
 #import <UIKit/UIKit.h>
 #import "UITableViewHeaderFooterView+BMDynamicLayout.h"
 #import "UITableViewCell+BMDynamicLayout.h"
-
-NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSInteger, BMHeaderFooterViewDynamicLayoutType) {
     BMHeaderFooterViewDynamicLayoutTypeHeader = 0,
@@ -69,7 +67,7 @@ IB_DESIGNABLE
 /// @param key 使用 key 做缓存标识
 /// @param configuration 布局 cell
 - (CGFloat)bm_heightWithCellClass:(Class)clas
-                       cacheByKey:(NSString *)key
+                       cacheByKey:(id<NSCopying>)key
                     configuration:(void (^)(__kindof UITableViewCell *cell))configuration;
 
 #pragma mark - HeaderFooter
@@ -99,9 +97,7 @@ IB_DESIGNABLE
 /// @param configuration 布局 HeaderFooter
 - (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
                                          type:(BMHeaderFooterViewDynamicLayoutType)type
-                                   cacheByKey:(NSString *)key
+                                   cacheByKey:(id<NSCopying>)key
                                 configuration:(void (^)(__kindof UITableViewHeaderFooterView *headerFooterView))configuration;
 
 @end
-
-NS_ASSUME_NONNULL_END

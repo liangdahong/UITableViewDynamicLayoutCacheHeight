@@ -1,6 +1,6 @@
 //    MIT License
 //
-//    Copyright (c) 2019 https://liangdahong.com
+//    Copyright (c) 2019 https://github.com/liangdahong
 //
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the "Software"), to deal
@@ -22,8 +22,6 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 IB_DESIGNABLE
 @interface UITableViewHeaderFooterView (BMDynamicLayout)
 
@@ -36,5 +34,3 @@ IB_DESIGNABLE
 + (instancetype)bm_tableViewHeaderFooterViewWithTableView:(UITableView *)tableView;
 
 @end
-
-NS_ASSUME_NONNULL_END

@@ -73,7 +73,7 @@ pod install
 /// @param key 使用 key 做缓存标识
 /// @param configuration 布局 cell
 - (CGFloat)bm_heightWithCellClass:(Class)clas
-                       cacheByKey:(NSString *)key
+                       cacheByKey:(id<NSCopying>)key
                     configuration:(void (^)(__kindof UITableViewCell *cell))configuration;
 ```
 ### UITableViewHeaderFooterView 的高度计算
@@ -104,7 +104,7 @@ pod install
 /// @param configuration 布局 HeaderFooter
 - (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
                                          type:(BMHeaderFooterViewDynamicLayoutType)type
-                                   cacheByKey:(NSString *)key
+                                   cacheByKey:(id<NSCopying>)key
                                 configuration:(void (^)(__kindof UITableViewHeaderFooterView *headerFooterView))configuration;
 ```
 

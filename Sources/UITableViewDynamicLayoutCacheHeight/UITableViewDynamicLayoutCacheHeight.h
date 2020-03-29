@@ -1,6 +1,6 @@
 //    MIT License
 //
-//    Copyright (c) 2019 https://liangdahong.com
+//    Copyright (c) 2019 https://github.com/liangdahong
 //
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the "Software"), to deal
@@ -21,7 +21,7 @@
 //    SOFTWARE.
 
 ////////////////////
-///// v4.0.4 ///////
+///// v4.0.5 ///
 ////////////////////
 
 #ifndef UITableViewDynamicLayoutCacheHeight_h
@@ -31,4 +31,12 @@
 #import "UITableViewCell+BMDynamicLayout.h"
 #import "UITableView+BMDynamicLayout.h"
 
+@interface UITableViewDynamicLayoutCacheHeight : NSObject
+
+@property (class, nonatomic, assign, getter=isDebugLog) BOOL debugLog; ///< 是否开启 debug Log，默认 YES 开启。
+
+@end
+
 #endif
+
+

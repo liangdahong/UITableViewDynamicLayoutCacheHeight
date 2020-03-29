@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04FA439E2430F2CF007FDA54 /* UITableViewDynamicLayoutCacheHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA439D2430F2CE007FDA54 /* UITableViewDynamicLayoutCacheHeight.m */; };
 		05BF8FFC23D696FE00A248AC /* UITableViewDynamicLayoutCacheHeight.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 05BF8FFA23D696FE00A248AC /* UITableViewDynamicLayoutCacheHeight.xcdatamodeld */; };
 		05BF8FFE23D696FF00A248AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05BF8FFD23D696FF00A248AC /* Assets.xcassets */; };
 		05BF900123D696FF00A248AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05BF8FFF23D696FF00A248AC /* LaunchScreen.storyboard */; };
@@ -95,6 +96,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04FA439D2430F2CE007FDA54 /* UITableViewDynamicLayoutCacheHeight.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITableViewDynamicLayoutCacheHeight.m; sourceTree = "<group>"; };
 		05BF8FEE23D696FE00A248AC /* UITableViewDynamicLayoutCacheHeight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UITableViewDynamicLayoutCacheHeight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05BF8FFB23D696FE00A248AC /* UITableViewDynamicLayoutCacheHeight.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UITableViewDynamicLayoutCacheHeight.xcdatamodel; sourceTree = "<group>"; };
 		05BF8FFD23D696FF00A248AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -171,7 +173,6 @@
 		05BF907723D6972C00A248AC /* data.text */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = data.text; sourceTree = "<group>"; };
 		05BF907923D6972C00A248AC /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		05BF907A23D6972C00A248AC /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		05BF907B23D6972C00A248AC /* AAA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAA.h; sourceTree = "<group>"; };
 		05BF907C23D6972C00A248AC /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		05BF90B423D6974A00A248AC /* UITableViewCell+BMDynamicLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+BMDynamicLayout.h"; sourceTree = "<group>"; };
 		05BF90B523D6974A00A248AC /* UITableView+BMDynamicLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+BMDynamicLayout.m"; sourceTree = "<group>"; };
@@ -179,7 +180,6 @@
 		05BF90B823D6974A00A248AC /* UITableViewCell+BMPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+BMPrivate.m"; sourceTree = "<group>"; };
 		05BF90B923D6974A00A248AC /* UITableView+BMPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+BMPrivate.m"; sourceTree = "<group>"; };
 		05BF90BA23D6974A00A248AC /* UITableViewHeaderFooterView+BMPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewHeaderFooterView+BMPrivate.m"; sourceTree = "<group>"; };
-		05BF90BB23D6974A00A248AC /* UITableViewDynamicLayoutMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewDynamicLayoutMacro.h; sourceTree = "<group>"; };
 		05BF90BC23D6974A00A248AC /* UITableViewHeaderFooterView+BMPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewHeaderFooterView+BMPrivate.h"; sourceTree = "<group>"; };
 		05BF90BD23D6974A00A248AC /* UITableView+BMPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+BMPrivate.h"; sourceTree = "<group>"; };
 		05BF90BE23D6974A00A248AC /* UITableViewCell+BMPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+BMPrivate.h"; sourceTree = "<group>"; };
@@ -491,9 +491,8 @@
 		05BF907823D6972C00A248AC /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				05BF907923D6972C00A248AC /* AppDelegate.h */,
 				05BF907A23D6972C00A248AC /* main.m */,
-				05BF907B23D6972C00A248AC /* AAA.h */,
+				05BF907923D6972C00A248AC /* AppDelegate.h */,
 				05BF907C23D6972C00A248AC /* AppDelegate.m */,
 			);
 			path = AppDelegate;
@@ -512,6 +511,7 @@
 			children = (
 				05BF90B723D6974A00A248AC /* Private */,
 				05BF90C123D6974A00A248AC /* UITableViewDynamicLayoutCacheHeight.h */,
+				04FA439D2430F2CE007FDA54 /* UITableViewDynamicLayoutCacheHeight.m */,
 				05BF90BF23D6974A00A248AC /* UITableView+BMDynamicLayout.h */,
 				05BF90B523D6974A00A248AC /* UITableView+BMDynamicLayout.m */,
 				05BF90B423D6974A00A248AC /* UITableViewCell+BMDynamicLayout.h */,
@@ -525,7 +525,6 @@
 		05BF90B723D6974A00A248AC /* Private */ = {
 			isa = PBXGroup;
 			children = (
-				05BF90BB23D6974A00A248AC /* UITableViewDynamicLayoutMacro.h */,
 				05BF90BD23D6974A00A248AC /* UITableView+BMPrivate.h */,
 				05BF90B923D6974A00A248AC /* UITableView+BMPrivate.m */,
 				05BF90BC23D6974A00A248AC /* UITableViewHeaderFooterView+BMPrivate.h */,
@@ -711,6 +710,7 @@
 				05BF8FFC23D696FE00A248AC /* UITableViewDynamicLayoutCacheHeight.xcdatamodeld in Sources */,
 				05BF908623D6972C00A248AC /* BMXibCellVC.m in Sources */,
 				05BF908223D6972C00A248AC /* BMSystemAdaptiveHeighHeaderView.m in Sources */,
+				04FA439E2430F2CF007FDA54 /* UITableViewDynamicLayoutCacheHeight.m in Sources */,
 				05BF90C723D6974A00A248AC /* UITableViewHeaderFooterView+BMPrivate.m in Sources */,
 				05BF907F23D6972C00A248AC /* BMSystemAdaptiveHeighFooterView.m in Sources */,
 				05BF908723D6972C00A248AC /* BMModel.m in Sources */,

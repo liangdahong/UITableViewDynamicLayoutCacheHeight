@@ -1,6 +1,6 @@
 //    MIT License
 //
-//    Copyright (c) 2019 https://liangdahong.com
+//    Copyright (c) 2019 https://github.com/liangdahong
 //
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the "Software"), to deal
@@ -20,19 +20,19 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
-#ifndef UITableViewDynamicLayoutMacro_h
-#define UITableViewDynamicLayoutMacro_h
+#import "UITableViewDynamicLayoutCacheHeight.h"
+#import <objc/runtime.h>
 
-#ifndef BMTABLEVIEWVIEW_DYNAMICLAYOUT_DYNAMIC_PROPERTY_OBJECT
-#define BMTABLEVIEWVIEW_DYNAMICLAYOUT_DYNAMIC_PROPERTY_OBJECT(_getter_, _setter_, _association_, _type_) \
-- (void)_setter_ : (_type_)object { \
-    objc_setAssociatedObject(self, _cmd, object, OBJC_ASSOCIATION_ ## _association_); \
-} \
-- (_type_)_getter_ { \
-    return objc_getAssociatedObject(self, @selector(_setter_:)); \
+static BOOL isDebugLog = YES;
+
+@implementation UITableViewDynamicLayoutCacheHeight
+
++ (BOOL)isDebugLog {
+    return isDebugLog;
 }
-#endif
 
-#define KIS_VERTICAL (UIScreen.mainScreen.bounds.size.height > UIScreen.mainScreen.bounds.size.width)
++ (void)setDebugLog:(BOOL)debugLog {
+    isDebugLog = debugLog;
+}
 
-#endif
+@end

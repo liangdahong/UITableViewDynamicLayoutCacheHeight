@@ -3,7 +3,7 @@
 //  UITableView-BMTemplateLayoutCell
 //
 //  Created by liangdahong on 2019/9/26.
-//  Copyright © 2019 ( https://liangdahong.com ). All rights reserved.
+//  Copyright © 2019 ( https://github.com/liangdahong ). All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

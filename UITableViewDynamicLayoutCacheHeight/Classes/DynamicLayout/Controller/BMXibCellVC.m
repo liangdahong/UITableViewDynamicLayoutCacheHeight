@@ -7,12 +7,12 @@
 //
 
 #import "BMXibCellVC.h"
-#import "UITableViewDynamicLayoutCacheHeight.h"
 #import "BMModel.h"
 #import "BMCell.h"
 #import "BMHeaderView.h"
 #import "UIFooterView.h"
 #import "BMSystemAdaptiveHeightVC.h"
+#import "UITableViewDynamicLayoutCacheHeight.h"
 
 @interface BMXibCellVC () <UITableViewDelegate, UITableViewDataSource>
 
