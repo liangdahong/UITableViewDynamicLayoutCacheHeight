@@ -231,19 +231,16 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
     }
 
     NSNumber *number = self.heightArray[indexPath.section][indexPath.row];
-
     if (number.doubleValue == -1) {
         // not cache
-        self.isIndexPathHeightCache = YES;
         // get cache height
         CGFloat cellHeight = [self _heightWithCellClass:clas configuration:configuration];
         // save cache height
         self.heightArray[indexPath.section][indexPath.row] = @(cellHeight);
-        BM_UITableView_DynamicLayout_LOG(@"BMLog: Cell: %@ save height { (indexPath: %ld %ld ) (height: %@) }", NSStringFromClass(clas), indexPath.section, indexPath.row, @(cellHeight));
+        BM_UITableView_DynamicLayout_LOG(@"BMLog: Cell: %@ save height { (indexPath: %@ %@ ) (height: %@) }", NSStringFromClass(clas), @(indexPath.section), @(indexPath.row), @(cellHeight));
         return cellHeight;
-        
     } else {
-        BM_UITableView_DynamicLayout_LOG(@"BMLog:✅ Cell: %@ get cache height { (indexPath: %ld %ld ) (height: %@) }", NSStringFromClass(clas), indexPath.section, indexPath.row, number);
+        BM_UITableView_DynamicLayout_LOG(@"BMLog:✅ Cell: %@ get cache height { (indexPath: %@ %@ ) (height: %@) }", NSStringFromClass(clas), @(indexPath.section), @(indexPath.row), number);
         return number.doubleValue;
     }
 }
@@ -255,7 +252,6 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
         BM_UITableView_DynamicLayout_LOG(@"BMLog:✅ Cell: %@ get cache height { (key: %@) (height: %@) }", NSStringFromClass(clas), key, self.heightDictionary[key]);
         return self.heightDictionary[key].doubleValue;
     }
-    self.isIndexPathHeightCache = NO;
     CGFloat cellHeight = [self _heightWithCellClass:clas configuration:configuration];
     if (key) {
         BM_UITableView_DynamicLayout_LOG(@"BMLog: Cell: %@ save height { (key: %@) (height: %@) }", NSStringFromClass(clas), key, @(cellHeight));
@@ -287,7 +283,7 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
         while (i1-- > 0) {
             [self.headerVerticalArray addObject:@(-1)];
         }
-        
+
         NSMutableArray <NSNumber *> *arr2 = self.headerHorizontalArray;
         long i2 = (section + 1 - arr2.count);
         while (i2-- > 0) {
@@ -295,22 +291,20 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
         }
 
         NSNumber *number = self.headerHeightArray[section];
-
         if (number.doubleValue == -1) {
             // not cache
-            self.isSectionHeaderHeightCache = YES;
             // get cache height
             CGFloat height = [self _heightWithHeaderViewClass:clas configuration:configuration];
             // save cache height
             self.headerHeightArray[section] = @(height);
-            BM_UITableView_DynamicLayout_LOG(@"BMLog: Header: %@ save height { ( section: %ld ) (height: %@) }", NSStringFromClass(clas), section, @(height));
+            BM_UITableView_DynamicLayout_LOG(@"BMLog: Header: %@ save height { ( section: %@ ) (height: %@) }", NSStringFromClass(clas), @(section), @(height));
             return height;
         } else {
-            BM_UITableView_DynamicLayout_LOG(@"BMLog:✅ Header: %@ get cache height { (section: %ld ) (height: %@) }", NSStringFromClass(clas), section, number);
+            BM_UITableView_DynamicLayout_LOG(@"BMLog:✅ Header: %@ get cache height { (section: %@ ) (height: %@) }", NSStringFromClass(clas), @(section), number);
             return number.doubleValue;
         }
     } else {
-        
+
         // init cache Array
         NSMutableArray <NSNumber *> *arr1 = self.footerVerticalArray;
         long i1 = (section + 1 - arr1.count);
@@ -323,20 +317,18 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
         while (i2-- > 0) {
             [self.footerHorizontalArray addObject:@(-1)];
         }
-        
         NSNumber *number = self.footerHeightArray[section];
-        
+
         if (number.doubleValue == -1) {
             // not cache
-            self.isSectionFooterHeightCache = YES;
             // get cache height
             CGFloat height = [self _heightWithFooterViewClass:clas configuration:configuration];
             // save cache height
             self.footerHeightArray[section] = @(height);
-            BM_UITableView_DynamicLayout_LOG(@"BM: Footer: %@ save height { ( section: %ld ) (height: %@) }", NSStringFromClass(clas), section, @(height));
+            BM_UITableView_DynamicLayout_LOG(@"BM: Footer: %@ save height { ( section: %@ ) (height: %@) }", NSStringFromClass(clas), @(section), @(height));
             return height;
         } else {
-            BM_UITableView_DynamicLayout_LOG(@"BMLog:✅ Footer: %@ get cache height { (section: %ld ) (height: %@) }", NSStringFromClass(clas), section, number);
+            BM_UITableView_DynamicLayout_LOG(@"BMLog:✅ Footer: %@ get cache height { (section: %@ ) (height: %@) }", NSStringFromClass(clas), @(section), number);
             return number.doubleValue;
         }
     }
@@ -351,7 +343,6 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
             BM_UITableView_DynamicLayout_LOG(@"BMLog:✅ Header: %@ get cache height { (key: %@) (height: %@) }", NSStringFromClass(clas), key, self.headerHeightDictionary[key]);
             return self.headerHeightDictionary[key].doubleValue;
         }
-        self.isSectionHeaderHeightCache = NO;
         CGFloat cellHeight = [self _heightWithHeaderViewClass:clas configuration:configuration];
         if (key) {
             BM_UITableView_DynamicLayout_LOG(@"BML: Header: %@ save height { (key: %@) (height: %@) }", NSStringFromClass(clas), key, @(cellHeight));
@@ -364,7 +355,6 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
             BM_UITableView_DynamicLayout_LOG(@"BMLog:✅ Footer: %@ get cache height { (key: %@) (height: %@) }", NSStringFromClass(clas), key, self.footerHeightDictionary[key]);
             return self.footerHeightDictionary[key].doubleValue;
         }
-        self.isSectionFooterHeightCache = NO;
         CGFloat cellHeight = [self _heightWithFooterViewClass:clas configuration:configuration];
         
         if (key) {

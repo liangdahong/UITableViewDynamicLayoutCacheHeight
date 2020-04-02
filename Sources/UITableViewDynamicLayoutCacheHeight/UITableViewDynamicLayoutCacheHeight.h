@@ -21,7 +21,7 @@
 //    SOFTWARE.
 
 ///////////////////////////////
-///   v4.0.5
+///   v4.0.6
 ///////////////////////////////
 
 #ifndef UITableViewDynamicLayoutCacheHeight_h
@@ -33,7 +33,8 @@
 
 @interface UITableViewDynamicLayoutCacheHeight : NSObject
 
-@property (class, nonatomic, assign, getter=isDebugLog) BOOL debugLog; ///< 是否开启 debug Log，默认 YES 开启。
+/// 是否开启 debug Log，默认 YES 开启。
+@property (class, nonatomic, assign, getter=isDebugLog) BOOL debugLog;
 
 @end
 

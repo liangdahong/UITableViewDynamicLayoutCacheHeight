@@ -24,7 +24,6 @@
 
 @interface UITableView (BMPrivate)
 
-@property (nonatomic, assign) BOOL isSectionHeaderHeightCache;
 @property (nonatomic, strong, readonly) NSMutableDictionary <id<NSCopying>, NSNumber *> *headerHeightDictionary;
 @property (nonatomic, strong, readonly) NSMutableDictionary <id<NSCopying>, NSNumber *> *headerVerticalDictionary;
 @property (nonatomic, strong, readonly) NSMutableDictionary <id<NSCopying>, NSNumber *> *headerHorizontalDictionary;
@@ -32,7 +31,6 @@
 @property (nonatomic, strong, readonly) NSMutableArray <NSNumber *> *headerVerticalArray;
 @property (nonatomic, strong, readonly) NSMutableArray <NSNumber *> *headerHorizontalArray;
 
-@property (nonatomic, assign) BOOL isIndexPathHeightCache;
 @property (nonatomic, strong, readonly) NSMutableDictionary <id<NSCopying>, NSNumber *> *heightDictionary;
 @property (nonatomic, strong, readonly) NSMutableDictionary <id<NSCopying>, NSNumber *> *verticalDictionary;
 @property (nonatomic, strong, readonly) NSMutableDictionary <id<NSCopying>, NSNumber *> *horizontalDictionary;
@@ -40,8 +38,6 @@
 @property (nonatomic, strong, readonly) NSMutableArray <NSMutableArray <NSNumber *> *> *verticalArray;
 @property (nonatomic, strong, readonly) NSMutableArray <NSMutableArray <NSNumber *> *> *horizontalArray;
 
-
-@property (nonatomic, assign) BOOL isSectionFooterHeightCache;
 @property (nonatomic, strong, readonly) NSMutableDictionary <id<NSCopying>, NSNumber *> *footerHeightDictionary;
 @property (nonatomic, strong, readonly) NSMutableDictionary <id<NSCopying>, NSNumber *> *footerVerticalDictionary;
 @property (nonatomic, strong, readonly) NSMutableDictionary <id<NSCopying>, NSNumber *> *footerHorizontalDictionary;
