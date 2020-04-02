@@ -284,37 +284,39 @@
 }
 
 - (void)tableView_dynamicLayout_reloadSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation {
-    [sections enumerateIndexesUsingBlock:^(NSUInteger section, BOOL * _Nonnull stop) {
-        [@[self.verticalArray[section],
-           self.horizontalArray[section]] enumerateObjectsUsingBlock:^(NSMutableArray * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [obj enumerateObjectsUsingBlock:^(id  _Nonnull obj1, NSUInteger idx1, BOOL * _Nonnull stop1) {
-                obj1 = @(-1);
-            }];
-        }];
-    }];
-
-    [sections enumerateIndexesUsingBlock:^(NSUInteger section, BOOL * _Nonnull stop) {
-        [@[self.headerVerticalArray,
-           self.headerHorizontalArray,
-           self.footerVerticalArray,
-           self.footerHorizontalArray] enumerateObjectsUsingBlock:^(NSMutableArray * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            obj[section] = @(-1);
-        }];
-    }];
+//    [sections enumerateIndexesUsingBlock:^(NSUInteger section, BOOL * _Nonnull stop) {
+//        [@[self.verticalArray[section],
+//           self.horizontalArray[section]] enumerateObjectsUsingBlock:^(NSMutableArray * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//            [obj enumerateObjectsUsingBlock:^(id  _Nonnull obj1, NSUInteger idx1, BOOL * _Nonnull stop1) {
+//                obj1 = @(-1);
+//            }];
+//        }];
+//    }];
+//
+//    [sections enumerateIndexesUsingBlock:^(NSUInteger section, BOOL * _Nonnull stop) {
+//        [@[self.headerVerticalArray,
+//           self.headerHorizontalArray,
+//           self.footerVerticalArray,
+//           self.footerHorizontalArray] enumerateObjectsUsingBlock:^(NSMutableArray * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//            obj[section] = @(-1);
+//        }];
+//    }];
+    [self _clearCache];
     [self tableView_dynamicLayout_reloadSections:sections withRowAnimation:animation];
 }
 
 - (void)tableView_dynamicLayout_moveSection:(NSInteger)section toSection:(NSInteger)newSection {
-    [@[self.verticalArray,
-       self.horizontalArray,
-       self.headerVerticalArray,
-       self.headerHorizontalArray,
-       self.footerVerticalArray,
-       self.footerHorizontalArray] enumerateObjectsUsingBlock:^(NSMutableArray * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        id temp = obj[section];
-        [obj removeObjectAtIndex:section];
-        [obj insertObject:temp atIndex:newSection];
-    }];
+//    [@[self.verticalArray,
+//       self.horizontalArray,
+//       self.headerVerticalArray,
+//       self.headerHorizontalArray,
+//       self.footerVerticalArray,
+//       self.footerHorizontalArray] enumerateObjectsUsingBlock:^(NSMutableArray * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        id temp = obj[section];
+//        [obj removeObjectAtIndex:section];
+//        [obj insertObject:temp atIndex:newSection];
+//    }];
+    [self _clearCache];
     [self tableView_dynamicLayout_moveSection:section toSection:newSection];
 }
 
@@ -350,33 +352,35 @@
 }
 
 - (void)tableView_dynamicLayout_reloadRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation {
-    [indexPaths enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        self.verticalArray[obj.section][obj.row] = @(-1);
-        self.horizontalArray[obj.section][obj.row] = @(-1);
-    }];
+//    [indexPaths enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        self.verticalArray[obj.section][obj.row] = @(-1);
+//        self.horizontalArray[obj.section][obj.row] = @(-1);
+//    }];
+    [self _clearCache];
     [self tableView_dynamicLayout_reloadRowsAtIndexPaths:indexPaths withRowAnimation:animation];
 }
 
 - (void)tableView_dynamicLayout_moveRowAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath {
-    if (indexPath.section == newIndexPath.section) {
-        NSInteger sec = indexPath.section;
-        id obj = self.verticalArray[sec][indexPath.row];
-        [self.verticalArray[sec] removeObjectAtIndex:indexPath.row];
-        [self.verticalArray[sec] insertObject:obj atIndex:newIndexPath.row];
-        
-        id obj1 = self.horizontalArray[sec][indexPath.row];
-        [self.horizontalArray[sec] removeObjectAtIndex:indexPath.row];
-        [self.horizontalArray[sec] insertObject:obj1 atIndex:newIndexPath.row];
-        
-    } else {
-        id obj = self.verticalArray[indexPath.section][indexPath.row];
-        [self.verticalArray[indexPath.section] removeObjectAtIndex:indexPath.row];
-        [self.verticalArray[newIndexPath.section] insertObject:obj atIndex:newIndexPath.row];
-        
-        id obj1 = self.horizontalArray[indexPath.section][indexPath.row];
-        [self.horizontalArray[indexPath.section] removeObjectAtIndex:indexPath.row];
-        [self.horizontalArray[newIndexPath.section] insertObject:obj1 atIndex:newIndexPath.row];
-    }
+//    if (indexPath.section == newIndexPath.section) {
+//        NSInteger sec = indexPath.section;
+//        id obj = self.verticalArray[sec][indexPath.row];
+//        [self.verticalArray[sec] removeObjectAtIndex:indexPath.row];
+//        [self.verticalArray[sec] insertObject:obj atIndex:newIndexPath.row];
+//
+//        id obj1 = self.horizontalArray[sec][indexPath.row];
+//        [self.horizontalArray[sec] removeObjectAtIndex:indexPath.row];
+//        [self.horizontalArray[sec] insertObject:obj1 atIndex:newIndexPath.row];
+//
+//    } else {
+//        id obj = self.verticalArray[indexPath.section][indexPath.row];
+//        [self.verticalArray[indexPath.section] removeObjectAtIndex:indexPath.row];
+//        [self.verticalArray[newIndexPath.section] insertObject:obj atIndex:newIndexPath.row];
+//
+//        id obj1 = self.horizontalArray[indexPath.section][indexPath.row];
+//        [self.horizontalArray[indexPath.section] removeObjectAtIndex:indexPath.row];
+//        [self.horizontalArray[newIndexPath.section] insertObject:obj1 atIndex:newIndexPath.row];
+//    }
+    [self _clearCache];
     [self tableView_dynamicLayout_moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
 }
 
