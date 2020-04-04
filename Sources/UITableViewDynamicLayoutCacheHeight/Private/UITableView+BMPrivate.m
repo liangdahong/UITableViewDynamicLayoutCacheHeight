@@ -216,114 +216,19 @@
     });
 }
 
-- (void)_initLogCache {
-#ifdef DEBUG
-    if (UITableViewDynamicLayoutCacheHeight.isDebugLog) {
-        [self.verticalArray enumerateObjectsUsingBlock:^(NSMutableArray<NSNumber *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            BM_UITableView_DynamicLayout_LOG(@"重新初始化: 初始化后 cell 竖屏：%ld", obj.count);
-        }];
-        [self.horizontalArray enumerateObjectsUsingBlock:^(NSMutableArray<NSNumber *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            BM_UITableView_DynamicLayout_LOG(@"重新初始化: 初始化后 cell 横屏：%ld", obj.count);
-        }];
-        BM_UITableView_DynamicLayout_LOG(@"重新初始化: 初始化后 header 竖屏：%ld", self.headerVerticalArray.count);
-        BM_UITableView_DynamicLayout_LOG(@"重新初始化: 初始化后 header 横屏：%ld", self.headerHorizontalArray.count);
-        BM_UITableView_DynamicLayout_LOG(@"重新初始化: 初始化后 footer 竖屏：%ld", self.footerVerticalArray.count);
-        BM_UITableView_DynamicLayout_LOG(@"重新初始化: 初始化后 footer 横屏：%ld", self.footerHorizontalArray.count);
-    }
-#endif
-}
-
-- (void)_changedLogCache {
-#ifdef DEBUG
-    if (UITableViewDynamicLayoutCacheHeight.isDebugLog) {
-        [self.verticalArray enumerateObjectsUsingBlock:^(NSMutableArray<NSNumber *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            BM_UITableView_DynamicLayout_LOG(@"修改了数据时: 初始化后 cell 竖屏：%ld", obj.count);
-        }];
-        [self.horizontalArray enumerateObjectsUsingBlock:^(NSMutableArray<NSNumber *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            BM_UITableView_DynamicLayout_LOG(@"修改了数据时: 初始化后 cell 横屏：%ld", obj.count);
-        }];
-        BM_UITableView_DynamicLayout_LOG(@"修改了数据时: 初始化后 header 竖屏：%ld", self.headerVerticalArray.count);
-        BM_UITableView_DynamicLayout_LOG(@"修改了数据时: 初始化后 header 横屏：%ld", self.headerHorizontalArray.count);
-        BM_UITableView_DynamicLayout_LOG(@"修改了数据时: 初始化后 footer 竖屏：%ld", self.footerVerticalArray.count);
-        BM_UITableView_DynamicLayout_LOG(@"修改了数据时: 初始化后 footer 横屏：%ld", self.footerHorizontalArray.count);
-    }
-#endif
-}
-
-- (void)_initCacheArray {
-    BM_UITableView_DynamicLayout_LOG(@"初始化缓存");
-    // 1、清空 cell 的以 IndexPath 为标识的高度缓存
-    NSInteger sections = 1;
-    if ([self.dataSource respondsToSelector:@selector(numberOfSectionsInTableView:)]) {
-        sections = [self.dataSource numberOfSectionsInTableView:self];
-    }
-
-    // 1-1、、竖屏状态下的 cell 高度缓存
-    {
-        NSInteger tempSections = 0;
-        NSMutableArray *arr1 = @[].mutableCopy;
-        while (tempSections < sections) {
-            NSInteger row = [self.dataSource tableView:self numberOfRowsInSection:tempSections];
-            NSMutableArray *arr = @[].mutableCopy;
-            while (row-- > 0) {
-                [arr addObject:@-1];
-            }
-            [arr1 addObject:arr];
-            tempSections++;
-        }
-        [self.verticalArray removeAllObjects];
-        [self.verticalArray addObjectsFromArray:arr1.copy];
-    }
-
-    // 1-2、横屏状态下的 cell 高度缓存
-    {
-        NSInteger tempSections = 0;
-        NSMutableArray *arr1 = @[].mutableCopy;
-        while (tempSections < sections) {
-            NSInteger row = [self.dataSource tableView:self numberOfRowsInSection:tempSections];
-            NSMutableArray *arr = @[].mutableCopy;
-            while (row-- > 0) {
-                [arr addObject:@-1];
-            }
-            [arr1 addObject:arr];
-            tempSections++;
-        }
-        [self.horizontalArray removeAllObjects];
-        [self.horizontalArray addObjectsFromArray:arr1.copy];
-    }
-
-    // 2、初始化 HeaderFooterView 的以 sections 为标识的高度缓存 Array
-    // 2、清空 HeaderFooterView 的以 sections 为标识的高度缓存
-    // 2-1、竖屏状态下的 HeaderView 高度缓存
-    // 2-2、横屏状态下的 HeaderView 高度缓存
-    // 2-3、竖屏状态下的 FooterView 高度缓存
-    // 2-4、横屏状态下的 FooterView 高度缓存
-    [@[self.headerVerticalArray,
-       self.headerHorizontalArray,
-       self.footerVerticalArray,
-       self.footerHorizontalArray] enumerateObjectsUsingBlock:^(NSMutableArray * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [obj removeAllObjects];
-        NSInteger temp = 0;
-        while (temp++ < sections) {
-            [obj addObject:@-1];
-        }
-    }];
-    [self _initLogCache];
-}
-
 - (void)tableView_dynamicLayout_setDataSource:(id<UITableViewDataSource>)dataSource {
     if (dataSource) {
-        BM_UITableView_DynamicLayout_LOG(@"setDataSource %@", self.dataSource);
-        [self _initCacheArray];
+        BM_UITableView_DynamicLayout_LOG(@"setDataSource %@", dataSource);
+        [self _initCacheArrayWithDataSource:dataSource];
     } else {
-        BM_UITableView_DynamicLayout_LOG(@"setDataSource dataSource = nil %@", self.dataSource);
+        BM_UITableView_DynamicLayout_LOG(@"setDataSource dataSource = nil %@", dataSource);
     }
     [self tableView_dynamicLayout_setDataSource:dataSource];
 }
 
 - (void)tableView_dynamicLayout_reloadData {
     BM_UITableView_DynamicLayout_LOG(@"reloadData %@", self.dataSource);
-    [self _initCacheArray];
+    [self _initCacheArrayWithDataSource:self.dataSource];
     [self tableView_dynamicLayout_reloadData];
 }
 
@@ -497,6 +402,103 @@
     }
     [self _changedLogCache];
     [self tableView_dynamicLayout_moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
+}
+
+#pragma mark - 私有方法
+
+- (void)_initCacheArrayWithDataSource:(id<UITableViewDataSource>)dataSource {
+    BM_UITableView_DynamicLayout_LOG(@"初始化缓存");
+    // 1、清空 cell 的以 IndexPath 为标识的高度缓存
+    NSInteger sections = 1;
+    if ([dataSource respondsToSelector:@selector(numberOfSectionsInTableView:)]) {
+        sections = [dataSource numberOfSectionsInTableView:self];
+    }
+
+    // 1-1、、竖屏状态下的 cell 高度缓存
+    {
+        NSInteger tempSections = 0;
+        NSMutableArray *arr1 = @[].mutableCopy;
+        while (tempSections < sections) {
+            NSInteger row = [dataSource tableView:self numberOfRowsInSection:tempSections];
+            NSMutableArray *arr = @[].mutableCopy;
+            while (row-- > 0) {
+                [arr addObject:@-1];
+            }
+            [arr1 addObject:arr];
+            tempSections++;
+        }
+        [self.verticalArray removeAllObjects];
+        [self.verticalArray addObjectsFromArray:arr1.copy];
+    }
+
+    // 1-2、横屏状态下的 cell 高度缓存
+    {
+        NSInteger tempSections = 0;
+        NSMutableArray *arr1 = @[].mutableCopy;
+        while (tempSections < sections) {
+            NSInteger row = [dataSource tableView:self numberOfRowsInSection:tempSections];
+            NSMutableArray *arr = @[].mutableCopy;
+            while (row-- > 0) {
+                [arr addObject:@-1];
+            }
+            [arr1 addObject:arr];
+            tempSections++;
+        }
+        [self.horizontalArray removeAllObjects];
+        [self.horizontalArray addObjectsFromArray:arr1.copy];
+    }
+
+    // 2、初始化 HeaderFooterView 的以 sections 为标识的高度缓存 Array
+    // 2、清空 HeaderFooterView 的以 sections 为标识的高度缓存
+    // 2-1、竖屏状态下的 HeaderView 高度缓存
+    // 2-2、横屏状态下的 HeaderView 高度缓存
+    // 2-3、竖屏状态下的 FooterView 高度缓存
+    // 2-4、横屏状态下的 FooterView 高度缓存
+    [@[self.headerVerticalArray,
+       self.headerHorizontalArray,
+       self.footerVerticalArray,
+       self.footerHorizontalArray] enumerateObjectsUsingBlock:^(NSMutableArray * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj removeAllObjects];
+        NSInteger temp = 0;
+        while (temp++ < sections) {
+            [obj addObject:@-1];
+        }
+    }];
+    [self _initLogCache];
+}
+
+- (void)_initLogCache {
+#ifdef DEBUG
+    if (UITableViewDynamicLayoutCacheHeight.isDebugLog) {
+        [self.verticalArray enumerateObjectsUsingBlock:^(NSMutableArray<NSNumber *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            BM_UITableView_DynamicLayout_LOG(@"重新初始化: 初始化后 cell 竖屏：%ld", obj.count);
+        }];
+        [self.horizontalArray enumerateObjectsUsingBlock:^(NSMutableArray<NSNumber *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            BM_UITableView_DynamicLayout_LOG(@"重新初始化: 初始化后 cell 横屏：%ld", obj.count);
+        }];
+        BM_UITableView_DynamicLayout_LOG(@"重新初始化: 初始化后 header 竖屏：%ld", self.headerVerticalArray.count);
+        BM_UITableView_DynamicLayout_LOG(@"重新初始化: 初始化后 header 横屏：%ld", self.headerHorizontalArray.count);
+        BM_UITableView_DynamicLayout_LOG(@"重新初始化: 初始化后 footer 竖屏：%ld", self.footerVerticalArray.count);
+        BM_UITableView_DynamicLayout_LOG(@"重新初始化: 初始化后 footer 横屏：%ld", self.footerHorizontalArray.count);
+    }
+#endif
+}
+
+- (void)_changedLogCache {
+#ifdef DEBUG
+    if (UITableViewDynamicLayoutCacheHeight.isDebugLog) {
+        [self.verticalArray enumerateObjectsUsingBlock:^(NSMutableArray<NSNumber *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            BM_UITableView_DynamicLayout_LOG(@"修改了数据时: 初始化后 cell 竖屏：%ld", obj.count);
+        }];
+        [self.horizontalArray enumerateObjectsUsingBlock:^(NSMutableArray<NSNumber *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            BM_UITableView_DynamicLayout_LOG(@"修改了数据时: 初始化后 cell 横屏：%ld", obj.count);
+        }];
+        BM_UITableView_DynamicLayout_LOG(@"修改了数据时: 初始化后 header 竖屏：%ld", self.headerVerticalArray.count);
+        BM_UITableView_DynamicLayout_LOG(@"修改了数据时: 初始化后 header 横屏：%ld", self.headerHorizontalArray.count);
+        BM_UITableView_DynamicLayout_LOG(@"修改了数据时: 初始化后 footer 竖屏：%ld", self.footerVerticalArray.count);
+        BM_UITableView_DynamicLayout_LOG(@"修改了数据时: 初始化后 footer 横屏：%ld", self.footerHorizontalArray.count);
+    }
+#endif
 }
 
 @end

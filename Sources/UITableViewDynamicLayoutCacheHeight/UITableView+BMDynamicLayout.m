@@ -272,18 +272,6 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
                                cacheBySection:(NSInteger)section
                                 configuration:(void (^)(__kindof UITableViewHeaderFooterView *headerFooterView))configuration {
     if (type == BMHeaderFooterViewDynamicLayoutTypeHeader) {
-//        // init cache Array
-//        NSMutableArray <NSNumber *> *arr1 = self.headerVerticalArray;
-//        long i1 = (section + 1 - arr1.count);
-//        while (i1-- > 0) {
-//            [self.headerVerticalArray addObject:@(-1)];
-//        }
-//
-//        NSMutableArray <NSNumber *> *arr2 = self.headerHorizontalArray;
-//        long i2 = (section + 1 - arr2.count);
-//        while (i2-- > 0) {
-//            [self.headerHorizontalArray addObject:@(-1)];
-//        }
         NSNumber *number = self.headerHeightArray[section];
         if (number.doubleValue == -1) {
             // not cache
@@ -298,18 +286,6 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
             return number.doubleValue;
         }
     } else {
-//        // init cache Array
-//        NSMutableArray <NSNumber *> *arr1 = self.footerVerticalArray;
-//        long i1 = (section + 1 - arr1.count);
-//        while (i1-- > 0) {
-//            [self.footerVerticalArray addObject:@(-1)];
-//        }
-//
-//        NSMutableArray <NSNumber *> *arr2 = self.footerHorizontalArray;
-//        long i2 = (section + 1 - arr2.count);
-//        while (i2-- > 0) {
-//            [self.footerHorizontalArray addObject:@(-1)];
-//        }
         NSNumber *number = self.footerHeightArray[section];
         if (number.doubleValue == -1) {
             // not cache

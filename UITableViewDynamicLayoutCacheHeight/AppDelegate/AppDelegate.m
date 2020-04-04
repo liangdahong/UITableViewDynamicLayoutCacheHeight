@@ -32,14 +32,12 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 
-     UITableViewDynamicLayoutCacheHeight.debugLog = NO;
+//     UITableViewDynamicLayoutCacheHeight.debugLog = NO;
 
     // 防止 UITableView 抖动
     UITableView.appearance.estimatedRowHeight = 0.0;
     UITableView.appearance.estimatedSectionHeaderHeight = 0.0;
     UITableView.appearance.estimatedSectionFooterHeight = 0.0;
-
-
     
     BMHomeVC *vc = BMHomeVC.new;
     vc.dataArray = self.dataArray;
@@ -99,7 +97,7 @@
     __block NSInteger count = 0;
     [_dataArray enumerateObjectsUsingBlock:^(BMGroupModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         obj.headerTitle = arr[(unsigned long)arc4random_uniform((unsigned int)arr.count)][@"title"];
-        obj.footerTitle = arr[(unsigned long)arc4random_uniform((unsigned int)arr.count)][@"artist"];
+        obj.footerTitle = arr[(unsigned long)arc4random_uniform((unsigned int)arr.count)][@"lyrics"];
         [obj.modelArray enumerateObjectsUsingBlock:^(BMModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             if (count > arr.count) {
                 obj.name =  arr[(unsigned long)arc4random_uniform((unsigned int)arr.count)][@"title"];

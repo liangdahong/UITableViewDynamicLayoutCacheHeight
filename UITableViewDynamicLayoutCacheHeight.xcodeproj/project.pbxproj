@@ -7,23 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04429AAD2437AB5F009E504A /* YYYTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04429AAC2437AB5F009E504A /* YYYTableView.m */; };
+		0444FCB42438F25E0046FB4E /* BMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0444FC9C2438F25E0046FB4E /* BMModel.m */; };
+		0444FCB52438F25E0046FB4E /* BMGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0444FCA02438F25E0046FB4E /* BMGroupModel.m */; };
+		0444FCB62438F25E0046FB4E /* UIFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0444FCA42438F25E0046FB4E /* UIFooterView.xib */; };
+		0444FCB72438F25E0046FB4E /* UIFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0444FCA52438F25E0046FB4E /* UIFooterView.m */; };
+		0444FCB82438F25E0046FB4E /* BMHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0444FCA72438F25E0046FB4E /* BMHeaderView.m */; };
+		0444FCB92438F25E0046FB4E /* BMHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0444FCA82438F25E0046FB4E /* BMHeaderView.xib */; };
+		0444FCBA2438F25E0046FB4E /* BMCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0444FCAC2438F25E0046FB4E /* BMCell.xib */; };
+		0444FCBB2438F25E0046FB4E /* BMCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0444FCAD2438F25E0046FB4E /* BMCell.m */; };
+		0444FCBD2438F25E0046FB4E /* BMHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0444FCB02438F25E0046FB4E /* BMHomeVC.m */; };
+		0444FCBE2438F25E0046FB4E /* BMHomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0444FCB22438F25E0046FB4E /* BMHomeVC.xib */; };
 		04FA439E2430F2CF007FDA54 /* UITableViewDynamicLayoutCacheHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA439D2430F2CE007FDA54 /* UITableViewDynamicLayoutCacheHeight.m */; };
 		05BF8FFC23D696FE00A248AC /* UITableViewDynamicLayoutCacheHeight.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 05BF8FFA23D696FE00A248AC /* UITableViewDynamicLayoutCacheHeight.xcdatamodeld */; };
 		05BF8FFE23D696FF00A248AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05BF8FFD23D696FF00A248AC /* Assets.xcassets */; };
 		05BF900123D696FF00A248AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05BF8FFF23D696FF00A248AC /* LaunchScreen.storyboard */; };
 		05BF900E23D696FF00A248AC /* UITableViewDynamicLayoutCacheHeightTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BF900D23D696FF00A248AC /* UITableViewDynamicLayoutCacheHeightTests.m */; };
 		05BF901923D696FF00A248AC /* UITableViewDynamicLayoutCacheHeightUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BF901823D696FF00A248AC /* UITableViewDynamicLayoutCacheHeightUITests.m */; };
-		05BF908523D6972C00A248AC /* BMHomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05BF903B23D6972C00A248AC /* BMHomeVC.xib */; };
-		05BF908623D6972C00A248AC /* BMHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BF903C23D6972C00A248AC /* BMHomeVC.m */; };
-		05BF908723D6972C00A248AC /* BMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BF904023D6972C00A248AC /* BMModel.m */; };
-		05BF908823D6972C00A248AC /* BMGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BF904123D6972C00A248AC /* BMGroupModel.m */; };
-		05BF908923D6972C00A248AC /* UIFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05BF904623D6972C00A248AC /* UIFooterView.xib */; };
-		05BF908A23D6972C00A248AC /* UIFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BF904723D6972C00A248AC /* UIFooterView.m */; };
-		05BF908B23D6972C00A248AC /* BMHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BF904923D6972C00A248AC /* BMHeaderView.m */; };
-		05BF908C23D6972C00A248AC /* BMHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05BF904A23D6972C00A248AC /* BMHeaderView.xib */; };
-		05BF908D23D6972C00A248AC /* BMCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05BF904E23D6972C00A248AC /* BMCell.xib */; };
-		05BF908E23D6972C00A248AC /* BMCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BF904F23D6972C00A248AC /* BMCell.m */; };
 		05BF908F23D6972C00A248AC /* YYWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BF905223D6972C00A248AC /* YYWeakProxy.m */; };
 		05BF909023D6972C00A248AC /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BF905423D6972C00A248AC /* YYFPSLabel.m */; };
 		05BF909123D6972C00A248AC /* 8.png in Resources */ = {isa = PBXBuildFile; fileRef = 05BF905823D6972C00A248AC /* 8.png */; };
@@ -89,8 +88,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		04429AAB2437AB5E009E504A /* YYYTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYYTableView.h; sourceTree = "<group>"; };
-		04429AAC2437AB5F009E504A /* YYYTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYYTableView.m; sourceTree = "<group>"; };
+		0444FC9C2438F25E0046FB4E /* BMModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMModel.m; sourceTree = "<group>"; };
+		0444FC9D2438F25E0046FB4E /* BMModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMModel.h; sourceTree = "<group>"; };
+		0444FC9F2438F25E0046FB4E /* BMGroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMGroupModel.h; sourceTree = "<group>"; };
+		0444FCA02438F25E0046FB4E /* BMGroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMGroupModel.m; sourceTree = "<group>"; };
+		0444FCA32438F25E0046FB4E /* UIFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFooterView.h; sourceTree = "<group>"; };
+		0444FCA42438F25E0046FB4E /* UIFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIFooterView.xib; sourceTree = "<group>"; };
+		0444FCA52438F25E0046FB4E /* UIFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFooterView.m; sourceTree = "<group>"; };
+		0444FCA72438F25E0046FB4E /* BMHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMHeaderView.m; sourceTree = "<group>"; };
+		0444FCA82438F25E0046FB4E /* BMHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMHeaderView.xib; sourceTree = "<group>"; };
+		0444FCA92438F25E0046FB4E /* BMHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMHeaderView.h; sourceTree = "<group>"; };
+		0444FCAB2438F25E0046FB4E /* BMCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMCell.h; sourceTree = "<group>"; };
+		0444FCAC2438F25E0046FB4E /* BMCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMCell.xib; sourceTree = "<group>"; };
+		0444FCAD2438F25E0046FB4E /* BMCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMCell.m; sourceTree = "<group>"; };
+		0444FCB02438F25E0046FB4E /* BMHomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMHomeVC.m; sourceTree = "<group>"; };
+		0444FCB22438F25E0046FB4E /* BMHomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMHomeVC.xib; sourceTree = "<group>"; };
+		0444FCB32438F25E0046FB4E /* BMHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMHomeVC.h; sourceTree = "<group>"; };
 		04FA439D2430F2CE007FDA54 /* UITableViewDynamicLayoutCacheHeight.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITableViewDynamicLayoutCacheHeight.m; sourceTree = "<group>"; };
 		05BF8FEE23D696FE00A248AC /* UITableViewDynamicLayoutCacheHeight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UITableViewDynamicLayoutCacheHeight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05BF8FFB23D696FE00A248AC /* UITableViewDynamicLayoutCacheHeight.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UITableViewDynamicLayoutCacheHeight.xcdatamodel; sourceTree = "<group>"; };
@@ -103,22 +116,6 @@
 		05BF901423D696FF00A248AC /* UITableViewDynamicLayoutCacheHeightUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITableViewDynamicLayoutCacheHeightUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		05BF901823D696FF00A248AC /* UITableViewDynamicLayoutCacheHeightUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITableViewDynamicLayoutCacheHeightUITests.m; sourceTree = "<group>"; };
 		05BF901A23D696FF00A248AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		05BF903B23D6972C00A248AC /* BMHomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMHomeVC.xib; sourceTree = "<group>"; };
-		05BF903C23D6972C00A248AC /* BMHomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMHomeVC.m; sourceTree = "<group>"; };
-		05BF903D23D6972C00A248AC /* BMHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMHomeVC.h; sourceTree = "<group>"; };
-		05BF903F23D6972C00A248AC /* BMGroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMGroupModel.h; sourceTree = "<group>"; };
-		05BF904023D6972C00A248AC /* BMModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMModel.m; sourceTree = "<group>"; };
-		05BF904123D6972C00A248AC /* BMGroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMGroupModel.m; sourceTree = "<group>"; };
-		05BF904223D6972C00A248AC /* BMModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMModel.h; sourceTree = "<group>"; };
-		05BF904523D6972C00A248AC /* UIFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFooterView.h; sourceTree = "<group>"; };
-		05BF904623D6972C00A248AC /* UIFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIFooterView.xib; sourceTree = "<group>"; };
-		05BF904723D6972C00A248AC /* UIFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFooterView.m; sourceTree = "<group>"; };
-		05BF904923D6972C00A248AC /* BMHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMHeaderView.m; sourceTree = "<group>"; };
-		05BF904A23D6972C00A248AC /* BMHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMHeaderView.xib; sourceTree = "<group>"; };
-		05BF904B23D6972C00A248AC /* BMHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMHeaderView.h; sourceTree = "<group>"; };
-		05BF904D23D6972C00A248AC /* BMCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMCell.h; sourceTree = "<group>"; };
-		05BF904E23D6972C00A248AC /* BMCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMCell.xib; sourceTree = "<group>"; };
-		05BF904F23D6972C00A248AC /* BMCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMCell.m; sourceTree = "<group>"; };
 		05BF905223D6972C00A248AC /* YYWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYWeakProxy.m; sourceTree = "<group>"; };
 		05BF905323D6972C00A248AC /* YYFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYFPSLabel.h; sourceTree = "<group>"; };
 		05BF905423D6972C00A248AC /* YYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFPSLabel.m; sourceTree = "<group>"; };
@@ -201,22 +198,84 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		04FA439F2430FD16007FDA54 /* BMModel */ = {
+		0444FC9A2438F25E0046FB4E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				05BF904023D6972C00A248AC /* BMModel.m */,
-				05BF904223D6972C00A248AC /* BMModel.h */,
+				0444FC9B2438F25E0046FB4E /* BMModel */,
+				0444FC9E2438F25E0046FB4E /* BMGroupModel */,
+			);
+			name = Model;
+			path = ../../../../../../../../../Users/Mac/Desktop/Model;
+			sourceTree = "<group>";
+		};
+		0444FC9B2438F25E0046FB4E /* BMModel */ = {
+			isa = PBXGroup;
+			children = (
+				0444FC9C2438F25E0046FB4E /* BMModel.m */,
+				0444FC9D2438F25E0046FB4E /* BMModel.h */,
 			);
 			path = BMModel;
 			sourceTree = "<group>";
 		};
-		04FA43A02430FD18007FDA54 /* BMGroupModel */ = {
+		0444FC9E2438F25E0046FB4E /* BMGroupModel */ = {
 			isa = PBXGroup;
 			children = (
-				05BF903F23D6972C00A248AC /* BMGroupModel.h */,
-				05BF904123D6972C00A248AC /* BMGroupModel.m */,
+				0444FC9F2438F25E0046FB4E /* BMGroupModel.h */,
+				0444FCA02438F25E0046FB4E /* BMGroupModel.m */,
 			);
 			path = BMGroupModel;
+			sourceTree = "<group>";
+		};
+		0444FCA12438F25E0046FB4E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0444FCA22438F25E0046FB4E /* UIFooterView */,
+				0444FCA62438F25E0046FB4E /* BMHeaderView */,
+				0444FCAA2438F25E0046FB4E /* BMCell */,
+			);
+			name = View;
+			path = ../../../../../../../../../Users/Mac/Desktop/View;
+			sourceTree = "<group>";
+		};
+		0444FCA22438F25E0046FB4E /* UIFooterView */ = {
+			isa = PBXGroup;
+			children = (
+				0444FCA32438F25E0046FB4E /* UIFooterView.h */,
+				0444FCA52438F25E0046FB4E /* UIFooterView.m */,
+				0444FCA42438F25E0046FB4E /* UIFooterView.xib */,
+			);
+			path = UIFooterView;
+			sourceTree = "<group>";
+		};
+		0444FCA62438F25E0046FB4E /* BMHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				0444FCA92438F25E0046FB4E /* BMHeaderView.h */,
+				0444FCA72438F25E0046FB4E /* BMHeaderView.m */,
+				0444FCA82438F25E0046FB4E /* BMHeaderView.xib */,
+			);
+			path = BMHeaderView;
+			sourceTree = "<group>";
+		};
+		0444FCAA2438F25E0046FB4E /* BMCell */ = {
+			isa = PBXGroup;
+			children = (
+				0444FCAB2438F25E0046FB4E /* BMCell.h */,
+				0444FCAC2438F25E0046FB4E /* BMCell.xib */,
+				0444FCAD2438F25E0046FB4E /* BMCell.m */,
+			);
+			path = BMCell;
+			sourceTree = "<group>";
+		};
+		0444FCAE2438F25E0046FB4E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0444FCB32438F25E0046FB4E /* BMHomeVC.h */,
+				0444FCB02438F25E0046FB4E /* BMHomeVC.m */,
+				0444FCB22438F25E0046FB4E /* BMHomeVC.xib */,
+			);
+			name = Controller;
+			path = ../../../../../../../../../Users/Mac/Desktop/Controller;
 			sourceTree = "<group>";
 		};
 		05BF8FE523D696FE00A248AC = {
@@ -280,72 +339,11 @@
 		05BF902623D6972C00A248AC /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				05BF903A23D6972C00A248AC /* Controller */,
-				05BF903E23D6972C00A248AC /* Model */,
-				05BF904323D6972C00A248AC /* View */,
+				0444FCAE2438F25E0046FB4E /* Controller */,
+				0444FC9A2438F25E0046FB4E /* Model */,
+				0444FCA12438F25E0046FB4E /* View */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		05BF903A23D6972C00A248AC /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				05BF903D23D6972C00A248AC /* BMHomeVC.h */,
-				05BF903C23D6972C00A248AC /* BMHomeVC.m */,
-				05BF903B23D6972C00A248AC /* BMHomeVC.xib */,
-				04429AAB2437AB5E009E504A /* YYYTableView.h */,
-				04429AAC2437AB5F009E504A /* YYYTableView.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		05BF903E23D6972C00A248AC /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				04FA43A02430FD18007FDA54 /* BMGroupModel */,
-				04FA439F2430FD16007FDA54 /* BMModel */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		05BF904323D6972C00A248AC /* View */ = {
-			isa = PBXGroup;
-			children = (
-				05BF904423D6972C00A248AC /* UIFooterView */,
-				05BF904823D6972C00A248AC /* BMHeaderView */,
-				05BF904C23D6972C00A248AC /* BMCell */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		05BF904423D6972C00A248AC /* UIFooterView */ = {
-			isa = PBXGroup;
-			children = (
-				05BF904523D6972C00A248AC /* UIFooterView.h */,
-				05BF904623D6972C00A248AC /* UIFooterView.xib */,
-				05BF904723D6972C00A248AC /* UIFooterView.m */,
-			);
-			path = UIFooterView;
-			sourceTree = "<group>";
-		};
-		05BF904823D6972C00A248AC /* BMHeaderView */ = {
-			isa = PBXGroup;
-			children = (
-				05BF904923D6972C00A248AC /* BMHeaderView.m */,
-				05BF904A23D6972C00A248AC /* BMHeaderView.xib */,
-				05BF904B23D6972C00A248AC /* BMHeaderView.h */,
-			);
-			path = BMHeaderView;
-			sourceTree = "<group>";
-		};
-		05BF904C23D6972C00A248AC /* BMCell */ = {
-			isa = PBXGroup;
-			children = (
-				05BF904D23D6972C00A248AC /* BMCell.h */,
-				05BF904F23D6972C00A248AC /* BMCell.m */,
-				05BF904E23D6972C00A248AC /* BMCell.xib */,
-			);
-			path = BMCell;
 			sourceTree = "<group>";
 		};
 		05BF905023D6972C00A248AC /* Lib */ = {
@@ -573,6 +571,8 @@
 			files = (
 				05BF90A623D6972C00A248AC /* 25.png in Resources */,
 				05BF90A023D6972C00A248AC /* 23.png in Resources */,
+				0444FCBA2438F25E0046FB4E /* BMCell.xib in Resources */,
+				0444FCB92438F25E0046FB4E /* BMHeaderView.xib in Resources */,
 				05BF909523D6972C00A248AC /* 29.png in Resources */,
 				05BF90A523D6972C00A248AC /* 24.png in Resources */,
 				05BF90A823D6972C00A248AC /* 4.png in Resources */,
@@ -580,18 +580,16 @@
 				05BF909123D6972C00A248AC /* 8.png in Resources */,
 				05BF909E23D6972C00A248AC /* 20.png in Resources */,
 				05BF90CE23D6976600A248AC /* pod.sh in Resources */,
-				05BF908523D6972C00A248AC /* BMHomeVC.xib in Resources */,
 				05BF90AE23D6972C00A248AC /* 1.png in Resources */,
-				05BF908923D6972C00A248AC /* UIFooterView.xib in Resources */,
 				05BF909A23D6972C00A248AC /* 13.png in Resources */,
 				05BF90A923D6972C00A248AC /* 5.png in Resources */,
 				05BF90AB23D6972C00A248AC /* 6.png in Resources */,
 				05BF909D23D6972C00A248AC /* 21.png in Resources */,
-				05BF908D23D6972C00A248AC /* BMCell.xib in Resources */,
 				05BF90A423D6972C00A248AC /* 30.png in Resources */,
 				05BF90AC23D6972C00A248AC /* 2.png in Resources */,
-				05BF908C23D6972C00A248AC /* BMHeaderView.xib in Resources */,
 				05BF90A123D6972C00A248AC /* 27.png in Resources */,
+				0444FCBE2438F25E0046FB4E /* BMHomeVC.xib in Resources */,
+				0444FCB62438F25E0046FB4E /* UIFooterView.xib in Resources */,
 				05BF909F23D6972C00A248AC /* 22.png in Resources */,
 				05BF90AD23D6972C00A248AC /* 3.png in Resources */,
 				05BF909823D6972C00A248AC /* 16.png in Resources */,
@@ -637,24 +635,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				05BF8FFC23D696FE00A248AC /* UITableViewDynamicLayoutCacheHeight.xcdatamodeld in Sources */,
-				05BF908623D6972C00A248AC /* BMHomeVC.m in Sources */,
+				0444FCB72438F25E0046FB4E /* UIFooterView.m in Sources */,
 				04FA439E2430F2CF007FDA54 /* UITableViewDynamicLayoutCacheHeight.m in Sources */,
-				04429AAD2437AB5F009E504A /* YYYTableView.m in Sources */,
 				05BF90C723D6974A00A248AC /* UITableViewHeaderFooterView+BMPrivate.m in Sources */,
-				05BF908723D6972C00A248AC /* BMModel.m in Sources */,
 				05BF90C323D6974A00A248AC /* UITableView+BMDynamicLayout.m in Sources */,
-				05BF908B23D6972C00A248AC /* BMHeaderView.m in Sources */,
+				0444FCB52438F25E0046FB4E /* BMGroupModel.m in Sources */,
 				05BF90C423D6974A00A248AC /* UITableViewHeaderFooterView+BMDynamicLayout.m in Sources */,
 				05BF90C823D6974A00A248AC /* UITableViewCell+BMDynamicLayout.m in Sources */,
-				05BF908E23D6972C00A248AC /* BMCell.m in Sources */,
 				05BF908F23D6972C00A248AC /* YYWeakProxy.m in Sources */,
+				0444FCB42438F25E0046FB4E /* BMModel.m in Sources */,
 				05BF909023D6972C00A248AC /* YYFPSLabel.m in Sources */,
 				05BF90C523D6974A00A248AC /* UITableViewCell+BMPrivate.m in Sources */,
-				05BF908823D6972C00A248AC /* BMGroupModel.m in Sources */,
-				05BF908A23D6972C00A248AC /* UIFooterView.m in Sources */,
+				0444FCB82438F25E0046FB4E /* BMHeaderView.m in Sources */,
 				05BF90B023D6972C00A248AC /* main.m in Sources */,
+				0444FCBB2438F25E0046FB4E /* BMCell.m in Sources */,
 				05BF90B123D6972C00A248AC /* AppDelegate.m in Sources */,
 				05BF90C623D6974A00A248AC /* UITableView+BMPrivate.m in Sources */,
+				0444FCBD2438F25E0046FB4E /* BMHomeVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
