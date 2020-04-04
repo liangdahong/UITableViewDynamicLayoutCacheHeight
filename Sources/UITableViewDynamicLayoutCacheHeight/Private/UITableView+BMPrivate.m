@@ -256,12 +256,10 @@
         }
 
         // 2、header footer array insertObject
-        [@[self.headerVerticalArray,
-           self.headerHorizontalArray,
-           self.footerVerticalArray,
-           self.footerHorizontalArray] enumerateObjectsUsingBlock:^(NSMutableArray * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [obj insertObject:@(-1) atIndex:section];
-        }];
+        [self.headerVerticalArray insertObject:@-1 atIndex:section];
+        [self.headerHorizontalArray insertObject:@-1 atIndex:section];
+        [self.footerVerticalArray insertObject:@-1 atIndex:section];
+        [self.footerHorizontalArray insertObject:@-1 atIndex:section];
     }];
     [self _changedLogCache];
     [self tableView_dynamicLayout_insertSections:sections withRowAnimation:animation];
@@ -269,14 +267,12 @@
 
 - (void)tableView_dynamicLayout_deleteSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation {
     [sections enumerateIndexesWithOptions:(NSEnumerationReverse) usingBlock:^(NSUInteger section, BOOL * _Nonnull stop) {
-        [@[self.verticalArray,
-           self.horizontalArray,
-           self.headerVerticalArray,
-           self.headerHorizontalArray,
-           self.footerVerticalArray,
-           self.footerHorizontalArray] enumerateObjectsUsingBlock:^(NSMutableArray * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [obj removeObjectAtIndex:section];
-        }];
+        [self.verticalArray removeObjectAtIndex:section];
+        [self.horizontalArray removeObjectAtIndex:section];
+        [self.headerVerticalArray removeObjectAtIndex:section];
+        [self.headerHorizontalArray removeObjectAtIndex:section];
+        [self.footerVerticalArray removeObjectAtIndex:section];
+        [self.footerHorizontalArray removeObjectAtIndex:section];
     }];
     [self _changedLogCache];
     [self tableView_dynamicLayout_deleteSections:sections withRowAnimation:animation];
@@ -284,36 +280,47 @@
 
 - (void)tableView_dynamicLayout_reloadSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation {
     [sections enumerateIndexesUsingBlock:^(NSUInteger section, BOOL * _Nonnull stop) {
-        [@[self.verticalArray[section],
-           self.horizontalArray[section]] enumerateObjectsUsingBlock:^(NSMutableArray * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [obj enumerateObjectsUsingBlock:^(id  _Nonnull obj1, NSUInteger idx1, BOOL * _Nonnull stop1) {
-                obj1 = @(-1);
-            }];
+        [self.verticalArray[section] enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            self.verticalArray[section][idx] = @-1;
+        }];
+        [self.horizontalArray[section] enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            self.horizontalArray[section][idx] = @-1;
         }];
     }];
+
     [sections enumerateIndexesUsingBlock:^(NSUInteger section, BOOL * _Nonnull stop) {
-        [@[self.headerVerticalArray,
-           self.headerHorizontalArray,
-           self.footerVerticalArray,
-           self.footerHorizontalArray] enumerateObjectsUsingBlock:^(NSMutableArray * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            obj[section] = @(-1);
-        }];
+        self.headerVerticalArray[section] = @-1;
+        self.headerHorizontalArray[section] = @-1;
+        self.footerVerticalArray[section] = @-1;
+        self.footerHorizontalArray[section] = @-1;
     }];
     [self _changedLogCache];
     [self tableView_dynamicLayout_reloadSections:sections withRowAnimation:animation];
 }
 
 - (void)tableView_dynamicLayout_moveSection:(NSInteger)section toSection:(NSInteger)newSection {
-    [@[self.verticalArray,
-       self.horizontalArray,
-       self.headerVerticalArray,
-       self.headerHorizontalArray,
-       self.footerVerticalArray,
-       self.footerHorizontalArray] enumerateObjectsUsingBlock:^(NSMutableArray * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        id temp = obj[section];
-        [obj removeObjectAtIndex:section];
-        [obj insertObject:temp atIndex:newSection];
-    }];
+    id temp1 = self.verticalArray[section];
+    [self.verticalArray removeObjectAtIndex:section];
+    [self.verticalArray insertObject:temp1 atIndex:newSection];
+
+    id temp2 = self.horizontalArray[section];
+    [self.horizontalArray removeObjectAtIndex:section];
+    [self.horizontalArray insertObject:temp2 atIndex:newSection];
+
+    id temp3 = self.headerVerticalArray[section];
+    [self.headerVerticalArray removeObjectAtIndex:section];
+    [self.headerVerticalArray insertObject:temp3 atIndex:newSection];
+    id temp4 = self.headerHorizontalArray[section];
+    [self.headerHorizontalArray removeObjectAtIndex:section];
+    [self.headerHorizontalArray insertObject:temp4 atIndex:newSection];
+
+    id temp5 = self.footerVerticalArray[section];
+    [self.footerVerticalArray removeObjectAtIndex:section];
+    [self.footerVerticalArray insertObject:temp5 atIndex:newSection];
+    id temp6 = self.footerHorizontalArray[section];
+    [self.footerHorizontalArray removeObjectAtIndex:section];
+    [self.footerHorizontalArray insertObject:temp6 atIndex:newSection];
+
     [self _changedLogCache];
     [self tableView_dynamicLayout_moveSection:section toSection:newSection];
 }
@@ -454,16 +461,17 @@
     // 2-2、横屏状态下的 HeaderView 高度缓存
     // 2-3、竖屏状态下的 FooterView 高度缓存
     // 2-4、横屏状态下的 FooterView 高度缓存
-    [@[self.headerVerticalArray,
-       self.headerHorizontalArray,
-       self.footerVerticalArray,
-       self.footerHorizontalArray] enumerateObjectsUsingBlock:^(NSMutableArray * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [obj removeAllObjects];
-        NSInteger temp = 0;
-        while (temp++ < sections) {
-            [obj addObject:@-1];
-        }
-    }];
+    [self.headerVerticalArray removeAllObjects];
+    [self.headerHorizontalArray removeAllObjects];
+    [self.footerVerticalArray removeAllObjects];
+    [self.footerHorizontalArray removeAllObjects];
+    NSInteger temp = 0;
+    while (temp++ < sections) {
+        [self.headerVerticalArray addObject:@-1];
+        [self.headerHorizontalArray addObject:@-1];
+        [self.footerVerticalArray addObject:@-1];
+        [self.footerHorizontalArray addObject:@-1];
+    }
     [self _initLogCache];
 }
 

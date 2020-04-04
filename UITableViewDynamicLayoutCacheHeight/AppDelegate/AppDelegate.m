@@ -98,6 +98,15 @@
     [_dataArray enumerateObjectsUsingBlock:^(BMGroupModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         obj.headerTitle = arr[(unsigned long)arc4random_uniform((unsigned int)arr.count)][@"title"];
         obj.footerTitle = arr[(unsigned long)arc4random_uniform((unsigned int)arr.count)][@"lyrics"];
+
+        if (obj.headerTitle.length > 200) {
+            obj.headerTitle = [obj.headerTitle substringToIndex:200];
+        }
+        
+        if (obj.footerTitle.length > 200) {
+            obj.footerTitle = [obj.footerTitle substringToIndex:200];
+        }
+
         [obj.modelArray enumerateObjectsUsingBlock:^(BMModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             if (count > arr.count) {
                 obj.name =  arr[(unsigned long)arc4random_uniform((unsigned int)arr.count)][@"title"];

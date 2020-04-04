@@ -17,6 +17,9 @@
 		0444FCBB2438F25E0046FB4E /* BMCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0444FCAD2438F25E0046FB4E /* BMCell.m */; };
 		0444FCBD2438F25E0046FB4E /* BMHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0444FCB02438F25E0046FB4E /* BMHomeVC.m */; };
 		0444FCBE2438F25E0046FB4E /* BMHomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0444FCB22438F25E0046FB4E /* BMHomeVC.xib */; };
+		0444FCC424390E270046FB4E /* BMHomeVC+BMIndexPathTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0444FCC324390E270046FB4E /* BMHomeVC+BMIndexPathTest.m */; };
+		0444FCC724390E350046FB4E /* BMHomeVC+BMSectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0444FCC624390E350046FB4E /* BMHomeVC+BMSectionTest.m */; };
+		0444FCCA243914DD0046FB4E /* BMHomeVC+BMTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0444FCC9243914DD0046FB4E /* BMHomeVC+BMTest.m */; };
 		04FA439E2430F2CF007FDA54 /* UITableViewDynamicLayoutCacheHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA439D2430F2CE007FDA54 /* UITableViewDynamicLayoutCacheHeight.m */; };
 		05BF8FFC23D696FE00A248AC /* UITableViewDynamicLayoutCacheHeight.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 05BF8FFA23D696FE00A248AC /* UITableViewDynamicLayoutCacheHeight.xcdatamodeld */; };
 		05BF8FFE23D696FF00A248AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05BF8FFD23D696FF00A248AC /* Assets.xcassets */; };
@@ -104,6 +107,12 @@
 		0444FCB02438F25E0046FB4E /* BMHomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMHomeVC.m; sourceTree = "<group>"; };
 		0444FCB22438F25E0046FB4E /* BMHomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMHomeVC.xib; sourceTree = "<group>"; };
 		0444FCB32438F25E0046FB4E /* BMHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMHomeVC.h; sourceTree = "<group>"; };
+		0444FCC224390E270046FB4E /* BMHomeVC+BMIndexPathTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BMHomeVC+BMIndexPathTest.h"; sourceTree = "<group>"; };
+		0444FCC324390E270046FB4E /* BMHomeVC+BMIndexPathTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "BMHomeVC+BMIndexPathTest.m"; sourceTree = "<group>"; };
+		0444FCC524390E350046FB4E /* BMHomeVC+BMSectionTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BMHomeVC+BMSectionTest.h"; sourceTree = "<group>"; };
+		0444FCC624390E350046FB4E /* BMHomeVC+BMSectionTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "BMHomeVC+BMSectionTest.m"; sourceTree = "<group>"; };
+		0444FCC8243914DD0046FB4E /* BMHomeVC+BMTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BMHomeVC+BMTest.h"; sourceTree = "<group>"; };
+		0444FCC9243914DD0046FB4E /* BMHomeVC+BMTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "BMHomeVC+BMTest.m"; sourceTree = "<group>"; };
 		04FA439D2430F2CE007FDA54 /* UITableViewDynamicLayoutCacheHeight.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITableViewDynamicLayoutCacheHeight.m; sourceTree = "<group>"; };
 		05BF8FEE23D696FE00A248AC /* UITableViewDynamicLayoutCacheHeight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UITableViewDynamicLayoutCacheHeight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05BF8FFB23D696FE00A248AC /* UITableViewDynamicLayoutCacheHeight.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UITableViewDynamicLayoutCacheHeight.xcdatamodel; sourceTree = "<group>"; };
@@ -270,12 +279,26 @@
 		0444FCAE2438F25E0046FB4E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0444FCCB243915240046FB4E /* Test */,
 				0444FCB32438F25E0046FB4E /* BMHomeVC.h */,
 				0444FCB02438F25E0046FB4E /* BMHomeVC.m */,
 				0444FCB22438F25E0046FB4E /* BMHomeVC.xib */,
 			);
 			name = Controller;
 			path = ../../../../../../../../../Users/Mac/Desktop/Controller;
+			sourceTree = "<group>";
+		};
+		0444FCCB243915240046FB4E /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				0444FCC8243914DD0046FB4E /* BMHomeVC+BMTest.h */,
+				0444FCC9243914DD0046FB4E /* BMHomeVC+BMTest.m */,
+				0444FCC524390E350046FB4E /* BMHomeVC+BMSectionTest.h */,
+				0444FCC624390E350046FB4E /* BMHomeVC+BMSectionTest.m */,
+				0444FCC224390E270046FB4E /* BMHomeVC+BMIndexPathTest.h */,
+				0444FCC324390E270046FB4E /* BMHomeVC+BMIndexPathTest.m */,
+			);
+			path = Test;
 			sourceTree = "<group>";
 		};
 		05BF8FE523D696FE00A248AC = {
@@ -647,11 +670,14 @@
 				05BF909023D6972C00A248AC /* YYFPSLabel.m in Sources */,
 				05BF90C523D6974A00A248AC /* UITableViewCell+BMPrivate.m in Sources */,
 				0444FCB82438F25E0046FB4E /* BMHeaderView.m in Sources */,
+				0444FCC424390E270046FB4E /* BMHomeVC+BMIndexPathTest.m in Sources */,
+				0444FCC724390E350046FB4E /* BMHomeVC+BMSectionTest.m in Sources */,
 				05BF90B023D6972C00A248AC /* main.m in Sources */,
 				0444FCBB2438F25E0046FB4E /* BMCell.m in Sources */,
 				05BF90B123D6972C00A248AC /* AppDelegate.m in Sources */,
 				05BF90C623D6974A00A248AC /* UITableView+BMPrivate.m in Sources */,
 				0444FCBD2438F25E0046FB4E /* BMHomeVC.m in Sources */,
+				0444FCCA243914DD0046FB4E /* BMHomeVC+BMTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
