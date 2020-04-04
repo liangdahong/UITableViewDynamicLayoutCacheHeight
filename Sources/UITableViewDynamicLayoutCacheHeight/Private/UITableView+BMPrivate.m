@@ -371,15 +371,7 @@
 }
 
 - (void)tableView_dynamicLayout_reloadRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation {
-    NSMutableArray *tempIndexPaths = indexPaths.mutableCopy;
-    [tempIndexPaths sortUsingComparator:^NSComparisonResult(NSIndexPath *  _Nonnull obj1, NSIndexPath *  _Nonnull obj2) {
-        if (obj1.section == obj2.section) {
-            return obj1.row < obj2.row;
-        } else {
-            return obj1.section < obj2.section;
-        }
-    }];
-    [tempIndexPaths enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [indexPaths enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         self.verticalArray[obj.section][obj.row] = @(-1);
         self.horizontalArray[obj.section][obj.row] = @(-1);
     }];
