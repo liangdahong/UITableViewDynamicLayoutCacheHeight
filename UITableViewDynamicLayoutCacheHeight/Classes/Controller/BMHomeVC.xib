@@ -18,9 +18,26 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="1eC-Jz-MQA">
-                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="100" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="1eC-Jz-MQA" customClass="YYYTableView">
+                    <rect key="frame" x="0.0" y="20" width="80" height="647"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="gec-KY-BUI"/>
+                    </constraints>
+                    <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mFC-n6-Z3P">
+                        <rect key="frame" x="0.0" y="0.0" width="80" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f2y-Qm-drV">
+                        <rect key="frame" x="0.0" y="1629" width="80" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="Uto-ug-nhr"/>
                         <outlet property="delegate" destination="-1" id="0Fa-8L-JFP"/>
@@ -32,7 +49,6 @@
                 <constraint firstItem="1eC-Jz-MQA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3iH-N7-yua"/>
                 <constraint firstItem="1eC-Jz-MQA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" symbolic="YES" id="DcV-yT-aFd"/>
                 <constraint firstAttribute="bottom" secondItem="1eC-Jz-MQA" secondAttribute="bottom" id="Xp8-uO-o4r"/>
-                <constraint firstAttribute="trailing" secondItem="1eC-Jz-MQA" secondAttribute="trailing" id="oJV-Wy-0Ry"/>
             </constraints>
             <point key="canvasLocation" x="-175.19999999999999" y="17.541229385307346"/>
         </view>

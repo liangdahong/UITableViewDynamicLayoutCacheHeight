@@ -32,8 +32,15 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 
-    // UITableViewDynamicLayoutCacheHeight.debugLog = NO;
+     UITableViewDynamicLayoutCacheHeight.debugLog = NO;
 
+    // 防止 UITableView 抖动
+    UITableView.appearance.estimatedRowHeight = 0.0;
+    UITableView.appearance.estimatedSectionHeaderHeight = 0.0;
+    UITableView.appearance.estimatedSectionFooterHeight = 0.0;
+
+
+    
     BMHomeVC *vc = BMHomeVC.new;
     vc.dataArray = self.dataArray;
     UINavigationController *nav   = [[UINavigationController alloc] initWithRootViewController:vc];

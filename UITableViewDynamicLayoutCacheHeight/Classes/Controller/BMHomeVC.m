@@ -42,27 +42,29 @@
 
 #pragma mark - 系统delegate
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.dataArray.count;
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//    NSLog(@"%@", NSStringFromSelector(_cmd));
+//    return self.dataArray.count;
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
     return self.dataArray[section].modelArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
     return [BMCell bm_tableViewCellWithTableView:tableView];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(BMCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
     cell.model = self.dataArray[indexPath.section].modelArray[indexPath.row];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [tableView bm_heightWithCellClass:BMCell.class cacheByIndexPath:indexPath configuration:^(__kindof BMCell * _Nonnull cell) {
-        // 这里对 cell 继续和 willDisplayCell 类似此填充数据
-        cell.model = self.dataArray[indexPath.section].modelArray[indexPath.row];
-    }];
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+    return 100;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

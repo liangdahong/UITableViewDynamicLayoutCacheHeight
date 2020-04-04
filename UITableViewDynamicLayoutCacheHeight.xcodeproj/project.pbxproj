@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04429AAD2437AB5F009E504A /* YYYTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04429AAC2437AB5F009E504A /* YYYTableView.m */; };
 		04FA439E2430F2CF007FDA54 /* UITableViewDynamicLayoutCacheHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA439D2430F2CE007FDA54 /* UITableViewDynamicLayoutCacheHeight.m */; };
 		05BF8FFC23D696FE00A248AC /* UITableViewDynamicLayoutCacheHeight.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 05BF8FFA23D696FE00A248AC /* UITableViewDynamicLayoutCacheHeight.xcdatamodeld */; };
 		05BF8FFE23D696FF00A248AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05BF8FFD23D696FF00A248AC /* Assets.xcassets */; };
@@ -88,6 +89,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04429AAB2437AB5E009E504A /* YYYTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYYTableView.h; sourceTree = "<group>"; };
+		04429AAC2437AB5F009E504A /* YYYTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYYTableView.m; sourceTree = "<group>"; };
 		04FA439D2430F2CE007FDA54 /* UITableViewDynamicLayoutCacheHeight.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITableViewDynamicLayoutCacheHeight.m; sourceTree = "<group>"; };
 		05BF8FEE23D696FE00A248AC /* UITableViewDynamicLayoutCacheHeight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UITableViewDynamicLayoutCacheHeight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05BF8FFB23D696FE00A248AC /* UITableViewDynamicLayoutCacheHeight.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UITableViewDynamicLayoutCacheHeight.xcdatamodel; sourceTree = "<group>"; };
@@ -290,6 +293,8 @@
 				05BF903D23D6972C00A248AC /* BMHomeVC.h */,
 				05BF903C23D6972C00A248AC /* BMHomeVC.m */,
 				05BF903B23D6972C00A248AC /* BMHomeVC.xib */,
+				04429AAB2437AB5E009E504A /* YYYTableView.h */,
+				04429AAC2437AB5F009E504A /* YYYTableView.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -634,6 +639,7 @@
 				05BF8FFC23D696FE00A248AC /* UITableViewDynamicLayoutCacheHeight.xcdatamodeld in Sources */,
 				05BF908623D6972C00A248AC /* BMHomeVC.m in Sources */,
 				04FA439E2430F2CF007FDA54 /* UITableViewDynamicLayoutCacheHeight.m in Sources */,
+				04429AAD2437AB5F009E504A /* YYYTableView.m in Sources */,
 				05BF90C723D6974A00A248AC /* UITableViewHeaderFooterView+BMPrivate.m in Sources */,
 				05BF908723D6972C00A248AC /* BMModel.m in Sources */,
 				05BF90C323D6974A00A248AC /* UITableView+BMDynamicLayout.m in Sources */,

@@ -27,6 +27,12 @@
 #ifndef UITableViewDynamicLayoutCacheHeight_h
 #define UITableViewDynamicLayoutCacheHeight_h
 
+#ifdef DEBUG
+#define BM_UITableView_DynamicLayout_LOG(...) if (UITableViewDynamicLayoutCacheHeight.isDebugLog) {NSLog(__VA_ARGS__);}
+#else
+    #define BM_UITableView_DynamicLayout_LOG(...)
+#endif
+
 #import "UITableViewHeaderFooterView+BMDynamicLayout.h"
 #import "UITableViewCell+BMDynamicLayout.h"
 #import "UITableView+BMDynamicLayout.h"

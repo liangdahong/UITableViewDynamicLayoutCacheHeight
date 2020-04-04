@@ -29,12 +29,6 @@
 #import "UITableViewCell+BMDynamicLayout.h"
 #import "UITableViewDynamicLayoutCacheHeight.h"
 
-#ifdef DEBUG
-#define BM_UITableView_DynamicLayout_LOG(...) if (UITableViewDynamicLayoutCacheHeight.isDebugLog) {NSLog(__VA_ARGS__);}
-#else
-    #define BM_UITableView_DynamicLayout_LOG(...)
-#endif
-
 void tableViewDynamicLayoutLayoutIfNeeded(UIView *view);
 inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
     // https://juejin.im/post/5a30f24bf265da432e5c0070/
@@ -207,29 +201,30 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
 - (CGFloat)bm_heightWithCellClass:(Class)clas
                  cacheByIndexPath:(NSIndexPath *)indexPath
                     configuration:(void (^)(__kindof UITableViewCell *cell))configuration {
-    // init cache Array
-    NSMutableArray <NSMutableArray <NSNumber *> *> *arr1 = self.verticalArray;
-    long i1 = (indexPath.section + 1 - arr1.count);
-    while (i1-- > 0) {
-        [self.verticalArray addObject:@[].mutableCopy];
-    }
-    NSMutableArray <NSNumber *> *arr2 = arr1[indexPath.section];
-    long i2 = (indexPath.row + 1 - arr2.count);
-    while (i2-- > 0) {
-        [arr2 addObject:@(-1)];
-    }
-
-    NSMutableArray <NSMutableArray <NSNumber *> *> *arr3 = self.horizontalArray;
-    long i3 = (indexPath.section + 1 - arr3.count);
-    while (i3-- > 0) {
-        [arr3 addObject:@[].mutableCopy];
-    }
-    NSMutableArray <NSNumber *> *arr4 = arr3[indexPath.section];
-    long i4 = (indexPath.row + 1 - arr4.count);
-    while (i4-- > 0) {
-        [arr4 addObject:@(-1)];
-    }
-
+//    // init cache Array
+//    NSMutableArray <NSMutableArray <NSNumber *> *> *arr1 = self.verticalArray;
+//    long i1 = (indexPath.section + 1 - arr1.count);
+//    while (i1-- > 0) {
+//        [self.verticalArray addObject:@[].mutableCopy];
+//    }
+//    NSMutableArray <NSNumber *> *arr2 = arr1[indexPath.section];
+//    long i2 = (indexPath.row + 1 - arr2.count);
+//    while (i2-- > 0) {
+//        [arr2 addObject:@(-1)];
+//    }
+//
+//    NSMutableArray <NSMutableArray <NSNumber *> *> *arr3 = self.horizontalArray;
+//    long i3 = (indexPath.section + 1 - arr3.count);
+//    while (i3-- > 0) {
+//        [arr3 addObject:@[].mutableCopy];
+//    }
+//    NSMutableArray <NSNumber *> *arr4 = arr3[indexPath.section];
+//    long i4 = (indexPath.row + 1 - arr4.count);
+//    while (i4-- > 0) {
+//        [arr4 addObject:@(-1)];
+//    }
+    NSLog(@"%@",self.heightArray);
+    NSLog(@"%ld %ld",indexPath.section, indexPath.row);
     NSNumber *number = self.heightArray[indexPath.section][indexPath.row];
     if (number.doubleValue == -1) {
         // not cache
@@ -277,19 +272,18 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
                                cacheBySection:(NSInteger)section
                                 configuration:(void (^)(__kindof UITableViewHeaderFooterView *headerFooterView))configuration {
     if (type == BMHeaderFooterViewDynamicLayoutTypeHeader) {
-        // init cache Array
-        NSMutableArray <NSNumber *> *arr1 = self.headerVerticalArray;
-        long i1 = (section + 1 - arr1.count);
-        while (i1-- > 0) {
-            [self.headerVerticalArray addObject:@(-1)];
-        }
-
-        NSMutableArray <NSNumber *> *arr2 = self.headerHorizontalArray;
-        long i2 = (section + 1 - arr2.count);
-        while (i2-- > 0) {
-            [self.headerHorizontalArray addObject:@(-1)];
-        }
-
+//        // init cache Array
+//        NSMutableArray <NSNumber *> *arr1 = self.headerVerticalArray;
+//        long i1 = (section + 1 - arr1.count);
+//        while (i1-- > 0) {
+//            [self.headerVerticalArray addObject:@(-1)];
+//        }
+//
+//        NSMutableArray <NSNumber *> *arr2 = self.headerHorizontalArray;
+//        long i2 = (section + 1 - arr2.count);
+//        while (i2-- > 0) {
+//            [self.headerHorizontalArray addObject:@(-1)];
+//        }
         NSNumber *number = self.headerHeightArray[section];
         if (number.doubleValue == -1) {
             // not cache
@@ -304,21 +298,19 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
             return number.doubleValue;
         }
     } else {
-
-        // init cache Array
-        NSMutableArray <NSNumber *> *arr1 = self.footerVerticalArray;
-        long i1 = (section + 1 - arr1.count);
-        while (i1-- > 0) {
-            [self.footerVerticalArray addObject:@(-1)];
-        }
-
-        NSMutableArray <NSNumber *> *arr2 = self.footerHorizontalArray;
-        long i2 = (section + 1 - arr2.count);
-        while (i2-- > 0) {
-            [self.footerHorizontalArray addObject:@(-1)];
-        }
+//        // init cache Array
+//        NSMutableArray <NSNumber *> *arr1 = self.footerVerticalArray;
+//        long i1 = (section + 1 - arr1.count);
+//        while (i1-- > 0) {
+//            [self.footerVerticalArray addObject:@(-1)];
+//        }
+//
+//        NSMutableArray <NSNumber *> *arr2 = self.footerHorizontalArray;
+//        long i2 = (section + 1 - arr2.count);
+//        while (i2-- > 0) {
+//            [self.footerHorizontalArray addObject:@(-1)];
+//        }
         NSNumber *number = self.footerHeightArray[section];
-
         if (number.doubleValue == -1) {
             // not cache
             // get cache height
