@@ -190,7 +190,7 @@
 }
 
 - (void)dynamicLayoutInitialization {
-    BM_UITableView_DynamicLayout_LOG(@"开始初始化过 %@", NSStringFromSelector(_cmd));
+    BM_UITableView_DynamicLayout_LOG(@"开始初始化 %@", NSStringFromSelector(_cmd));
     [self _initCacheArray];
     objc_setAssociatedObject(self, @selector(isDynamicLayoutInitializationed), @(YES), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
