@@ -201,30 +201,8 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
 - (CGFloat)bm_heightWithCellClass:(Class)clas
                  cacheByIndexPath:(NSIndexPath *)indexPath
                     configuration:(void (^)(__kindof UITableViewCell *cell))configuration {
-//    // init cache Array
-//    NSMutableArray <NSMutableArray <NSNumber *> *> *arr1 = self.verticalArray;
-//    long i1 = (indexPath.section + 1 - arr1.count);
-//    while (i1-- > 0) {
-//        [self.verticalArray addObject:@[].mutableCopy];
-//    }
-//    NSMutableArray <NSNumber *> *arr2 = arr1[indexPath.section];
-//    long i2 = (indexPath.row + 1 - arr2.count);
-//    while (i2-- > 0) {
-//        [arr2 addObject:@(-1)];
-//    }
-//
-//    NSMutableArray <NSMutableArray <NSNumber *> *> *arr3 = self.horizontalArray;
-//    long i3 = (indexPath.section + 1 - arr3.count);
-//    while (i3-- > 0) {
-//        [arr3 addObject:@[].mutableCopy];
-//    }
-//    NSMutableArray <NSNumber *> *arr4 = arr3[indexPath.section];
-//    long i4 = (indexPath.row + 1 - arr4.count);
-//    while (i4-- > 0) {
-//        [arr4 addObject:@(-1)];
-//    }
-    NSLog(@"%@",self.heightArray);
-    NSLog(@"%ld %ld",indexPath.section, indexPath.row);
+    BM_UITableView_DynamicLayout_LOG(@"%@",self.heightArray);
+    BM_UITableView_DynamicLayout_LOG(@"%ld %ld",indexPath.section, indexPath.row);
     NSNumber *number = self.heightArray[indexPath.section][indexPath.row];
     if (number.doubleValue == -1) {
         // not cache
