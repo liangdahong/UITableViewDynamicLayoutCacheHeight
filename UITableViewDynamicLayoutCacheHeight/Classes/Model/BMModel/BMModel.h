@@ -20,31 +20,15 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
-#import "BMCell.h"
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface BMCell ()
+@interface BMModel : NSObject
 
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *descLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
-@property (weak, nonatomic) IBOutlet UILabel *userLabel;
-@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *widthCons;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightCons;
-
-@end
-
-@implementation BMCell
-
-- (void)setModel:(BMModel *)model {
-    _model = model;
-    _titleLabel.text = _model.name;
-    _iconImageView.image = [UIImage imageNamed:_model.icon];
-    _descLabel.text = _model.desc;
-    _userLabel.text = @"Jack";
-    _timeLabel.text = @"2018年02月12日";
-    _widthCons.constant = model.size.width;
-    _heightCons.constant = model.size.height;
-}
+@property (copy, nonatomic) NSString *ID;
+@property (copy, nonatomic) NSString *name;
+@property (copy, nonatomic) NSString *desc;
+@property (copy, nonatomic) NSString *icon;
+@property (nonatomic, assign) CGSize size;
 
 @end
