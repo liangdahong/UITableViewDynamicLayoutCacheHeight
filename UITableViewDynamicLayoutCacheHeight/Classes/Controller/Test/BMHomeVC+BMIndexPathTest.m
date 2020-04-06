@@ -31,7 +31,7 @@
         BMModel *obj1 = obj.modelArray[(NSUInteger)arc4random_uniform((uint32_t)obj.modelArray.count)];
         NSArray <NSIndexPath *> *arr = [self.tableView indexPathsForVisibleRows];
         if (arr.count) {
-            [self.dataArray[arr.firstObject.section].modelArray insertObject:obj1 atIndex:arr.lastObject.row];
+            [self.dataArray[arr.lastObject.section].modelArray insertObject:obj1 atIndex:arr.lastObject.row];
             [self.tableView insertRowsAtIndexPaths:@[
                 [NSIndexPath indexPathForRow:arr.lastObject.row inSection:arr.lastObject.section]
             ] withRowAnimation:(UITableViewRowAnimationAutomatic)];
