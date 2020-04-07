@@ -25,6 +25,7 @@
 #import "UITableViewDynamicLayoutCacheHeight.h"
 
 #define KIS_VERTICAL (UIScreen.mainScreen.bounds.size.height > UIScreen.mainScreen.bounds.size.width)
+#define kBMTableViewDynamicLayoutCacheHeightOBJDefaultHeight @(-1.0)
 
 @interface UITableView (__BMPrivate__)
 
@@ -244,7 +245,7 @@
                 NSInteger rowCount = [self.dataSource tableView:self numberOfRowsInSection:section];
                 NSMutableArray *arr = @[].mutableCopy;
                 while (rowCount-- > 0) {
-                    [arr addObject:@-1];
+                    [arr addObject:kBMTableViewDynamicLayoutCacheHeightOBJDefaultHeight];
                 }
                 [self.verticalArray insertObject:arr atIndex:section];
             }
@@ -253,16 +254,15 @@
                 NSInteger rowCount = [self.dataSource tableView:self numberOfRowsInSection:section];
                 NSMutableArray *arr = @[].mutableCopy;
                 while (rowCount-- > 0) {
-                    [arr addObject:@-1];
+                    [arr addObject:kBMTableViewDynamicLayoutCacheHeightOBJDefaultHeight];
                 }
                 [self.horizontalArray insertObject:arr atIndex:section];
             }
-
             // 2、header footer array insertObject
-            [self.headerVerticalArray insertObject:@-1 atIndex:section];
-            [self.headerHorizontalArray insertObject:@-1 atIndex:section];
-            [self.footerVerticalArray insertObject:@-1 atIndex:section];
-            [self.footerHorizontalArray insertObject:@-1 atIndex:section];
+            [self.headerVerticalArray insertObject:kBMTableViewDynamicLayoutCacheHeightOBJDefaultHeight atIndex:section];
+            [self.headerHorizontalArray insertObject:kBMTableViewDynamicLayoutCacheHeightOBJDefaultHeight atIndex:section];
+            [self.footerVerticalArray insertObject:kBMTableViewDynamicLayoutCacheHeightOBJDefaultHeight atIndex:section];
+            [self.footerHorizontalArray insertObject:kBMTableViewDynamicLayoutCacheHeightOBJDefaultHeight atIndex:section];
         }];
         [self _changedLogCache];
     }
@@ -288,18 +288,18 @@
     if (self.isDynamicLayoutInitializationed) {
         [sections enumerateIndexesUsingBlock:^(NSUInteger section, BOOL * _Nonnull stop) {
             [self.verticalArray[section] enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                self.verticalArray[section][idx] = @-1;
+                self.verticalArray[section][idx] = kBMTableViewDynamicLayoutCacheHeightOBJDefaultHeight;
             }];
             [self.horizontalArray[section] enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                self.horizontalArray[section][idx] = @-1;
+                self.horizontalArray[section][idx] = kBMTableViewDynamicLayoutCacheHeightOBJDefaultHeight;
             }];
         }];
-
+        
         [sections enumerateIndexesUsingBlock:^(NSUInteger section, BOOL * _Nonnull stop) {
-            self.headerVerticalArray[section] = @-1;
-            self.headerHorizontalArray[section] = @-1;
-            self.footerVerticalArray[section] = @-1;
-            self.footerHorizontalArray[section] = @-1;
+            self.headerVerticalArray[section] = kBMTableViewDynamicLayoutCacheHeightOBJDefaultHeight;
+            self.headerHorizontalArray[section] = kBMTableViewDynamicLayoutCacheHeightOBJDefaultHeight;
+            self.footerVerticalArray[section] = kBMTableViewDynamicLayoutCacheHeightOBJDefaultHeight;
+            self.footerHorizontalArray[section] = kBMTableViewDynamicLayoutCacheHeightOBJDefaultHeight;
         }];
         [self _changedLogCache];
     }
@@ -441,7 +441,7 @@
             NSInteger row = [self.dataSource tableView:self numberOfRowsInSection:tempSections];
             NSMutableArray *arr = @[].mutableCopy;
             while (row-- > 0) {
-                [arr addObject:@-1];
+                [arr addObject:kBMTableViewDynamicLayoutCacheHeightOBJDefaultHeight];
             }
             [arr1 addObject:arr];
             tempSections++;
@@ -458,7 +458,7 @@
             NSInteger row = [self.dataSource tableView:self numberOfRowsInSection:tempSections];
             NSMutableArray *arr = @[].mutableCopy;
             while (row-- > 0) {
-                [arr addObject:@-1];
+                [arr addObject:kBMTableViewDynamicLayoutCacheHeightOBJDefaultHeight];
             }
             [arr1 addObject:arr];
             tempSections++;
@@ -479,10 +479,10 @@
     [self.footerHorizontalArray removeAllObjects];
     NSInteger temp = 0;
     while (temp++ < sections) {
-        [self.headerVerticalArray addObject:@-1];
-        [self.headerHorizontalArray addObject:@-1];
-        [self.footerVerticalArray addObject:@-1];
-        [self.footerHorizontalArray addObject:@-1];
+        [self.headerVerticalArray addObject:kBMTableViewDynamicLayoutCacheHeightOBJDefaultHeight];
+        [self.headerHorizontalArray addObject:kBMTableViewDynamicLayoutCacheHeightOBJDefaultHeight];
+        [self.footerVerticalArray addObject:kBMTableViewDynamicLayoutCacheHeightOBJDefaultHeight];
+        [self.footerHorizontalArray addObject:kBMTableViewDynamicLayoutCacheHeightOBJDefaultHeight];
     }
     [self _initLogCache];
 }

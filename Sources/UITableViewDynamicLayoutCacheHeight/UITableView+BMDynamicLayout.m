@@ -206,7 +206,7 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
         [self dynamicLayoutInitialization];
     }
     NSNumber *number = self.heightArray[indexPath.section][indexPath.row];
-    if (number.doubleValue == -1) {
+    if (number.doubleValue < 0.0) {
         // not cache
         // get cache height
         CGFloat cellHeight = [self _heightWithCellClass:clas configuration:configuration];
@@ -257,7 +257,7 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
     }
     if (type == BMHeaderFooterViewDynamicLayoutTypeHeader) {
         NSNumber *number = self.headerHeightArray[section];
-        if (number.doubleValue == -1) {
+        if (number.doubleValue < 0.0) {
             // not cache
             // get cache height
             CGFloat height = [self _heightWithHeaderViewClass:clas configuration:configuration];
@@ -271,7 +271,7 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
         }
     } else {
         NSNumber *number = self.footerHeightArray[section];
-        if (number.doubleValue == -1) {
+        if (number.doubleValue < 0.0) {
             // not cache
             // get cache height
             CGFloat height = [self _heightWithFooterViewClass:clas configuration:configuration];
