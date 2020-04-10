@@ -1,7 +1,7 @@
 
 # UITableViewDynamicLayoutCacheHeight
 
-## Demonstration
+## 效果演示
 
 <p align="center">
     <img  width="100%" src="./Images/001.gif"/>
@@ -15,7 +15,7 @@
 </p>
 
 
-## Introduction
+## 说明
 
 -  [UITableViewDynamicLayoutCacheHeight](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight) 是一个便捷的，高性能的自动计算使用 `Autolayout` 布局【`Xib`、`StoryBoard`、`Masonry` 等】的 `UITableViewCell` 和 `UITableViewHeaderFooterView` 的高度，支持横竖屏，内部自动管理高度缓存。
 
@@ -128,4 +128,4 @@ pod install
 
 ## License    
 
-UITableViewDynamicLayoutCacheHeight is released under the [MIT license](LICENSE). See LICENSE for details.
+[UITableViewDynamicLayoutCacheHeight](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight) is released under the [MIT license](LICENSE). See LICENSE for details.
