@@ -18,13 +18,14 @@
 ## 介绍
 
 -  [UITableViewDynamicLayoutCacheHeight](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight) 是一个便捷的，高性能的自动计算使用 `Autolayout` 布局【`Xib`、`StoryBoard`、`Masonry` 等】的 `UITableViewCell` 和 `UITableViewHeaderFooterView` 的高度，支持横竖屏，内部自动管理高度缓存。
-
+- API 设计参考自[https://github.com/forkingdog/UITableView-FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)
 -  [使用说明](https://juejin.im/post/5e231e9a51882536cc0cc975)
 -  [原理篇 - 未完](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight)
 -  [做了哪些优化 - 未完](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight)
 -  [高级使用 - 未完](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight)
 
 ##  CocoaPods
+
 
 ```ruby
 pod 'UITableViewDynamicLayoutCacheHeight'
