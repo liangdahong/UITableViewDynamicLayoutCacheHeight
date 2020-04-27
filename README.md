@@ -1,10 +1,7 @@
-
-# UITableViewDynamicLayoutCacheHeight
-
 ## 效果演示
 
 <p align="center">
-    <img  width="100%" src="./Images/001.gif"/>
+    <img  width="50%" src="./Images/001.gif"/>
 <p/>
 
 <p align="center">
@@ -14,116 +11,58 @@
 <a href="#"><img src="https://img.shields.io/badge/licenses-MIT-red.svg"></a>
 </p>
 
-
 ## 介绍
 
--  [UITableViewDynamicLayoutCacheHeight](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight) 是一个便捷的，高性能的自动计算使用 `Autolayout` 布局【`Xib`、`StoryBoard`、`Masonry` 等】的 `UITableViewCell` 和 `UITableViewHeaderFooterView` 的高度，支持横竖屏，内部自动管理高度缓存。
-- API 设计参考自[https://github.com/forkingdog/UITableView-FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)
--  [使用说明](https://juejin.im/post/5e231e9a51882536cc0cc975)
--  [原理篇 - 未完](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight)
--  [做了哪些优化 - 未完](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight)
--  [高级使用 - 未完](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight)
+-  [UITableViewDynamicLayoutCacheHeight](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight) 是一个便捷的，高性能的自动计算使用 `Autolayout` 布局【`Xib`、`StoryBoard`、`Masonry` ...】的 `UITableViewCell` 和 `UITableViewHeaderFooterView` 的高度，支持横竖屏，内部自动管理高度缓存。
 
-##  CocoaPods
-
+##  CocoaPods 安装
 
 ```ruby
 pod 'UITableViewDynamicLayoutCacheHeight'
-```
-
-```ruby
 pod install
-```
-
-```objective-c
 #import <UITableViewDynamicLayoutCacheHeight/UITableViewDynamicLayoutCacheHeight.h>
 ```
 
-## 使用说明
+##  手动安装
 
-如果你想使用此框架，你的 Cell 或 UITableViewHeaderFooterView 必须使用 Autolayout 布局，且保证其中一个 View 的最大 Y 刚好是 Cell 或 UITableViewHeaderFooterView 需要的高度。
+- 下载项目 【 `clone https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight.git` 】
+- 将 `UITableViewDynamicLayoutCacheHeight/Sources/UITableViewDynamicLayoutCacheHeight`  文件夹下的全部内容拖拽到你的项目。
 
-- 下面的 Cell 布局中，箭头指向的 View 的最大 Y 刚好就是这个 Cell 所需的高度。
+## 图文使用说明
 
-<p align="center">
-    <img width="60%" src="./Images/100.png"/>
-<p/>
+### `Cell` 使用 `Xib` 构建
+
+- 创建你的 Cell 且使用约束布局，`保证 Cell 中的 View 的 MaxY 最大的值即为 Cell 需要的高度`【不要设置底部约束限制，从上向下布局即可，内部会自动去获取 Cell 中 MaxY 最大的 View，返回这个最大 MaxY 为 Cell 的高度 】
+
+![](Images/xib-cell-01.png)
 
 
-### Cell 的高度计算
+- 在 UITableView 获取高度的代理方法里实现如下代码，Block 中的代码和 `- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath`  中的代码一致即可。
 
-```objective-c
-/// 获取 Cell 需要的高度 ，内部无缓存操作
-/// @param clas cell class
-/// @param configuration 布局 cell
-- (CGFloat)bm_heightWithCellClass:(Class)clas
-                    configuration:(void (^)(__kindof UITableViewCell *cell))configuration;
+![](Images/xib-cell-02.png)
 
-/// 获取 Cell 需要的高度 ，内部自动处理缓存，缓存标识 indexPath
-/// @param clas cell class
-/// @param indexPath 使用 indexPath 做缓存标识
-/// @param configuration 布局 cell
-- (CGFloat)bm_heightWithCellClass:(Class)clas
-                 cacheByIndexPath:(NSIndexPath *)indexPath
-                    configuration:(void (^)(__kindof UITableViewCell *cell))configuration;
+- 现在你的 `UITableView` 已经`自动算高`且`自动缓存高度`了，效果如下：
+- <img src="Images/xib-cell-03.png" style="zoom:50%;" />
+- 更多使用请参考 [UITableView+BMDynamicLayout](<https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight/blob/master/Sources/UITableViewDynamicLayoutCacheHeight/UITableView%2BBMDynamicLayout.h>) 文件的 API。
 
-/// 获取 Cell 需要的高度 ，内部自动处理缓存，缓存标识 key
-/// @param clas cell class
-/// @param key 使用 key 做缓存标识
-/// @param configuration 布局 cell
-- (CGFloat)bm_heightWithCellClass:(Class)clas
-                       cacheByKey:(id<NSCopying>)key
-                    configuration:(void (^)(__kindof UITableViewCell *cell))configuration;
-```
-### UITableViewHeaderFooterView 的高度计算
+## 框架实现原理
 
-```objective-c
-/// 获取 HeaderFooter 需要的高度 ，内部无缓存操作
-/// @param clas HeaderFooter class
-/// @param type HeaderFooter类型，Header 或者 Footer
-/// @param configuration 布局 HeaderFooter
-- (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
-                                         type:(BMHeaderFooterViewDynamicLayoutType)type
-                                configuration:(void (^)(__kindof UITableViewHeaderFooterView *headerFooterView))configuration;
+### 高度计算原理
 
-/// 获取 HeaderFooter 需要的高度 ， 内部自动处理缓存，缓存标识 section
-/// @param clas HeaderFooter class
-/// @param type HeaderFooter类型，Header 或者 Footer
-/// @param section 使用 section 做缓存标识
-/// @param configuration 布局 HeaderFooter
-- (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
-                                         type:(BMHeaderFooterViewDynamicLayoutType)type
-                               cacheBySection:(NSInteger)section
-                                configuration:(void (^)(__kindof UITableViewHeaderFooterView *headerFooterView))configuration;
+提前创建 Cell，然后填充内容，然后强制布局，然后获取 Cell 中 MaxY 最大的 View，然后取此 View 的 MaxY 为 Cell 所需高度【所以`保证 Cell 中的 View 的 MaxY 最大的值即为 Cell 需要的高度`至关重要】，内部会自动管理缓存的保存和清空操作。
 
-/// 获取 HeaderFooter 需要的高度 ， 内部自动处理缓存，缓存标识 key
-/// @param clas HeaderFooter class
-/// @param type HeaderFooter类型，Header 或者 Footer
-/// @param key 使用 key 做缓存标识
-/// @param configuration 布局 HeaderFooter
-- (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
-                                         type:(BMHeaderFooterViewDynamicLayoutType)type
-                                   cacheByKey:(id<NSCopying>)key
-                                configuration:(void (^)(__kindof UITableViewHeaderFooterView *headerFooterView))configuration;
-```
 
-### 优化配置项
 
-#### Cell
+## 问题
 
-```objective-c
-/// 如果你的 Cell 中用来确定 Cell 所需高度的 View 是唯一的,
-/// 请把此值设置为 YES，可提升一定的性能。
-@property (nonatomic, assign) IBInspectable BOOL bm_maxYViewFixed;
-```
+- 系统自动算高的缺陷大家应该都比较清楚，如：没缓存，重复计算，界面跳动，由于是边滚边算在布局复杂的 Cell 有一些问题，只支持iOS8+，布局必须要填充整个 Cell，在布局的时候一些场景需要设置优先，不然会报约束冲突。
+- [UITableView-FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell) 最开始我使用是此框架，但后面有一些 Bug 一直没处理，布局必须要填充整个 Cell，在布局的时候一些场景需要设置优先，不然会报约束冲突，就迁移到了 [UITableViewDynamicLayoutCacheHeight](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight)。
+- [UITableViewDynamicLayoutCacheHeight](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight) 的缺陷有，①会多加一个 View【可以在计算的结果上加常数【底部距离，不建议】处理】，②配置 Cell 的代码要在 2 个地方写，和 [UITableView-FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell) 类似。
 
-#### HeaderFooterView
 
-```objective-c
-/// 如果你的 HeaderFooterView 中用来确定 HeaderFooterView 所需高度的 View 是唯一的,
-/// 请把此值设置为 YES，可提升一定的性能。
-@property (nonatomic, assign) IBInspectable BOOL bm_maxYViewFixed;
-```
+## 联系
+- 欢迎 [issues](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight/issues) 和 [PR](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight/pulls)
+- 也可以加微信 `liangdahong2014` 交流和学习
 
 ## License    
 

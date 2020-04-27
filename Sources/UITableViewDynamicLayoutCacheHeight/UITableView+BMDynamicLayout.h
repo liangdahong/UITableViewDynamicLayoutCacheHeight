@@ -37,7 +37,7 @@ IB_DESIGNABLE
 /*
  获取 Cell 需要的高度 ，内部无缓存操作
  @param clas cell class
- @param configuration 布局 cell
+ @param configuration 布局 cell，内部不会拥有 Block，不需要 __weak
  
  ...
  
@@ -57,7 +57,7 @@ IB_DESIGNABLE
 /// 获取 Cell 需要的高度 ，内部自动处理缓存，缓存标识 indexPath
 /// @param clas cell class
 /// @param indexPath 使用 indexPath 做缓存标识
-/// @param configuration 布局 cell
+/// @param configuration 布局 cell，内部不会拥有 Block，不需要 __weak
 - (CGFloat)bm_heightWithCellClass:(Class)clas
                  cacheByIndexPath:(NSIndexPath *)indexPath
                     configuration:(void (^)(__kindof UITableViewCell *cell))configuration;
@@ -65,7 +65,7 @@ IB_DESIGNABLE
 /// 获取 Cell 需要的高度 ，内部自动处理缓存，缓存标识 key
 /// @param clas cell class
 /// @param key 使用 key 做缓存标识
-/// @param configuration 布局 cell
+/// @param configuration 布局 cell，内部不会拥有 Block，不需要 __weak
 - (CGFloat)bm_heightWithCellClass:(Class)clas
                        cacheByKey:(id<NSCopying>)key
                     configuration:(void (^)(__kindof UITableViewCell *cell))configuration;
@@ -75,7 +75,7 @@ IB_DESIGNABLE
 /// 获取 HeaderFooter 需要的高度 ，内部无缓存操作
 /// @param clas HeaderFooter class
 /// @param type HeaderFooter类型，Header 或者 Footer
-/// @param configuration 布局 HeaderFooter
+/// @param configuration 布局 HeaderFooter，内部不会拥有 Block，不需要 __weak
 - (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
                                          type:(BMHeaderFooterViewDynamicLayoutType)type
                                 configuration:(void (^)(__kindof UITableViewHeaderFooterView *headerFooterView))configuration;
@@ -84,7 +84,7 @@ IB_DESIGNABLE
 /// @param clas HeaderFooter class
 /// @param type HeaderFooter类型，Header 或者 Footer
 /// @param section 使用 section 做缓存标识
-/// @param configuration 布局 HeaderFooter
+/// @param configuration 布局 HeaderFooter，内部不会拥有 Block，不需要 __weak
 - (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
                                          type:(BMHeaderFooterViewDynamicLayoutType)type
                                cacheBySection:(NSInteger)section
@@ -94,7 +94,7 @@ IB_DESIGNABLE
 /// @param clas HeaderFooter class
 /// @param type HeaderFooter类型，Header 或者 Footer
 /// @param key 使用 key 做缓存标识
-/// @param configuration 布局 HeaderFooter
+/// @param configuration 布局 HeaderFooter，内部不会拥有 Block，不需要 __weak
 - (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
                                          type:(BMHeaderFooterViewDynamicLayoutType)type
                                    cacheByKey:(id<NSCopying>)key

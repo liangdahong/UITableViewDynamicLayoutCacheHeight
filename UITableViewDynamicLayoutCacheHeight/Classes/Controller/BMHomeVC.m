@@ -47,11 +47,9 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [BMCell bm_tableViewCellWithTableView:tableView];
-}
-
-- (void)tableView:(UITableView *)tableView willDisplayCell:(BMCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    BMCell *cell = [BMCell bm_tableViewCellWithTableView:tableView];
     cell.model = self.dataArray[indexPath.section].modelArray[indexPath.row];
+    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

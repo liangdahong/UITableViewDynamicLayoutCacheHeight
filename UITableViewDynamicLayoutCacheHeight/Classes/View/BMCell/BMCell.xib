@@ -86,7 +86,7 @@
                 <outlet property="userLabel" destination="AIe-Bw-kL1" id="SjD-S4-hgv"/>
                 <outlet property="widthCons" destination="FnQ-fB-AhP" id="nem-C4-iut"/>
             </connections>
-            <point key="canvasLocation" x="-410" y="-1148"/>
+            <point key="canvasLocation" x="-858" y="-1133"/>
         </tableViewCell>
     </objects>
     <resources>
