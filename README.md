@@ -41,7 +41,7 @@ pod install
 
 ![](Images/xib-cell-02.png)
 
-- 现在你的 `UITableView` 已经`自动算高`且`自动缓存高度`了，效果如下：
+- 现在你的 `UITableView`  已经`自动算高`且`自动缓存高度`了，效果如下：
 - <img src="Images/xib-cell-03.png" style="zoom:50%;" />
 - 更多使用请参考 [UITableView+BMDynamicLayout](<https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight/blob/master/Sources/UITableViewDynamicLayoutCacheHeight/UITableView%2BBMDynamicLayout.h>) 文件的 API。
 
@@ -59,11 +59,9 @@ pod install
 - [UITableView-FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell) 最开始我使用是此框架，但后面有一些 Bug 一直没处理，布局必须要填充整个 Cell，在布局的时候一些场景需要设置优先，不然会报约束冲突，就迁移到了 [UITableViewDynamicLayoutCacheHeight](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight)。
 - [UITableViewDynamicLayoutCacheHeight](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight) 的缺陷有，①会多加一个 View【可以在计算的结果上加常数【底部距离，不建议】处理】，②配置 Cell 的代码要在 2 个地方写，和 [UITableView-FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell) 类似。
 
-
 ## 联系
 - 欢迎 [issues](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight/issues) 和 [PR](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight/pulls)
 - 也可以加微信 `liangdahong2014` 交流和学习
 
 ## License    
-
 [UITableViewDynamicLayoutCacheHeight](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight) is released under the [MIT license](LICENSE). See LICENSE for details.
