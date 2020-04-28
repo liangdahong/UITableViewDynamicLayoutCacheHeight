@@ -20,6 +20,7 @@
 		043DC9DD243AF8730087CB9C /* BMHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043DC9CE243AF8730087CB9C /* BMHeaderView.xib */; };
 		043DC9DE243AF8730087CB9C /* UIFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 043DC9D1243AF8730087CB9C /* UIFooterView.m */; };
 		043DC9DF243AF8730087CB9C /* UIFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043DC9D2243AF8730087CB9C /* UIFooterView.xib */; };
+		04DCA7B824585BE70061B51E /* oclint.sh in Resources */ = {isa = PBXBuildFile; fileRef = 04DCA7B724585BE70061B51E /* oclint.sh */; };
 		04FA439E2430F2CF007FDA54 /* UITableViewDynamicLayoutCacheHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA439D2430F2CE007FDA54 /* UITableViewDynamicLayoutCacheHeight.m */; };
 		05BF8FFC23D696FE00A248AC /* UITableViewDynamicLayoutCacheHeight.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 05BF8FFA23D696FE00A248AC /* UITableViewDynamicLayoutCacheHeight.xcdatamodeld */; };
 		05BF8FFE23D696FF00A248AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05BF8FFD23D696FF00A248AC /* Assets.xcassets */; };
@@ -71,6 +72,9 @@
 		05BF90CE23D6976600A248AC /* pod.sh in Resources */ = {isa = PBXBuildFile; fileRef = 05BF90CA23D6976600A248AC /* pod.sh */; };
 		05BF90CF23D6976600A248AC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 05BF90CB23D6976600A248AC /* README.md */; };
 		05BF90D023D6976600A248AC /* UITableViewDynamicLayoutCacheHeight.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 05BF90CC23D6976600A248AC /* UITableViewDynamicLayoutCacheHeight.podspec */; };
+		8E45400280E573F10190F5F4 /* Pods_UITableViewDynamicLayoutCacheHeight_UITableViewDynamicLayoutCacheHeightUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11020CD5C7433182188908 /* Pods_UITableViewDynamicLayoutCacheHeight_UITableViewDynamicLayoutCacheHeightUITests.framework */; };
+		B97FA4655255DCF135E26408 /* Pods_UITableViewDynamicLayoutCacheHeightTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C770876C0A4FC965136AE6 /* Pods_UITableViewDynamicLayoutCacheHeightTests.framework */; };
+		D873088B77448732BCB95CDD /* Pods_UITableViewDynamicLayoutCacheHeight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69D959D934F5A752D9B47B37 /* Pods_UITableViewDynamicLayoutCacheHeight.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +117,7 @@
 		043DC9D0243AF8730087CB9C /* UIFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFooterView.h; sourceTree = "<group>"; };
 		043DC9D1243AF8730087CB9C /* UIFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFooterView.m; sourceTree = "<group>"; };
 		043DC9D2243AF8730087CB9C /* UIFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIFooterView.xib; sourceTree = "<group>"; };
+		04DCA7B724585BE70061B51E /* oclint.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = oclint.sh; sourceTree = "<group>"; };
 		04FA439D2430F2CE007FDA54 /* UITableViewDynamicLayoutCacheHeight.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITableViewDynamicLayoutCacheHeight.m; sourceTree = "<group>"; };
 		05BF8FEE23D696FE00A248AC /* UITableViewDynamicLayoutCacheHeight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UITableViewDynamicLayoutCacheHeight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05BF8FFB23D696FE00A248AC /* UITableViewDynamicLayoutCacheHeight.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UITableViewDynamicLayoutCacheHeight.xcdatamodel; sourceTree = "<group>"; };
@@ -180,6 +185,15 @@
 		05BF90CA23D6976600A248AC /* pod.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = pod.sh; sourceTree = "<group>"; };
 		05BF90CB23D6976600A248AC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		05BF90CC23D6976600A248AC /* UITableViewDynamicLayoutCacheHeight.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UITableViewDynamicLayoutCacheHeight.podspec; sourceTree = "<group>"; };
+		0B11020CD5C7433182188908 /* Pods_UITableViewDynamicLayoutCacheHeight_UITableViewDynamicLayoutCacheHeightUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UITableViewDynamicLayoutCacheHeight_UITableViewDynamicLayoutCacheHeightUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C30C5859D1FBA10012FDB04 /* Pods-UITableViewDynamicLayoutCacheHeight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITableViewDynamicLayoutCacheHeight.release.xcconfig"; path = "Target Support Files/Pods-UITableViewDynamicLayoutCacheHeight/Pods-UITableViewDynamicLayoutCacheHeight.release.xcconfig"; sourceTree = "<group>"; };
+		461128A1773566A5605E1A13 /* Pods-UITableViewDynamicLayoutCacheHeight.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITableViewDynamicLayoutCacheHeight.debug.xcconfig"; path = "Target Support Files/Pods-UITableViewDynamicLayoutCacheHeight/Pods-UITableViewDynamicLayoutCacheHeight.debug.xcconfig"; sourceTree = "<group>"; };
+		4FE77C3569E2284368D70FC8 /* Pods-UITableViewDynamicLayoutCacheHeight-UITableViewDynamicLayoutCacheHeightUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITableViewDynamicLayoutCacheHeight-UITableViewDynamicLayoutCacheHeightUITests.release.xcconfig"; path = "Target Support Files/Pods-UITableViewDynamicLayoutCacheHeight-UITableViewDynamicLayoutCacheHeightUITests/Pods-UITableViewDynamicLayoutCacheHeight-UITableViewDynamicLayoutCacheHeightUITests.release.xcconfig"; sourceTree = "<group>"; };
+		69D959D934F5A752D9B47B37 /* Pods_UITableViewDynamicLayoutCacheHeight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UITableViewDynamicLayoutCacheHeight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		858809D7E056898BFAA5E115 /* Pods-UITableViewDynamicLayoutCacheHeight-UITableViewDynamicLayoutCacheHeightUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITableViewDynamicLayoutCacheHeight-UITableViewDynamicLayoutCacheHeightUITests.debug.xcconfig"; path = "Target Support Files/Pods-UITableViewDynamicLayoutCacheHeight-UITableViewDynamicLayoutCacheHeightUITests/Pods-UITableViewDynamicLayoutCacheHeight-UITableViewDynamicLayoutCacheHeightUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B5C770876C0A4FC965136AE6 /* Pods_UITableViewDynamicLayoutCacheHeightTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UITableViewDynamicLayoutCacheHeightTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7388855A7D554352B1CF516 /* Pods-UITableViewDynamicLayoutCacheHeightTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITableViewDynamicLayoutCacheHeightTests.release.xcconfig"; path = "Target Support Files/Pods-UITableViewDynamicLayoutCacheHeightTests/Pods-UITableViewDynamicLayoutCacheHeightTests.release.xcconfig"; sourceTree = "<group>"; };
+		CC531B6E57514B5EB49FFEF2 /* Pods-UITableViewDynamicLayoutCacheHeightTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITableViewDynamicLayoutCacheHeightTests.debug.xcconfig"; path = "Target Support Files/Pods-UITableViewDynamicLayoutCacheHeightTests/Pods-UITableViewDynamicLayoutCacheHeightTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +201,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D873088B77448732BCB95CDD /* Pods_UITableViewDynamicLayoutCacheHeight.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +209,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B97FA4655255DCF135E26408 /* Pods_UITableViewDynamicLayoutCacheHeightTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +217,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E45400280E573F10190F5F4 /* Pods_UITableViewDynamicLayoutCacheHeight_UITableViewDynamicLayoutCacheHeightUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				05BF90C923D6976600A248AC /* LICENSE */,
+				04DCA7B724585BE70061B51E /* oclint.sh */,
 				05BF90CA23D6976600A248AC /* pod.sh */,
 				05BF90CB23D6976600A248AC /* README.md */,
 				05BF90CC23D6976600A248AC /* UITableViewDynamicLayoutCacheHeight.podspec */,
@@ -310,6 +328,8 @@
 				05BF900C23D696FF00A248AC /* UITableViewDynamicLayoutCacheHeightTests */,
 				05BF901723D696FF00A248AC /* UITableViewDynamicLayoutCacheHeightUITests */,
 				05BF8FEF23D696FE00A248AC /* Products */,
+				B738B6CBF12D9143A38F7596 /* Pods */,
+				71B6412136B897EA9563E36C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -486,6 +506,29 @@
 			path = Private;
 			sourceTree = "<group>";
 		};
+		71B6412136B897EA9563E36C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				69D959D934F5A752D9B47B37 /* Pods_UITableViewDynamicLayoutCacheHeight.framework */,
+				0B11020CD5C7433182188908 /* Pods_UITableViewDynamicLayoutCacheHeight_UITableViewDynamicLayoutCacheHeightUITests.framework */,
+				B5C770876C0A4FC965136AE6 /* Pods_UITableViewDynamicLayoutCacheHeightTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B738B6CBF12D9143A38F7596 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				461128A1773566A5605E1A13 /* Pods-UITableViewDynamicLayoutCacheHeight.debug.xcconfig */,
+				2C30C5859D1FBA10012FDB04 /* Pods-UITableViewDynamicLayoutCacheHeight.release.xcconfig */,
+				858809D7E056898BFAA5E115 /* Pods-UITableViewDynamicLayoutCacheHeight-UITableViewDynamicLayoutCacheHeightUITests.debug.xcconfig */,
+				4FE77C3569E2284368D70FC8 /* Pods-UITableViewDynamicLayoutCacheHeight-UITableViewDynamicLayoutCacheHeightUITests.release.xcconfig */,
+				CC531B6E57514B5EB49FFEF2 /* Pods-UITableViewDynamicLayoutCacheHeightTests.debug.xcconfig */,
+				C7388855A7D554352B1CF516 /* Pods-UITableViewDynamicLayoutCacheHeightTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -493,6 +536,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05BF901D23D696FF00A248AC /* Build configuration list for PBXNativeTarget "UITableViewDynamicLayoutCacheHeight" */;
 			buildPhases = (
+				9710E33C73555DFC825CB762 /* [CP] Check Pods Manifest.lock */,
 				05BF8FEA23D696FE00A248AC /* Sources */,
 				05BF8FEB23D696FE00A248AC /* Frameworks */,
 				05BF8FEC23D696FE00A248AC /* Resources */,
@@ -510,6 +554,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05BF902023D696FF00A248AC /* Build configuration list for PBXNativeTarget "UITableViewDynamicLayoutCacheHeightTests" */;
 			buildPhases = (
+				AC9527EC83D519DDB07518A9 /* [CP] Check Pods Manifest.lock */,
 				05BF900523D696FF00A248AC /* Sources */,
 				05BF900623D696FF00A248AC /* Frameworks */,
 				05BF900723D696FF00A248AC /* Resources */,
@@ -528,6 +573,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05BF902323D696FF00A248AC /* Build configuration list for PBXNativeTarget "UITableViewDynamicLayoutCacheHeightUITests" */;
 			buildPhases = (
+				BF6440747695BE09883A04A9 /* [CP] Check Pods Manifest.lock */,
 				05BF901023D696FF00A248AC /* Sources */,
 				05BF901123D696FF00A248AC /* Frameworks */,
 				05BF901223D696FF00A248AC /* Resources */,
@@ -626,6 +672,7 @@
 				05BF909623D6972C00A248AC /* 15.png in Resources */,
 				043DC9DF243AF8730087CB9C /* UIFooterView.xib in Resources */,
 				05BF909B23D6972C00A248AC /* 11.png in Resources */,
+				04DCA7B824585BE70061B51E /* oclint.sh in Resources */,
 				043DC9DB243AF8730087CB9C /* BMCell.xib in Resources */,
 				05BF90A323D6972C00A248AC /* 18.png in Resources */,
 				05BF90CF23D6976600A248AC /* README.md in Resources */,
@@ -648,6 +695,75 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9710E33C73555DFC825CB762 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UITableViewDynamicLayoutCacheHeight-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC9527EC83D519DDB07518A9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UITableViewDynamicLayoutCacheHeightTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF6440747695BE09883A04A9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UITableViewDynamicLayoutCacheHeight-UITableViewDynamicLayoutCacheHeightUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		05BF8FEA23D696FE00A248AC /* Sources */ = {
@@ -835,42 +951,51 @@
 		};
 		05BF901E23D696FF00A248AC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 461128A1773566A5605E1A13 /* Pods-UITableViewDynamicLayoutCacheHeight.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				COMPILER_INDEX_STORE_ENABLE = NO;
+				DEVELOPMENT_TEAM = NK94TM64KF;
 				INFOPLIST_FILE = UITableViewDynamicLayoutCacheHeight/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.liangdahong.UITableViewDynamicLayoutCacheHeight;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.com.bluemoon.sfa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "dev_cn.com.bluemoon.sfa-20200227";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		05BF901F23D696FF00A248AC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C30C5859D1FBA10012FDB04 /* Pods-UITableViewDynamicLayoutCacheHeight.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				COMPILER_INDEX_STORE_ENABLE = NO;
+				DEVELOPMENT_TEAM = NK94TM64KF;
 				INFOPLIST_FILE = UITableViewDynamicLayoutCacheHeight/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.liangdahong.UITableViewDynamicLayoutCacheHeight;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.com.bluemoon.sfa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "dev_cn.com.bluemoon.sfa-20200227";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 		05BF902123D696FF00A248AC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC531B6E57514B5EB49FFEF2 /* Pods-UITableViewDynamicLayoutCacheHeightTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -890,6 +1015,7 @@
 		};
 		05BF902223D696FF00A248AC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7388855A7D554352B1CF516 /* Pods-UITableViewDynamicLayoutCacheHeightTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -909,6 +1035,7 @@
 		};
 		05BF902423D696FF00A248AC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 858809D7E056898BFAA5E115 /* Pods-UITableViewDynamicLayoutCacheHeight-UITableViewDynamicLayoutCacheHeightUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VG78JT6CG8;
@@ -927,6 +1054,7 @@
 		};
 		05BF902523D696FF00A248AC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FE77C3569E2284368D70FC8 /* Pods-UITableViewDynamicLayoutCacheHeight-UITableViewDynamicLayoutCacheHeightUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VG78JT6CG8;

@@ -343,9 +343,8 @@
         [tempIndexPaths sortUsingComparator:^NSComparisonResult(NSIndexPath *  _Nonnull obj1, NSIndexPath *  _Nonnull obj2) {
             if (obj1.section == obj2.section) {
                 return obj1.row > obj2.row;
-            } else {
-                return obj1.section > obj2.section;
             }
+            return obj1.section > obj2.section;
         }];
         [tempIndexPaths enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx1, BOOL * _Nonnull stop1) {
             NSMutableArray <NSMutableArray <NSNumber *> *> *arr = self.verticalArray;
@@ -373,9 +372,8 @@
         [tempIndexPaths sortUsingComparator:^NSComparisonResult(NSIndexPath *  _Nonnull obj1, NSIndexPath *  _Nonnull obj2) {
             if (obj1.section == obj2.section) {
                 return obj1.row < obj2.row;
-            } else {
-                return obj1.section < obj2.section;
             }
+            return obj1.section < obj2.section;
         }];
         [tempIndexPaths enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [self.verticalArray[obj.section] removeObjectAtIndex:obj.row];
@@ -491,15 +489,15 @@
 #ifdef DEBUG
     if (UITableViewDynamicLayoutCacheHeight.isDebugLog) {
         [self.verticalArray enumerateObjectsUsingBlock:^(NSMutableArray<NSNumber *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            BM_UITableView_DynamicLayout_LOG(@"初始化: 初始化后 cell 竖屏：%ld", obj.count);
+            BM_UITableView_DynamicLayout_LOG(@"初始化: 初始化后 cell 竖屏：%@", @(obj.count));
         }];
         [self.horizontalArray enumerateObjectsUsingBlock:^(NSMutableArray<NSNumber *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            BM_UITableView_DynamicLayout_LOG(@"初始化: 初始化后 cell 横屏：%ld", obj.count);
+            BM_UITableView_DynamicLayout_LOG(@"初始化: 初始化后 cell 横屏：%@", @(obj.count));
         }];
-        BM_UITableView_DynamicLayout_LOG(@"初始化: 初始化后 header 竖屏：%ld", self.headerVerticalArray.count);
-        BM_UITableView_DynamicLayout_LOG(@"初始化: 初始化后 header 横屏：%ld", self.headerHorizontalArray.count);
-        BM_UITableView_DynamicLayout_LOG(@"初始化: 初始化后 footer 竖屏：%ld", self.footerVerticalArray.count);
-        BM_UITableView_DynamicLayout_LOG(@"初始化: 初始化后 footer 横屏：%ld", self.footerHorizontalArray.count);
+        BM_UITableView_DynamicLayout_LOG(@"初始化: 初始化后 header 竖屏：%@", @(self.headerVerticalArray.count));
+        BM_UITableView_DynamicLayout_LOG(@"初始化: 初始化后 header 横屏：%@", @(self.headerHorizontalArray.count));
+        BM_UITableView_DynamicLayout_LOG(@"初始化: 初始化后 footer 竖屏：%@", @(self.footerVerticalArray.count));
+        BM_UITableView_DynamicLayout_LOG(@"初始化: 初始化后 footer 横屏：%@", @(self.footerHorizontalArray.count));
     }
 #endif
 }
@@ -508,15 +506,15 @@
 #ifdef DEBUG
     if (UITableViewDynamicLayoutCacheHeight.isDebugLog) {
         [self.verticalArray enumerateObjectsUsingBlock:^(NSMutableArray<NSNumber *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            BM_UITableView_DynamicLayout_LOG(@"修改了数据时: 初始化后 cell 竖屏：%ld", obj.count);
+            BM_UITableView_DynamicLayout_LOG(@"修改了数据时: 初始化后 cell 竖屏：%@", @(obj.count));
         }];
         [self.horizontalArray enumerateObjectsUsingBlock:^(NSMutableArray<NSNumber *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            BM_UITableView_DynamicLayout_LOG(@"修改了数据时: 初始化后 cell 横屏：%ld", obj.count);
+            BM_UITableView_DynamicLayout_LOG(@"修改了数据时: 初始化后 cell 横屏：%@", @(obj.count));
         }];
-        BM_UITableView_DynamicLayout_LOG(@"修改了数据时: 初始化后 header 竖屏：%ld", self.headerVerticalArray.count);
-        BM_UITableView_DynamicLayout_LOG(@"修改了数据时: 初始化后 header 横屏：%ld", self.headerHorizontalArray.count);
-        BM_UITableView_DynamicLayout_LOG(@"修改了数据时: 初始化后 footer 竖屏：%ld", self.footerVerticalArray.count);
-        BM_UITableView_DynamicLayout_LOG(@"修改了数据时: 初始化后 footer 横屏：%ld", self.footerHorizontalArray.count);
+        BM_UITableView_DynamicLayout_LOG(@"修改了数据时: 初始化后 header 竖屏：%@", @(self.headerVerticalArray.count));
+        BM_UITableView_DynamicLayout_LOG(@"修改了数据时: 初始化后 header 横屏：%@", @(self.headerHorizontalArray.count));
+        BM_UITableView_DynamicLayout_LOG(@"修改了数据时: 初始化后 footer 竖屏：%@", @(self.footerVerticalArray.count));
+        BM_UITableView_DynamicLayout_LOG(@"修改了数据时: 初始化后 footer 横屏：%@", @(self.footerHorizontalArray.count));
     }
 #endif
 }
