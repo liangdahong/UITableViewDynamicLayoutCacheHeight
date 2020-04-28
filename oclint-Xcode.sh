@@ -60,9 +60,6 @@ function oclintForProject () {
     # 生成报表
     oclint-json-compilation-database  \
     -e Pods   \
-    -e Lib \
-    -e AppDelegate \
-    -e Classes -- \
     -report-type xcode
     -rc LONG_LINE=200 \
     -disable-rule ShortVariableName \
@@ -71,33 +68,16 @@ function oclintForProject () {
     -max-priority-1=100000 \
     -max-priority-2=100000 \
     -max-priority-3=100000
-    
+
     if [ -f ./$myscheme".html" ]; then
         echo -e $COLOR_SUCC'✅✅✅分析完毕'$COLOR_SUCC
     else
         echo -e $COLOR_ERR'❌❌❌分析失败'$COLOR_ERR
         return -1
     fi
-    echo -e $COLOR_AW'将要自动打开 lint 的分析结果'$COLOR_AW
-
-    # 归档文件
-    name=$(date +%Y-%m-%d-%H%M%S)
-    OCLint="OCLint"
-    mkdir $OCLint
-    cd $OCLint
-    mkdir $name
-    cd ..
-    cp -r ./$myscheme".html"  ./OCLint/$name
-    cp -r ./compile_commands.json  ./OCLint/$name
 
     # 删除文件
-    rm -rf ./$myscheme".html"
-    rm -rf ./compile_commands.json
-    
-    # 用 safari 浏览器打开 oclint 的结果
-    open -a "/Applications/Safari.app" ./OCLint/$name/$myscheme".html"
+    rm -rf compile_commands.json
 }
 
 oclintForProject
-
-# http://yulingtianxia.com/blog/2019/01/27/MVVM-Rules-for-OCLint/#%E9%9B%86%E6%88%90%E5%88%B0-Xcode
