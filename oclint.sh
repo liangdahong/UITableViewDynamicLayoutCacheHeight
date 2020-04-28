@@ -99,3 +99,5 @@ function oclintForProject () {
 }
 
 oclintForProject
+
+# http://yulingtianxia.com/blog/2019/01/27/MVVM-Rules-for-OCLint/#%E9%9B%86%E6%88%90%E5%88%B0-Xcode
