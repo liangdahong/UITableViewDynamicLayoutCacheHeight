@@ -42,16 +42,15 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
 
 #pragma mark - private cell
 
-- (CGFloat)_heightWithCellClass:(Class)clas
-                  configuration:(BMConfigurationCellBlock)configuration {
+- (UIView *)_cellViewWithCellClass:(Class)clas {
     NSMutableDictionary *dict = objc_getAssociatedObject(self, _cmd);
     if (!dict) {
         dict = @{}.mutableCopy;
         objc_setAssociatedObject(self, _cmd, dict, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
-    
+
     UIView *view = dict[NSStringFromClass(clas)];
-    
+
     if (!view) {
         NSString *path = [[NSBundle mainBundle] pathForResource:NSStringFromClass(clas) ofType:@"nib"];
         UIView *cell = nil;
@@ -64,23 +63,28 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
         [view addSubview:cell];
         dict[NSStringFromClass(clas)] = view;
     }
+    return view;
+}
 
+- (CGFloat)_heightWithCellClass:(Class)clas
+                  configuration:(BMConfigurationCellBlock)configuration {
+    UIView *view = [self _cellViewWithCellClass:clas];
     // 获取 TableView 宽度
     UIView *temp = self.superview ? self.superview : self;
     tableViewDynamicLayoutLayoutIfNeeded(temp);
     CGFloat width = CGRectGetWidth(self.frame);
-    
+
     // 设置 Frame
     view.frame = CGRectMake(0.0f, 0.0f, width, 0.0f);
     UITableViewCell *cell = view.subviews.firstObject;
     cell.frame = CGRectMake(0.0f, 0.0f, width, 0.0f);
-    
+
     // 让外面布局 Cell
     !configuration ? : configuration(cell);
-    
+
     // 刷新布局
     tableViewDynamicLayoutLayoutIfNeeded(view);
-    
+
     // 获取需要的高度
     __block CGFloat maxY  = 0.0f;
     if (cell.bm_maxYViewFixed) {
@@ -117,9 +121,9 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
         dict = @{}.mutableCopy;
         objc_setAssociatedObject(self, sel, dict, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
-    
+
     UIView *view = dict[NSStringFromClass(clas)];
-    
+
     if (!view) {
         NSString *path = [[NSBundle mainBundle] pathForResource:NSStringFromClass(clas) ofType:@"nib"];
         UIView *headerView = nil;
@@ -142,7 +146,7 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
     view.frame = CGRectMake(0.0f, 0.0f, width, 0.0f);
     UITableViewHeaderFooterView *headerFooterView = view.subviews.firstObject;
     headerFooterView.frame = CGRectMake(0.0f, 0.0f, width, 0.0f);
-    
+
     // 让外面布局 UITableViewHeaderFooterView
     !configuration ? : configuration(headerFooterView);
     // 刷新布局
@@ -155,18 +159,17 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
     if (headerFooterView.bm_maxYViewFixed) {
         if (headerFooterView.maxYView) {
             return CGRectGetMaxY(headerFooterView.maxYView.frame);
-        } else {
-            __block UIView *maxXView = nil;
-            [contentView.subviews enumerateObjectsWithOptions:(NSEnumerationReverse) usingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                CGFloat tempY = CGRectGetMaxY(obj.frame);
-                if (tempY > maxY) {
-                    maxY = tempY;
-                    maxXView = obj;
-                }
-            }];
-            headerFooterView.maxYView = maxXView;
-            return maxY;
         }
+        __block UIView *maxXView = nil;
+        [contentView.subviews enumerateObjectsWithOptions:(NSEnumerationReverse) usingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            CGFloat tempY = CGRectGetMaxY(obj.frame);
+            if (tempY > maxY) {
+                maxY = tempY;
+                maxXView = obj;
+            }
+        }];
+        headerFooterView.maxYView = maxXView;
+        return maxY;
     }
     [contentView.subviews enumerateObjectsWithOptions:(NSEnumerationReverse) usingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         CGFloat tempY = CGRectGetMaxY(obj.frame);
@@ -292,20 +295,18 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
             self.heightDictionary[key] = @(cellHeight);
         }
         return cellHeight;
-        
-    } else {
-        if (key && self.footerHeightDictionary[key]) {
-            BM_UITableView_DynamicLayout_LOG(@"BMLog:✅✅读缓存✅✅ Footer: %@ get cache height { (key: %@) (height: %@) }", NSStringFromClass(clas), key, self.footerHeightDictionary[key]);
-            return self.footerHeightDictionary[key].doubleValue;
-        }
-        CGFloat cellHeight = [self _heightWithFooterViewClass:clas configuration:configuration];
-        
-        if (key) {
-            BM_UITableView_DynamicLayout_LOG(@"BML:⚠️计算高度⚠️  Footer: %@ save height { (key: %@) (height: %@) }", NSStringFromClass(clas), key, @(cellHeight));
-            self.footerHeightDictionary[key] = @(cellHeight);
-        }
-        return cellHeight;
+
     }
+    if (key && self.footerHeightDictionary[key]) {
+        BM_UITableView_DynamicLayout_LOG(@"BMLog:✅✅读缓存✅✅ Footer: %@ get cache height { (key: %@) (height: %@) }", NSStringFromClass(clas), key, self.footerHeightDictionary[key]);
+        return self.footerHeightDictionary[key].doubleValue;
+    }
+    CGFloat cellHeight = [self _heightWithFooterViewClass:clas configuration:configuration];
+    if (key) {
+        BM_UITableView_DynamicLayout_LOG(@"BML:⚠️计算高度⚠️  Footer: %@ save height { (key: %@) (height: %@) }", NSStringFromClass(clas), key, @(cellHeight));
+        self.footerHeightDictionary[key] = @(cellHeight);
+    }
+    return cellHeight;
 }
 
 @end
