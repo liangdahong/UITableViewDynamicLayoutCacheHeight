@@ -59,7 +59,7 @@ function oclintForProject () {
 
     # 生成报表
     oclint-json-compilation-database  \
-    -e Pods   \
+    -e Pods --  \
     -report-type xcode
     -rc LONG_LINE=200 \
     -disable-rule ShortVariableName \
@@ -68,14 +68,6 @@ function oclintForProject () {
     -max-priority-1=100000 \
     -max-priority-2=100000 \
     -max-priority-3=100000
-
-    if [ -f ./$myscheme".html" ]; then
-        echo -e $COLOR_SUCC'✅✅✅分析完毕'$COLOR_SUCC
-    else
-        echo -e $COLOR_ERR'❌❌❌分析失败'$COLOR_ERR
-        return -1
-    fi
-
     # 删除文件
     rm -rf compile_commands.json
 }

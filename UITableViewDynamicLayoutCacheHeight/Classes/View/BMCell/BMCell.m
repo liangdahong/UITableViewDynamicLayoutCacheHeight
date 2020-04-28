@@ -45,12 +45,6 @@
     _timeLabel.text = @"2018年02月12日";
     _widthCons.constant = model.size.width;
     _heightCons.constant = model.size.height;
-
-    if (model) {
-        NSLog(@"model != nil");
-    } else {
-        NSLog(@"model == nil");
-    }
 }
 
 @end
