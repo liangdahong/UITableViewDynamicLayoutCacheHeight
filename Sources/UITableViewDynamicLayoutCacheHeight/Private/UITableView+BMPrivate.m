@@ -431,40 +431,36 @@
         sections = [self.dataSource numberOfSectionsInTableView:self];
     }
 
-    // 1-1、、竖屏状态下的 cell 高度缓存
-    {
-        NSInteger tempSections = 0;
-        NSMutableArray *arr1 = @[].mutableCopy;
-        while (tempSections < sections) {
-            NSInteger row = [self.dataSource tableView:self numberOfRowsInSection:tempSections];
-            NSMutableArray *arr = @[].mutableCopy;
-            while (row-- > 0) {
-                [arr addObject:kBMTableViewDynamicLayoutCacheHeightOBJDefaultHeight];
-            }
-            [arr1 addObject:arr];
-            tempSections++;
-        }
-        [self.verticalArray removeAllObjects];
-        [self.verticalArray addObjectsFromArray:arr1.copy];
-    }
-
+    // 1-1、竖屏状态下的 cell 高度缓存
     // 1-2、横屏状态下的 cell 高度缓存
     {
         NSInteger tempSections = 0;
-        NSMutableArray *arr1 = @[].mutableCopy;
+        NSMutableArray *verticalArray = @[].mutableCopy;
+        NSMutableArray *horizontalArray = @[].mutableCopy;
         while (tempSections < sections) {
             NSInteger row = [self.dataSource tableView:self numberOfRowsInSection:tempSections];
-            NSMutableArray *arr = @[].mutableCopy;
+            NSMutableArray *verticalArr = @[].mutableCopy;
+            NSMutableArray *horizontalArr = @[].mutableCopy;
             while (row-- > 0) {
-                [arr addObject:kBMTableViewDynamicLayoutCacheHeightOBJDefaultHeight];
+                [verticalArr addObject:kBMTableViewDynamicLayoutCacheHeightOBJDefaultHeight];
+                [horizontalArr addObject:kBMTableViewDynamicLayoutCacheHeightOBJDefaultHeight];
             }
-            [arr1 addObject:arr];
+            [verticalArray addObject:verticalArr];
+            [horizontalArray addObject:horizontalArr];
             tempSections++;
         }
+        [self.verticalArray removeAllObjects];
+        [self.verticalArray addObjectsFromArray:verticalArray.copy];
+
         [self.horizontalArray removeAllObjects];
-        [self.horizontalArray addObjectsFromArray:arr1.copy];
+        [self.horizontalArray addObjectsFromArray:horizontalArray.copy];
     }
 
+    [self _initHeaderFooterCacheArrayWithSections:sections];
+    [self _initLogCache];
+}
+
+- (void)_initHeaderFooterCacheArrayWithSections:(NSInteger)sections {
     // 2、初始化 HeaderFooterView 的以 sections 为标识的高度缓存 Array
     // 2、清空 HeaderFooterView 的以 sections 为标识的高度缓存
     // 2-1、竖屏状态下的 HeaderView 高度缓存
@@ -482,7 +478,6 @@
         [self.footerVerticalArray addObject:kBMTableViewDynamicLayoutCacheHeightOBJDefaultHeight];
         [self.footerHorizontalArray addObject:kBMTableViewDynamicLayoutCacheHeightOBJDefaultHeight];
     }
-    [self _initLogCache];
 }
 
 - (void)_initLogCache {

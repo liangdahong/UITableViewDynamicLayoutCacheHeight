@@ -81,7 +81,7 @@
     if (arc1 == 0) {
         arc2 = 2;
     }
-    [alertVC addAction:[UIAlertAction actionWithTitle:[NSString stringWithFormat:@"arc move Section %lu <-> %lu", (unsigned long)arc1, arc2] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [alertVC addAction:[UIAlertAction actionWithTitle:[NSString stringWithFormat:@"arc move Section %lu <-> %lu", (unsigned long)arc1, (unsigned long)arc2] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         id obj = self.dataArray[arc1];
         [self.dataArray removeObjectAtIndex:arc1];
         [self.dataArray insertObject:obj atIndex:arc2];

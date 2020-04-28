@@ -29,6 +29,9 @@ typedef NS_ENUM(NSInteger, BMHeaderFooterViewDynamicLayoutType) {
     BMHeaderFooterViewDynamicLayoutTypeFooter = 1,
 };
 
+typedef void(^BMConfigurationCellBlock)(__kindof UITableViewCell *cell);
+typedef void(^BMConfigurationHeaderFooterViewBlock)(__kindof UITableViewHeaderFooterView *headerFooterView);
+
 IB_DESIGNABLE
 @interface UITableView (BMDynamicLayout)
 
@@ -52,7 +55,7 @@ IB_DESIGNABLE
  
  */
 - (CGFloat)bm_heightWithCellClass:(Class)clas
-                    configuration:(void (^)(__kindof UITableViewCell *cell))configuration;
+                    configuration:(BMConfigurationCellBlock)configuration;
 
 /// 获取 Cell 需要的高度 ，内部自动处理缓存，缓存标识 indexPath
 /// @param clas cell class
@@ -60,7 +63,7 @@ IB_DESIGNABLE
 /// @param configuration 布局 cell，内部不会拥有 Block，不需要 __weak
 - (CGFloat)bm_heightWithCellClass:(Class)clas
                  cacheByIndexPath:(NSIndexPath *)indexPath
-                    configuration:(void (^)(__kindof UITableViewCell *cell))configuration;
+                    configuration:(BMConfigurationCellBlock)configuration;
 
 /// 获取 Cell 需要的高度 ，内部自动处理缓存，缓存标识 key
 /// @param clas cell class
@@ -68,7 +71,7 @@ IB_DESIGNABLE
 /// @param configuration 布局 cell，内部不会拥有 Block，不需要 __weak
 - (CGFloat)bm_heightWithCellClass:(Class)clas
                        cacheByKey:(id<NSCopying>)key
-                    configuration:(void (^)(__kindof UITableViewCell *cell))configuration;
+                    configuration:(BMConfigurationCellBlock)configuration;
 
 #pragma mark - HeaderFooter
 
@@ -78,7 +81,7 @@ IB_DESIGNABLE
 /// @param configuration 布局 HeaderFooter，内部不会拥有 Block，不需要 __weak
 - (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
                                          type:(BMHeaderFooterViewDynamicLayoutType)type
-                                configuration:(void (^)(__kindof UITableViewHeaderFooterView *headerFooterView))configuration;
+                                configuration:(BMConfigurationHeaderFooterViewBlock)configuration;
 
 /// 获取 HeaderFooter 需要的高度 ， 内部自动处理缓存，缓存标识 section
 /// @param clas HeaderFooter class
@@ -88,7 +91,7 @@ IB_DESIGNABLE
 - (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
                                          type:(BMHeaderFooterViewDynamicLayoutType)type
                                cacheBySection:(NSInteger)section
-                                configuration:(void (^)(__kindof UITableViewHeaderFooterView *headerFooterView))configuration;
+                                configuration:(BMConfigurationHeaderFooterViewBlock)configuration;
 
 /// 获取 HeaderFooter 需要的高度 ， 内部自动处理缓存，缓存标识 key
 /// @param clas HeaderFooter class
@@ -98,6 +101,6 @@ IB_DESIGNABLE
 - (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
                                          type:(BMHeaderFooterViewDynamicLayoutType)type
                                    cacheByKey:(id<NSCopying>)key
-                                configuration:(void (^)(__kindof UITableViewHeaderFooterView *headerFooterView))configuration;
+                                configuration:(BMConfigurationHeaderFooterViewBlock)configuration;
 
 @end

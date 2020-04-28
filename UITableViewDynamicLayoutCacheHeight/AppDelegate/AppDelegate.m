@@ -54,9 +54,7 @@
 }
 
 #pragma mark - 构造数据
-
 - (NSMutableArray<BMGroupModel *> *)dataArray {
-
     NSMutableArray<BMGroupModel *> * _dataArray = [@[] mutableCopy];
     int arc = arc4random_uniform(10)+4;
     while (arc--) {

@@ -60,7 +60,9 @@ function oclintForProject () {
     # 生成报表
     oclint-json-compilation-database  \
     -e Pods   \
-    -e Lib -- \
+    -e Lib \
+    -e AppDelegate \
+    -e Classes -- \
     -report-type html >> $myscheme".html" \
     -rc LONG_LINE=200 \
     -disable-rule ShortVariableName \
