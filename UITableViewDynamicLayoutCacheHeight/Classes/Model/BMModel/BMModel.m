@@ -24,4 +24,14 @@
 
 @implementation BMModel
 
+- (instancetype)modelWithCopy {
+    BMModel *model = BMModel.new;
+    model.ID = self.ID;
+    model.name = self.name;
+    model.desc = self.desc;
+    model.icon = self.icon;
+    model.size = self.size;
+    return model;
+}
+
 @end

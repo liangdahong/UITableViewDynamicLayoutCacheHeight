@@ -57,21 +57,24 @@ function oclintForProject () {
     # 编译
     xcodebuild -scheme $myscheme -workspace $myworkspace -configuration Debug | xcpretty -r json-compilation-database -o compile_commands.json
 
-    # 生成报表
+    # 生成报表 ↓
+    # -e Pods  忽略指定文件夹
+    # 更多信息请参考 http://docs.oclint.org/en/stable/manual/oclint-json-compilation-database.html
     oclint-json-compilation-database  \
     -e Pods   \
     -e Lib \
     -e AppDelegate \
-    -e Classes -- \
-    -report-type xcode
+    -e Classes  \
     -rc LONG_LINE=200 \
+    -- -report-type html >> $myscheme".html" \
     -disable-rule ShortVariableName \
     -disable-rule ObjCAssignIvarOutsideAccessors \
     -disable-rule AssignIvarOutsideAccessors \
     -max-priority-1=100000 \
     -max-priority-2=100000 \
     -max-priority-3=100000
-    
+    # 生成报表 ↑
+
     if [ -f ./$myscheme".html" ]; then
         echo -e $COLOR_SUCC'✅✅✅分析完毕'$COLOR_SUCC
     else

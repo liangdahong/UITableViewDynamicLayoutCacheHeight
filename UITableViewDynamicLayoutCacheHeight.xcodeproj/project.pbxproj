@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		0415FF432458F30D00FBDC41 /* oclint-Xcode.sh in Resources */ = {isa = PBXBuildFile; fileRef = 0415FF422458F30D00FBDC41 /* oclint-Xcode.sh */; };
+		042C2CFD2459C27F00387E0A /* run-sonar.sh in Resources */ = {isa = PBXBuildFile; fileRef = 042C2CFC2459C27F00387E0A /* run-sonar.sh */; };
 		043DC9D3243AF8730087CB9C /* BMGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 043DC9B7243AF8730087CB9C /* BMGroupModel.m */; };
 		043DC9D4243AF8730087CB9C /* BMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 043DC9BA243AF8730087CB9C /* BMModel.m */; };
 		043DC9D5243AF8730087CB9C /* BMHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 043DC9BD243AF8730087CB9C /* BMHomeVC.m */; };
@@ -111,6 +112,7 @@
 
 /* Begin PBXFileReference section */
 		0415FF422458F30D00FBDC41 /* oclint-Xcode.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "oclint-Xcode.sh"; sourceTree = "<group>"; };
+		042C2CFC2459C27F00387E0A /* run-sonar.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "run-sonar.sh"; sourceTree = "<group>"; };
 		043DC9B6243AF8730087CB9C /* BMGroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMGroupModel.h; sourceTree = "<group>"; };
 		043DC9B7243AF8730087CB9C /* BMGroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMGroupModel.m; sourceTree = "<group>"; };
 		043DC9B9243AF8730087CB9C /* BMModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMModel.h; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 		05BF8FE523D696FE00A248AC = {
 			isa = PBXGroup;
 			children = (
+				042C2CFC2459C27F00387E0A /* run-sonar.sh */,
 				05BF90C923D6976600A248AC /* LICENSE */,
 				04DCA7B724585BE70061B51E /* oclint.sh */,
 				0415FF422458F30D00FBDC41 /* oclint-Xcode.sh */,
@@ -670,6 +673,7 @@
 				05BF90A923D6972C00A248AC /* 5.png in Resources */,
 				05BF90AB23D6972C00A248AC /* 6.png in Resources */,
 				05BF909D23D6972C00A248AC /* 21.png in Resources */,
+				042C2CFD2459C27F00387E0A /* run-sonar.sh in Resources */,
 				05BF90A423D6972C00A248AC /* 30.png in Resources */,
 				05BF90AC23D6972C00A248AC /* 2.png in Resources */,
 				043DC9D6243AF8730087CB9C /* BMHomeVC.xib in Resources */,
@@ -734,7 +738,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\n\nCOLOR_ERR=\"\\033[1;31m\"    #出错提示\nCOLOR_SUCC=\"\\033[0;32m\"  #成功提示\nCOLOR_QS=\"\\033[1;37m\"  #问题颜色\nCOLOR_AW=\"\\033[0;37m\"  #答案提示\nCOLOR_END=\"\\033[1;34m\"     #颜色结束符\n\n# 寻找项目的 ProjectName\nfunction searchProjectName () {\n  # maxdepth 查找文件夹的深度\n  find . -maxdepth 1 -name \"*.xcodeproj\"\n}\n\nfunction oclintForProject () {\n\n    # 预先检测所需的安装包是否存在\n    if which xcodebuild 2>/dev/null; then\n        echo 'xcodebuild exist'\n    else\n        echo '❌❌❌ xcodebuild 都没有安装'\n    fi\n\n    if which oclint 2>/dev/null; then\n        echo 'oclint exist'\n    else\n        echo '❌❌❌  oclint 未安装'\n    fi\n    if which xcpretty 2>/dev/null; then\n        echo 'xcpretty exist'\n    else\n        gem install xcpretty\n    fi\n\n    # 指定编码\n    export LANG=\"zh_CN.UTF-8\"\n    export LC_COLLATE=\"zh_CN.UTF-8\"\n    export LC_CTYPE=\"zh_CN.UTF-8\"\n    export LC_MESSAGES=\"zh_CN.UTF-8\"\n    export LC_MONETARY=\"zh_CN.UTF-8\"\n    export LC_NUMERIC=\"zh_CN.UTF-8\"\n    export LC_TIME=\"zh_CN.UTF-8\"\n    export xcpretty=/usr/local/bin/xcpretty # xcpretty 的安装位置可以在终端用 which xcpretty找到\n\n    searchFunctionName=`searchProjectName`\n    path=${searchFunctionName}\n    # 字符串替换函数。//表示全局替换 /表示匹配到的第一个结果替换。\n    path=${path//.\\//}  # ./BridgeLabiPhone.xcodeproj -> BridgeLabiPhone.xcodeproj\n    path=${path//.xcodeproj/} # BridgeLabiPhone.xcodeproj -> BridgeLabiPhone\n\n    myworkspace=$path\".xcworkspace\" # workspace名字\n    myscheme=$path  # scheme名字\n\n    # 先清除\n    xcodebuild -scheme $myscheme -workspace $myworkspace  clean\n\n    # 编译\n    xcodebuild -scheme $myscheme -workspace $myworkspace -configuration Debug | xcpretty -r json-compilation-database -o compile_commands.json\n\n    # 生成报表\n    oclint-json-compilation-database  \\\n    -e Pods --  \\\n    -report-type xcode\n    -rc LONG_LINE=200 \\\n    -disable-rule ShortVariableName \\\n    -disable-rule ObjCAssignIvarOutsideAccessors \\\n    -disable-rule AssignIvarOutsideAccessors \\\n    -max-priority-1=100000 \\\n    -max-priority-2=100000 \\\n    -max-priority-3=100000\n    # 删除文件\n    rm -rf compile_commands.json\n}\n\noclintForProject\n";
+			shellScript = "#!/bin/bash\n./oclint-Xcode.sh\n";
 		};
 		9710E33C73555DFC825CB762 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

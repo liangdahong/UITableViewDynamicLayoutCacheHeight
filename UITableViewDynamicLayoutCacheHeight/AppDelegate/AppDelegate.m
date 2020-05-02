@@ -43,6 +43,9 @@
     vc.dataArray = self.dataArray;
     UINavigationController *nav   = [[UINavigationController alloc] initWithRootViewController:vc];
     nav.navigationBar.translucent = NO;
+
+
+    
     nav.navigationBar.hidden      = NO;
     self.window.rootViewController = nav;
 
@@ -50,7 +53,11 @@
     label.frame = CGRectMake(10, 20, 60, 20);
     [self.window addSubview:label];
 
-    return YES;
+    if (self) {
+        return arc4random_uniform(1);
+    } else {
+        return YES;
+    }
 }
 
 #pragma mark - 构造数据

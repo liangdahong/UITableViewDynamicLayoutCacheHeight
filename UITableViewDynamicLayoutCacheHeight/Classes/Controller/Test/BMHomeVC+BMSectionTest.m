@@ -14,7 +14,7 @@
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"插入 section " message:nil preferredStyle:UIAlertControllerStyleAlert];
     [alertVC addAction:[UIAlertAction actionWithTitle:@"随机取一组插入位置 section = 0" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         BMGroupModel *obj = self.dataArray[(NSUInteger)arc4random_uniform((uint32_t)self.dataArray.count)];
-        [self.dataArray insertObject:obj atIndex:0];
+        [self.dataArray insertObject:[obj groupModelWithCopy] atIndex:0];
         [self.tableView insertSections:[NSMutableIndexSet indexSetWithIndex:0] withRowAnimation:(UITableViewRowAnimationAutomatic)];
     }]];
     [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {

@@ -264,7 +264,7 @@
             [self.footerVerticalArray insertObject:kBMTableViewDynamicLayoutCacheHeightOBJDefaultHeight atIndex:section];
             [self.footerHorizontalArray insertObject:kBMTableViewDynamicLayoutCacheHeightOBJDefaultHeight atIndex:section];
         }];
-        [self _changedLogCache];
+        [self _changedCacheLog];
     }
     [self tableView_dynamicLayout_insertSections:sections withRowAnimation:animation];
 }
@@ -279,7 +279,7 @@
             [self.footerVerticalArray removeObjectAtIndex:section];
             [self.footerHorizontalArray removeObjectAtIndex:section];
         }];
-        [self _changedLogCache];
+        [self _changedCacheLog];
     }
     [self tableView_dynamicLayout_deleteSections:sections withRowAnimation:animation];
 }
@@ -301,7 +301,7 @@
             self.footerVerticalArray[section] = kBMTableViewDynamicLayoutCacheHeightOBJDefaultHeight;
             self.footerHorizontalArray[section] = kBMTableViewDynamicLayoutCacheHeightOBJDefaultHeight;
         }];
-        [self _changedLogCache];
+        [self _changedCacheLog];
     }
     [self tableView_dynamicLayout_reloadSections:sections withRowAnimation:animation];
 }
@@ -331,7 +331,7 @@
         [self.footerHorizontalArray removeObjectAtIndex:section];
         [self.footerHorizontalArray insertObject:temp6 atIndex:newSection];
 
-        [self _changedLogCache];
+        [self _changedCacheLog];
     }
     [self tableView_dynamicLayout_moveSection:section toSection:newSection];
 }
@@ -361,7 +361,7 @@
             }
             [self.horizontalArray[obj.section] insertObject:@(-1) atIndex:obj.row];
         }];
-        [self _changedLogCache];
+        [self _changedCacheLog];
     }
     [self tableView_dynamicLayout_insertRowsAtIndexPaths:indexPaths withRowAnimation:animation];
 }
@@ -379,7 +379,7 @@
             [self.verticalArray[obj.section] removeObjectAtIndex:obj.row];
             [self.horizontalArray[obj.section] removeObjectAtIndex:obj.row];
         }];
-        [self _changedLogCache];
+        [self _changedCacheLog];
     }
     [self tableView_dynamicLayout_deleteRowsAtIndexPaths:indexPaths withRowAnimation:animation];
 }
@@ -390,7 +390,7 @@
             self.verticalArray[obj.section][obj.row] = @(-1);
             self.horizontalArray[obj.section][obj.row] = @(-1);
         }];
-        [self _changedLogCache];
+        [self _changedCacheLog];
     }
     [self tableView_dynamicLayout_reloadRowsAtIndexPaths:indexPaths withRowAnimation:animation];
 }
@@ -416,7 +416,7 @@
             [self.horizontalArray[indexPath.section] removeObjectAtIndex:indexPath.row];
             [self.horizontalArray[newIndexPath.section] insertObject:obj1 atIndex:newIndexPath.row];
         }
-        [self _changedLogCache];
+        [self _changedCacheLog];
     }
     [self tableView_dynamicLayout_moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
 }
@@ -497,7 +497,7 @@
 #endif
 }
 
-- (void)_changedLogCache {
+- (void)_changedCacheLog {
 #ifdef DEBUG
     if (UITableViewDynamicLayoutCacheHeight.isDebugLog) {
         [self.verticalArray enumerateObjectsUsingBlock:^(NSMutableArray<NSNumber *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {

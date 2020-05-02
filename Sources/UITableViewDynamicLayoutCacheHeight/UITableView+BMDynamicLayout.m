@@ -211,10 +211,17 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
         CGFloat cellHeight = [self _heightWithCellClass:clas configuration:configuration];
         // save cache height
         self.heightArray[indexPath.section][indexPath.row] = @(cellHeight);
-        BM_UITableView_DynamicLayout_LOG(@"BMLog:⚠️计算高度⚠️ Cell: %@ save height { (indexPath: %@ %@ ) (height: %@) }", NSStringFromClass(clas), @(indexPath.section), @(indexPath.row), @(cellHeight));
+        BM_UITableView_DynamicLayout_LOG(@"BMLog:⚠️计算高度⚠️ Cell: %@ save height { (indexPath: %@ %@ ) (height: %@) }",
+                                         NSStringFromClass(clas),
+                                         @(indexPath.section),
+                                         @(indexPath.row),
+                                         @(cellHeight));
         return cellHeight;
     }
-    BM_UITableView_DynamicLayout_LOG(@"BMLog:✅✅读缓存✅✅ Cell: %@ get cache height { (indexPath: %@ %@ ) (height: %@) }", NSStringFromClass(clas), @(indexPath.section), @(indexPath.row), number);
+    BM_UITableView_DynamicLayout_LOG(@"BMLog:✅✅读缓存✅✅ Cell: %@ get cache height { (indexPath: %@ %@ ) (height: %@) }",
+                                     NSStringFromClass(clas),
+                                     @(indexPath.section),
+                                     @(indexPath.row), number);
     return number.doubleValue;
 }
 

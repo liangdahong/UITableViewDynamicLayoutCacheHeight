@@ -24,4 +24,12 @@
 
 @implementation BMGroupModel
 
+- (instancetype)groupModelWithCopy {
+    BMGroupModel *model = BMGroupModel.new;
+    model.modelArray = [self.modelArray.copy mutableCopy];
+    model.headerTitle = self.headerTitle.copy;
+    model.footerTitle = self.footerTitle.copy;
+    return model;
+}
+
 @end

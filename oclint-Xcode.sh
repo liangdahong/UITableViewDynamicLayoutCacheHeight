@@ -59,8 +59,9 @@ function oclintForProject () {
 
     # 生成报表
     oclint-json-compilation-database  \
-    -e Pods --  \
-    -report-type xcode
+    -e Pods   \
+    --\
+    -report-type xcode \
     -rc LONG_LINE=200 \
     -disable-rule ShortVariableName \
     -disable-rule ObjCAssignIvarOutsideAccessors \
@@ -68,8 +69,48 @@ function oclintForProject () {
     -max-priority-1=100000 \
     -max-priority-2=100000 \
     -max-priority-3=100000
+
+#    echo "oclint-json-compilation-database"
+#    oclint-json-compilation-database \
+#    -e Pods \
+#    -e Pods \
+#    -e Lib  \
+#    -e AppDelegate \
+#    -- \
+#    -stats \
+#    -verbose \
+#    -report-type xcode \
+#    -max-priority-1=99999 -max-priority-2=99999 -max-priority-3=99999 \
+#    -rc LONG_LINE=200 \
+#    -rc LONG_METHOD=100 \
+#    -rc LONG_VARIABLE_NAME=40 \
+#    -disable-rule=BrokenOddnessCheck \
+#    -disable-rule=VerifyProhibitedCall \
+#    -disable-rule=VerifyProtectedMethod \
+#    -disable-rule=SubclassMustImplement \
+#    -disable-rule=BaseClassDestructorShouldBeVirtualOrProtected \
+#    -disable-rule=DestructorOfVirtualClass \
+#    -disable-rule=ParameterReassignment \
+#    -disable-rule=AvoidDefaultArgumentsOnVirtualMethods \
+#    -disable-rule=AvoidPrivateStaticMembers \
+#    -disable-rule=TooManyParameters
+
     # 删除文件
     rm -rf compile_commands.json
+# 【 -rc LONG_LINE=200 】 Xcode 中的最长编码限制线条
+#    When the number of characters for one line of code is very high, it largely harms the readability. Break long lines of code into multiple lines.
+#    简单解释：单行代码太长，影响可读性。
+# https://www.jianshu.com/p/e905b5448b2c
+
+# https://oclint-docs.readthedocs.io/en/stable/rules/size.html
+# NCSS_METHOD     https://oclint-docs.readthedocs.io/en/stable/rules/size.html
+# 方法中的代码行数
+# TOO_MANY_PARAMETERS
+# 方法参数
 }
 
 oclintForProject
+
+
+
+

@@ -20,7 +20,7 @@
         BMModel *obj1 = obj.modelArray[(NSUInteger)arc4random_uniform((uint32_t)obj.modelArray.count)];
         NSArray <NSIndexPath *> *arr = [self.tableView indexPathsForVisibleRows];
         if (arr.count) {
-            [self.dataArray[arr.firstObject.section].modelArray insertObject:obj1 atIndex:arr.firstObject.row];
+            [self.dataArray[arr.firstObject.section].modelArray insertObject:[obj1 modelWithCopy] atIndex:arr.firstObject.row];
             [self.tableView insertRowsAtIndexPaths:@[
                 [NSIndexPath indexPathForRow:arr.firstObject.row inSection:arr.firstObject.section]
             ] withRowAnimation:(UITableViewRowAnimationAutomatic)];
@@ -31,7 +31,7 @@
         BMModel *obj1 = obj.modelArray[(NSUInteger)arc4random_uniform((uint32_t)obj.modelArray.count)];
         NSArray <NSIndexPath *> *arr = [self.tableView indexPathsForVisibleRows];
         if (arr.count) {
-            [self.dataArray[arr.lastObject.section].modelArray insertObject:obj1 atIndex:arr.lastObject.row];
+            [self.dataArray[arr.lastObject.section].modelArray insertObject:[obj1 modelWithCopy] atIndex:arr.lastObject.row];
             [self.tableView insertRowsAtIndexPaths:@[
                 [NSIndexPath indexPathForRow:arr.lastObject.row inSection:arr.lastObject.section]
             ] withRowAnimation:(UITableViewRowAnimationAutomatic)];
@@ -58,6 +58,24 @@
             [self.tableView deleteRowsAtIndexPaths:@[arr.lastObject] withRowAnimation:(UITableViewRowAnimationAutomatic)];
         }
     }]];
+
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"删除当前屏幕显示的全部 cell" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSArray <NSIndexPath *> *arr = [self.tableView indexPathsForVisibleRows];
+        NSMutableArray *tempIndexPaths = arr.mutableCopy;
+        [tempIndexPaths sortUsingComparator:^NSComparisonResult(NSIndexPath *  _Nonnull obj1, NSIndexPath *  _Nonnull obj2) {
+            if (obj1.section == obj2.section) {
+                return obj1.row < obj2.row;
+            }
+            return obj1.section < obj2.section;
+        }];
+        [tempIndexPaths enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [self.dataArray[obj.section].modelArray removeObjectAtIndex:obj.row];
+        }];
+        if (arr.count) {
+            [self.tableView deleteRowsAtIndexPaths:arr withRowAnimation:(UITableViewRowAnimationAutomatic)];
+        }
+    }]];
+    
     [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
     }]];
     [self presentViewController:alertVC animated:YES completion:nil];
@@ -65,41 +83,35 @@
 
 - (void)reloadIndexPaths {
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"reloadIndexPaths " message:nil preferredStyle:UIAlertControllerStyleAlert];
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"随机取 IndexPath 刷新 当前屏幕的第一个 cell" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        BMGroupModel *obj = self.dataArray[(NSUInteger)arc4random_uniform((uint32_t)self.dataArray.count)];
-        BMModel *obj1 = obj.modelArray[(NSUInteger)arc4random_uniform((uint32_t)obj.modelArray.count)];
-        NSArray <NSIndexPath *> *arr = [self.tableView indexPathsForVisibleRows];
-        if (arr.count) {
-            self.dataArray[arr.firstObject.section].modelArray[arr.firstObject.row] = obj1;
-            [self.tableView reloadRowsAtIndexPaths:@[arr.firstObject] withRowAnimation:(UITableViewRowAnimationAutomatic)];
-        }
-    }]];
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"随机取 IndexPath 刷新 当前屏幕的最后一个 cell" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        BMGroupModel *obj = self.dataArray[(NSUInteger)arc4random_uniform((uint32_t)self.dataArray.count)];
-        BMModel *obj1 = obj.modelArray[(NSUInteger)arc4random_uniform((uint32_t)obj.modelArray.count)];
-        NSArray <NSIndexPath *> *arr = [self.tableView indexPathsForVisibleRows];
-        if (arr.count) {
-            self.dataArray[arr.lastObject.section].modelArray[arr.lastObject.row] = obj1;
-            [self.tableView reloadRowsAtIndexPaths:@[arr.lastObject] withRowAnimation:(UITableViewRowAnimationAutomatic)];
-        }
-    }]];
 
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"随机取 IndexPath 刷新 当前屏幕的第一个 和 最后一个 cell" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"刷新当前屏幕的第一个 cell" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         BMGroupModel *obj = self.dataArray[(NSUInteger)arc4random_uniform((uint32_t)self.dataArray.count)];
         BMModel *obj1 = obj.modelArray[(NSUInteger)arc4random_uniform((uint32_t)obj.modelArray.count)];
         NSArray <NSIndexPath *> *arr = [self.tableView indexPathsForVisibleRows];
         if (arr.count > 1) {
-            self.dataArray[arr.lastObject.section].modelArray[arr.lastObject.row] = obj1;
-            [self.tableView reloadRowsAtIndexPaths:@[arr.lastObject,arr.firstObject] withRowAnimation:(UITableViewRowAnimationAutomatic)];
+            self.dataArray[arr.firstObject.section].modelArray[arr.firstObject.row] = [obj1 modelWithCopy];
+            [self.tableView reloadRowsAtIndexPaths:@[arr.firstObject] withRowAnimation:(UITableViewRowAnimationAutomatic)];
         }
     }]];
 
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"随机取 IndexPath 刷新 当前屏幕的全部 cell" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"刷新当前屏幕的最后一个 cell" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         BMGroupModel *obj = self.dataArray[(NSUInteger)arc4random_uniform((uint32_t)self.dataArray.count)];
         BMModel *obj1 = obj.modelArray[(NSUInteger)arc4random_uniform((uint32_t)obj.modelArray.count)];
         NSArray <NSIndexPath *> *arr = [self.tableView indexPathsForVisibleRows];
+        if (arr.count > 1) {
+            self.dataArray[arr.lastObject.section].modelArray[arr.lastObject.row] = [obj1 modelWithCopy];
+            [self.tableView reloadRowsAtIndexPaths:@[arr.lastObject] withRowAnimation:(UITableViewRowAnimationAutomatic)];
+        }
+    }]];
+
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"刷新当前屏幕的全部 cell" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSArray <NSIndexPath *> *arr = [self.tableView indexPathsForVisibleRows];
         if (arr.count) {
-            self.dataArray[arr.lastObject.section].modelArray[arr.lastObject.row] = obj1;
+            [arr enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                BMGroupModel *groupModel = self.dataArray[(NSUInteger)arc4random_uniform((uint32_t)self.dataArray.count)];
+                BMModel *model = groupModel.modelArray[(NSUInteger)arc4random_uniform((uint32_t)groupModel.modelArray.count)];
+                self.dataArray[obj.section].modelArray[obj.row] = [model modelWithCopy];
+            }];
             [self.tableView reloadRowsAtIndexPaths:arr withRowAnimation:(UITableViewRowAnimationAutomatic)];
         }
     }]];
@@ -110,9 +122,8 @@
 }
 
 - (void)moveIndexPaths {
-    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"moveIndexPaths " message:nil preferredStyle:UIAlertControllerStyleAlert];
-
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"随机取 IndexPath 刷新 当前屏幕的第一个 cell" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"移动" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"屏幕第一个 Cell 移动到屏幕最后的位置" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         NSArray <NSIndexPath *> *arr = [self.tableView indexPathsForVisibleRows];
         if (arr.count > 1) {
             NSIndexPath *index1 = arr.firstObject;
