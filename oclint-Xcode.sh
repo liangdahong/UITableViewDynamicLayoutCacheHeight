@@ -110,7 +110,3 @@ function oclintForProject () {
 }
 
 oclintForProject
-
-
-
-
