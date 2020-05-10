@@ -61,7 +61,7 @@ pod install
 
 ## 联系
 - 欢迎 [issues](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight/issues) 和 [PR](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight/pulls)
-- 也可以加微信 `liangdahong2014` 交流和学习
+- 也可以添加微信 <img width="20%" src="./images/wx.jpg"/>  交流和学习
 
 ## License    
 [UITableViewDynamicLayoutCacheHeight](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight) is released under the [MIT license](LICENSE). See LICENSE for details.
