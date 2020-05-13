@@ -32,7 +32,6 @@ typedef NS_ENUM(NSInteger, BMHeaderFooterViewDynamicLayoutType) {
 typedef void(^BMConfigurationCellBlock)(__kindof UITableViewCell *cell);
 typedef void(^BMConfigurationHeaderFooterViewBlock)(__kindof UITableViewHeaderFooterView *headerFooterView);
 
-IB_DESIGNABLE
 @interface UITableView (BMDynamicLayout)
 
 #pragma mark - cell

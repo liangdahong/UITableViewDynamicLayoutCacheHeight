@@ -22,7 +22,6 @@
 
 #import <UIKit/UIKit.h>
 
-IB_DESIGNABLE
 @interface UITableViewHeaderFooterView (BMDynamicLayout)
 
 /// 如果你的 HeaderFooterView 中用来确定 HeaderFooterView 所需高度的 View 是唯一的,

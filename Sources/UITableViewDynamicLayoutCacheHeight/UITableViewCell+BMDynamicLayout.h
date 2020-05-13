@@ -22,7 +22,6 @@
 
 #import <UIKit/UIKit.h>
 
-IB_DESIGNABLE
 @interface UITableViewCell (BMDynamicLayout)
 
 /// 如果你的 Cell 中用来确定 Cell 所需高度的 View 是唯一的,
