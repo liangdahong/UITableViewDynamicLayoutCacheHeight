@@ -1,3 +1,0 @@
-Build settings from command line:
-    TOOLCHAINS = com.apple.dt.toolchain.XcodeDefault
-
