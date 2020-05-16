@@ -30,7 +30,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *headerTitle; ///< headerTitle
 @property (nonatomic, strong) NSMutableArray <BMModel *> *modelArray; ///< modelArryy
 @property (nonatomic, copy) NSString *footerTitle; ///< footerTitle
-
 - (instancetype)groupModelWithCopy;
 
 @end

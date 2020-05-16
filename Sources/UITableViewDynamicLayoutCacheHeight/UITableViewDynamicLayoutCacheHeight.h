@@ -21,14 +21,14 @@
 //    SOFTWARE.
 
 ////////////////
-///   v4.1.9
+///   v4.2.0
 ////////////////
 
 #ifndef UITableViewDynamicLayoutCacheHeight_h
 #define UITableViewDynamicLayoutCacheHeight_h
 
 #ifdef DEBUG
-#define BM_UITableView_DynamicLayout_LOG(...) if (UITableViewDynamicLayoutCacheHeight.isDebugLog) {NSLog(__VA_ARGS__);}
+#define BM_UITableView_DynamicLayout_LOG(...) if (UITableViewDynamicLayoutCacheHeight.isOpenDebugLog) {NSLog(__VA_ARGS__);}
 #else
     #define BM_UITableView_DynamicLayout_LOG(...)
 #endif
@@ -39,8 +39,8 @@
 
 @interface UITableViewDynamicLayoutCacheHeight : NSObject
 
-/// 是否开启 debug Log，默认 YES 开启。
-@property (class, nonatomic, assign, getter=isDebugLog) BOOL debugLog;
+/// 是否开启 debug Log，默认 NO 关闭。
+@property (class, nonatomic, assign, getter=isOpenDebugLog) BOOL openDebugLog;
 
 @end
 

@@ -482,7 +482,7 @@
 
 - (void)_initLogCache {
 #ifdef DEBUG
-    if (UITableViewDynamicLayoutCacheHeight.isDebugLog) {
+    if (UITableViewDynamicLayoutCacheHeight.isOpenDebugLog) {
         [self.verticalArray enumerateObjectsUsingBlock:^(NSMutableArray<NSNumber *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             BM_UITableView_DynamicLayout_LOG(@"初始化: 初始化后 cell 竖屏：%@", @(obj.count));
         }];
@@ -499,7 +499,7 @@
 
 - (void)_changedCacheLog {
 #ifdef DEBUG
-    if (UITableViewDynamicLayoutCacheHeight.isDebugLog) {
+    if (UITableViewDynamicLayoutCacheHeight.isOpenDebugLog) {
         [self.verticalArray enumerateObjectsUsingBlock:^(NSMutableArray<NSNumber *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             BM_UITableView_DynamicLayout_LOG(@"修改了数据时: 初始化后 cell 竖屏：%@", @(obj.count));
         }];

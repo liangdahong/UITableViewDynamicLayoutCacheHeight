@@ -30,7 +30,6 @@
 @property (copy, nonatomic) NSString *desc;
 @property (copy, nonatomic) NSString *icon;
 @property (nonatomic, assign) CGSize size;
-
 - (instancetype)modelWithCopy;
 
 @end

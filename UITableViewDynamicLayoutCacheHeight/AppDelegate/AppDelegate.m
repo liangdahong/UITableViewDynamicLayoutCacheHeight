@@ -28,39 +28,37 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // init UIWindow
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 
-//     UITableViewDynamicLayoutCacheHeight.debugLog = NO;
+    // 配置 UITableViewDynamicLayoutCacheHeight log
+    UITableViewDynamicLayoutCacheHeight.openDebugLog = YES;
 
     // 防止 UITableView 抖动
     UITableView.appearance.estimatedRowHeight = 0.0;
     UITableView.appearance.estimatedSectionHeaderHeight = 0.0;
     UITableView.appearance.estimatedSectionFooterHeight = 0.0;
-    
+
+    // 设置 rootViewController
     BMHomeVC *vc = BMHomeVC.new;
     vc.dataArray = self.dataArray;
     UINavigationController *nav   = [[UINavigationController alloc] initWithRootViewController:vc];
     nav.navigationBar.translucent = NO;
-
-
-    
     nav.navigationBar.hidden      = NO;
     self.window.rootViewController = nav;
 
+    // YYFPSLabel
     YYFPSLabel *label = [YYFPSLabel new];
     label.frame = CGRectMake(10, 20, 60, 20);
     [self.window addSubview:label];
 
-    if (self) {
-        return arc4random_uniform(1);
-    } else {
-        return YES;
-    }
+    return YES;
 }
 
 #pragma mark - 构造数据
+
 - (NSMutableArray<BMGroupModel *> *)dataArray {
     NSMutableArray<BMGroupModel *> * _dataArray = [@[] mutableCopy];
     int arc = arc4random_uniform(10)+4;

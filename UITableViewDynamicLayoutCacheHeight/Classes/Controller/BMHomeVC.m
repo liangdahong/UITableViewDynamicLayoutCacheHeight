@@ -32,7 +32,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"UITableViewDynamicLayoutCacheHeight";
+    self.title = @"CellCacheHeight";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"点我测试" style:(UIBarButtonItemStylePlain) target:self action:@selector(rightItemDidClick)];
 }
 
@@ -54,6 +54,8 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [tableView bm_heightWithCellClass:BMCell.class cacheByIndexPath:indexPath configuration:^(__kindof BMCell *cell) {
+        // 配置 Cell
+        // 同 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 一样
         cell.model = self.dataArray[indexPath.section].modelArray[indexPath.row];
     }];
 }
@@ -72,6 +74,8 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return [tableView bm_heightWithHeaderFooterViewClass:BMHeaderView.class type:(BMHeaderFooterViewDynamicLayoutTypeHeader) cacheBySection:section configuration:^(__kindof BMHeaderView * _Nonnull headerFooterView) {
+        // 配置 headerView
+        // 同 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
         headerFooterView.titleLabel.text = self.dataArray[section].headerTitle;
     }];
 }
@@ -84,6 +88,8 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return [tableView bm_heightWithHeaderFooterViewClass:UIFooterView.class type:(BMHeaderFooterViewDynamicLayoutTypeFooter) cacheBySection:section configuration:^(__kindof UIFooterView * _Nonnull headerFooterView) {
+        // 配置 footerView
+        // 同 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
         headerFooterView.titleLabel.text = self.dataArray[section].footerTitle;
     }];
 }

@@ -75,9 +75,9 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
     CGFloat width = CGRectGetWidth(self.frame);
 
     // 设置 Frame
-    view.frame = CGRectMake(0.0f, 0.0f, width, 0.0f);
+    view.frame = CGRectMake(0.0, 0.0, width, 0.0);
     UITableViewCell *cell = view.subviews.firstObject;
-    cell.frame = CGRectMake(0.0f, 0.0f, width, 0.0f);
+    cell.frame = CGRectMake(0.0, 0.0, width, 0.0);
 
     // 让外面布局 Cell
     !configuration ? : configuration(cell);
@@ -86,7 +86,7 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
     tableViewDynamicLayoutLayoutIfNeeded(view);
 
     // 获取需要的高度
-    __block CGFloat maxY  = 0.0f;
+    __block CGFloat maxY  = 0.0;
     if (cell.bm_maxYViewFixed) {
         if (cell.maxYView) {
             return CGRectGetMaxY(cell.maxYView.frame);
@@ -143,9 +143,9 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
     CGFloat width = CGRectGetWidth(self.frame);
 
     // 设置 Frame
-    view.frame = CGRectMake(0.0f, 0.0f, width, 0.0f);
+    view.frame = CGRectMake(0.0, 0.0, width, 0.0);
     UITableViewHeaderFooterView *headerFooterView = view.subviews.firstObject;
-    headerFooterView.frame = CGRectMake(0.0f, 0.0f, width, 0.0f);
+    headerFooterView.frame = CGRectMake(0.0, 0.0, width, 0.0);
 
     // 让外面布局 UITableViewHeaderFooterView
     !configuration ? : configuration(headerFooterView);
@@ -155,7 +155,7 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
     UIView *contentView = headerFooterView.contentView.subviews.count ? headerFooterView.contentView : headerFooterView;
 
     // 获取需要的高度
-    __block CGFloat maxY  = 0.0f;
+    __block CGFloat maxY  = 0.0;
     if (headerFooterView.bm_maxYViewFixed) {
         if (headerFooterView.maxYView) {
             return CGRectGetMaxY(headerFooterView.maxYView.frame);

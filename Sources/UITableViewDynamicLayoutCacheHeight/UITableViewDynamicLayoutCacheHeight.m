@@ -23,16 +23,16 @@
 #import "UITableViewDynamicLayoutCacheHeight.h"
 #import <objc/runtime.h>
 
-static BOOL isDebugLog = YES;
+static BOOL isOpenDebugLog = NO;
 
 @implementation UITableViewDynamicLayoutCacheHeight
 
-+ (BOOL)isDebugLog {
-    return isDebugLog;
++ (BOOL)isOpenDebugLog {
+    return isOpenDebugLog;
 }
 
-+ (void)setDebugLog:(BOOL)debugLog {
-    isDebugLog = debugLog;
++ (void)setOpenDebugLog:(BOOL)openDebugLog {
+    isOpenDebugLog = openDebugLog;
 }
 
 @end
