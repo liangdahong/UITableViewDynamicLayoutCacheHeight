@@ -27,6 +27,13 @@
 #define kIS_VERTICAL (UIScreen.mainScreen.bounds.size.height > UIScreen.mainScreen.bounds.size.width)
 #define kDefaultHeight @(-1.0)
 
+#ifdef DEBUG
+    #define kChangedCacheLog [self _changedCacheLog];
+#else
+    #define kChangedCacheLog
+#endif
+
+
 @interface UITableView (__BMPrivate__)
 
 @property (nonatomic, strong, readonly) NSMutableDictionary <id<NSCopying>, NSNumber *> *headerVerticalDictionary;
@@ -250,7 +257,7 @@
         [self.footerVerticalArray insertObject:kDefaultHeight atIndex:section];
         [self.footerHorizontalArray insertObject:kDefaultHeight atIndex:section];
     }];
-    [self _changedCacheLog];
+    kChangedCacheLog
     [self tableView_dynamicLayout_insertSections:sections withRowAnimation:animation];
 }
 
@@ -263,7 +270,7 @@
         [self.footerVerticalArray removeObjectAtIndex:section];
         [self.footerHorizontalArray removeObjectAtIndex:section];
     }];
-    [self _changedCacheLog];
+    kChangedCacheLog
     [self tableView_dynamicLayout_deleteSections:sections withRowAnimation:animation];
 }
 
@@ -278,12 +285,12 @@
     }];
 
     [sections enumerateIndexesUsingBlock:^(NSUInteger section, BOOL * _Nonnull stop) {
-        self.headerVerticalArray[section] = kDefaultHeight;
+        self.headerVerticalArray[section]   = kDefaultHeight;
         self.headerHorizontalArray[section] = kDefaultHeight;
-        self.footerVerticalArray[section] = kDefaultHeight;
+        self.footerVerticalArray[section]   = kDefaultHeight;
         self.footerHorizontalArray[section] = kDefaultHeight;
     }];
-    [self _changedCacheLog];
+    kChangedCacheLog
     [self tableView_dynamicLayout_reloadSections:sections withRowAnimation:animation];
 }
 
@@ -310,34 +317,31 @@
     [self.footerHorizontalArray removeObjectAtIndex:section];
     [self.footerHorizontalArray insertObject:temp6 atIndex:newSection];
 
-    [self _changedCacheLog];
+    kChangedCacheLog
     [self tableView_dynamicLayout_moveSection:section toSection:newSection];
 }
 
 - (void)tableView_dynamicLayout_insertRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation {
-    NSMutableArray *tempIndexPaths = indexPaths.mutableCopy;
-    [tempIndexPaths sortUsingComparator:^NSComparisonResult(NSIndexPath *  _Nonnull obj1, NSIndexPath *  _Nonnull obj2) {
-        if (obj1.section == obj2.section) {
-            return obj1.row > obj2.row;
-        }
-        return obj1.section > obj2.section;
-    }];
-    [tempIndexPaths enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx1, BOOL * _Nonnull stop1) {
-        NSMutableArray <NSMutableArray <NSNumber *> *> *arr = self.verticalArray;
-        long i = (obj.section + 1 - arr.count);
-        while (i-- > 0) {
-            [self.verticalArray addObject:@[].mutableCopy];
-        }
-        [self.verticalArray[obj.section] insertObject:kDefaultHeight atIndex:obj.row];
-
-        NSMutableArray <NSMutableArray <NSNumber *> *> *arr1 = self.horizontalArray;
-        long i1 = (obj.section + 1 - arr1.count);
-        while (i1-- > 0) {
-            [self.horizontalArray addObject:@[].mutableCopy];
-        }
-        [self.horizontalArray[obj.section] insertObject:kDefaultHeight atIndex:obj.row];
-    }];
-    [self _changedCacheLog];
+//    NSMutableArray *tempIndexPaths = indexPaths.mutableCopy;
+//    [tempIndexPaths sortUsingComparator:^NSComparisonResult(NSIndexPath *  _Nonnull obj1, NSIndexPath *  _Nonnull obj2) {
+//        if (obj1.section == obj2.section) {
+//            return obj1.row > obj2.row;
+//        }
+//        return obj1.section > obj2.section;
+//    }];
+//    [tempIndexPaths enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx1, BOOL * _Nonnull stop1) {
+//        NSMutableArray <NSMutableArray <NSNumber *> *> *arr = self.verticalArray;
+//        long i = (obj.section + 1 - arr.count);
+//        while (i-- > 0) {
+//            [self.verticalArray insertObject:@[].mutableCopy atIndex:obj.section];
+//            [self.horizontalArray insertObject:@[].mutableCopy atIndex:obj.section];
+//        }
+//        [self.verticalArray[obj.section] insertObject:kDefaultHeight atIndex:obj.row];
+//        [self.horizontalArray[obj.section] insertObject:kDefaultHeight atIndex:obj.row];
+//    }];
+    // 使用 _initCacheArrayWithDataSource 来处理缓存的高度数据
+    [self _initCacheArrayWithDataSource:self.dataSource];
+    kChangedCacheLog
     [self tableView_dynamicLayout_insertRowsAtIndexPaths:indexPaths withRowAnimation:animation];
 }
 
@@ -350,10 +354,10 @@
         return obj1.section < obj2.section;
     }];
     [tempIndexPaths enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [self.verticalArray[obj.section] removeObjectAtIndex:obj.row];
+        [self.verticalArray[obj.section]   removeObjectAtIndex:obj.row];
         [self.horizontalArray[obj.section] removeObjectAtIndex:obj.row];
     }];
-    [self _changedCacheLog];
+    kChangedCacheLog
     [self tableView_dynamicLayout_deleteRowsAtIndexPaths:indexPaths withRowAnimation:animation];
 }
 
@@ -362,31 +366,33 @@
         self.verticalArray[obj.section][obj.row] = kDefaultHeight;
         self.horizontalArray[obj.section][obj.row] = kDefaultHeight;
     }];
-    [self _changedCacheLog];
+    kChangedCacheLog
     [self tableView_dynamicLayout_reloadRowsAtIndexPaths:indexPaths withRowAnimation:animation];
 }
 
 - (void)tableView_dynamicLayout_moveRowAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath {
-    if (indexPath.section == newIndexPath.section) {
-        NSInteger sec = indexPath.section;
-        id obj = self.verticalArray[sec][indexPath.row];
-        [self.verticalArray[sec] removeObjectAtIndex:indexPath.row];
-        [self.verticalArray[sec] insertObject:obj atIndex:newIndexPath.row];
-
-        id obj1 = self.horizontalArray[sec][indexPath.row];
-        [self.horizontalArray[sec] removeObjectAtIndex:indexPath.row];
-        [self.horizontalArray[sec] insertObject:obj1 atIndex:newIndexPath.row];
-
-    } else {
-        id obj = self.verticalArray[indexPath.section][indexPath.row];
-        [self.verticalArray[indexPath.section] removeObjectAtIndex:indexPath.row];
-        [self.verticalArray[newIndexPath.section] insertObject:obj atIndex:newIndexPath.row];
-
-        id obj1 = self.horizontalArray[indexPath.section][indexPath.row];
-        [self.horizontalArray[indexPath.section] removeObjectAtIndex:indexPath.row];
-        [self.horizontalArray[newIndexPath.section] insertObject:obj1 atIndex:newIndexPath.row];
-    }
-    [self _changedCacheLog];
+//    if (indexPath.section == newIndexPath.section) {
+//        NSInteger sec = indexPath.section;
+//        id obj = self.verticalArray[sec][indexPath.row];
+//        [self.verticalArray[sec] removeObjectAtIndex:indexPath.row];
+//        [self.verticalArray[sec] insertObject:obj atIndex:newIndexPath.row];
+//
+//        id obj1 = self.horizontalArray[sec][indexPath.row];
+//        [self.horizontalArray[sec] removeObjectAtIndex:indexPath.row];
+//        [self.horizontalArray[sec] insertObject:obj1 atIndex:newIndexPath.row];
+//
+//    } else {
+//        id obj = self.verticalArray[indexPath.section][indexPath.row];
+//        [self.verticalArray[indexPath.section] removeObjectAtIndex:indexPath.row];
+//        [self.verticalArray[newIndexPath.section] insertObject:obj atIndex:newIndexPath.row];
+//
+//        id obj1 = self.horizontalArray[indexPath.section][indexPath.row];
+//        [self.horizontalArray[indexPath.section] removeObjectAtIndex:indexPath.row];
+//        [self.horizontalArray[newIndexPath.section] insertObject:obj1 atIndex:newIndexPath.row];
+//    }
+    // 使用 _initCacheArrayWithDataSource 来处理缓存的高度数据
+    [self _initCacheArrayWithDataSource:self.dataSource];
+    kChangedCacheLog
     [self tableView_dynamicLayout_moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
 }
 
