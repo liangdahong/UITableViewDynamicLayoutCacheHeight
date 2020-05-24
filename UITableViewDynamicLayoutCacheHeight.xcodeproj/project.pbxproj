@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0429DAB3247AD23800995106 /* BMHomeVC+BMTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0429DAB2247AD23800995106 /* BMHomeVC+BMTest.m */; };
 		04462C312470346A00591742 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04462C302470346A00591742 /* Assets.xcassets */; };
 		04462C412470346A00591742 /* UITableViewDynamicLayoutCacheHeightTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04462C402470346A00591742 /* UITableViewDynamicLayoutCacheHeightTests.m */; };
 		04462C4C2470346A00591742 /* UITableViewDynamicLayoutCacheHeightUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04462C4B2470346A00591742 /* UITableViewDynamicLayoutCacheHeightUITests.m */; };
@@ -89,6 +90,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0429DAB1247AD23800995106 /* BMHomeVC+BMTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMHomeVC+BMTest.h"; sourceTree = "<group>"; };
+		0429DAB2247AD23800995106 /* BMHomeVC+BMTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BMHomeVC+BMTest.m"; sourceTree = "<group>"; };
 		04462C212470346800591742 /* CellCacheHeight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CellCacheHeight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04462C302470346A00591742 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04462C352470346A00591742 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -285,6 +288,8 @@
 			children = (
 				0487DDDF24703983007F8216 /* IndexPathTest */,
 				0487DDD924703983007F8216 /* SectionTest */,
+				0429DAB1247AD23800995106 /* BMHomeVC+BMTest.h */,
+				0429DAB2247AD23800995106 /* BMHomeVC+BMTest.m */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -677,6 +682,7 @@
 				04462CD42470356E00591742 /* YYFPSLabel.m in Sources */,
 				0487DDE424703983007F8216 /* BMHomeVC+BMIndexPathTest.m in Sources */,
 				04462D022470369100591742 /* UITableViewCell+BMDynamicLayout.m in Sources */,
+				0429DAB3247AD23800995106 /* BMHomeVC+BMTest.m in Sources */,
 				04462CA82470356E00591742 /* BMHomeVC.m in Sources */,
 				04462D002470369100591742 /* UITableView+BMDynamicLayout.m in Sources */,
 				04462CAD2470356E00591742 /* UIFooterView.m in Sources */,

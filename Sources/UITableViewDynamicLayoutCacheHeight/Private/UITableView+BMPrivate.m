@@ -239,24 +239,26 @@
 }
 
 - (void)tableView_dynamicLayout_insertSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation {
-    [sections enumerateIndexesUsingBlock:^(NSUInteger section, BOOL * _Nonnull stop) {
-        // 1、cell array insertObject
-        // 插入数据
-        // 初始化 size 数据
-        NSInteger rowCount = [self.dataSource tableView:self numberOfRowsInSection:section];
-        NSMutableArray *arr = @[].mutableCopy;
-        while (rowCount-- > 0) {
-            [arr addObject:kDefaultHeight];
-        }
-        [self.verticalArray insertObject:arr atIndex:section];
-        [self.horizontalArray insertObject:arr.mutableCopy atIndex:section];
-
-        // 2、header footer array insertObject
-        [self.headerVerticalArray insertObject:kDefaultHeight atIndex:section];
-        [self.headerHorizontalArray insertObject:kDefaultHeight atIndex:section];
-        [self.footerVerticalArray insertObject:kDefaultHeight atIndex:section];
-        [self.footerHorizontalArray insertObject:kDefaultHeight atIndex:section];
-    }];
+//    [sections enumerateIndexesUsingBlock:^(NSUInteger section, BOOL * _Nonnull stop) {
+//        // 1、cell array insertObject
+//        // 插入数据
+//        // 初始化 size 数据
+//        NSInteger rowCount = [self.dataSource tableView:self numberOfRowsInSection:section];
+//        NSMutableArray *arr = @[].mutableCopy;
+//        while (rowCount-- > 0) {
+//            [arr addObject:kDefaultHeight];
+//        }
+//        [self.verticalArray insertObject:arr atIndex:section];
+//        [self.horizontalArray insertObject:arr.mutableCopy atIndex:section];
+//
+//        // 2、header footer array insertObject
+//        [self.headerVerticalArray insertObject:kDefaultHeight atIndex:section];
+//        [self.headerHorizontalArray insertObject:kDefaultHeight atIndex:section];
+//        [self.footerVerticalArray insertObject:kDefaultHeight atIndex:section];
+//        [self.footerHorizontalArray insertObject:kDefaultHeight atIndex:section];
+//    }];
+    // 暂时使用 _initCacheArrayWithDataSource 来处理缓存的高度数据
+    [self _initCacheArrayWithDataSource:self.dataSource];
     kChangedCacheLog
     [self tableView_dynamicLayout_insertSections:sections withRowAnimation:animation];
 }
@@ -339,7 +341,7 @@
 //        [self.verticalArray[obj.section] insertObject:kDefaultHeight atIndex:obj.row];
 //        [self.horizontalArray[obj.section] insertObject:kDefaultHeight atIndex:obj.row];
 //    }];
-    // 使用 _initCacheArrayWithDataSource 来处理缓存的高度数据
+    // 暂时使用 _initCacheArrayWithDataSource 来处理缓存的高度数据
     [self _initCacheArrayWithDataSource:self.dataSource];
     kChangedCacheLog
     [self tableView_dynamicLayout_insertRowsAtIndexPaths:indexPaths withRowAnimation:animation];
@@ -390,7 +392,7 @@
 //        [self.horizontalArray[indexPath.section] removeObjectAtIndex:indexPath.row];
 //        [self.horizontalArray[newIndexPath.section] insertObject:obj1 atIndex:newIndexPath.row];
 //    }
-    // 使用 _initCacheArrayWithDataSource 来处理缓存的高度数据
+    // 暂时使用 _initCacheArrayWithDataSource 来处理缓存的高度数据
     [self _initCacheArrayWithDataSource:self.dataSource];
     kChangedCacheLog
     [self tableView_dynamicLayout_moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
