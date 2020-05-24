@@ -20,10 +20,9 @@
         BMModel *obj1 = obj.modelArray[(NSUInteger)arc4random_uniform((uint32_t)obj.modelArray.count)];
         NSArray <NSIndexPath *> *arr = [self.tableView indexPathsForVisibleRows];
         if (arr.count) {
-            [self.dataArray[arr.firstObject.section].modelArray insertObject:[obj1 modelWithCopy] atIndex:arr.firstObject.row];
-            [self.tableView insertRowsAtIndexPaths:@[
-                [NSIndexPath indexPathForRow:arr.firstObject.row inSection:arr.firstObject.section]
-            ] withRowAnimation:(UITableViewRowAnimationAutomatic)];
+            NSIndexPath *index = arr.firstObject;
+            [self.dataArray[index.section].modelArray insertObject:[obj1 modelWithCopy] atIndex:index.row];
+            [self.tableView insertRowsAtIndexPaths:@[index] withRowAnimation:(UITableViewRowAnimationAutomatic)];
         }
     }]];
     [alertVC addAction:[UIAlertAction actionWithTitle:@"随机取 IndexPath 插入位置 当前屏幕的最一个 cell" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -31,10 +30,9 @@
         BMModel *obj1 = obj.modelArray[(NSUInteger)arc4random_uniform((uint32_t)obj.modelArray.count)];
         NSArray <NSIndexPath *> *arr = [self.tableView indexPathsForVisibleRows];
         if (arr.count) {
-            [self.dataArray[arr.lastObject.section].modelArray insertObject:[obj1 modelWithCopy] atIndex:arr.lastObject.row];
-            [self.tableView insertRowsAtIndexPaths:@[
-                [NSIndexPath indexPathForRow:arr.lastObject.row inSection:arr.lastObject.section]
-            ] withRowAnimation:(UITableViewRowAnimationAutomatic)];
+            NSIndexPath *index = arr.lastObject;
+            [self.dataArray[index.section].modelArray insertObject:[obj1 modelWithCopy] atIndex:index.row];
+            [self.tableView insertRowsAtIndexPaths:@[index] withRowAnimation:(UITableViewRowAnimationAutomatic)];
         }
     }]];
     [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -47,15 +45,19 @@
     [alertVC addAction:[UIAlertAction actionWithTitle:@"删除当前屏幕显示的第一个 cell" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         NSArray <NSIndexPath *> *arr = [self.tableView indexPathsForVisibleRows];
         if (arr.count) {
-            [self.dataArray[arr.firstObject.section].modelArray removeObjectAtIndex:arr.firstObject.row];
-            [self.tableView deleteRowsAtIndexPaths:@[arr.firstObject] withRowAnimation:(UITableViewRowAnimationAutomatic)];
+            NSIndexPath *index = arr.firstObject;
+            [self.dataArray[index.section].modelArray removeObjectAtIndex:index.row];
+            [self.tableView deleteRowsAtIndexPaths:@[index]
+                                  withRowAnimation:(UITableViewRowAnimationAutomatic)];
         }
     }]];
     [alertVC addAction:[UIAlertAction actionWithTitle:@"删除当前屏幕显示的最后一个 cell" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         NSArray <NSIndexPath *> *arr = [self.tableView indexPathsForVisibleRows];
         if (arr.count) {
-            [self.dataArray[arr.lastObject.section].modelArray removeObjectAtIndex:arr.lastObject.row];
-            [self.tableView deleteRowsAtIndexPaths:@[arr.lastObject] withRowAnimation:(UITableViewRowAnimationAutomatic)];
+            NSIndexPath *index = arr.lastObject;
+            [self.dataArray[index.section].modelArray removeObjectAtIndex:index.row];
+            [self.tableView deleteRowsAtIndexPaths:@[index]
+                                  withRowAnimation:(UITableViewRowAnimationAutomatic)];
         }
     }]];
 
@@ -99,8 +101,9 @@
         BMModel *obj1 = obj.modelArray[(NSUInteger)arc4random_uniform((uint32_t)obj.modelArray.count)];
         NSArray <NSIndexPath *> *arr = [self.tableView indexPathsForVisibleRows];
         if (arr.count > 1) {
-            self.dataArray[arr.lastObject.section].modelArray[arr.lastObject.row] = [obj1 modelWithCopy];
-            [self.tableView reloadRowsAtIndexPaths:@[arr.lastObject] withRowAnimation:(UITableViewRowAnimationAutomatic)];
+            NSIndexPath *index = arr.lastObject;
+            self.dataArray[index.section].modelArray[index.row] = [obj1 modelWithCopy];
+            [self.tableView reloadRowsAtIndexPaths:@[index] withRowAnimation:(UITableViewRowAnimationAutomatic)];
         }
     }]];
 

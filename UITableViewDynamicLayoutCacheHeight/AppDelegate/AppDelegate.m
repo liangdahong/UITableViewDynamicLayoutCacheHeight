@@ -53,7 +53,7 @@
     YYFPSLabel *label = [YYFPSLabel new];
     label.frame = CGRectMake(10, 20, 60, 20);
     [self.window addSubview:label];
-
+    
     return YES;
 }
 

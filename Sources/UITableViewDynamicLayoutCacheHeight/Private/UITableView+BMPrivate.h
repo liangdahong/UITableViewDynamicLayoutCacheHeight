@@ -33,9 +33,4 @@
 @property (nonatomic, strong, readonly) NSMutableDictionary <id<NSCopying>, NSNumber *> *footerHeightDictionary;
 @property (nonatomic, strong, readonly) NSMutableArray <NSNumber *> *footerHeightArray;
 
-/// 是否已经初始化过。
-@property (nonatomic, assign, readonly) BOOL isDynamicLayoutInitializationed;
-
-- (void)dynamicLayoutInitialization;
-
 @end

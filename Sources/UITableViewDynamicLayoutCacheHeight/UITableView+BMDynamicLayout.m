@@ -200,10 +200,10 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
 - (CGFloat)bm_heightWithCellClass:(Class)clas
                  cacheByIndexPath:(NSIndexPath *)indexPath
                     configuration:(BMConfigurationCellBlock)configuration {
-    if (__builtin_expect((!self.isDynamicLayoutInitializationed), 0)) {
-        BM_UITableView_DynamicLayout_LOG(@"没有初始化过 %@", NSStringFromSelector(_cmd));
-        [self dynamicLayoutInitialization];
-    }
+    //    if (__builtin_expect((!self.isDynamicLayoutInitializationed), 0)) {
+    //        BM_UITableView_DynamicLayout_LOG(@"没有初始化过 %@", NSStringFromSelector(_cmd));
+    //        [self dynamicLayoutInitialization];
+    //    }
     NSNumber *number = self.heightArray[indexPath.section][indexPath.row];
     if (number.doubleValue < 0.0) {
         // not cache
@@ -255,10 +255,6 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
                                          type:(BMHeaderFooterViewDynamicLayoutType)type
                                cacheBySection:(NSInteger)section
                                 configuration:(BMConfigurationHeaderFooterViewBlock)configuration {
-    if (__builtin_expect((!self.isDynamicLayoutInitializationed), 0)) {
-        BM_UITableView_DynamicLayout_LOG(@"没有初始化过 %@", NSStringFromSelector(_cmd));
-        [self dynamicLayoutInitialization];
-    }
     if (type == BMHeaderFooterViewDynamicLayoutTypeHeader) {
         NSNumber *number = self.headerHeightArray[section];
         if (number.doubleValue >= 0.0) {

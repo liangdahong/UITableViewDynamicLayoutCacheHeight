@@ -34,6 +34,8 @@
     [super viewDidLoad];
     self.title = @"CellCacheHeight";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"点我测试" style:(UIBarButtonItemStylePlain) target:self action:@selector(rightItemDidClick)];
+
+    
 }
 
 #pragma mark - 系统delegate
