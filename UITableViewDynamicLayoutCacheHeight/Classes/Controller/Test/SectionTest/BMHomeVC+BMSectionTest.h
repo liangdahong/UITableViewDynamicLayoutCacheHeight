@@ -8,8 +8,6 @@
 
 #import "BMHomeVC.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface BMHomeVC (BMSectionTest)
 
 - (void)insertSections;
@@ -18,5 +16,3 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)moveSection;
 
 @end
-
-NS_ASSUME_NONNULL_END

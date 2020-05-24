@@ -26,16 +26,62 @@
 #import "BMHeaderView.h"
 #import "UIFooterView.h"
 #import "UITableViewDynamicLayoutCacheHeight.h"
-#import "BMHomeVC+BMTest.h"
+#import "BMHomeVC+BMIndexPathTest.h"
+#import "BMHomeVC+BMSectionTest.h"
 
 @implementation BMHomeVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"CellCacheHeight";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"点我测试" style:(UIBarButtonItemStylePlain) target:self action:@selector(rightItemDidClick)];
+    [self test1];
+}
 
-    
+- (void)test1 {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self insertRowsAtIndexPaths];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self deleteIndexPaths];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self reloadIndexPaths];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [self moveIndexPaths];
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [self reloadData];
+                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                            if (arc4random_uniform(2)) {
+                                [self test1];
+                            } else {
+                                [self test2];
+                            }
+                        });
+                    });
+                });
+            });
+        });
+    });
+}
+
+- (void)test2 {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self insertSections];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self deleteSections];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self reloadSections];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [self moveSection];
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        if (arc4random_uniform(2)) {
+                            [self test1];
+                        } else {
+                            [self test2];
+                        }
+                    });
+                });
+            });
+        });
+    });
 }
 
 #pragma mark - 系统delegate

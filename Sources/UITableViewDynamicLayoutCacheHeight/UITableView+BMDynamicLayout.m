@@ -200,16 +200,12 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
 - (CGFloat)bm_heightWithCellClass:(Class)clas
                  cacheByIndexPath:(NSIndexPath *)indexPath
                     configuration:(BMConfigurationCellBlock)configuration {
-    //    if (__builtin_expect((!self.isDynamicLayoutInitializationed), 0)) {
-    //        BM_UITableView_DynamicLayout_LOG(@"没有初始化过 %@", NSStringFromSelector(_cmd));
-    //        [self dynamicLayoutInitialization];
-    //    }
     NSNumber *number = self.heightArray[indexPath.section][indexPath.row];
     if (number.doubleValue < 0.0) {
-        // not cache
-        // get cache height
+        // 没有缓存
+        // 计算高度
         CGFloat cellHeight = [self _heightWithCellClass:clas configuration:configuration];
-        // save cache height
+        // 缓存高度
         self.heightArray[indexPath.section][indexPath.row] = @(cellHeight);
         BM_UITableView_DynamicLayout_LOG(@"BMLog:⚠️计算高度⚠️ Cell: %@ save height { (indexPath: %@ %@ ) (height: %@) }",
                                          NSStringFromClass(clas),

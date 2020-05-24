@@ -8,8 +8,6 @@
 
 #import "BMHomeVC.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface BMHomeVC (BMIndexPathTest)
 
 - (void)insertRowsAtIndexPaths;
@@ -19,5 +17,3 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)reloadData;
 
 @end
-
-NS_ASSUME_NONNULL_END
