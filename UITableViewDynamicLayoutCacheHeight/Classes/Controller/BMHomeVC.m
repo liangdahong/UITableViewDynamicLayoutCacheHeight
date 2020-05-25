@@ -36,11 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"CellCacheHeight";
-    // 1、reloadData
-//    [self test_reloadData];
-    
-    // 2、insertSections_One_last
-    [self insertSections_One_arc];
+//    [self test1];
 }
 
 #pragma mark - 系统delegate

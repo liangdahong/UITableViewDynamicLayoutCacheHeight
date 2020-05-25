@@ -12,8 +12,10 @@
 #import "AppDelegate.h"
 
 
-#define kBMTest_TableView_top     [self.tableView setContentOffset:CGPointMake(0, 0) animated:YES];
-#define kBMTest_TableView_Bottom  [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentSize.height - self.tableView.bounds.size.height) animated:YES];;
+#define kBMTest_TableView_top     [self.tableView setContentOffset:CGPointMake(0, 0) animated:NO];
+#define kBMTest_TableView_Bottom  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{ \
+    [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentSize.height - self.tableView.bounds.size.height) animated:NO]; \
+});\
 
 @implementation BMHomeVC (BMTest)
 
@@ -157,9 +159,7 @@
     [alertVC addAction:[UIAlertAction actionWithTitle:@"刷新 tableView " style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self reloadData];
     }]];
-
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-    }]];
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil]];
     [self presentViewController:alertVC animated:YES completion:nil];
 }
 
@@ -181,23 +181,37 @@
         self.dataArray = AppDelegate.dataArray;
         [self.tableView reloadData];
     }
-
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self insertRowsAtIndexPaths];
+        kBMTest_TableView_Bottom;
+        kBMTest_TableView_top;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self deleteIndexPaths];
+            kBMTest_TableView_Bottom;
+            kBMTest_TableView_top;
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [self reloadIndexPaths];
+                kBMTest_TableView_Bottom;
+                kBMTest_TableView_top;
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [self moveIndexPaths];
+//                    [self moveIndexPaths];
+                    kBMTest_TableView_Bottom;
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        
+                    });
+                    kBMTest_TableView_top;
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                         [self reloadData];
+                        kBMTest_TableView_Bottom;
+                        kBMTest_TableView_top;
                         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                             if (arc4random_uniform(2)) {
                                 [self test1];
                             } else {
                                 [self test2];
                             }
+                            kBMTest_TableView_Bottom;
+                            kBMTest_TableView_top;
                         });
                     });
                 });
