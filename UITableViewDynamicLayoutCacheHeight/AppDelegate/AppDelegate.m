@@ -39,7 +39,7 @@
     UITableView.appearance.estimatedRowHeight = 0.0;
     UITableView.appearance.estimatedSectionHeaderHeight = 0.0;
     UITableView.appearance.estimatedSectionFooterHeight = 0.0;
-
+    
     // 设置 rootViewController
     BMHomeVC *vc = BMHomeVC.new;
     vc.dataArray = self.class.dataArray;

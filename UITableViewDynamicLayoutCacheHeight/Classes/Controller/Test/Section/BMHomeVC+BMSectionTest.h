@@ -10,9 +10,7 @@
 
 @interface BMHomeVC (BMSectionTest)
 
-- (void)insertSections;
-- (void)deleteSections;
-- (void)reloadSections;
-- (void)moveSection;
+- (void)test_BMReloadRowsAtSections;
+- (void)test_BMDeleteSections;
 
 @end

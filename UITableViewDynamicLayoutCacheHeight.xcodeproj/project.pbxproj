@@ -69,7 +69,7 @@
 		04462D0B2470369D00591742 /* UITableViewCell+BMPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04462D062470369D00591742 /* UITableViewCell+BMPrivate.m */; };
 		04462D0C2470369D00591742 /* UITableViewHeaderFooterView+BMPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04462D092470369D00591742 /* UITableViewHeaderFooterView+BMPrivate.m */; };
 		0487DDE224703983007F8216 /* BMHomeVC+BMSectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487DDDB24703983007F8216 /* BMHomeVC+BMSectionTest.m */; };
-		0487DDE424703983007F8216 /* BMHomeVC+BMIndexPathTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487DDE124703983007F8216 /* BMHomeVC+BMIndexPathTest.m */; };
+		05301122247B9A6300916EFF /* BMHomeVC+IndexPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = 05301121247B9A6300916EFF /* BMHomeVC+IndexPaths.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,8 +176,8 @@
 		04462D092470369D00591742 /* UITableViewHeaderFooterView+BMPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewHeaderFooterView+BMPrivate.m"; sourceTree = "<group>"; };
 		0487DDDA24703983007F8216 /* BMHomeVC+BMSectionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMHomeVC+BMSectionTest.h"; sourceTree = "<group>"; };
 		0487DDDB24703983007F8216 /* BMHomeVC+BMSectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BMHomeVC+BMSectionTest.m"; sourceTree = "<group>"; };
-		0487DDE024703983007F8216 /* BMHomeVC+BMIndexPathTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMHomeVC+BMIndexPathTest.h"; sourceTree = "<group>"; };
-		0487DDE124703983007F8216 /* BMHomeVC+BMIndexPathTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BMHomeVC+BMIndexPathTest.m"; sourceTree = "<group>"; };
+		05301120247B9A6300916EFF /* BMHomeVC+IndexPaths.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BMHomeVC+IndexPaths.h"; sourceTree = "<group>"; };
+		05301121247B9A6300916EFF /* BMHomeVC+IndexPaths.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "BMHomeVC+IndexPaths.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,8 +286,8 @@
 		04462C5B2470356D00591742 /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				0487DDDF24703983007F8216 /* IndexPathTest */,
-				0487DDD924703983007F8216 /* SectionTest */,
+				0487DDD924703983007F8216 /* Section */,
+				0530111F247B9A5000916EFF /* IndexPaths */,
 				0429DAB1247AD23800995106 /* BMHomeVC+BMTest.h */,
 				0429DAB2247AD23800995106 /* BMHomeVC+BMTest.m */,
 			);
@@ -481,22 +481,22 @@
 			path = Private;
 			sourceTree = "<group>";
 		};
-		0487DDD924703983007F8216 /* SectionTest */ = {
+		0487DDD924703983007F8216 /* Section */ = {
 			isa = PBXGroup;
 			children = (
 				0487DDDA24703983007F8216 /* BMHomeVC+BMSectionTest.h */,
 				0487DDDB24703983007F8216 /* BMHomeVC+BMSectionTest.m */,
 			);
-			path = SectionTest;
+			path = Section;
 			sourceTree = "<group>";
 		};
-		0487DDDF24703983007F8216 /* IndexPathTest */ = {
+		0530111F247B9A5000916EFF /* IndexPaths */ = {
 			isa = PBXGroup;
 			children = (
-				0487DDE024703983007F8216 /* BMHomeVC+BMIndexPathTest.h */,
-				0487DDE124703983007F8216 /* BMHomeVC+BMIndexPathTest.m */,
+				05301120247B9A6300916EFF /* BMHomeVC+IndexPaths.h */,
+				05301121247B9A6300916EFF /* BMHomeVC+IndexPaths.m */,
 			);
-			path = IndexPathTest;
+			path = IndexPaths;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -680,12 +680,12 @@
 				04462D012470369100591742 /* UITableViewDynamicLayoutCacheHeight.m in Sources */,
 				04462CD32470356E00591742 /* YYWeakProxy.m in Sources */,
 				04462CD42470356E00591742 /* YYFPSLabel.m in Sources */,
-				0487DDE424703983007F8216 /* BMHomeVC+BMIndexPathTest.m in Sources */,
 				04462D022470369100591742 /* UITableViewCell+BMDynamicLayout.m in Sources */,
 				0429DAB3247AD23800995106 /* BMHomeVC+BMTest.m in Sources */,
 				04462CA82470356E00591742 /* BMHomeVC.m in Sources */,
 				04462D002470369100591742 /* UITableView+BMDynamicLayout.m in Sources */,
 				04462CAD2470356E00591742 /* UIFooterView.m in Sources */,
+				05301122247B9A6300916EFF /* BMHomeVC+IndexPaths.m in Sources */,
 				0487DDE224703983007F8216 /* BMHomeVC+BMSectionTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

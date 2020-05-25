@@ -26,8 +26,6 @@
 #import "BMHeaderView.h"
 #import "UIFooterView.h"
 #import "UITableViewDynamicLayoutCacheHeight.h"
-#import "BMHomeVC+BMIndexPathTest.h"
-#import "BMHomeVC+BMSectionTest.h"
 #import "AppDelegate.h"
 #import "BMHomeVC+BMTest.h"
 
@@ -36,7 +34,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"CellCacheHeight";
-//    [self test1];
+    [self test_while_deleteIndexPaths_reloadRowsAtIndexPaths];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self test_while_deleteSections_reloadRowsAtSections];
+    });
 }
 
 #pragma mark - 系统delegate
