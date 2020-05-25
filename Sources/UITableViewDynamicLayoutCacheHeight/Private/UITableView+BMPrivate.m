@@ -239,37 +239,37 @@
 }
 
 - (void)tableView_dynamicLayout_insertSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation {
-//    [sections enumerateIndexesUsingBlock:^(NSUInteger section, BOOL * _Nonnull stop) {
-//        // 1、cell array insertObject
-//        // 插入数据
-//        // 初始化 size 数据
-//        NSInteger rowCount = [self.dataSource tableView:self numberOfRowsInSection:section];
-//        NSMutableArray *arr = @[].mutableCopy;
-//        while (rowCount-- > 0) {
-//            [arr addObject:kDefaultHeight];
-//        }
-//        [self.verticalArray insertObject:arr atIndex:section];
-//        [self.horizontalArray insertObject:arr.mutableCopy atIndex:section];
-//
-//        // 2、header footer array insertObject
-//        [self.headerVerticalArray insertObject:kDefaultHeight atIndex:section];
-//        [self.headerHorizontalArray insertObject:kDefaultHeight atIndex:section];
-//        [self.footerVerticalArray insertObject:kDefaultHeight atIndex:section];
-//        [self.footerHorizontalArray insertObject:kDefaultHeight atIndex:section];
-//    }];
-    // 暂时使用 _initCacheArrayWithDataSource 来处理缓存的高度数据
-    [self _initCacheArrayWithDataSource:self.dataSource];
+    if (1 == sections.count) {
+        NSInteger rowCount = [self.dataSource tableView:self numberOfRowsInSection:sections.firstIndex];
+        NSMutableArray *arr = @[].mutableCopy;
+        while (rowCount-- > 0) {
+            [arr addObject:kDefaultHeight];
+        }
+        // cell
+        [self.verticalArray   insertObject:arr             atIndex:sections.firstIndex];
+        [self.horizontalArray insertObject:arr.mutableCopy atIndex:sections.firstIndex];
+        // header footer
+        [self.headerVerticalArray   insertObject:kDefaultHeight atIndex:sections.firstIndex];
+        [self.headerHorizontalArray insertObject:kDefaultHeight atIndex:sections.firstIndex];
+        [self.footerVerticalArray   insertObject:kDefaultHeight atIndex:sections.firstIndex];
+        [self.footerHorizontalArray insertObject:kDefaultHeight atIndex:sections.firstIndex];
+    } else {
+        // 如果多于 1 暂时全部初始化。
+        [self _initCacheArrayWithDataSource:self.dataSource];
+    }
     kChangedCacheLog
     [self tableView_dynamicLayout_insertSections:sections withRowAnimation:animation];
 }
 
 - (void)tableView_dynamicLayout_deleteSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation {
     [sections enumerateIndexesWithOptions:(NSEnumerationReverse) usingBlock:^(NSUInteger section, BOOL * _Nonnull stop) {
-        [self.verticalArray removeObjectAtIndex:section];
-        [self.horizontalArray removeObjectAtIndex:section];
-        [self.headerVerticalArray removeObjectAtIndex:section];
+        // cell
+        [self.verticalArray         removeObjectAtIndex:section];
+        [self.horizontalArray       removeObjectAtIndex:section];
+        // header footer
+        [self.headerVerticalArray   removeObjectAtIndex:section];
         [self.headerHorizontalArray removeObjectAtIndex:section];
-        [self.footerVerticalArray removeObjectAtIndex:section];
+        [self.footerVerticalArray   removeObjectAtIndex:section];
         [self.footerHorizontalArray removeObjectAtIndex:section];
     }];
     kChangedCacheLog
@@ -277,16 +277,14 @@
 }
 
 - (void)tableView_dynamicLayout_reloadSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation {
+    // 把相应组的高度缓存设置为无效
     [sections enumerateIndexesUsingBlock:^(NSUInteger section, BOOL * _Nonnull stop) {
+        // cell
         [self.verticalArray[section] enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            self.verticalArray[section][idx] = kDefaultHeight;
-        }];
-        [self.horizontalArray[section] enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            self.verticalArray[section][idx]   = kDefaultHeight;
             self.horizontalArray[section][idx] = kDefaultHeight;
         }];
-    }];
-
-    [sections enumerateIndexesUsingBlock:^(NSUInteger section, BOOL * _Nonnull stop) {
+        // header footer
         self.headerVerticalArray[section]   = kDefaultHeight;
         self.headerHorizontalArray[section] = kDefaultHeight;
         self.footerVerticalArray[section]   = kDefaultHeight;
@@ -297,28 +295,30 @@
 }
 
 - (void)tableView_dynamicLayout_moveSection:(NSInteger)section toSection:(NSInteger)newSection {
-    id temp1 = self.verticalArray[section];
-    [self.verticalArray removeObjectAtIndex:section];
-    [self.verticalArray insertObject:temp1 atIndex:newSection];
-
-    id temp2 = self.horizontalArray[section];
-    [self.horizontalArray removeObjectAtIndex:section];
-    [self.horizontalArray insertObject:temp2 atIndex:newSection];
-
-    id temp3 = self.headerVerticalArray[section];
-    [self.headerVerticalArray removeObjectAtIndex:section];
-    [self.headerVerticalArray insertObject:temp3 atIndex:newSection];
-    id temp4 = self.headerHorizontalArray[section];
-    [self.headerHorizontalArray removeObjectAtIndex:section];
-    [self.headerHorizontalArray insertObject:temp4 atIndex:newSection];
-
-    id temp5 = self.footerVerticalArray[section];
-    [self.footerVerticalArray removeObjectAtIndex:section];
-    [self.footerVerticalArray insertObject:temp5 atIndex:newSection];
-    id temp6 = self.footerHorizontalArray[section];
-    [self.footerHorizontalArray removeObjectAtIndex:section];
-    [self.footerHorizontalArray insertObject:temp6 atIndex:newSection];
-
+//    id temp1 = self.verticalArray[section];
+//    [self.verticalArray removeObjectAtIndex:section];
+//    [self.verticalArray insertObject:temp1 atIndex:newSection];
+//
+//    id temp2 = self.horizontalArray[section];
+//    [self.horizontalArray removeObjectAtIndex:section];
+//    [self.horizontalArray insertObject:temp2 atIndex:newSection];
+//
+//    id temp3 = self.headerVerticalArray[section];
+//    [self.headerVerticalArray removeObjectAtIndex:section];
+//    [self.headerVerticalArray insertObject:temp3 atIndex:newSection];
+//    id temp4 = self.headerHorizontalArray[section];
+//    [self.headerHorizontalArray removeObjectAtIndex:section];
+//    [self.headerHorizontalArray insertObject:temp4 atIndex:newSection];
+//
+//    id temp5 = self.footerVerticalArray[section];
+//    [self.footerVerticalArray removeObjectAtIndex:section];
+//    [self.footerVerticalArray insertObject:temp5 atIndex:newSection];
+//    id temp6 = self.footerHorizontalArray[section];
+//    [self.footerHorizontalArray removeObjectAtIndex:section];
+//    [self.footerHorizontalArray insertObject:temp6 atIndex:newSection];
+    
+    // 暂时全部初始化。
+    [self _initCacheArrayWithDataSource:self.dataSource];
     kChangedCacheLog
     [self tableView_dynamicLayout_moveSection:section toSection:newSection];
 }
@@ -341,7 +341,8 @@
 //        [self.verticalArray[obj.section] insertObject:kDefaultHeight atIndex:obj.row];
 //        [self.horizontalArray[obj.section] insertObject:kDefaultHeight atIndex:obj.row];
 //    }];
-    // 暂时使用 _initCacheArrayWithDataSource 来处理缓存的高度数据
+    
+    // 暂时全部初始化。
     [self _initCacheArrayWithDataSource:self.dataSource];
     kChangedCacheLog
     [self tableView_dynamicLayout_insertRowsAtIndexPaths:indexPaths withRowAnimation:animation];
@@ -365,7 +366,7 @@
 
 - (void)tableView_dynamicLayout_reloadRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation {
     [indexPaths enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        self.verticalArray[obj.section][obj.row] = kDefaultHeight;
+        self.verticalArray[obj.section][obj.row]   = kDefaultHeight;
         self.horizontalArray[obj.section][obj.row] = kDefaultHeight;
     }];
     kChangedCacheLog
@@ -392,7 +393,8 @@
 //        [self.horizontalArray[indexPath.section] removeObjectAtIndex:indexPath.row];
 //        [self.horizontalArray[newIndexPath.section] insertObject:obj1 atIndex:newIndexPath.row];
 //    }
-    // 暂时使用 _initCacheArrayWithDataSource 来处理缓存的高度数据
+    
+    // 暂时全部初始化。
     [self _initCacheArrayWithDataSource:self.dataSource];
     kChangedCacheLog
     [self tableView_dynamicLayout_moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];

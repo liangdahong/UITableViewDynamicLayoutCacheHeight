@@ -29,12 +29,18 @@
 #import "BMHomeVC+BMIndexPathTest.h"
 #import "BMHomeVC+BMSectionTest.h"
 #import "AppDelegate.h"
+#import "BMHomeVC+BMTest.h"
 
 @implementation BMHomeVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"CellCacheHeight";
+    // 1、reloadData
+//    [self test_reloadData];
+    
+    // 2、insertSections_One_last
+    [self insertSections_One_arc];
 }
 
 #pragma mark - 系统delegate

@@ -33,7 +33,7 @@
     [self.window makeKeyAndVisible];
 
     // 配置 UITableViewDynamicLayoutCacheHeight log
-    UITableViewDynamicLayoutCacheHeight.openDebugLog = YES;
+    UITableViewDynamicLayoutCacheHeight.openDebugLog = 0;
 
     // 防止 UITableView 抖动
     UITableView.appearance.estimatedRowHeight = 0.0;
