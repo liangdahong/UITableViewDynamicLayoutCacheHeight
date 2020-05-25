@@ -32,10 +32,9 @@ pod install
 
 ### `Cell` 使用 `Xib` 构建
 
-- 创建你的 Cell 且使用约束布局，`保证 Cell 中的 View 的 MaxY 最大的值即为 Cell 需要的高度`【不要设置底部约束限制，从上向下布局即可，内部会自动去获取 Cell 中 MaxY 最大的 View，返回这个最大 MaxY 为 Cell 的高度 】
+- 创建你的 Cell 且使用约束布局， 保证【 Cell 中的 View 从上向下布局，最底部的 View 的 MaxY 刚好是 Cell 所需高度即可】【不要设置底部约束限制，从上向下布局即可，内部会自动去获取最底部的 View 把它的 MaxY 做为 Cell 所需的高度，然后做各种缓存操作 】
 
 ![](Images/xib-cell-01.png)
-
 
 - 在 UITableView 获取高度的代理方法里实现如下代码，Block 中的代码和 `- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath`  中的代码一致即可。
 
