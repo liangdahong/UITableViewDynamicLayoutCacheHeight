@@ -23,8 +23,6 @@
 #import "UITableView+BMDynamicLayout.h"
 #import <objc/runtime.h>
 #import "UITableView+BMPrivate.h"
-#import "UITableViewCell+BMPrivate.h"
-#import "UITableViewHeaderFooterView+BMPrivate.h"
 #import "UITableViewHeaderFooterView+BMDynamicLayout.h"
 #import "UITableViewCell+BMDynamicLayout.h"
 #import "UITableViewDynamicLayoutCacheHeight.h"
@@ -37,6 +35,48 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
     [view setNeedsLayout];
     [view layoutIfNeeded];
 }
+
+#pragma mark - UITableViewCell BMDynamicLayoutPrivate
+
+@interface UITableViewCell (BMDynamicLayoutPrivate)
+
+@property (nonatomic, strong) UIView *dynamicLayout_maxYView;
+
+@end
+
+@implementation UITableViewCell (BMDynamicLayoutPrivate)
+
+- (UIView *)dynamicLayout_maxYView {
+    return objc_getAssociatedObject(self, @selector(setDynamicLayout_maxYView:));
+}
+
+- (void)setDynamicLayout_maxYView:(UIView *)dynamicLayout_maxYView {
+    objc_setAssociatedObject(self, _cmd, dynamicLayout_maxYView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+@end
+
+#pragma mark - UITableViewHeaderFooterView BMDynamicLayoutPrivate
+
+@interface UITableViewHeaderFooterView (BMDynamicLayoutPrivate)
+
+@property (nonatomic, strong) UIView *dynamicLayout_maxYView;
+
+@end
+
+@implementation UITableViewHeaderFooterView (BMDynamicLayoutPrivate)
+
+- (UIView *)dynamicLayout_maxYView {
+    return objc_getAssociatedObject(self, @selector(setDynamicLayout_maxYView:));
+}
+
+- (void)setDynamicLayout_maxYView:(UIView *)dynamicLayout_maxYView {
+    objc_setAssociatedObject(self, _cmd, dynamicLayout_maxYView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+@end
+
+#pragma mark - UITableView BMDynamicLayout
 
 @implementation UITableView (BMDynamicLayout)
 
@@ -88,8 +128,8 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
     // 获取需要的高度
     __block CGFloat maxY  = 0.0;
     if (cell.bm_maxYViewFixed) {
-        if (cell.maxYView) {
-            return CGRectGetMaxY(cell.maxYView.frame);
+        if (cell.dynamicLayout_maxYView) {
+            return CGRectGetMaxY(cell.dynamicLayout_maxYView.frame);
         }
         __block UIView *maxXView = nil;
         [cell.contentView.subviews enumerateObjectsWithOptions:(NSEnumerationReverse) usingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -99,7 +139,7 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
                 maxXView = obj;
             }
         }];
-        cell.maxYView = maxXView;
+        cell.dynamicLayout_maxYView = maxXView;
         return maxY;
     }
     [cell.contentView.subviews enumerateObjectsWithOptions:(NSEnumerationReverse) usingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -157,8 +197,8 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
     // 获取需要的高度
     __block CGFloat maxY  = 0.0;
     if (headerFooterView.bm_maxYViewFixed) {
-        if (headerFooterView.maxYView) {
-            return CGRectGetMaxY(headerFooterView.maxYView.frame);
+        if (headerFooterView.dynamicLayout_maxYView) {
+            return CGRectGetMaxY(headerFooterView.dynamicLayout_maxYView.frame);
         }
         __block UIView *maxXView = nil;
         [contentView.subviews enumerateObjectsWithOptions:(NSEnumerationReverse) usingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -168,7 +208,7 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
                 maxXView = obj;
             }
         }];
-        headerFooterView.maxYView = maxXView;
+        headerFooterView.dynamicLayout_maxYView = maxXView;
         return maxY;
     }
     [contentView.subviews enumerateObjectsWithOptions:(NSEnumerationReverse) usingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {

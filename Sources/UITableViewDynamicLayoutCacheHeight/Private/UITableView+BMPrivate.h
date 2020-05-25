@@ -22,6 +22,7 @@
 
 #import <UIKit/UIKit.h>
 
+/// 内部使用到的分类。
 @interface UITableView (BMPrivate)
 
 @property (nonatomic, strong, readonly) NSMutableDictionary <id<NSCopying>, NSNumber *> *heightDictionary;

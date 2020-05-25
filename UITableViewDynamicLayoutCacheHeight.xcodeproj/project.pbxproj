@@ -66,8 +66,6 @@
 		04462D022470369100591742 /* UITableViewCell+BMDynamicLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 04462CFB2470369000591742 /* UITableViewCell+BMDynamicLayout.m */; };
 		04462D032470369100591742 /* UITableViewHeaderFooterView+BMDynamicLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 04462CFF2470369100591742 /* UITableViewHeaderFooterView+BMDynamicLayout.m */; };
 		04462D0A2470369D00591742 /* UITableView+BMPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04462D042470369D00591742 /* UITableView+BMPrivate.m */; };
-		04462D0B2470369D00591742 /* UITableViewCell+BMPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04462D062470369D00591742 /* UITableViewCell+BMPrivate.m */; };
-		04462D0C2470369D00591742 /* UITableViewHeaderFooterView+BMPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04462D092470369D00591742 /* UITableViewHeaderFooterView+BMPrivate.m */; };
 		0487DDE224703983007F8216 /* BMHomeVC+BMSectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487DDDB24703983007F8216 /* BMHomeVC+BMSectionTest.m */; };
 		05301122247B9A6300916EFF /* BMHomeVC+IndexPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = 05301121247B9A6300916EFF /* BMHomeVC+IndexPaths.m */; };
 /* End PBXBuildFile section */
@@ -170,10 +168,6 @@
 		04462CFF2470369100591742 /* UITableViewHeaderFooterView+BMDynamicLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewHeaderFooterView+BMDynamicLayout.m"; sourceTree = "<group>"; };
 		04462D042470369D00591742 /* UITableView+BMPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+BMPrivate.m"; sourceTree = "<group>"; };
 		04462D052470369D00591742 /* UITableView+BMPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+BMPrivate.h"; sourceTree = "<group>"; };
-		04462D062470369D00591742 /* UITableViewCell+BMPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+BMPrivate.m"; sourceTree = "<group>"; };
-		04462D072470369D00591742 /* UITableViewHeaderFooterView+BMPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewHeaderFooterView+BMPrivate.h"; sourceTree = "<group>"; };
-		04462D082470369D00591742 /* UITableViewCell+BMPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+BMPrivate.h"; sourceTree = "<group>"; };
-		04462D092470369D00591742 /* UITableViewHeaderFooterView+BMPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewHeaderFooterView+BMPrivate.m"; sourceTree = "<group>"; };
 		0487DDDA24703983007F8216 /* BMHomeVC+BMSectionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMHomeVC+BMSectionTest.h"; sourceTree = "<group>"; };
 		0487DDDB24703983007F8216 /* BMHomeVC+BMSectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BMHomeVC+BMSectionTest.m"; sourceTree = "<group>"; };
 		05301120247B9A6300916EFF /* BMHomeVC+IndexPaths.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BMHomeVC+IndexPaths.h"; sourceTree = "<group>"; };
@@ -473,10 +467,6 @@
 			children = (
 				04462D052470369D00591742 /* UITableView+BMPrivate.h */,
 				04462D042470369D00591742 /* UITableView+BMPrivate.m */,
-				04462D082470369D00591742 /* UITableViewCell+BMPrivate.h */,
-				04462D062470369D00591742 /* UITableViewCell+BMPrivate.m */,
-				04462D072470369D00591742 /* UITableViewHeaderFooterView+BMPrivate.h */,
-				04462D092470369D00591742 /* UITableViewHeaderFooterView+BMPrivate.m */,
 			);
 			path = Private;
 			sourceTree = "<group>";
@@ -670,10 +660,8 @@
 				04462D0A2470369D00591742 /* UITableView+BMPrivate.m in Sources */,
 				04462CD22470356E00591742 /* AppDelegate.m in Sources */,
 				04462CD12470356E00591742 /* main.m in Sources */,
-				04462D0C2470369D00591742 /* UITableViewHeaderFooterView+BMPrivate.m in Sources */,
 				04462CAB2470356E00591742 /* BMGroupModel.m in Sources */,
 				04462CAA2470356E00591742 /* BMModel.m in Sources */,
-				04462D0B2470369D00591742 /* UITableViewCell+BMPrivate.m in Sources */,
 				04462D032470369100591742 /* UITableViewHeaderFooterView+BMDynamicLayout.m in Sources */,
 				04462CAE2470356E00591742 /* BMHeaderView.m in Sources */,
 				04462CB12470356E00591742 /* BMCell.m in Sources */,
