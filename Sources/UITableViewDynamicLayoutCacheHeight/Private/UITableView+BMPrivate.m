@@ -263,9 +263,9 @@
 - (void)tableView_dynamicLayout_reloadSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation {
     [sections enumerateIndexesUsingBlock:^(NSUInteger section, BOOL * _Nonnull stop) {
         // 组的数据可能改变 需要重新获取组的行数
-        NSInteger sec = [self.dataSource tableView:self numberOfRowsInSection:section];
-        NSMutableArray *arr = @[].mutableCopy;
-        while (sec-- > 0) {
+        NSInteger sectionCount = [self.dataSource tableView:self numberOfRowsInSection:section];
+        NSMutableArray *arr = [NSMutableArray arrayWithCapacity:sectionCount];
+        while (sectionCount-- > 0) {
             [arr addObject:kDefaultHeight];
         }
         self.verticalArray[section]   = arr.mutableCopy;
@@ -343,12 +343,12 @@
     // 1-1、竖屏状态下的 cell 高度缓存
     // 1-2、横屏状态下的 cell 高度缓存
     NSInteger tempSections = 0;
-    NSMutableArray *verticalArray = @[].mutableCopy;
-    NSMutableArray *horizontalArray = @[].mutableCopy;
+    NSMutableArray *verticalArray   = [NSMutableArray arrayWithCapacity:sections];
+    NSMutableArray *horizontalArray = [NSMutableArray arrayWithCapacity:sections];
     while (tempSections < sections) {
-        NSInteger row = [dataSource tableView:self numberOfRowsInSection:tempSections];
-        NSMutableArray *arr = @[].mutableCopy;
-        while (row-- > 0) {
+        NSInteger rowCount = [dataSource tableView:self numberOfRowsInSection:tempSections];
+        NSMutableArray *arr = [NSMutableArray arrayWithCapacity:rowCount];
+        while (rowCount-- > 0) {
             [arr addObject:kDefaultHeight];
         }
         [verticalArray addObject:arr];
@@ -369,15 +369,15 @@
     // 2-2、横屏状态下的 HeaderView 高度缓存
     // 2-3、竖屏状态下的 FooterView 高度缓存
     // 2-4、横屏状态下的 FooterView 高度缓存
-    [self.headerVerticalArray removeAllObjects];
+    [self.headerVerticalArray   removeAllObjects];
     [self.headerHorizontalArray removeAllObjects];
-    [self.footerVerticalArray removeAllObjects];
+    [self.footerVerticalArray   removeAllObjects];
     [self.footerHorizontalArray removeAllObjects];
     NSInteger temp = 0;
     while (temp++ < sections) {
-        [self.headerVerticalArray addObject:kDefaultHeight];
+        [self.headerVerticalArray   addObject:kDefaultHeight];
         [self.headerHorizontalArray addObject:kDefaultHeight];
-        [self.footerVerticalArray addObject:kDefaultHeight];
+        [self.footerVerticalArray   addObject:kDefaultHeight];
         [self.footerHorizontalArray addObject:kDefaultHeight];
     }
 }
