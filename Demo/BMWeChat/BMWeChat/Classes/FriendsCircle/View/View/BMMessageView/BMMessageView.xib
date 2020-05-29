@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BMMessageView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crown.png" translatesAutoresizingMaskIntoConstraints="NO" id="kJB-YD-xrt">
+                    <rect key="frame" x="10" y="10" width="40" height="40"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="UAJ-oc-lul"/>
+                        <constraint firstAttribute="width" constant="40" id="h2Z-BE-J81"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="刘德华" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mj9-wf-fxh">
+                    <rect key="frame" x="55" y="10" width="310" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017年11月09日12:14:21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iO3-FU-sfQ">
+                    <rect key="frame" x="55" y="38" width="310" height="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12U-K2-MGk">
+                    <rect key="frame" x="55" y="60" width="310" height="597"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <string key="text">LabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabel</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="12U-K2-MGk" firstAttribute="top" secondItem="kJB-YD-xrt" secondAttribute="bottom" constant="10" id="61U-Hd-ErP"/>
+                <constraint firstItem="mj9-wf-fxh" firstAttribute="leading" secondItem="kJB-YD-xrt" secondAttribute="trailing" constant="5" id="8Sk-Xk-psO"/>
+                <constraint firstAttribute="trailing" secondItem="12U-K2-MGk" secondAttribute="trailing" constant="10" id="Ajr-YO-Kbw"/>
+                <constraint firstItem="12U-K2-MGk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="55" id="B4C-NA-RpD"/>
+                <constraint firstItem="kJB-YD-xrt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="VY8-fz-7fQ"/>
+                <constraint firstAttribute="bottom" secondItem="12U-K2-MGk" secondAttribute="bottom" constant="10" id="Vgm-uW-SXv"/>
+                <constraint firstAttribute="trailing" secondItem="mj9-wf-fxh" secondAttribute="trailing" constant="10" id="aeQ-Lg-XmG"/>
+                <constraint firstItem="iO3-FU-sfQ" firstAttribute="leading" secondItem="kJB-YD-xrt" secondAttribute="trailing" constant="5" id="eJF-3m-Oon"/>
+                <constraint firstAttribute="trailing" secondItem="iO3-FU-sfQ" secondAttribute="trailing" constant="10" id="llh-xS-uyA"/>
+                <constraint firstItem="kJB-YD-xrt" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="o8R-3Q-aE5"/>
+                <constraint firstItem="mj9-wf-fxh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="qT1-iX-y7c"/>
+                <constraint firstItem="iO3-FU-sfQ" firstAttribute="top" secondItem="mj9-wf-fxh" secondAttribute="bottom" constant="10" id="vJE-0z-bHL"/>
+            </constraints>
+            <connections>
+                <outlet property="iconImageView" destination="kJB-YD-xrt" id="bOZ-Sg-mLM"/>
+                <outlet property="label" destination="12U-K2-MGk" id="yav-lD-3ss"/>
+                <outlet property="nameLabel" destination="mj9-wf-fxh" id="gFG-aW-Ek5"/>
+                <outlet property="timeLabel" destination="iO3-FU-sfQ" id="EpM-6q-vKs"/>
+            </connections>
+            <point key="canvasLocation" x="-378.5" y="121.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="crown.png" width="20" height="20"/>
+    </resources>
+</document>

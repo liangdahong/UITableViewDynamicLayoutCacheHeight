@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="507" id="KGk-i7-Jjw" customClass="BMMessage23ImageCell">
+            <rect key="frame" x="0.0" y="0.0" width="454" height="507"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="454" height="506.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_app_version.png" translatesAutoresizingMaskIntoConstraints="NO" id="Mch-09-ogl">
+                        <rect key="frame" x="55" y="110" width="100" height="100"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4oJ-vv-zmG" customClass="BMMessageView">
+                        <rect key="frame" x="0.0" y="0.0" width="454" height="100"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" priority="100" constant="100" id="0pf-Xw-fU2"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_app_version.png" translatesAutoresizingMaskIntoConstraints="NO" id="tEj-iM-UkZ">
+                        <rect key="frame" x="165" y="110" width="100" height="100"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="AF8-vY-Cev"/>
+                            <constraint firstAttribute="width" constant="100" id="ofS-sD-wnB"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_app_version.png" translatesAutoresizingMaskIntoConstraints="NO" id="tZK-G2-Aln">
+                        <rect key="frame" x="271" y="110" width="100" height="100"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0xI-ld-ctL">
+                        <rect key="frame" x="0.0" y="230" width="454" height="0.0"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" id="ApR-fQ-cfU"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4g-I4-bOb" customClass="BMFriendPraiseListLabel">
+                        <rect key="frame" x="55" y="220" width="389" height="0.0"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="tEj-iM-UkZ" firstAttribute="top" secondItem="4oJ-vv-zmG" secondAttribute="bottom" constant="10" id="50N-6G-xJ5"/>
+                    <constraint firstItem="0xI-ld-ctL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6Bv-DX-anJ"/>
+                    <constraint firstItem="tEj-iM-UkZ" firstAttribute="leading" secondItem="Mch-09-ogl" secondAttribute="trailing" constant="10" id="9in-PF-4tq"/>
+                    <constraint firstItem="Mch-09-ogl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="55" id="AwU-gk-NxC"/>
+                    <constraint firstItem="tEj-iM-UkZ" firstAttribute="width" secondItem="Mch-09-ogl" secondAttribute="width" id="EyM-f2-rDT"/>
+                    <constraint firstAttribute="trailing" secondItem="0xI-ld-ctL" secondAttribute="trailing" id="Gtk-S5-IUR"/>
+                    <constraint firstAttribute="trailing" secondItem="4oJ-vv-zmG" secondAttribute="trailing" id="Hth-hn-FQm"/>
+                    <constraint firstItem="tEj-iM-UkZ" firstAttribute="height" secondItem="Mch-09-ogl" secondAttribute="height" id="IBu-Go-DHh"/>
+                    <constraint firstItem="tZK-G2-Aln" firstAttribute="top" secondItem="4oJ-vv-zmG" secondAttribute="bottom" constant="10" id="Iru-27-Zv9"/>
+                    <constraint firstItem="N4g-I4-bOb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="55" id="JUV-dM-iW2"/>
+                    <constraint firstItem="N4g-I4-bOb" firstAttribute="top" secondItem="tEj-iM-UkZ" secondAttribute="bottom" constant="10" id="SWs-Ba-F7m"/>
+                    <constraint firstItem="Mch-09-ogl" firstAttribute="top" secondItem="4oJ-vv-zmG" secondAttribute="bottom" constant="10" id="WMF-fo-3WT"/>
+                    <constraint firstItem="tZK-G2-Aln" firstAttribute="width" secondItem="Mch-09-ogl" secondAttribute="width" id="ap1-hd-mZG"/>
+                    <constraint firstItem="tZK-G2-Aln" firstAttribute="height" secondItem="Mch-09-ogl" secondAttribute="height" id="c9u-km-8yZ"/>
+                    <constraint firstAttribute="trailing" secondItem="N4g-I4-bOb" secondAttribute="trailing" constant="10" id="fV9-FO-gkq"/>
+                    <constraint firstItem="4oJ-vv-zmG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="lhP-nz-TE6"/>
+                    <constraint firstItem="tZK-G2-Aln" firstAttribute="leading" secondItem="tEj-iM-UkZ" secondAttribute="trailing" constant="6" id="oCd-re-Ywj"/>
+                    <constraint firstItem="4oJ-vv-zmG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="uIy-81-5SK"/>
+                    <constraint firstItem="0xI-ld-ctL" firstAttribute="top" secondItem="N4g-I4-bOb" secondAttribute="bottom" constant="10" id="vGb-fr-sSa"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="friendPraiseListLabel" destination="N4g-I4-bOb" id="O2t-nz-ZP8"/>
+                <outlet property="imageView1" destination="Mch-09-ogl" id="mPZ-6k-7SZ"/>
+                <outlet property="imageView2" destination="tEj-iM-UkZ" id="5QE-sJ-YmJ"/>
+                <outlet property="imageView3" destination="tZK-G2-Aln" id="Dip-0R-wZ7"/>
+                <outlet property="messageView" destination="4oJ-vv-zmG" id="DGk-cp-7hp"/>
+            </connections>
+            <point key="canvasLocation" x="43" y="11.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="default_app_version.png" width="200" height="101"/>
+    </resources>
+</document>

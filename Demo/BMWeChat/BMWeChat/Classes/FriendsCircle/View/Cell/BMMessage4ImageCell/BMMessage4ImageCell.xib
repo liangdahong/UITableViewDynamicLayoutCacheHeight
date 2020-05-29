@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="454" id="KGk-i7-Jjw" customClass="BMMessage4ImageCell">
+            <rect key="frame" x="0.0" y="0.0" width="437" height="454"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="437" height="453.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ch4-Ou-nVg" customClass="BMMessageView">
+                        <rect key="frame" x="0.0" y="0.0" width="437" height="100"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" priority="100" constant="100" id="SC8-05-E3t"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_app_version.png" translatesAutoresizingMaskIntoConstraints="NO" id="zGB-23-UKV">
+                        <rect key="frame" x="55" y="110" width="130" height="100"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="p3T-Jh-y5i"/>
+                            <constraint firstAttribute="width" constant="130" id="zHm-KM-E1k"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_app_version.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gbq-7w-cO1">
+                        <rect key="frame" x="195" y="110" width="130" height="100"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="7Um-hd-Pj2"/>
+                            <constraint firstAttribute="width" constant="130" id="BwU-g8-aHd"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_app_version.png" translatesAutoresizingMaskIntoConstraints="NO" id="MGP-V7-KUt">
+                        <rect key="frame" x="55" y="220" width="130" height="100"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="130" id="D6O-eA-km1"/>
+                            <constraint firstAttribute="height" constant="100" id="DgN-GQ-J4D"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_app_version.png" translatesAutoresizingMaskIntoConstraints="NO" id="jZT-10-PhZ">
+                        <rect key="frame" x="195" y="220" width="130" height="100"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="130" id="Zad-ZS-Rpx"/>
+                            <constraint firstAttribute="height" constant="100" id="nTp-dL-LQD"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L0V-tT-VhP" customClass="BMFriendPraiseListLabel">
+                        <rect key="frame" x="55" y="330" width="372" height="0.0"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="btV-Nf-izm">
+                        <rect key="frame" x="0.0" y="340" width="437" height="0.0"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" id="Rhs-It-fRX"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="zGB-23-UKV" firstAttribute="top" secondItem="ch4-Ou-nVg" secondAttribute="bottom" constant="10" id="62a-WI-xNc"/>
+                    <constraint firstItem="zGB-23-UKV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="55" id="9ls-Ug-7HQ"/>
+                    <constraint firstAttribute="trailing" secondItem="ch4-Ou-nVg" secondAttribute="trailing" id="C2r-jB-kYy"/>
+                    <constraint firstAttribute="trailing" secondItem="btV-Nf-izm" secondAttribute="trailing" id="FJP-yG-S0P"/>
+                    <constraint firstItem="Gbq-7w-cO1" firstAttribute="leading" secondItem="zGB-23-UKV" secondAttribute="trailing" constant="10" id="KCo-p4-omf"/>
+                    <constraint firstItem="Gbq-7w-cO1" firstAttribute="top" secondItem="ch4-Ou-nVg" secondAttribute="bottom" constant="10" id="Nsz-5f-zou"/>
+                    <constraint firstItem="jZT-10-PhZ" firstAttribute="top" secondItem="Gbq-7w-cO1" secondAttribute="bottom" constant="10" id="Szj-Uw-Gxk"/>
+                    <constraint firstItem="MGP-V7-KUt" firstAttribute="top" secondItem="zGB-23-UKV" secondAttribute="bottom" constant="10" id="T5d-m2-o6w"/>
+                    <constraint firstItem="ch4-Ou-nVg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="YVy-Z9-01S"/>
+                    <constraint firstItem="L0V-tT-VhP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="55" id="eud-ch-l0W"/>
+                    <constraint firstItem="btV-Nf-izm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="frt-aj-Ebz"/>
+                    <constraint firstAttribute="trailing" secondItem="L0V-tT-VhP" secondAttribute="trailing" constant="10" id="hHf-xL-Z1X"/>
+                    <constraint firstItem="ch4-Ou-nVg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="i5c-1n-SR3"/>
+                    <constraint firstItem="MGP-V7-KUt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="55" id="jsR-Z3-Pic"/>
+                    <constraint firstItem="L0V-tT-VhP" firstAttribute="top" secondItem="jZT-10-PhZ" secondAttribute="bottom" constant="10" id="pC8-i2-ngx"/>
+                    <constraint firstItem="jZT-10-PhZ" firstAttribute="leading" secondItem="MGP-V7-KUt" secondAttribute="trailing" constant="10" id="rnB-xG-oNN"/>
+                    <constraint firstItem="btV-Nf-izm" firstAttribute="top" secondItem="L0V-tT-VhP" secondAttribute="bottom" constant="10" id="zck-hf-9py"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="friendPraiseListLabel" destination="L0V-tT-VhP" id="bsX-lT-4aL"/>
+                <outlet property="imageView1" destination="zGB-23-UKV" id="Emo-Ne-MC4"/>
+                <outlet property="imageView2" destination="Gbq-7w-cO1" id="OZm-4A-MII"/>
+                <outlet property="imageView3" destination="MGP-V7-KUt" id="J4Y-D5-L18"/>
+                <outlet property="imageView4" destination="jZT-10-PhZ" id="v5i-64-DV3"/>
+                <outlet property="messageView" destination="ch4-Ou-nVg" id="xnG-LQ-zts"/>
+            </connections>
+            <point key="canvasLocation" x="-443" y="-179"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="default_app_version.png" width="200" height="101"/>
+    </resources>
+</document>

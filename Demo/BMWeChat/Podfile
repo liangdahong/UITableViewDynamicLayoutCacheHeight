@@ -1,0 +1,12 @@
+target 'BMWeChat' do
+    pod 'SVProgressHUD','2.0.3'
+    pod 'MJRefresh', '3.1.12'
+    pod 'BlocksKit', '2.2.5'
+    pod 'TTTAttributedLabel', '2.0.0'
+    pod 'XXNibBridge', '2.3.1'
+    pod 'Masonry', '1.0.2'
+    pod 'MJExtension', '3.0.13'
+    pod 'SDWebImage', '4.0'
+    pod 'TTTAttributedLabel'
+    pod 'UITableViewDynamicLayoutCacheHeight',    :path => '../../'
+end
