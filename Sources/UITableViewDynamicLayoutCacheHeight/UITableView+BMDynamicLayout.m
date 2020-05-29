@@ -240,6 +240,9 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
 - (CGFloat)bm_heightWithCellClass:(Class)clas
                  cacheByIndexPath:(NSIndexPath *)indexPath
                     configuration:(BMConfigurationCellBlock)configuration {
+    if (__builtin_expect((!self.isDynamicLayoutInitializationed), 0)) {
+        [self bm_dynamicLayoutInitialization];
+    }
     NSNumber *number = self.heightArray[indexPath.section][indexPath.row];
     if (number.doubleValue < 0.0) {
         // 没有缓存

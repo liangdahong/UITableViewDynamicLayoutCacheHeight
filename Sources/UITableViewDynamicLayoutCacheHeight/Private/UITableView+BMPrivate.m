@@ -193,13 +193,21 @@
     return arr;
 }
 
+- (BOOL)isDynamicLayoutInitializationed {
+    return [objc_getAssociatedObject(self, _cmd) boolValue];
+}
+
+- (void)bm_dynamicLayoutInitialization {
+    [self _initCacheArrayWithDataSource:self.dataSource];
+    objc_setAssociatedObject(self, @selector(isDynamicLayoutInitializationed), @(YES), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
 #pragma mark - load
 
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         SEL selectors[] = {
-            @selector(setDataSource:),
 
             @selector(reloadData),
 
@@ -224,17 +232,11 @@
     });
 }
 
-- (void)tableView_dynamicLayout_setDataSource:(id<UITableViewDataSource>)dataSource {
-    if (dataSource) {
-        // 重新设置了代理，清空缓存数据。
-        [self _initCacheArrayWithDataSource:dataSource];
-    }
-    [self tableView_dynamicLayout_setDataSource:dataSource];
-}
-
 - (void)tableView_dynamicLayout_reloadData {
     // reloadData 时，清空缓存数据。
-    [self _initCacheArrayWithDataSource:self.dataSource];
+    if (self.isDynamicLayoutInitializationed) {
+        [self _initCacheArrayWithDataSource:self.dataSource];
+    }
     [self tableView_dynamicLayout_reloadData];
 }
 
