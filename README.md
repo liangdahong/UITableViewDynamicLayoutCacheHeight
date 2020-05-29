@@ -32,10 +32,10 @@ pod install
 
 ### `Cell` 使用 `Xib` 构建
 
-- 创建你的 Cell 且使用约束布局，`保证 Cell 中的 View 的 MaxY 最大的值即为 Cell 需要的高度`【不要设置底部约束限制，从上向下布局即可，内部会自动去获取 Cell 中 MaxY 最大的 View，返回这个最大 MaxY 为 Cell 的高度 】
+- 创建你的 Cell 且使用约束布局， 保证【 Cell 中的 View 从上向下布局，最底部的 View 的 MaxY 刚好是 Cell 所需高度即可】【不要设置底部约束限制，从上向下布局即可，内部会自动去获取最底部的 View 然后把它的 MaxY 做为 Cell 所需的高度 在 [代码 129~150 行 可查看获取过程](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight/blob/master/Sources/UITableViewDynamicLayoutCacheHeight/UITableView%2BBMDynamicLayout.m)，然后做各种缓存操作 】 
+
 
 ![](Images/xib-cell-01.png)
-
 
 - 在 UITableView 获取高度的代理方法里实现如下代码，Block 中的代码和 `- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath`  中的代码一致即可。
 
@@ -51,13 +51,15 @@ pod install
 
 提前创建 Cell，然后填充内容，然后强制布局，然后获取 Cell 中 MaxY 最大的 View，然后取此 View 的 MaxY 为 Cell 所需高度【所以`保证 Cell 中的 View 的 MaxY 最大的值即为 Cell 需要的高度`至关重要】，内部会自动管理缓存的保存和清空操作。
 
-
-
 ## 问题
 
 - 系统自动算高的缺陷大家应该都比较清楚，如：没缓存，重复计算，界面跳动，由于是边滚边算在布局复杂的 Cell 有一些问题，只支持iOS8+，布局必须要填充整个 Cell，在布局的时候一些场景需要设置优先，不然会报约束冲突。
-- [UITableView-FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell) 最开始我使用是此框架，但后面有一些 Bug 一直没处理，布局必须要填充整个 Cell，在布局的时候一些场景需要设置优先级，不然会报约束冲突，就迁移到了 [UITableViewDynamicLayoutCacheHeight](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight)。
-- [UITableViewDynamicLayoutCacheHeight](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight) 的缺陷有，①会多加一个 View【可以在计算的结果上加常数【底部距离，不建议】处理】，②配置 Cell 的代码要在 2 个地方写，和 [UITableView-FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell) 类似。
+
+- [UITableView-FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell) 最开始我使用是此框架，同时 API 设计也参考自 FDTemplateLayoutCell，还用了几张素材，😁，在此感谢了 ，但后面有一些 Bug 一直没处理 😭，布局必须要填充整个 Cell，在布局的时候一些场景需要设置优先级，不然会报约束冲突，就迁移到了 [UITableViewDynamicLayoutCacheHeight](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight)。
+
+- [UITableViewDynamicLayoutCacheHeight](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight) 的缺陷有，
+- - ① 可能会多加一个 View【可以在计算的结果上加上底部距离，不建议这样处理】
+- - ② 配置 Cell 的代码要在 2 个地方写，和 [UITableView-FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell) 类似。
 
 ## 联系
 - 欢迎 [issues](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight/issues) 和 [PR](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight/pulls)
