@@ -294,6 +294,9 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
                                          type:(BMHeaderFooterViewDynamicLayoutType)type
                                cacheBySection:(NSInteger)section
                                 configuration:(BMConfigurationHeaderFooterViewBlock)configuration {
+    if (__builtin_expect((!self.isDynamicLayoutInitializationed), 0)) {
+        [self bm_dynamicLayoutInitialization];
+    }
     if (type == BMHeaderFooterViewDynamicLayoutTypeHeader) {
         NSNumber *number = self.headerHeightArray[section];
         if (number.doubleValue >= 0.0) {
