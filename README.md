@@ -1,10 +1,10 @@
 ## 效果演示
 
 <p align="center">
-    <img  width="44%" src="./Images/001.gif"/>
+    <img  width="25%" src="./Images/001.gif"/>
 <p/>
 <p align="center">
-    <img  width="30%" src="./Images/微信.gif"/>
+    <img  width="25%" src="./Images/微信.gif"/>
 <p/>
 
 <p align="center">
