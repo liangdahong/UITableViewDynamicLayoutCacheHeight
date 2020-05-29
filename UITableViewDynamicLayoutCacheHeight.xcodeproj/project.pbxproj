@@ -154,7 +154,7 @@
 		04462CA32470356E00591742 /* YYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFPSLabel.m; sourceTree = "<group>"; };
 		04462CA42470356E00591742 /* YYWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYWeakProxy.h; sourceTree = "<group>"; };
 		04462CD62470359600591742 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		04462CD8247035A600591742 /* UITableViewDynamicLayoutCacheHeight.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UITableViewDynamicLayoutCacheHeight.podspec; sourceTree = "<group>"; };
+		04462CD8247035A600591742 /* UITableViewDynamicLayoutCacheHeight.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UITableViewDynamicLayoutCacheHeight.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		04462CD9247035A600591742 /* pod.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = pod.sh; sourceTree = "<group>"; };
 		04462CDA247035A600591742 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		04462CDB247035A700591742 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
