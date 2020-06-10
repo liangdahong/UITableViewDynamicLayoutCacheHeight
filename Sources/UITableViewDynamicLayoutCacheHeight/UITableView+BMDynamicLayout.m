@@ -98,7 +98,7 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
     NSString *path = [bundle pathForResource:NSStringFromClass(clas) ofType:@"nib"];
     UITableViewCell *cell = nil;
     if (path.length > 0) {
-        NSArray <UITableViewCell *> *arr = [bundle loadNibNamed:NSStringFromClass(clas) owner:nil options:nil];
+        NSArray <UITableViewCell *> *arr = [[UINib nibWithNibName:NSStringFromClass(clas) bundle:bundle] instantiateWithOwner:nil options:nil];
         for (UITableViewCell *obj in arr) {
             if ([obj isMemberOfClass:clas]) {
                 cell = obj;
@@ -183,7 +183,7 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
     NSString *path = [bundle pathForResource:NSStringFromClass(clas) ofType:@"nib"];
     UIView *headerView = nil;
     if (path.length > 0) {
-        NSArray <UITableViewHeaderFooterView *> *arr = [bundle loadNibNamed:NSStringFromClass(clas) owner:nil options:nil];
+        NSArray <UITableViewHeaderFooterView *> *arr = [[UINib nibWithNibName:NSStringFromClass(clas) bundle:bundle] instantiateWithOwner:nil options:nil];
         for (UITableViewHeaderFooterView *obj in arr) {
             if ([obj isMemberOfClass:clas]) {
                 headerView = obj;

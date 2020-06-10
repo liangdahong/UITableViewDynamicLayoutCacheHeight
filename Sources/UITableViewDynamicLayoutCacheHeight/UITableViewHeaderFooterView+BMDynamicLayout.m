@@ -46,7 +46,7 @@
         NSAssert(NO, @"你的 UITableViewHeaderFooterView 不是 IB 创建的");
         return nil;
     }
-    NSArray <UITableViewHeaderFooterView *> *arr = [bundle loadNibNamed:selfClassName owner:nil options:nil];
+    NSArray <UITableViewHeaderFooterView *> *arr = [[UINib nibWithNibName:selfClassName bundle:bundle] instantiateWithOwner:nil options:nil];
     for (UITableViewHeaderFooterView *obj in arr) {
         if ([obj isMemberOfClass:self.class]) {
             headerFooterView = obj;
