@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -68,6 +68,7 @@
 		04462D0A2470369D00591742 /* UITableView+BMPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04462D042470369D00591742 /* UITableView+BMPrivate.m */; };
 		0487DDE224703983007F8216 /* BMHomeVC+BMSectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487DDDB24703983007F8216 /* BMHomeVC+BMSectionTest.m */; };
 		05301122247B9A6300916EFF /* BMHomeVC+IndexPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = 05301121247B9A6300916EFF /* BMHomeVC+IndexPaths.m */; };
+		3B2AC9E4A609161520E5DEDD /* libPods-UITableViewDynamicLayoutCacheHeight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9217AEF21D333CAA5366F46D /* libPods-UITableViewDynamicLayoutCacheHeight.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,6 +173,9 @@
 		0487DDDB24703983007F8216 /* BMHomeVC+BMSectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BMHomeVC+BMSectionTest.m"; sourceTree = "<group>"; };
 		05301120247B9A6300916EFF /* BMHomeVC+IndexPaths.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BMHomeVC+IndexPaths.h"; sourceTree = "<group>"; };
 		05301121247B9A6300916EFF /* BMHomeVC+IndexPaths.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "BMHomeVC+IndexPaths.m"; sourceTree = "<group>"; };
+		9217AEF21D333CAA5366F46D /* libPods-UITableViewDynamicLayoutCacheHeight.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UITableViewDynamicLayoutCacheHeight.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA05AAE89105A344B775C3BC /* Pods-UITableViewDynamicLayoutCacheHeight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITableViewDynamicLayoutCacheHeight.release.xcconfig"; path = "Target Support Files/Pods-UITableViewDynamicLayoutCacheHeight/Pods-UITableViewDynamicLayoutCacheHeight.release.xcconfig"; sourceTree = "<group>"; };
+		D8F46CEA08B89E6FE06B3D36 /* Pods-UITableViewDynamicLayoutCacheHeight.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITableViewDynamicLayoutCacheHeight.debug.xcconfig"; path = "Target Support Files/Pods-UITableViewDynamicLayoutCacheHeight/Pods-UITableViewDynamicLayoutCacheHeight.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +183,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B2AC9E4A609161520E5DEDD /* libPods-UITableViewDynamicLayoutCacheHeight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +216,8 @@
 				04462C3F2470346A00591742 /* UITableViewDynamicLayoutCacheHeightTests */,
 				04462C4A2470346A00591742 /* UITableViewDynamicLayoutCacheHeightUITests */,
 				04462C222470346800591742 /* Products */,
+				05E18EFCCBB830F9E40AD9B7 /* Pods */,
+				69D73E6B717358C3AFF96153 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -489,6 +496,23 @@
 			path = IndexPaths;
 			sourceTree = "<group>";
 		};
+		05E18EFCCBB830F9E40AD9B7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D8F46CEA08B89E6FE06B3D36 /* Pods-UITableViewDynamicLayoutCacheHeight.debug.xcconfig */,
+				AA05AAE89105A344B775C3BC /* Pods-UITableViewDynamicLayoutCacheHeight.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		69D73E6B717358C3AFF96153 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9217AEF21D333CAA5366F46D /* libPods-UITableViewDynamicLayoutCacheHeight.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -496,6 +520,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04462C502470346A00591742 /* Build configuration list for PBXNativeTarget "UITableViewDynamicLayoutCacheHeight" */;
 			buildPhases = (
+				C220FA78778264D9B83ADF77 /* [CP] Check Pods Manifest.lock */,
 				04462C1D2470346800591742 /* Sources */,
 				04462C1E2470346800591742 /* Frameworks */,
 				04462C1F2470346800591742 /* Resources */,
@@ -651,6 +676,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C220FA78778264D9B83ADF77 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UITableViewDynamicLayoutCacheHeight-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		04462C1D2470346800591742 /* Sources */ = {
@@ -833,6 +883,7 @@
 		};
 		04462C512470346A00591742 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8F46CEA08B89E6FE06B3D36 /* Pods-UITableViewDynamicLayoutCacheHeight.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -854,6 +905,7 @@
 		};
 		04462C522470346A00591742 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA05AAE89105A344B775C3BC /* Pods-UITableViewDynamicLayoutCacheHeight.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

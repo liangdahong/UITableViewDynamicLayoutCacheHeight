@@ -35,18 +35,24 @@
 
 + (instancetype)bm_tableViewHeaderFooterViewWithTableView:(UITableView *)tableView {
     NSString *selfClassName = NSStringFromClass(self.class);
-    UITableViewHeaderFooterView *headerFooterView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:selfClassName];
+    NSString *reuseIdentifier = [selfClassName stringByAppendingString:@"BMDynamicLayoutReuseIdentifier"];
+    UITableViewHeaderFooterView *headerFooterView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
     if (headerFooterView) {
         return headerFooterView;
     }
-    NSString *path = [[NSBundle mainBundle] pathForResource:selfClassName ofType:@"nib"];
-    if (path.length) {
-        headerFooterView = [[[UINib nibWithNibName:selfClassName bundle:nil] instantiateWithOwner:nil options:nil] firstObject];
-        [headerFooterView setValue:selfClassName forKey:@"reuseIdentifier"];
-    } else {
-        headerFooterView = [[self alloc] initWithReuseIdentifier:selfClassName];
+    NSBundle *bundle = [NSBundle bundleForClass:self.class];
+    NSString *path = [bundle pathForResource:selfClassName ofType:@"nib"];
+    if (path.length > 0) {
+        NSArray <UITableViewHeaderFooterView *> *arr = [bundle loadNibNamed:selfClassName owner:nil options:nil];
+        for (UITableViewHeaderFooterView *obj in arr) {
+            if ([obj isMemberOfClass:self.class]) {
+                headerFooterView = obj;
+                [headerFooterView setValue:reuseIdentifier forKey:@"reuseIdentifier"];
+                return headerFooterView;
+            }
+        }
     }
-    return headerFooterView;
+    return [[self alloc] initWithReuseIdentifier:selfClassName];
 }
 
 @end

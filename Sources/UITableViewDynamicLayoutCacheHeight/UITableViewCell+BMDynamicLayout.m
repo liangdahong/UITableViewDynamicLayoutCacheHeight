@@ -39,18 +39,24 @@
 
 + (instancetype)bm_tableViewCellWithTableView:(UITableView *)tableView style:(UITableViewCellStyle)style {
     NSString *selfClassName = NSStringFromClass(self.class);
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:selfClassName];
+    NSString *reuseIdentifier = [selfClassName stringByAppendingString:@"BMDynamicLayoutReuseIdentifier"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
     if (cell) {
         return cell;
     }
-    NSString *path = [[NSBundle mainBundle] pathForResource:selfClassName ofType:@"nib"];
+    NSBundle *bundle = [NSBundle bundleForClass:self.class];
+    NSString *path = [bundle pathForResource:selfClassName ofType:@"nib"];
     if (path.length) {
-        cell = [[[UINib nibWithNibName:selfClassName bundle:nil] instantiateWithOwner:nil options:nil] firstObject];
-        [cell setValue:selfClassName forKey:@"reuseIdentifier"];
-    } else {
-        cell = [[self alloc] initWithStyle:style reuseIdentifier:selfClassName];
+        NSArray <UITableViewCell *> *arr = [bundle loadNibNamed:selfClassName owner:nil options:nil];
+        for (UITableViewCell *obj in arr) {
+            if ([obj isMemberOfClass:self.class]) {
+                cell = obj;
+                [cell setValue:reuseIdentifier forKey:@"reuseIdentifier"];
+                return cell;
+            }
+        }
     }
-    return cell;
+    return [[self alloc] initWithStyle:style reuseIdentifier:selfClassName];
 }
 
 @end

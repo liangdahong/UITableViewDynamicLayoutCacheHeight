@@ -90,13 +90,23 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
     }
 
     UIView *view = dict[NSStringFromClass(clas)];
-
+    
     if (!view) {
-        NSString *path = [[NSBundle mainBundle] pathForResource:NSStringFromClass(clas) ofType:@"nib"];
-        UIView *cell = nil;
-        if (path.length) {
-            cell = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(clas) owner:nil options:nil].firstObject;
-        } else {
+        NSBundle *bundle = [NSBundle bundleForClass:clas];
+        NSString *path = [bundle pathForResource:NSStringFromClass(clas) ofType:@"nib"];
+        UITableViewCell *cell = nil;
+        if (path.length > 0) {
+            NSArray <UITableViewCell *> *arr = [bundle loadNibNamed:NSStringFromClass(clas) owner:nil options:nil];
+            for (UITableViewCell *obj in arr) {
+                if ([obj isMemberOfClass:clas]) {
+                    cell = obj;
+                    // 清空 reuseIdentifier
+                    [cell setValue:nil forKey:@"reuseIdentifier"];
+                    break;
+                }
+            }
+        }
+        if (!cell) {
             cell = [[clas alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
         }
         view = [UIView new];
@@ -163,14 +173,23 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
     }
 
     UIView *view = dict[NSStringFromClass(clas)];
-
     if (!view) {
-        NSString *path = [[NSBundle mainBundle] pathForResource:NSStringFromClass(clas) ofType:@"nib"];
+        NSBundle *bundle = [NSBundle bundleForClass:clas];
+        NSString *path = [bundle pathForResource:NSStringFromClass(clas) ofType:@"nib"];
         UIView *headerView = nil;
-        if (path.length) {
-            headerView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(clas) owner:nil options:nil].firstObject;
-        } else {
-            headerView = [[clas alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+        if (path.length > 0) {
+            NSArray <UITableViewHeaderFooterView *> *arr = [bundle loadNibNamed:NSStringFromClass(clas) owner:nil options:nil];
+            for (UITableViewHeaderFooterView *obj in arr) {
+                if ([obj isMemberOfClass:clas]) {
+                    headerView = obj;
+                    // 清空 reuseIdentifier
+                    [headerView setValue:nil forKey:@"reuseIdentifier"];
+                    break;
+                }
+            }
+        }
+        if (!headerView) {
+            headerView = [[clas alloc] initWithReuseIdentifier:nil];
         }
         view = [UIView new];
         [view addSubview:headerView];

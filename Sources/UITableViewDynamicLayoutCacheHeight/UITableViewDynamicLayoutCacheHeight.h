@@ -21,7 +21,7 @@
 //    SOFTWARE.
 
 ////////////////
-///   v5.0.5
+///   v5.0.6
 ////////////////
 
 #ifndef UITableViewDynamicLayoutCacheHeight_h
