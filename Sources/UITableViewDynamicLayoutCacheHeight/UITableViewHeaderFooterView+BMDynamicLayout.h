@@ -28,8 +28,12 @@
 /// 请把此值设置为 YES，可提升一定的性能。
 @property (nonatomic, assign) IBInspectable BOOL bm_maxYViewFixed;
 
-/// 免注册直接创建 UITableViewHeaderFooterView，内部自动处理取缓存池操作
+/// 免注册 IB 创建 UITableViewHeaderFooterView，内部自动处理缓冲池。
 /// @param tableView tableView
-+ (instancetype)bm_tableViewHeaderFooterViewWithTableView:(UITableView *)tableView;
++ (instancetype)bm_tableViewHeaderFooterViewFromNibWithTableView:(UITableView *)tableView;
+
+/// 免注册 alloc 创建 UITableViewHeaderFooterView，内部自动处理缓冲池。
+/// @param tableView tableView
++ (instancetype)bm_tableViewHeaderFooterViewFromAllocWithTableView:(UITableView *)tableView;
 
 @end

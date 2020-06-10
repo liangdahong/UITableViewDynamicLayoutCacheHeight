@@ -33,7 +33,7 @@
     objc_setAssociatedObject(self, @selector(bm_maxYViewFixed), @(bm_maxYViewFixed), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-+ (instancetype)bm_tableViewHeaderFooterViewWithTableView:(UITableView *)tableView {
++ (instancetype)bm_tableViewHeaderFooterViewFromNibWithTableView:(UITableView *)tableView {
     NSString *selfClassName = NSStringFromClass(self.class);
     NSString *reuseIdentifier = [selfClassName stringByAppendingString:@"BMDynamicLayoutReuseIdentifier"];
     UITableViewHeaderFooterView *headerFooterView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
@@ -41,18 +41,26 @@
         return headerFooterView;
     }
     NSBundle *bundle = [NSBundle bundleForClass:self.class];
-    NSString *path = [bundle pathForResource:selfClassName ofType:@"nib"];
-    if (path.length > 0) {
-        NSArray <UITableViewHeaderFooterView *> *arr = [bundle loadNibNamed:selfClassName owner:nil options:nil];
-        for (UITableViewHeaderFooterView *obj in arr) {
-            if ([obj isMemberOfClass:self.class]) {
-                headerFooterView = obj;
-                [headerFooterView setValue:reuseIdentifier forKey:@"reuseIdentifier"];
-                return headerFooterView;
-            }
+    NSArray <UITableViewHeaderFooterView *> *arr = [bundle loadNibNamed:selfClassName owner:nil options:nil];
+    for (UITableViewHeaderFooterView *obj in arr) {
+        if ([obj isMemberOfClass:self.class]) {
+            headerFooterView = obj;
+            [headerFooterView setValue:reuseIdentifier forKey:@"reuseIdentifier"];
+            return headerFooterView;
         }
     }
-    return [[self alloc] initWithReuseIdentifier:selfClassName];
+    NSAssert(NO, @"你的 UITableViewHeaderFooterView 不是 IB 创建的");
+    return nil;
+}
+
++ (instancetype)bm_tableViewHeaderFooterViewFromAllocWithTableView:(UITableView *)tableView {
+    NSString *selfClassName = NSStringFromClass(self.class);
+    NSString *reuseIdentifier = [selfClassName stringByAppendingString:@"BMDynamicLayoutReuseIdentifier"];
+    UITableViewHeaderFooterView *headerFooterView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
+    if (headerFooterView) {
+        return headerFooterView;
+    }
+    return [[self alloc] initWithReuseIdentifier:reuseIdentifier];
 }
 
 @end

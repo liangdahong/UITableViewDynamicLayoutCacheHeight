@@ -88,31 +88,34 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
         dict = @{}.mutableCopy;
         objc_setAssociatedObject(self, _cmd, dict, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
-
     UIView *view = dict[NSStringFromClass(clas)];
-    
-    if (!view) {
-        NSBundle *bundle = [NSBundle bundleForClass:clas];
-        NSString *path = [bundle pathForResource:NSStringFromClass(clas) ofType:@"nib"];
-        UITableViewCell *cell = nil;
-        if (path.length > 0) {
-            NSArray <UITableViewCell *> *arr = [bundle loadNibNamed:NSStringFromClass(clas) owner:nil options:nil];
-            for (UITableViewCell *obj in arr) {
-                if ([obj isMemberOfClass:clas]) {
-                    cell = obj;
-                    // 清空 reuseIdentifier
-                    [cell setValue:nil forKey:@"reuseIdentifier"];
-                    break;
-                }
+    if (view) {
+        // 直接返回
+        return view;;
+    }
+
+    NSBundle *bundle = [NSBundle bundleForClass:clas];
+    NSString *path = [bundle pathForResource:NSStringFromClass(clas) ofType:@"nib"];
+    UITableViewCell *cell = nil;
+    if (path.length > 0) {
+        NSArray <UITableViewCell *> *arr = [bundle loadNibNamed:NSStringFromClass(clas) owner:nil options:nil];
+        for (UITableViewCell *obj in arr) {
+            if ([obj isMemberOfClass:clas]) {
+                cell = obj;
+                // 清空 reuseIdentifier
+                [cell setValue:nil forKey:@"reuseIdentifier"];
+                break;
             }
         }
-        if (!cell) {
-            cell = [[clas alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-        }
-        view = [UIView new];
-        [view addSubview:cell];
-        dict[NSStringFromClass(clas)] = view;
     }
+    if (!cell) {
+        // 这里使用默认的 UITableViewCellStyleDefault 类型。
+        // 如果需要自定义高度，通常都是使用的此类型, 暂时不考虑其他。
+        cell = [[clas alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    }
+    view = [UIView new];
+    [view addSubview:cell];
+    dict[NSStringFromClass(clas)] = view;
     return view;
 }
 
@@ -163,39 +166,46 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
 
 #pragma mark - private HeaderFooterView
 
-- (CGFloat)_heightWithHeaderFooterViewClass:(Class)clas
-                                        sel:(SEL)sel
-                              configuration:(BMConfigurationHeaderFooterViewBlock)configuration {
+- (UIView *)_headerFooterViewWithHeaderFooterViewClass:(Class)clas
+                                                   sel:(SEL)sel {
     NSMutableDictionary *dict = objc_getAssociatedObject(self, sel);
     if (!dict) {
         dict = @{}.mutableCopy;
         objc_setAssociatedObject(self, sel, dict, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
-
     UIView *view = dict[NSStringFromClass(clas)];
-    if (!view) {
-        NSBundle *bundle = [NSBundle bundleForClass:clas];
-        NSString *path = [bundle pathForResource:NSStringFromClass(clas) ofType:@"nib"];
-        UIView *headerView = nil;
-        if (path.length > 0) {
-            NSArray <UITableViewHeaderFooterView *> *arr = [bundle loadNibNamed:NSStringFromClass(clas) owner:nil options:nil];
-            for (UITableViewHeaderFooterView *obj in arr) {
-                if ([obj isMemberOfClass:clas]) {
-                    headerView = obj;
-                    // 清空 reuseIdentifier
-                    [headerView setValue:nil forKey:@"reuseIdentifier"];
-                    break;
-                }
-            }
-        }
-        if (!headerView) {
-            headerView = [[clas alloc] initWithReuseIdentifier:nil];
-        }
-        view = [UIView new];
-        [view addSubview:headerView];
-        dict[NSStringFromClass(clas)] = view;
+    if (view) {
+        // 直接返回
+        return view;
     }
 
+    NSBundle *bundle = [NSBundle bundleForClass:clas];
+    NSString *path = [bundle pathForResource:NSStringFromClass(clas) ofType:@"nib"];
+    UIView *headerView = nil;
+    if (path.length > 0) {
+        NSArray <UITableViewHeaderFooterView *> *arr = [bundle loadNibNamed:NSStringFromClass(clas) owner:nil options:nil];
+        for (UITableViewHeaderFooterView *obj in arr) {
+            if ([obj isMemberOfClass:clas]) {
+                headerView = obj;
+                // 清空 reuseIdentifier
+                [headerView setValue:nil forKey:@"reuseIdentifier"];
+                break;
+            }
+        }
+    }
+    if (!headerView) {
+        headerView = [[clas alloc] initWithReuseIdentifier:nil];
+    }
+    view = [UIView new];
+    [view addSubview:headerView];
+    dict[NSStringFromClass(clas)] = view;
+    return view;
+}
+
+- (CGFloat)_heightWithHeaderFooterViewClass:(Class)clas
+                                        sel:(SEL)sel
+                              configuration:(BMConfigurationHeaderFooterViewBlock)configuration {
+    UIView *view = [self _headerFooterViewWithHeaderFooterViewClass:clas sel:sel];
     // 获取 TableView 宽度
     UIView *temp = self.superview ? self.superview : self;
     tableViewDynamicLayoutLayoutIfNeeded(temp);

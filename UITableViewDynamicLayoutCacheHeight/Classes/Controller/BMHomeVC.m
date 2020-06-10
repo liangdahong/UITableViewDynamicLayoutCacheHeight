@@ -56,7 +56,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    BMCell *cell = [BMCell bm_tableViewCellWithTableView:tableView];
+    BMCell *cell = [BMCell bm_tableViewCellFromNibWithTableView:tableView];
     cell.model = self.dataArray[indexPath.section].modelArray[indexPath.row];
     return cell;
 }
@@ -76,7 +76,7 @@
 #pragma mark - UITableViewHeaderFooterView
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    BMHeaderView *view = [BMHeaderView bm_tableViewHeaderFooterViewWithTableView:tableView];
+    BMHeaderView *view = [BMHeaderView bm_tableViewHeaderFooterViewFromNibWithTableView:tableView];
     view.titleLabel.text = self.dataArray[section].headerTitle;
     return view;
 }
@@ -90,7 +90,7 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    UIFooterView *view = [UIFooterView bm_tableViewHeaderFooterViewWithTableView:tableView];
+    UIFooterView *view = [UIFooterView bm_tableViewHeaderFooterViewFromNibWithTableView:tableView];
     view.titleLabel.text = self.dataArray[section].footerTitle;
     return view;
 }

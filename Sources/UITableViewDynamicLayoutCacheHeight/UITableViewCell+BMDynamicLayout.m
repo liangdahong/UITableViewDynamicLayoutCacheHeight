@@ -33,11 +33,7 @@
     objc_setAssociatedObject(self, @selector(bm_maxYViewFixed), @(bm_maxYViewFixed), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-+ (instancetype)bm_tableViewCellWithTableView:(UITableView *)tableView {
-    return [self bm_tableViewCellWithTableView:tableView style:UITableViewCellStyleDefault];
-}
-
-+ (instancetype)bm_tableViewCellWithTableView:(UITableView *)tableView style:(UITableViewCellStyle)style {
++ (instancetype)bm_tableViewCellFromNibWithTableView:(UITableView *)tableView {
     NSString *selfClassName = NSStringFromClass(self.class);
     NSString *reuseIdentifier = [selfClassName stringByAppendingString:@"BMDynamicLayoutReuseIdentifier"];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
@@ -45,18 +41,25 @@
         return cell;
     }
     NSBundle *bundle = [NSBundle bundleForClass:self.class];
-    NSString *path = [bundle pathForResource:selfClassName ofType:@"nib"];
-    if (path.length) {
-        NSArray <UITableViewCell *> *arr = [bundle loadNibNamed:selfClassName owner:nil options:nil];
-        for (UITableViewCell *obj in arr) {
-            if ([obj isMemberOfClass:self.class]) {
-                cell = obj;
-                [cell setValue:reuseIdentifier forKey:@"reuseIdentifier"];
-                return cell;
-            }
+    NSArray <UITableViewCell *> *arr = [bundle loadNibNamed:selfClassName owner:nil options:nil];
+    for (UITableViewCell *obj in arr) {
+        if ([obj isMemberOfClass:self.class]) {
+            cell = obj;
+            [cell setValue:reuseIdentifier forKey:@"reuseIdentifier"];
+            return cell;
         }
     }
-    return [[self alloc] initWithStyle:style reuseIdentifier:selfClassName];
+    NSAssert(NO, @"你的 Cell 不是 IB 创建的");
+    return nil;
+}
+
++ (instancetype)bm_tableViewCellFromAllocWithTableView:(UITableView *)tableView {
+    return [self bm_tableViewCellFromAllocWithTableView:tableView style:(UITableViewCellStyleDefault)];
+}
+
++ (instancetype)bm_tableViewCellFromAllocWithTableView:(UITableView *)tableView style:(UITableViewCellStyle)style {
+    NSString *reuseIdentifier = [NSStringFromClass(self.class) stringByAppendingString:@"BMDynamicLayoutReuseIdentifier"];
+    return [[self alloc] initWithStyle:style reuseIdentifier:reuseIdentifier];
 }
 
 @end
