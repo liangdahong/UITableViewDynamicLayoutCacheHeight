@@ -3,11 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0429DAB3247AD23800995106 /* BMHomeVC+BMTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0429DAB2247AD23800995106 /* BMHomeVC+BMTest.m */; };
+		04330124249121C300202B9E /* UIFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04330123249121C300202B9E /* UIFooterView.xib */; };
+		04330126249121DF00202B9E /* BMCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04330125249121DF00202B9E /* BMCell.xib */; };
 		04462C312470346A00591742 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04462C302470346A00591742 /* Assets.xcassets */; };
 		04462C412470346A00591742 /* UITableViewDynamicLayoutCacheHeightTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04462C402470346A00591742 /* UITableViewDynamicLayoutCacheHeightTests.m */; };
 		04462C4C2470346A00591742 /* UITableViewDynamicLayoutCacheHeightUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04462C4B2470346A00591742 /* UITableViewDynamicLayoutCacheHeightUITests.m */; };
@@ -15,11 +17,9 @@
 		04462CA92470356E00591742 /* BMHomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04462C632470356D00591742 /* BMHomeVC.xib */; };
 		04462CAA2470356E00591742 /* BMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04462C672470356D00591742 /* BMModel.m */; };
 		04462CAB2470356E00591742 /* BMGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04462C6B2470356D00591742 /* BMGroupModel.m */; };
-		04462CAC2470356E00591742 /* UIFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04462C6F2470356D00591742 /* UIFooterView.xib */; };
 		04462CAD2470356E00591742 /* UIFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04462C702470356D00591742 /* UIFooterView.m */; };
 		04462CAE2470356E00591742 /* BMHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04462C722470356D00591742 /* BMHeaderView.m */; };
 		04462CAF2470356E00591742 /* BMHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04462C732470356D00591742 /* BMHeaderView.xib */; };
-		04462CB02470356E00591742 /* BMCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04462C772470356D00591742 /* BMCell.xib */; };
 		04462CB12470356E00591742 /* BMCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04462C782470356D00591742 /* BMCell.m */; };
 		04462CB22470356E00591742 /* 8.png in Resources */ = {isa = PBXBuildFile; fileRef = 04462C7B2470356E00591742 /* 8.png */; };
 		04462CB32470356E00591742 /* 9.png in Resources */ = {isa = PBXBuildFile; fileRef = 04462C7C2470356E00591742 /* 9.png */; };
@@ -91,6 +91,8 @@
 /* Begin PBXFileReference section */
 		0429DAB1247AD23800995106 /* BMHomeVC+BMTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMHomeVC+BMTest.h"; sourceTree = "<group>"; };
 		0429DAB2247AD23800995106 /* BMHomeVC+BMTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BMHomeVC+BMTest.m"; sourceTree = "<group>"; };
+		04330123249121C300202B9E /* UIFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIFooterView.xib; sourceTree = "<group>"; };
+		04330125249121DF00202B9E /* BMCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMCell.xib; sourceTree = "<group>"; };
 		04462C212470346800591742 /* CellCacheHeight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CellCacheHeight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04462C302470346A00591742 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04462C352470346A00591742 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -108,13 +110,11 @@
 		04462C6A2470356D00591742 /* BMGroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMGroupModel.h; sourceTree = "<group>"; };
 		04462C6B2470356D00591742 /* BMGroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMGroupModel.m; sourceTree = "<group>"; };
 		04462C6E2470356D00591742 /* UIFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFooterView.h; sourceTree = "<group>"; };
-		04462C6F2470356D00591742 /* UIFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIFooterView.xib; sourceTree = "<group>"; };
 		04462C702470356D00591742 /* UIFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFooterView.m; sourceTree = "<group>"; };
 		04462C722470356D00591742 /* BMHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMHeaderView.m; sourceTree = "<group>"; };
 		04462C732470356D00591742 /* BMHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMHeaderView.xib; sourceTree = "<group>"; };
 		04462C742470356D00591742 /* BMHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMHeaderView.h; sourceTree = "<group>"; };
 		04462C762470356D00591742 /* BMCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMCell.h; sourceTree = "<group>"; };
-		04462C772470356D00591742 /* BMCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMCell.xib; sourceTree = "<group>"; };
 		04462C782470356D00591742 /* BMCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMCell.m; sourceTree = "<group>"; };
 		04462C7B2470356E00591742 /* 8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 8.png; sourceTree = "<group>"; };
 		04462C7C2470356E00591742 /* 9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 9.png; sourceTree = "<group>"; };
@@ -335,8 +335,8 @@
 		04462C6D2470356D00591742 /* UIFooterView */ = {
 			isa = PBXGroup;
 			children = (
+				04330123249121C300202B9E /* UIFooterView.xib */,
 				04462C6E2470356D00591742 /* UIFooterView.h */,
-				04462C6F2470356D00591742 /* UIFooterView.xib */,
 				04462C702470356D00591742 /* UIFooterView.m */,
 			);
 			path = UIFooterView;
@@ -355,8 +355,8 @@
 		04462C752470356D00591742 /* BMCell */ = {
 			isa = PBXGroup;
 			children = (
+				04330125249121DF00202B9E /* BMCell.xib */,
 				04462C762470356D00591742 /* BMCell.h */,
-				04462C772470356D00591742 /* BMCell.xib */,
 				04462C782470356D00591742 /* BMCell.m */,
 			);
 			path = BMCell;
@@ -635,17 +635,16 @@
 				04462CAF2470356E00591742 /* BMHeaderView.xib in Resources */,
 				04462CC72470356E00591742 /* 25.png in Resources */,
 				04462CCC2470356E00591742 /* 6.png in Resources */,
+				04330126249121DF00202B9E /* BMCell.xib in Resources */,
 				04462CC62470356E00591742 /* 24.png in Resources */,
 				04462CC12470356E00591742 /* 23.png in Resources */,
 				04462CB32470356E00591742 /* 9.png in Resources */,
 				04462CC22470356E00591742 /* 27.png in Resources */,
 				04462CC32470356E00591742 /* 26.png in Resources */,
 				04462CDC247035A700591742 /* UITableViewDynamicLayoutCacheHeight.podspec in Resources */,
-				04462CAC2470356E00591742 /* UIFooterView.xib in Resources */,
 				04462CC92470356E00591742 /* 4.png in Resources */,
 				04462CCA2470356E00591742 /* 5.png in Resources */,
 				04462CCB2470356E00591742 /* 7.png in Resources */,
-				04462CB02470356E00591742 /* BMCell.xib in Resources */,
 				04462CC42470356E00591742 /* 18.png in Resources */,
 				04462CBC2470356E00591742 /* 11.png in Resources */,
 				04462CC82470356E00591742 /* 19.png in Resources */,
@@ -653,6 +652,7 @@
 				04462CD72470359600591742 /* LaunchScreen.storyboard in Resources */,
 				04462CDE247035A700591742 /* LICENSE in Resources */,
 				04462CB42470356E00591742 /* 14.png in Resources */,
+				04330124249121C300202B9E /* UIFooterView.xib in Resources */,
 				04462C312470346A00591742 /* Assets.xcassets in Resources */,
 				04462CB72470356E00591742 /* 15.png in Resources */,
 				04462CD02470356E00591742 /* data.text in Resources */,

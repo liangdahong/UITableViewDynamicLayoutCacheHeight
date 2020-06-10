@@ -41,6 +41,12 @@
         return cell;
     }
     NSBundle *bundle = [NSBundle bundleForClass:self.class];
+    NSString *path = [bundle pathForResource:selfClassName ofType:@"nib"];
+    if (path.length == 0) {
+        NSAssert(NO, @"你的 Cell 不是 IB 创建的");
+        return nil;
+    }
+    
     NSArray <UITableViewCell *> *arr = [bundle loadNibNamed:selfClassName owner:nil options:nil];
     for (UITableViewCell *obj in arr) {
         if ([obj isMemberOfClass:self.class]) {
