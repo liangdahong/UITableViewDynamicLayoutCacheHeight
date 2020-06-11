@@ -29,7 +29,7 @@ pod install
 ##  手动安装
 
 - 下载项目 【 `clone https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight.git` 】
-- 将 `UITableViewDynamicLayoutCacheHeight/Sources/UITableViewDynamicLayoutCacheHeight`  文件夹下的全部内容拖拽到你的项目。
+- 将 `UITableViewDynamicLayoutCacheHeight/`  文件夹下的全部内容拖拽到你的项目。
 
 ## 图文使用说明
 
@@ -64,7 +64,7 @@ pod install
 - - ① 可能会多加一个 View【可以在计算的结果上加上底部距离，不建议这样处理】
 - - ② 配置 Cell 的代码要在 2 个地方写，和 [UITableView-FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell) 类似。
 
-- 基于此框架实现了一个简陋的微信朋友圈功能 [微信朋友圈](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight/tree/master/Demo/%E5%BE%AE%E4%BF%A1%E6%9C%8B%E5%8F%8B%E5%9C%88Demo) 代码是几年前随便写的 😂，没准备调整了，感兴趣的可以瞧瞧。
+- 基于此框架实现了一个简陋的微信朋友圈功能 [微信朋友圈](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight/tree/master/Example%E5%BE%AE%E4%BF%A1%E6%9C%8B%E5%8F%8B%E5%9C%88) 代码是几年前随便写的 😂，没准备调整了，感兴趣的可以瞧瞧。
 
 ## 联系
 - 欢迎 [issues](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight/issues) 和 [PR](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight/pulls)
