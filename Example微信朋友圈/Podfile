@@ -8,5 +8,5 @@ target 'BMWeChat' do
     pod 'MJExtension', '3.0.13'
     pod 'SDWebImage', '4.0'
     pod 'TTTAttributedLabel'
-    pod 'UITableViewDynamicLayoutCacheHeight',    :path => '../../'
+    pod 'UITableViewDynamicLayoutCacheHeight', :path => '../'
 end
