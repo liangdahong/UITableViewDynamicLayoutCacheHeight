@@ -545,6 +545,10 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "ios@liangdahong.com";
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = JURK72AKL4;
+						ProvisioningStyle = Manual;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -836,12 +840,15 @@
 			baseConfigurationReference = 237323FAC0EFA0AE201AEF20 /* Pods-UITableViewDynamicLayoutCacheHeight_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = JURK72AKL4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UITableViewDynamicLayoutCacheHeight/UITableViewDynamicLayoutCacheHeight-Prefix.pch";
 				INFOPLIST_FILE = "UITableViewDynamicLayoutCacheHeight/UITableViewDynamicLayoutCacheHeight-Info.plist";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.liangdahong.UITableViewDynamicLayoutCacheHeight;
 				PRODUCT_NAME = CellCacheHeight;
+				PROVISIONING_PROFILE_SPECIFIER = wildcard;
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
 			};
@@ -852,12 +859,15 @@
 			baseConfigurationReference = 87B287E10D5E354A057D169E /* Pods-UITableViewDynamicLayoutCacheHeight_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = JURK72AKL4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UITableViewDynamicLayoutCacheHeight/UITableViewDynamicLayoutCacheHeight-Prefix.pch";
 				INFOPLIST_FILE = "UITableViewDynamicLayoutCacheHeight/UITableViewDynamicLayoutCacheHeight-Info.plist";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.liangdahong.UITableViewDynamicLayoutCacheHeight;
 				PRODUCT_NAME = CellCacheHeight;
+				PROVISIONING_PROFILE_SPECIFIER = wildcard;
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
 			};
