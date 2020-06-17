@@ -263,6 +263,9 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
 
 - (CGFloat)bm_heightWithCellClass:(Class)clas
                     configuration:(BMConfigurationCellBlock)configuration {
+    if (__builtin_expect((!self.isDynamicLayoutInitializationed), 0)) {
+        [self bm_dynamicLayoutInitialization];
+    }
     return [self _heightWithCellClass:clas configuration:configuration];
 }
 
@@ -296,6 +299,9 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
 - (CGFloat)bm_heightWithCellClass:(Class)clas
                        cacheByKey:(id<NSCopying>)key
                     configuration:(BMConfigurationCellBlock)configuration {
+    if (__builtin_expect((!self.isDynamicLayoutInitializationed), 0)) {
+        [self bm_dynamicLayoutInitialization];
+    }
     if (key && self.heightDictionary[key]) {
         BM_UITableView_DynamicLayout_LOG(@"BMLog:✅✅读缓存✅✅Cell: %@ get cache height { (key: %@) (height: %@) }", NSStringFromClass(clas), key, self.heightDictionary[key]);
         return self.heightDictionary[key].doubleValue;
@@ -313,6 +319,9 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
 - (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
                                          type:(BMHeaderFooterViewDynamicLayoutType)type
                                 configuration:(BMConfigurationHeaderFooterViewBlock)configuration {
+    if (__builtin_expect((!self.isDynamicLayoutInitializationed), 0)) {
+        [self bm_dynamicLayoutInitialization];
+    }
     if (type == BMHeaderFooterViewDynamicLayoutTypeHeader) {
         return [self _heightWithHeaderViewClass:clas configuration:configuration];
     }
@@ -358,6 +367,9 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
                                          type:(BMHeaderFooterViewDynamicLayoutType)type
                                    cacheByKey:(id<NSCopying>)key
                                 configuration:(BMConfigurationHeaderFooterViewBlock)configuration {
+    if (__builtin_expect((!self.isDynamicLayoutInitializationed), 0)) {
+        [self bm_dynamicLayoutInitialization];
+    }
     if (type == BMHeaderFooterViewDynamicLayoutTypeHeader) {
         if (key && self.headerHeightDictionary[key]) {
             BM_UITableView_DynamicLayout_LOG(@"BMLog:✅✅读缓存✅✅ Header: %@ get cache height { (key: %@) (height: %@) }", NSStringFromClass(clas), key, self.headerHeightDictionary[key]);

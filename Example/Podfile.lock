@@ -1,5 +1,5 @@
 PODS:
-  - UITableViewDynamicLayoutCacheHeight (5.0.8)
+  - UITableViewDynamicLayoutCacheHeight (5.1.0)
 
 DEPENDENCIES:
   - UITableViewDynamicLayoutCacheHeight (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  UITableViewDynamicLayoutCacheHeight: 3d7afa1c9f173b353a405f1fc24552ebea82e8f3
+  UITableViewDynamicLayoutCacheHeight: bc9ae64d5a6a9333c682e6761033ce68b8efd22b
 
 PODFILE CHECKSUM: 8f6ea4e84c7114336b1ac30a0ee7e89a3d39de66
 
-COCOAPODS: 1.8.3
+COCOAPODS: 1.8.4

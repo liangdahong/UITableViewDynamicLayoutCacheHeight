@@ -34,7 +34,6 @@
 		057948392491B596009FEEA8 /* 19.png in Resources */ = {isa = PBXBuildFile; fileRef = 057947EF2491B596009FEEA8 /* 19.png */; };
 		0579483A2491B596009FEEA8 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 057947F02491B596009FEEA8 /* 4.png */; };
 		0579483B2491B596009FEEA8 /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = 057947F12491B596009FEEA8 /* 5.png */; };
-		0579483C2491B596009FEEA8 /* 7.png in Resources */ = {isa = PBXBuildFile; fileRef = 057947F22491B596009FEEA8 /* 7.png */; };
 		0579483D2491B596009FEEA8 /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = 057947F32491B596009FEEA8 /* 6.png */; };
 		0579483E2491B596009FEEA8 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 057947F42491B596009FEEA8 /* 2.png */; };
 		0579483F2491B596009FEEA8 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 057947F52491B596009FEEA8 /* 3.png */; };
@@ -110,7 +109,6 @@
 		057947EF2491B596009FEEA8 /* 19.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 19.png; sourceTree = "<group>"; };
 		057947F02491B596009FEEA8 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
 		057947F12491B596009FEEA8 /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
-		057947F22491B596009FEEA8 /* 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 7.png; sourceTree = "<group>"; };
 		057947F32491B596009FEEA8 /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6.png; sourceTree = "<group>"; };
 		057947F42491B596009FEEA8 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		057947F52491B596009FEEA8 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
@@ -197,8 +195,8 @@
 		057947D32491B596009FEEA8 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				057947D42491B596009FEEA8 /* AppDelegate.h */,
 				057947D52491B596009FEEA8 /* main.m */,
+				057947D42491B596009FEEA8 /* AppDelegate.h */,
 				057947D62491B596009FEEA8 /* AppDelegate.m */,
 			);
 			path = AppDelegate;
@@ -241,7 +239,6 @@
 				057947EF2491B596009FEEA8 /* 19.png */,
 				057947F02491B596009FEEA8 /* 4.png */,
 				057947F12491B596009FEEA8 /* 5.png */,
-				057947F22491B596009FEEA8 /* 7.png */,
 				057947F32491B596009FEEA8 /* 6.png */,
 				057947F42491B596009FEEA8 /* 2.png */,
 				057947F52491B596009FEEA8 /* 3.png */,
@@ -272,9 +269,9 @@
 			isa = PBXGroup;
 			children = (
 				057947FB2491B596009FEEA8 /* Test */,
+				057948062491B596009FEEA8 /* BMHomeVC.h */,
 				057948042491B596009FEEA8 /* BMHomeVC.m */,
 				057948052491B596009FEEA8 /* BMHomeVC.xib */,
-				057948062491B596009FEEA8 /* BMHomeVC.h */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -614,7 +611,6 @@
 				057948392491B596009FEEA8 /* 19.png in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				0579484D2491B596009FEEA8 /* BMCell.xib in Resources */,
-				0579483C2491B596009FEEA8 /* 7.png in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 				0579482C2491B596009FEEA8 /* 13.png in Resources */,
 			);

@@ -67,6 +67,9 @@
         // 同 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 一样
         cell.model = self.dataArray[indexPath.section].modelArray[indexPath.row];
     }];
+//    return [tableView bm_heightWithCellClass:BMCell.class cacheByKey:indexPath.description configuration:^(__kindof BMCell *cell) {
+//        cell.model = self.dataArray[indexPath.section].modelArray[indexPath.row];
+//    }];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
