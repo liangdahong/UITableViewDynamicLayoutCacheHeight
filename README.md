@@ -66,6 +66,10 @@ pod install
 
 - 基于此框架实现了一个简陋的微信朋友圈功能 [微信朋友圈](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight/tree/master/Example%E5%BE%AE%E4%BF%A1%E6%9C%8B%E5%8F%8B%E5%9C%88) 代码是几年前随便写的 😂，没准备调整了，感兴趣的可以瞧瞧。
 
+## 常见问题处理
+
+- 如果使用 key 做缓存，表示高度只和 key 有关，只要使用相同的 key 就会得到一个唯一的高度，内部永远不会刷新这个高度「 即使调用了 reloadData 」。
+
 ## 联系
 - 欢迎 [issues](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight/issues) 和 [PR](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight/pulls)
 - 也可以添加如下的微信交流和学习
