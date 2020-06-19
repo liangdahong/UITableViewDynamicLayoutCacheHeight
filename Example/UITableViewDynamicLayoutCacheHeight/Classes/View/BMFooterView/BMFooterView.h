@@ -20,8 +20,14 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
 
-#import "UIFooterView.h"
+#import <UIKit/UIKit.h>
 
-@implementation UIFooterView
+NS_ASSUME_NONNULL_BEGIN
+
+@interface BMFooterView : UITableViewHeaderFooterView
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end
+
+NS_ASSUME_NONNULL_END

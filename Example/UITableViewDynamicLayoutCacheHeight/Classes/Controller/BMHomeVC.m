@@ -24,10 +24,13 @@
 #import "BMModel.h"
 #import "BMCell.h"
 #import "BMHeaderView.h"
-#import "UIFooterView.h"
+#import "BMFooterView.h"
 #import "UITableViewDynamicLayoutCacheHeight.h"
 #import "AppDelegate.h"
 #import "BMHomeVC+BMTest.h"
+
+//#define kTEST_KEY_CACHE arc4random_uniform(2)
+#define kTEST_KEY_CACHE NO
 
 @implementation BMHomeVC
 
@@ -62,14 +65,19 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [tableView bm_heightWithCellClass:BMCell.class cacheByIndexPath:indexPath configuration:^(__kindof BMCell *cell) {
-        // 配置 Cell
-        // 同 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 一样
-        cell.model = self.dataArray[indexPath.section].modelArray[indexPath.row];
-    }];
-//    return [tableView bm_heightWithCellClass:BMCell.class cacheByKey:indexPath.description configuration:^(__kindof BMCell *cell) {
-//        cell.model = self.dataArray[indexPath.section].modelArray[indexPath.row];
-//    }];
+    if (kTEST_KEY_CACHE) {
+        return [tableView bm_heightWithCellClass:BMCell.class cacheByKey:indexPath.description configuration:^(__kindof BMCell *cell) {
+            // 配置 Cell
+            // 同 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 一样
+            cell.model = self.dataArray[indexPath.section].modelArray[indexPath.row];
+        }];
+    } else {
+        return [tableView bm_heightWithCellClass:BMCell.class cacheByIndexPath:indexPath configuration:^(__kindof BMCell *cell) {
+            // 配置 Cell
+            // 同 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 一样
+            cell.model = self.dataArray[indexPath.section].modelArray[indexPath.row];
+        }];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -85,25 +93,41 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return [tableView bm_heightWithHeaderFooterViewClass:BMHeaderView.class type:(BMHeaderFooterViewDynamicLayoutTypeHeader) cacheBySection:section configuration:^(__kindof BMHeaderView * _Nonnull headerFooterView) {
-        // 配置 headerView
-        // 同 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-        headerFooterView.titleLabel.text = self.dataArray[section].headerTitle;
-    }];
+    if (kTEST_KEY_CACHE) {
+        return [tableView bm_heightWithHeaderFooterViewClass:BMHeaderView.class type:BMHeaderFooterViewDynamicLayoutTypeHeader cacheByKey:@(section) configuration:^(__kindof BMHeaderView *headerFooterView) {
+            // 配置 headerView
+            // 同 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+            headerFooterView.titleLabel.text = self.dataArray[section].headerTitle;
+        }];;
+    } else {
+        return [tableView bm_heightWithHeaderFooterViewClass:BMHeaderView.class type:(BMHeaderFooterViewDynamicLayoutTypeHeader) cacheBySection:section configuration:^(__kindof BMHeaderView * _Nonnull headerFooterView) {
+            // 配置 headerView
+            // 同 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+            headerFooterView.titleLabel.text = self.dataArray[section].headerTitle;
+        }];
+    }
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    UIFooterView *view = [UIFooterView bm_tableViewHeaderFooterViewFromNibWithTableView:tableView];
+    BMFooterView *view = [BMFooterView bm_tableViewHeaderFooterViewFromNibWithTableView:tableView];
     view.titleLabel.text = self.dataArray[section].footerTitle;
     return view;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return [tableView bm_heightWithHeaderFooterViewClass:UIFooterView.class type:(BMHeaderFooterViewDynamicLayoutTypeFooter) cacheBySection:section configuration:^(__kindof UIFooterView * _Nonnull headerFooterView) {
-        // 配置 footerView
-        // 同 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
-        headerFooterView.titleLabel.text = self.dataArray[section].footerTitle;
-    }];
+    if (kTEST_KEY_CACHE) {
+        return [tableView bm_heightWithHeaderFooterViewClass:BMFooterView.class type:BMHeaderFooterViewDynamicLayoutTypeFooter cacheByKey:@(section) configuration:^(__kindof BMFooterView *headerFooterView) {
+            // 配置 footerView
+            // 同 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+            headerFooterView.titleLabel.text = self.dataArray[section].footerTitle;
+        }];
+    } else {
+        return [tableView bm_heightWithHeaderFooterViewClass:BMFooterView.class type:(BMHeaderFooterViewDynamicLayoutTypeFooter) cacheBySection:section configuration:^(__kindof BMFooterView * _Nonnull headerFooterView) {
+            // 配置 footerView
+            // 同 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+            headerFooterView.titleLabel.text = self.dataArray[section].footerTitle;
+        }];
+    }
 }
 
 @end

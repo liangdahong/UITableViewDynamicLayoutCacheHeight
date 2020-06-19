@@ -46,8 +46,8 @@
 		057948462491B596009FEEA8 /* BMHomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 057948052491B596009FEEA8 /* BMHomeVC.xib */; };
 		057948472491B596009FEEA8 /* BMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 057948092491B596009FEEA8 /* BMModel.m */; };
 		057948482491B596009FEEA8 /* BMGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0579480D2491B596009FEEA8 /* BMGroupModel.m */; };
-		057948492491B596009FEEA8 /* UIFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 057948112491B596009FEEA8 /* UIFooterView.xib */; };
-		0579484A2491B596009FEEA8 /* UIFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 057948122491B596009FEEA8 /* UIFooterView.m */; };
+		057948492491B596009FEEA8 /* BMFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 057948112491B596009FEEA8 /* BMFooterView.xib */; };
+		0579484A2491B596009FEEA8 /* BMFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 057948122491B596009FEEA8 /* BMFooterView.m */; };
 		0579484B2491B596009FEEA8 /* BMHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 057948142491B596009FEEA8 /* BMHeaderView.m */; };
 		0579484C2491B596009FEEA8 /* BMHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 057948152491B596009FEEA8 /* BMHeaderView.xib */; };
 		0579484D2491B596009FEEA8 /* BMCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 057948192491B596009FEEA8 /* BMCell.xib */; };
@@ -127,9 +127,9 @@
 		0579480A2491B596009FEEA8 /* BMModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMModel.h; sourceTree = "<group>"; };
 		0579480C2491B596009FEEA8 /* BMGroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMGroupModel.h; sourceTree = "<group>"; };
 		0579480D2491B596009FEEA8 /* BMGroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMGroupModel.m; sourceTree = "<group>"; };
-		057948102491B596009FEEA8 /* UIFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFooterView.h; sourceTree = "<group>"; };
-		057948112491B596009FEEA8 /* UIFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIFooterView.xib; sourceTree = "<group>"; };
-		057948122491B596009FEEA8 /* UIFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFooterView.m; sourceTree = "<group>"; };
+		057948102491B596009FEEA8 /* BMFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMFooterView.h; sourceTree = "<group>"; };
+		057948112491B596009FEEA8 /* BMFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMFooterView.xib; sourceTree = "<group>"; };
+		057948122491B596009FEEA8 /* BMFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMFooterView.m; sourceTree = "<group>"; };
 		057948142491B596009FEEA8 /* BMHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMHeaderView.m; sourceTree = "<group>"; };
 		057948152491B596009FEEA8 /* BMHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMHeaderView.xib; sourceTree = "<group>"; };
 		057948162491B596009FEEA8 /* BMHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMHeaderView.h; sourceTree = "<group>"; };
@@ -335,21 +335,21 @@
 		0579480E2491B596009FEEA8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0579480F2491B596009FEEA8 /* UIFooterView */,
+				0579480F2491B596009FEEA8 /* BMFooterView */,
 				057948132491B596009FEEA8 /* BMHeaderView */,
 				057948172491B596009FEEA8 /* BMCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		0579480F2491B596009FEEA8 /* UIFooterView */ = {
+		0579480F2491B596009FEEA8 /* BMFooterView */ = {
 			isa = PBXGroup;
 			children = (
-				057948102491B596009FEEA8 /* UIFooterView.h */,
-				057948112491B596009FEEA8 /* UIFooterView.xib */,
-				057948122491B596009FEEA8 /* UIFooterView.m */,
+				057948102491B596009FEEA8 /* BMFooterView.h */,
+				057948122491B596009FEEA8 /* BMFooterView.m */,
+				057948112491B596009FEEA8 /* BMFooterView.xib */,
 			);
-			path = UIFooterView;
+			path = BMFooterView;
 			sourceTree = "<group>";
 		};
 		057948132491B596009FEEA8 /* BMHeaderView */ = {
@@ -383,10 +383,10 @@
 		0579481C2491B596009FEEA8 /* YYFPSLabel */ = {
 			isa = PBXGroup;
 			children = (
-				0579481D2491B596009FEEA8 /* YYWeakProxy.m */,
 				0579481E2491B596009FEEA8 /* YYFPSLabel.h */,
 				0579481F2491B596009FEEA8 /* YYFPSLabel.m */,
 				057948202491B596009FEEA8 /* YYWeakProxy.h */,
+				0579481D2491B596009FEEA8 /* YYWeakProxy.m */,
 			);
 			path = YYFPSLabel;
 			sourceTree = "<group>";
@@ -578,7 +578,7 @@
 			files = (
 				0579483F2491B596009FEEA8 /* 3.png in Resources */,
 				057948402491B596009FEEA8 /* 1.png in Resources */,
-				057948492491B596009FEEA8 /* UIFooterView.xib in Resources */,
+				057948492491B596009FEEA8 /* BMFooterView.xib in Resources */,
 				0579483B2491B596009FEEA8 /* 5.png in Resources */,
 				057948382491B596009FEEA8 /* 25.png in Resources */,
 				0579482B2491B596009FEEA8 /* 12.png in Resources */,
@@ -698,7 +698,7 @@
 			files = (
 				057948502491B596009FEEA8 /* YYFPSLabel.m in Sources */,
 				057948432491B596009FEEA8 /* BMHomeVC+IndexPaths.m in Sources */,
-				0579484A2491B596009FEEA8 /* UIFooterView.m in Sources */,
+				0579484A2491B596009FEEA8 /* BMFooterView.m in Sources */,
 				0579484E2491B596009FEEA8 /* BMCell.m in Sources */,
 				057948452491B596009FEEA8 /* BMHomeVC.m in Sources */,
 				057948482491B596009FEEA8 /* BMGroupModel.m in Sources */,
