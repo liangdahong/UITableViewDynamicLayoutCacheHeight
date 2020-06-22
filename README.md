@@ -1,11 +1,13 @@
 ## 效果演示
 
 <p align="center">
-    <img  width="25%" src="./Images/001.gif"/>
+    <img  width="22%" src="./Images/1.gif"/>
+    <img  width="22%" src="./Images/3.gif"/>
 <p/>
 <p align="center">
-    <img  width="25%" src="./Images/微信.gif"/>
+    <img  width="44%" src="./Images/2.gif"/>
 <p/>
+
 
 <p align="center">
 <a href="#"><img src="https://img.shields.io/cocoapods/v/UITableViewDynamicLayoutCacheHeight.svg"></a>
@@ -45,7 +47,9 @@ pod install
 ![](Images/xib-cell-02.png)
 
 - 现在你的 `UITableView`  已经`自动算高`且`自动缓存高度`了，效果如下：
-- <img src="Images/xib-cell-03.png" style="zoom:50%;" />
+
+<img  width="25%" src="./Images/1.gif"/>
+
 - 更多使用请参考 [UITableView+BMDynamicLayout](<https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight/blob/master/Sources/UITableViewDynamicLayoutCacheHeight/UITableView%2BBMDynamicLayout.h>) 文件的 API。
 
 ## 框架实现原理
