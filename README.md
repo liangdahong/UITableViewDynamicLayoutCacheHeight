@@ -25,7 +25,7 @@ pod install
 ##  手动安装
 
 - 下载项目 【 `clone https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight.git` 】
-- 将 `UITableViewDynamicLayoutCacheHeight/`  文件夹下的全部内容拖拽到你的项目。
+- 将 `UITableViewDynamicLayoutCacheHeight`  文件夹下的全部内容拖拽到你的项目。
 
 ## 图文使用说明
 
