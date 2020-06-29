@@ -65,6 +65,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return 100;
     if (kTEST_KEY_CACHE) {
         return [tableView bm_heightWithCellClass:BMCell.class cacheByKey:indexPath.description configuration:^(__kindof BMCell *cell) {
             // 配置 Cell

@@ -221,7 +221,7 @@
             @selector(reloadRowsAtIndexPaths:withRowAnimation:),
             @selector(moveRowAtIndexPath:toIndexPath:)
         };
-        
+
         for (NSUInteger index = 0; index < sizeof(selectors) / sizeof(SEL); ++index) {
             SEL originalSelector = selectors[index];
             SEL swizzledSelector = NSSelectorFromString([@"tableView_dynamicLayout_" stringByAppendingString:NSStringFromSelector(originalSelector)]);
@@ -241,91 +241,107 @@
 }
 
 - (void)tableView_dynamicLayout_insertSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation {
-    // 清空缓存数据，这里可以优化，由于需要考虑太多的情况，暂时没有提供全面的测试方法，暂时直接全部刷新。
-    [self _initCacheArrayWithDataSource:self.dataSource];
-    kChangedCacheLog
+    if (self.isDynamicLayoutInitializationed) {
+        // 清空缓存数据，这里可以优化，由于需要考虑太多的情况，暂时没有提供全面的测试方法，暂时直接全部刷新。
+        [self _initCacheArrayWithDataSource:self.dataSource];
+        kChangedCacheLog
+    }
     [self tableView_dynamicLayout_insertSections:sections withRowAnimation:animation];
 }
 
 - (void)tableView_dynamicLayout_deleteSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation {
-    [sections enumerateIndexesWithOptions:(NSEnumerationReverse) usingBlock:^(NSUInteger section, BOOL * _Nonnull stop) {
-        // cell
-        [self.verticalArray         removeObjectAtIndex:section];
-        [self.horizontalArray       removeObjectAtIndex:section];
-        // header footer
-        [self.headerVerticalArray   removeObjectAtIndex:section];
-        [self.headerHorizontalArray removeObjectAtIndex:section];
-        [self.footerVerticalArray   removeObjectAtIndex:section];
-        [self.footerHorizontalArray removeObjectAtIndex:section];
-    }];
-    kChangedCacheLog
+    if (self.isDynamicLayoutInitializationed) {
+        [sections enumerateIndexesWithOptions:(NSEnumerationReverse) usingBlock:^(NSUInteger section, BOOL * _Nonnull stop) {
+            // cell
+            [self.verticalArray         removeObjectAtIndex:section];
+            [self.horizontalArray       removeObjectAtIndex:section];
+            // header footer
+            [self.headerVerticalArray   removeObjectAtIndex:section];
+            [self.headerHorizontalArray removeObjectAtIndex:section];
+            [self.footerVerticalArray   removeObjectAtIndex:section];
+            [self.footerHorizontalArray removeObjectAtIndex:section];
+        }];
+        kChangedCacheLog
+    }
     [self tableView_dynamicLayout_deleteSections:sections withRowAnimation:animation];
 }
 
 - (void)tableView_dynamicLayout_reloadSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation {
-    [sections enumerateIndexesUsingBlock:^(NSUInteger section, BOOL * _Nonnull stop) {
-        // 组的数据可能改变 需要重新获取组的行数
-        NSInteger sectionCount = [self.dataSource tableView:self numberOfRowsInSection:section];
-        NSMutableArray *arr = [NSMutableArray arrayWithCapacity:sectionCount];
-        while (sectionCount-- > 0) {
-            [arr addObject:kDefaultHeight];
-        }
-        self.verticalArray[section]   = arr.mutableCopy;
-        self.horizontalArray[section] = arr.mutableCopy;
-        
-        // header footer
-        self.headerVerticalArray[section]   = kDefaultHeight;
-        self.headerHorizontalArray[section] = kDefaultHeight;
-        self.footerVerticalArray[section]   = kDefaultHeight;
-        self.footerHorizontalArray[section] = kDefaultHeight;
-    }];
-    kChangedCacheLog
+    if (self.isDynamicLayoutInitializationed) {
+        [sections enumerateIndexesUsingBlock:^(NSUInteger section, BOOL * _Nonnull stop) {
+            // 组的数据可能改变 需要重新获取组的行数
+            NSInteger sectionCount = [self.dataSource tableView:self numberOfRowsInSection:section];
+            NSMutableArray *arr = [NSMutableArray arrayWithCapacity:sectionCount];
+            while (sectionCount-- > 0) {
+                [arr addObject:kDefaultHeight];
+            }
+            self.verticalArray[section]   = arr.mutableCopy;
+            self.horizontalArray[section] = arr.mutableCopy;
+
+            // header footer
+            self.headerVerticalArray[section]   = kDefaultHeight;
+            self.headerHorizontalArray[section] = kDefaultHeight;
+            self.footerVerticalArray[section]   = kDefaultHeight;
+            self.footerHorizontalArray[section] = kDefaultHeight;
+        }];
+        kChangedCacheLog
+    }
     [self tableView_dynamicLayout_reloadSections:sections withRowAnimation:animation];
 }
 
 - (void)tableView_dynamicLayout_moveSection:(NSInteger)section toSection:(NSInteger)newSection {
-    // 清空缓存数据，这里可以优化，由于需要考虑太多的情况，暂时没有提供全面的测试方法，暂时直接全部刷新。
-    [self _initCacheArrayWithDataSource:self.dataSource];
-    kChangedCacheLog
+    if (self.isDynamicLayoutInitializationed) {
+        // 清空缓存数据，这里可以优化，由于需要考虑太多的情况，暂时没有提供全面的测试方法，暂时直接全部刷新。
+        [self _initCacheArrayWithDataSource:self.dataSource];
+        kChangedCacheLog
+    }
     [self tableView_dynamicLayout_moveSection:section toSection:newSection];
 }
 
 - (void)tableView_dynamicLayout_insertRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation {
-    // 清空缓存数据，这里可以优化，由于需要考虑太多的情况，暂时没有提供全面的测试方法，暂时直接全部刷新。
-    [self _initCacheArrayWithDataSource:self.dataSource];
-    kChangedCacheLog
+    if (self.isDynamicLayoutInitializationed) {
+        // 清空缓存数据，这里可以优化，由于需要考虑太多的情况，暂时没有提供全面的测试方法，暂时直接全部刷新。
+        [self _initCacheArrayWithDataSource:self.dataSource];
+        kChangedCacheLog
+    }
     [self tableView_dynamicLayout_insertRowsAtIndexPaths:indexPaths withRowAnimation:animation];
 }
 
 - (void)tableView_dynamicLayout_deleteRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation {
-    NSMutableArray *tempIndexPaths = indexPaths.mutableCopy;
-    [tempIndexPaths sortUsingComparator:^NSComparisonResult(NSIndexPath *  _Nonnull obj1, NSIndexPath *  _Nonnull obj2) {
-        if (obj1.section == obj2.section) {
-            return obj1.row < obj2.row;
-        }
-        return obj1.section < obj2.section;
-    }];
-    [tempIndexPaths enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [self.verticalArray[obj.section]   removeObjectAtIndex:obj.row];
-        [self.horizontalArray[obj.section] removeObjectAtIndex:obj.row];
-    }];
-    kChangedCacheLog
+    if (self.isDynamicLayoutInitializationed) {
+        NSMutableArray *tempIndexPaths = indexPaths.mutableCopy;
+        [tempIndexPaths sortUsingComparator:^NSComparisonResult(NSIndexPath *  _Nonnull obj1, NSIndexPath *  _Nonnull obj2) {
+            if (obj1.section == obj2.section) {
+                return obj1.row < obj2.row;
+            }
+            return obj1.section < obj2.section;
+        }];
+        [tempIndexPaths enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [self.verticalArray[obj.section]   removeObjectAtIndex:obj.row];
+            [self.horizontalArray[obj.section] removeObjectAtIndex:obj.row];
+        }];
+        kChangedCacheLog
+    }
     [self tableView_dynamicLayout_deleteRowsAtIndexPaths:indexPaths withRowAnimation:animation];
 }
 
 - (void)tableView_dynamicLayout_reloadRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation {
-    [indexPaths enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        self.verticalArray[obj.section][obj.row]   = kDefaultHeight;
-        self.horizontalArray[obj.section][obj.row] = kDefaultHeight;
-    }];
-    kChangedCacheLog
+    if (self.isDynamicLayoutInitializationed) {
+        [indexPaths enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            self.verticalArray[obj.section][obj.row]   = kDefaultHeight;
+            self.horizontalArray[obj.section][obj.row] = kDefaultHeight;
+        }];
+        kChangedCacheLog
+    }
     [self tableView_dynamicLayout_reloadRowsAtIndexPaths:indexPaths withRowAnimation:animation];
 }
 
 - (void)tableView_dynamicLayout_moveRowAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath {
-    // 清空缓存数据，这里可以优化，由于需要考虑太多的情况，暂时没有提供全面的测试方法，暂时直接全部刷新。
-    [self _initCacheArrayWithDataSource:self.dataSource];
-    kChangedCacheLog
+    if (self.isDynamicLayoutInitializationed) {
+        // 清空缓存数据，这里可以优化，由于需要考虑太多的情况，暂时没有提供全面的测试方法，暂时直接全部刷新。
+        [self _initCacheArrayWithDataSource:self.dataSource];
+        kChangedCacheLog
+    }
     [self tableView_dynamicLayout_moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
 }
 
@@ -402,3 +418,4 @@
 }
 
 @end
+
