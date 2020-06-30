@@ -28,7 +28,7 @@
 #import "UITableViewDynamicLayoutCacheHeight.h"
 #import "AppDelegate.h"
 #import "BMHomeVC+BMTest.h"
-//#import "Example-swift.h"
+#import "Example-Swift.h"
 
 //#define kTEST_KEY_CACHE arc4random_uniform(2)
 #define kTEST_KEY_CACHE NO
@@ -49,7 +49,7 @@
     [self presentViewController:alertVC animated:YES completion:nil];
     
     // swift
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Swift" style:(UIBarButtonItemStylePlain) target:self action:@selector(swiftButtonClick)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Swift" style:(UIBarButtonItemStylePlain) target:self action:@selector(swiftButtonClick)];
 }
 
 #pragma mark - 系统delegate
@@ -138,7 +138,7 @@
 #pragma mark - Action
 
 - (void)swiftButtonClick {
-//    [self.navigationController pushViewController:SwiftTestVC.new animated:YES];
+    [self.navigationController pushViewController:SwiftTestVC.new animated:YES];
 }
 
 @end
