@@ -83,21 +83,28 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
 #pragma mark - private cell
 
 - (UIView *)_cellViewWithCellClass:(Class)clas {
+    NSString *cellClassName = NSStringFromClass(clas);
+    // 兼容 Swift
+    if ([cellClassName rangeOfString:@"."].location != NSNotFound) {
+        cellClassName = [cellClassName componentsSeparatedByString:@"."].lastObject;
+    }
+    
     NSMutableDictionary *dict = objc_getAssociatedObject(self, _cmd);
     if (!dict) {
         dict = @{}.mutableCopy;
         objc_setAssociatedObject(self, _cmd, dict, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
-    UIView *view = dict[NSStringFromClass(clas)];
+    UIView *view = dict[cellClassName];
     if (view) {
         // 直接返回
-        return view;;
+        return view;
     }
+    
     NSBundle *bundle = [NSBundle bundleForClass:clas];
-    NSString *path = [bundle pathForResource:NSStringFromClass(clas) ofType:@"nib"];
+    NSString *path = [bundle pathForResource:cellClassName ofType:@"nib"];
     UITableViewCell *cell = nil;
     if (path.length > 0) {
-        NSArray <UITableViewCell *> *arr = [[UINib nibWithNibName:NSStringFromClass(clas) bundle:bundle] instantiateWithOwner:nil options:nil];
+        NSArray <UITableViewCell *> *arr = [[UINib nibWithNibName:cellClassName bundle:bundle] instantiateWithOwner:nil options:nil];
         for (UITableViewCell *obj in arr) {
             if ([obj isMemberOfClass:clas]) {
                 cell = obj;
@@ -114,7 +121,7 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
     }
     view = [UIView new];
     [view addSubview:cell];
-    dict[NSStringFromClass(clas)] = view;
+    dict[cellClassName] = view;
     return view;
 }
 
@@ -167,22 +174,28 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
 
 - (UIView *)_headerFooterViewWithHeaderFooterViewClass:(Class)clas
                                                    sel:(SEL)sel {
+    NSString *headerFooterViewClassName = NSStringFromClass(clas);
+    // 兼容 Swift
+    if ([headerFooterViewClassName rangeOfString:@"."].location != NSNotFound) {
+        headerFooterViewClassName = [headerFooterViewClassName componentsSeparatedByString:@"."].lastObject;
+    }
+    
     NSMutableDictionary *dict = objc_getAssociatedObject(self, sel);
     if (!dict) {
         dict = @{}.mutableCopy;
         objc_setAssociatedObject(self, sel, dict, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
-    UIView *view = dict[NSStringFromClass(clas)];
+    UIView *view = dict[headerFooterViewClassName];
     if (view) {
         // 直接返回
         return view;
     }
 
     NSBundle *bundle = [NSBundle bundleForClass:clas];
-    NSString *path = [bundle pathForResource:NSStringFromClass(clas) ofType:@"nib"];
+    NSString *path = [bundle pathForResource:headerFooterViewClassName ofType:@"nib"];
     UIView *headerView = nil;
     if (path.length > 0) {
-        NSArray <UITableViewHeaderFooterView *> *arr = [[UINib nibWithNibName:NSStringFromClass(clas) bundle:bundle] instantiateWithOwner:nil options:nil];
+        NSArray <UITableViewHeaderFooterView *> *arr = [[UINib nibWithNibName:headerFooterViewClassName bundle:bundle] instantiateWithOwner:nil options:nil];
         for (UITableViewHeaderFooterView *obj in arr) {
             if ([obj isMemberOfClass:clas]) {
                 headerView = obj;
@@ -197,7 +210,7 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
     }
     view = [UIView new];
     [view addSubview:headerView];
-    dict[NSStringFromClass(clas)] = view;
+    dict[headerFooterViewClassName] = view;
     return view;
 }
 

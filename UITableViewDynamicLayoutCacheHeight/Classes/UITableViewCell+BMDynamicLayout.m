@@ -40,6 +40,11 @@
     if (cell) {
         return cell;
     }
+
+    if ([selfClassName rangeOfString:@"."].location != NSNotFound) {
+        selfClassName = [selfClassName componentsSeparatedByString:@"."].lastObject;
+    }
+    
     NSBundle *bundle = [NSBundle bundleForClass:self.class];
     NSString *path = [bundle pathForResource:selfClassName ofType:@"nib"];
     if (path.length == 0) {
