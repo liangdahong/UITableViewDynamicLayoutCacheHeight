@@ -1,16 +1,23 @@
 PODS:
+  - SnapKit (4.2.0)
   - UITableViewDynamicLayoutCacheHeight (5.1.2)
 
 DEPENDENCIES:
+  - SnapKit
   - UITableViewDynamicLayoutCacheHeight (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - SnapKit
 
 EXTERNAL SOURCES:
   UITableViewDynamicLayoutCacheHeight:
     :path: "../"
 
 SPEC CHECKSUMS:
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   UITableViewDynamicLayoutCacheHeight: 08581a592276608ba9682ef4a9591b60179ce2a9
 
-PODFILE CHECKSUM: 961009cd1e853e66e4734f5cd1cf90b28439e056
+PODFILE CHECKSUM: 57ec5aacd655fea984005c3f656ac68a40daee3d
 
 COCOAPODS: 1.9.3

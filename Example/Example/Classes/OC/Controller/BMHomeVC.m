@@ -138,7 +138,14 @@
 #pragma mark - Action
 
 - (void)swiftButtonClick {
-    [self.navigationController pushViewController:SwiftTestVC.new animated:YES];
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"Swift XIB" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self.navigationController pushViewController:SwiftTestVC.new animated:YES];
+    }]];
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"纯代码" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self.navigationController pushViewController:PureCodeVC.new animated:YES];
+    }]];
+    [self presentViewController:alertVC animated:YES completion:nil];
 }
 
 @end
