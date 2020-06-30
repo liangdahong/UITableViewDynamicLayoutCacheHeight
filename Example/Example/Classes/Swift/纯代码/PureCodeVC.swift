@@ -11,7 +11,7 @@ import UIKit
 
 class PureCodeVC: UIViewController {
     lazy var tableView: UITableView = {
-        let tableView = UITableView.init(frame: .zero, style: .plain)
+        let tableView = UITableView(frame: .zero, style: .plain)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none

@@ -140,7 +140,7 @@
 - (void)swiftButtonClick {
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleAlert];
     [alertVC addAction:[UIAlertAction actionWithTitle:@"Swift XIB" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self.navigationController pushViewController:SwiftTestVC.new animated:YES];
+        [self.navigationController pushViewController:XibVC.new animated:YES];
     }]];
     [alertVC addAction:[UIAlertAction actionWithTitle:@"纯代码" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self.navigationController pushViewController:PureCodeVC.new animated:YES];

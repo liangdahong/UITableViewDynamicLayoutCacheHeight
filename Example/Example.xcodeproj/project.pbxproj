@@ -28,10 +28,10 @@
 		0504E94424AB124000DAC823 /* BMFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0504E92924AB124000DAC823 /* BMFooterView.m */; };
 		0504E94524AB124000DAC823 /* BMCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0504E92C24AB124000DAC823 /* BMCell.xib */; };
 		0504E94624AB124000DAC823 /* BMCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0504E92D24AB124000DAC823 /* BMCell.m */; };
-		0504E94724AB124000DAC823 /* SwiftTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0504E93024AB124000DAC823 /* SwiftTestVC.swift */; };
-		0504E94824AB124000DAC823 /* SwiftTestVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0504E93124AB124000DAC823 /* SwiftTestVC.xib */; };
-		0504E94924AB124000DAC823 /* SwiftTestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0504E93424AB124000DAC823 /* SwiftTestCell.swift */; };
-		0504E94A24AB124000DAC823 /* SwiftTestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0504E93524AB124000DAC823 /* SwiftTestCell.xib */; };
+		0504E94724AB124000DAC823 /* XibVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0504E93024AB124000DAC823 /* XibVC.swift */; };
+		0504E94824AB124000DAC823 /* XibVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0504E93124AB124000DAC823 /* XibVC.xib */; };
+		0504E94924AB124000DAC823 /* XibCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0504E93424AB124000DAC823 /* XibCell.swift */; };
+		0504E94A24AB124000DAC823 /* XibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0504E93524AB124000DAC823 /* XibCell.xib */; };
 		0504E96C24AB124E00DAC823 /* 8.png in Resources */ = {isa = PBXBuildFile; fileRef = 0504E94D24AB124E00DAC823 /* 8.png */; };
 		0504E96D24AB124E00DAC823 /* 9.png in Resources */ = {isa = PBXBuildFile; fileRef = 0504E94E24AB124E00DAC823 /* 9.png */; };
 		0504E96E24AB124E00DAC823 /* 14.png in Resources */ = {isa = PBXBuildFile; fileRef = 0504E94F24AB124E00DAC823 /* 14.png */; };
@@ -116,10 +116,10 @@
 		0504E92B24AB124000DAC823 /* BMCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMCell.h; sourceTree = "<group>"; };
 		0504E92C24AB124000DAC823 /* BMCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMCell.xib; sourceTree = "<group>"; };
 		0504E92D24AB124000DAC823 /* BMCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMCell.m; sourceTree = "<group>"; };
-		0504E93024AB124000DAC823 /* SwiftTestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftTestVC.swift; sourceTree = "<group>"; };
-		0504E93124AB124000DAC823 /* SwiftTestVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwiftTestVC.xib; sourceTree = "<group>"; };
-		0504E93424AB124000DAC823 /* SwiftTestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftTestCell.swift; sourceTree = "<group>"; };
-		0504E93524AB124000DAC823 /* SwiftTestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwiftTestCell.xib; sourceTree = "<group>"; };
+		0504E93024AB124000DAC823 /* XibVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XibVC.swift; sourceTree = "<group>"; };
+		0504E93124AB124000DAC823 /* XibVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XibVC.xib; sourceTree = "<group>"; };
+		0504E93424AB124000DAC823 /* XibCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XibCell.swift; sourceTree = "<group>"; };
+		0504E93524AB124000DAC823 /* XibCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XibCell.xib; sourceTree = "<group>"; };
 		0504E94D24AB124E00DAC823 /* 8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 8.png; sourceTree = "<group>"; };
 		0504E94E24AB124E00DAC823 /* 9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 9.png; sourceTree = "<group>"; };
 		0504E94F24AB124E00DAC823 /* 14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 14.png; sourceTree = "<group>"; };
@@ -383,7 +383,7 @@
 		0504E92E24AB124000DAC823 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
-				05220E9E24AB2AD800D6FAFD /* XIB */,
+				05220E9E24AB2AD800D6FAFD /* Xib */,
 				05220E9D24AB2ACD00D6FAFD /* 纯代码 */,
 			);
 			path = Swift;
@@ -392,8 +392,8 @@
 		0504E92F24AB124000DAC823 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0504E93024AB124000DAC823 /* SwiftTestVC.swift */,
-				0504E93124AB124000DAC823 /* SwiftTestVC.xib */,
+				0504E93024AB124000DAC823 /* XibVC.swift */,
+				0504E93124AB124000DAC823 /* XibVC.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -401,8 +401,8 @@
 		0504E93324AB124000DAC823 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0504E93424AB124000DAC823 /* SwiftTestCell.swift */,
-				0504E93524AB124000DAC823 /* SwiftTestCell.xib */,
+				0504E93424AB124000DAC823 /* XibCell.swift */,
+				0504E93524AB124000DAC823 /* XibCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -469,13 +469,13 @@
 			path = "纯代码";
 			sourceTree = "<group>";
 		};
-		05220E9E24AB2AD800D6FAFD /* XIB */ = {
+		05220E9E24AB2AD800D6FAFD /* Xib */ = {
 			isa = PBXGroup;
 			children = (
 				0504E92F24AB124000DAC823 /* Controller */,
 				0504E93324AB124000DAC823 /* View */,
 			);
-			path = XIB;
+			path = Xib;
 			sourceTree = "<group>";
 		};
 		7224759EBAD09408C54B3EE0 /* Frameworks */ = {
@@ -609,11 +609,11 @@
 				0504E97F24AB124E00DAC823 /* 30.png in Resources */,
 				0504E97A24AB124E00DAC823 /* 22.png in Resources */,
 				0504E97224AB124E00DAC823 /* 17.png in Resources */,
-				0504E94824AB124000DAC823 /* SwiftTestVC.xib in Resources */,
+				0504E94824AB124000DAC823 /* XibVC.xib in Resources */,
 				0504E96C24AB124E00DAC823 /* 8.png in Resources */,
 				0504E97E24AB124E00DAC823 /* 18.png in Resources */,
 				0504E8E224AB120700DAC823 /* Assets.xcassets in Resources */,
-				0504E94A24AB124000DAC823 /* SwiftTestCell.xib in Resources */,
+				0504E94A24AB124000DAC823 /* XibCell.xib in Resources */,
 				0504E98824AB124E00DAC823 /* 1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -667,10 +667,10 @@
 				0504E93824AB124000DAC823 /* main.m in Sources */,
 				0504E93D24AB124000DAC823 /* BMHomeVC.m in Sources */,
 				0504E8E024AB120400DAC823 /* Example.xcdatamodeld in Sources */,
-				0504E94724AB124000DAC823 /* SwiftTestVC.swift in Sources */,
+				0504E94724AB124000DAC823 /* XibVC.swift in Sources */,
 				0504E93924AB124000DAC823 /* AppDelegate.m in Sources */,
 				0504E93A24AB124000DAC823 /* BMHomeVC+BMSectionTest.m in Sources */,
-				0504E94924AB124000DAC823 /* SwiftTestCell.swift in Sources */,
+				0504E94924AB124000DAC823 /* XibCell.swift in Sources */,
 				0504E94124AB124000DAC823 /* BMHeaderView.m in Sources */,
 				0504E93B24AB124000DAC823 /* BMHomeVC+IndexPaths.m in Sources */,
 				0504E94024AB124000DAC823 /* BMGroupModel.m in Sources */,

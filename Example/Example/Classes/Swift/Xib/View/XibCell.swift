@@ -22,7 +22,7 @@
 
 import UIKit
 
-class SwiftTestCell: UITableViewCell {
+class XibCell: UITableViewCell {
     @IBOutlet weak var descLabel: UILabel!
     var desc: String? {
         get {
@@ -34,6 +34,7 @@ class SwiftTestCell: UITableViewCell {
     }
     
     override func awakeFromNib() {
+        super.awakeFromNib()
         descLabel.superview?.layer.cornerRadius = 5
     }
 }
