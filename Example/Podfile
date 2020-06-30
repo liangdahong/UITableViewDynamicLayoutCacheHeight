@@ -2,11 +2,6 @@ use_frameworks!
 
 platform :ios, '8.0'
 
-target 'UITableViewDynamicLayoutCacheHeight_Example' do
+target 'Example' do
   pod 'UITableViewDynamicLayoutCacheHeight', :path => '../'
-
-  target 'UITableViewDynamicLayoutCacheHeight_Tests' do
-    inherit! :search_paths
-  end
-  
 end

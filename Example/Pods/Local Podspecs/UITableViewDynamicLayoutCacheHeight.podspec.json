@@ -1,6 +1,6 @@
 {
   "name": "UITableViewDynamicLayoutCacheHeight",
-  "version": "5.1.0",
+  "version": "5.1.2",
   "summary": "🖖 Template auto layout cell for automatically UITableViewCell UITableViewHeaderFooterView calculating and cache height framework.",
   "homepage": "https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight",
   "license": "MIT",
@@ -12,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight.git",
-    "tag": "5.1.0"
+    "tag": "5.1.2"
   },
   "requires_arc": true,
   "source_files": "UITableViewDynamicLayoutCacheHeight/**/*.{h,m}"
