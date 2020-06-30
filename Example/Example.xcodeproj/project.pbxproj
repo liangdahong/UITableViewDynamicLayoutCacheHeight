@@ -152,6 +152,7 @@
 		0504E96B24AB124E00DAC823 /* data.text */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = data.text; sourceTree = "<group>"; };
 		05220E9F24AB2B1F00D6FAFD /* PureCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PureCodeVC.swift; sourceTree = "<group>"; };
 		05220EA324AB2BC300D6FAFD /* PureCodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PureCodeCell.swift; sourceTree = "<group>"; };
+		05220EA524AB30B700D6FAFD /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		05DF563124AB1937000A0D1D /* UITableViewDynamicLayoutCacheHeight.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = UITableViewDynamicLayoutCacheHeight.podspec; path = ../UITableViewDynamicLayoutCacheHeight.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2719D198D1045EB7D5DF3A60 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		5D0FF6360B632094C40CB7AB /* libPods-Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				05DF563124AB1937000A0D1D /* UITableViewDynamicLayoutCacheHeight.podspec */,
+				05220EA524AB30B700D6FAFD /* README.md */,
 				0504E8D124AB120400DAC823 /* Example */,
 				0504E8F024AB120700DAC823 /* ExampleTests */,
 				0504E8D024AB120400DAC823 /* Products */,
