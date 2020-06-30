@@ -29,7 +29,7 @@ pod install
 
 ## 图文使用说明
 
-### `Cell` 使用 `Xib` 构建
+### `Cell` 使用 `Xib` 构建 「 也支持纯代码布局，只要是使用 **Autolayout** 均可 」
 
 - 创建你的 Cell 且使用约束布局， 保证【 Cell 中的 View 从上向下布局，最底部的 View 的 MaxY 刚好是 Cell 所需高度即可】【不要设置底部约束限制，从上向下布局即可，内部会自动去获取最底部的 View 然后把它的 MaxY 做为 Cell 所需的高度 在 [代码 129~150 行 可查看获取过程](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight/blob/master/Sources/UITableViewDynamicLayoutCacheHeight/UITableView%2BBMDynamicLayout.m)，然后做各种缓存操作 】 
 
