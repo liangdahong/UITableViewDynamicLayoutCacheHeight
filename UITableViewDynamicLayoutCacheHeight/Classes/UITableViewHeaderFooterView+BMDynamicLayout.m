@@ -22,6 +22,7 @@
 
 #import "UITableViewHeaderFooterView+BMDynamicLayout.h"
 #import <objc/runtime.h>
+#import "UITableView+BMPrivate.h"
 
 @implementation UITableViewHeaderFooterView (BMDynamicLayout)
 
@@ -40,18 +41,14 @@
     if (headerFooterView) {
         return headerFooterView;
     }
-    // 兼容 Swift
-    if ([selfClassName rangeOfString:@"."].location != NSNotFound) {
-        selfClassName = [selfClassName componentsSeparatedByString:@"."].lastObject;
-    }
 
     NSBundle *bundle = [NSBundle bundleForClass:self.class];
-    NSString *path = [bundle pathForResource:selfClassName ofType:@"nib"];
+    NSString *path = [bundle pathForResource:kSwiftClassNibName(selfClassName) ofType:@"nib"];
     if (path.length == 0) {
         NSAssert(NO, @"你的 UITableViewHeaderFooterView 不是 IB 创建的");
         return nil;
     }
-    NSArray <UITableViewHeaderFooterView *> *arr = [[UINib nibWithNibName:selfClassName bundle:bundle] instantiateWithOwner:nil options:nil];
+    NSArray <UITableViewHeaderFooterView *> *arr = [[UINib nibWithNibName:kSwiftClassNibName(selfClassName) bundle:bundle] instantiateWithOwner:nil options:nil];
     for (UITableViewHeaderFooterView *obj in arr) {
         if ([obj isMemberOfClass:self.class]) {
             headerFooterView = obj;

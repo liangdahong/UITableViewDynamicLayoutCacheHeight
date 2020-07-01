@@ -22,6 +22,9 @@
 
 #import <UIKit/UIKit.h>
 
+// 兼容 Swift
+#define kSwiftClassNibName(clasName) ([clasName rangeOfString:@"."].location != NSNotFound ? [clasName componentsSeparatedByString:@"."].lastObject : clasName)
+
 /// 内部使用到的分类。
 @interface UITableView (BMPrivate)
 

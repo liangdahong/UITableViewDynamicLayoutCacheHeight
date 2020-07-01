@@ -22,6 +22,7 @@
 
 #import "UITableViewCell+BMDynamicLayout.h"
 #import <objc/runtime.h>
+#import "UITableView+BMPrivate.h"
 
 @implementation UITableViewCell (BMDynamicLayout)
 
@@ -41,18 +42,14 @@
         return cell;
     }
 
-    if ([selfClassName rangeOfString:@"."].location != NSNotFound) {
-        selfClassName = [selfClassName componentsSeparatedByString:@"."].lastObject;
-    }
-    
     NSBundle *bundle = [NSBundle bundleForClass:self.class];
-    NSString *path = [bundle pathForResource:selfClassName ofType:@"nib"];
+    NSString *path = [bundle pathForResource:kSwiftClassNibName(selfClassName) ofType:@"nib"];
     if (path.length == 0) {
         NSAssert(NO, @"你的 Cell 不是 IB 创建的");
         return nil;
     }
 
-    NSArray <UITableViewCell *> *arr = [[UINib nibWithNibName:selfClassName bundle:bundle] instantiateWithOwner:nil options:nil];
+    NSArray <UITableViewCell *> *arr = [[UINib nibWithNibName:kSwiftClassNibName(selfClassName) bundle:bundle] instantiateWithOwner:nil options:nil];
     for (UITableViewCell *obj in arr) {
         if ([obj isMemberOfClass:self.class]) {
             cell = obj;
