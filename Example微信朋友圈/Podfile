@@ -9,4 +9,6 @@ target 'BMWeChat' do
     pod 'SDWebImage', '4.0'
     pod 'TTTAttributedLabel'
     pod 'UITableViewDynamicLayoutCacheHeight', :path => '../'
+    
+    pod 'GDPerformanceView-Swift', '2.0.3'
 end

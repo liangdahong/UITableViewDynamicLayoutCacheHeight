@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "BMHomeVC.h"
+#import "BMWeChat-Swift.h"
 
 @implementation AppDelegate
 
@@ -19,6 +20,10 @@
     vc.navigationBar.translucent   = NO;
     vc.navigationBar.hidden        = NO;
     self.window.rootViewController = vc;
+
+    // cpu
+    [GDP start];
+
     return YES;
 }
 

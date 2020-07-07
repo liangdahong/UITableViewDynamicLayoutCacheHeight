@@ -1,0 +1,6 @@
+module Pods_BMWeChat {
+  umbrella header "Pods-BMWeChat-umbrella.h"
+
+  export *
+  module * { export * }
+}
