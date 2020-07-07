@@ -23,6 +23,7 @@
 #import "UITableViewHeaderFooterView+BMDynamicLayout.h"
 #import <objc/runtime.h>
 #import "UITableView+BMPrivate.h"
+#import "UITableViewDynamicLayoutCacheHeight.h"
 
 @implementation UITableViewHeaderFooterView (BMDynamicLayout)
 
@@ -36,38 +37,31 @@
 
 + (instancetype)bm_tableViewHeaderFooterViewFromNibWithTableView:(UITableView *)tableView {
     NSString *selfClassName = NSStringFromClass(self.class);
-    NSString *reuseIdentifier = [selfClassName stringByAppendingString:@"BMDynamicLayoutReuseIdentifier"];
-    UITableViewHeaderFooterView *headerFooterView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
-    if (headerFooterView) {
-        return headerFooterView;
+    NSString *reuseIdentifier = [selfClassName stringByAppendingString:@"BMNibDynamicLayoutReuseIdentifier"];
+    if ([objc_getAssociatedObject(tableView, (__bridge const void * _Nonnull)(object_getClass(self))) boolValue]) {
+        // 已注册
+        return [tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
     }
-
-    NSBundle *bundle = [NSBundle bundleForClass:self.class];
-    NSString *path = [bundle pathForResource:kSwiftClassNibName(selfClassName) ofType:@"nib"];
-    if (path.length == 0) {
-        NSAssert(NO, @"你的 UITableViewHeaderFooterView 不是 IB 创建的");
-        return nil;
-    }
-    NSArray <UITableViewHeaderFooterView *> *arr = [[UINib nibWithNibName:kSwiftClassNibName(selfClassName) bundle:bundle] instantiateWithOwner:nil options:nil];
-    for (UITableViewHeaderFooterView *obj in arr) {
-        if ([obj isMemberOfClass:self.class]) {
-            headerFooterView = obj;
-            [headerFooterView setValue:reuseIdentifier forKey:@"reuseIdentifier"];
-            return headerFooterView;
-        }
-    }
-    NSAssert(NO, @"你的 UITableViewHeaderFooterView 不是 IB 创建的");
-    return nil;
+    BM_UITableView_DynamicLayout_LOG(@"✅✅✅✅%@ UINib nibWithNibName", self);
+    // 未注册，开始注册
+    UINib *nib = [UINib nibWithNibName:kSwiftClassNibName(selfClassName) bundle:[NSBundle bundleForClass:self.class]];
+    [tableView registerNib:nib forHeaderFooterViewReuseIdentifier:reuseIdentifier];
+    objc_setAssociatedObject(tableView, (__bridge const void * _Nonnull)(object_getClass(self)), @YES, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    return [tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
 }
 
 + (instancetype)bm_tableViewHeaderFooterViewFromAllocWithTableView:(UITableView *)tableView {
     NSString *selfClassName = NSStringFromClass(self.class);
-    NSString *reuseIdentifier = [selfClassName stringByAppendingString:@"BMDynamicLayoutReuseIdentifier"];
-    UITableViewHeaderFooterView *headerFooterView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
-    if (headerFooterView) {
-        return headerFooterView;
+    NSString *reuseIdentifier = [selfClassName stringByAppendingString:@"BMAllocDynamicLayoutReuseIdentifier"];
+    if ([objc_getAssociatedObject(tableView, (__bridge const void * _Nonnull)(self)) boolValue]) {
+        // 已注册
+        return [tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
     }
-    return [[self alloc] initWithReuseIdentifier:reuseIdentifier];
+    BM_UITableView_DynamicLayout_LOG(@"✅✅✅✅%@ registerClass", self);
+    // 未注册，开始注册
+    [tableView registerClass:self forHeaderFooterViewReuseIdentifier:reuseIdentifier];
+    objc_setAssociatedObject(tableView, (__bridge const void * _Nonnull)(self), @YES, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    return [tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
 }
 
 @end

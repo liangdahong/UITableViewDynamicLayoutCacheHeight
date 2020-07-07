@@ -23,6 +23,7 @@
 #import "UITableViewCell+BMDynamicLayout.h"
 #import <objc/runtime.h>
 #import "UITableView+BMPrivate.h"
+#import "UITableViewDynamicLayoutCacheHeight.h"
 
 @implementation UITableViewCell (BMDynamicLayout)
 
@@ -36,29 +37,18 @@
 
 + (instancetype)bm_tableViewCellFromNibWithTableView:(UITableView *)tableView {
     NSString *selfClassName = NSStringFromClass(self.class);
-    NSString *reuseIdentifier = [selfClassName stringByAppendingString:@"BMDynamicLayoutReuseIdentifier"];
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
-    if (cell) {
-        return cell;
-    }
+    NSString *reuseIdentifier = [selfClassName stringByAppendingString:@"BMNibDynamicLayoutReuseIdentifier"];
 
-    NSBundle *bundle = [NSBundle bundleForClass:self.class];
-    NSString *path = [bundle pathForResource:kSwiftClassNibName(selfClassName) ofType:@"nib"];
-    if (path.length == 0) {
-        NSAssert(NO, @"你的 Cell 不是 IB 创建的");
-        return nil;
+    if ([objc_getAssociatedObject(tableView, (__bridge const void * _Nonnull)(self)) boolValue]) {
+        // 已注册
+        return [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
     }
-
-    NSArray <UITableViewCell *> *arr = [[UINib nibWithNibName:kSwiftClassNibName(selfClassName) bundle:bundle] instantiateWithOwner:nil options:nil];
-    for (UITableViewCell *obj in arr) {
-        if ([obj isMemberOfClass:self.class]) {
-            cell = obj;
-            [cell setValue:reuseIdentifier forKey:@"reuseIdentifier"];
-            return cell;
-        }
-    }
-    NSAssert(NO, @"你的 Cell 不是 IB 创建的");
-    return nil;
+    BM_UITableView_DynamicLayout_LOG(@"✅✅✅✅%@ UINib nibWithNibName", self);
+    // 未注册，开始注册
+    UINib *nib = [UINib nibWithNibName:kSwiftClassNibName(selfClassName) bundle:[NSBundle bundleForClass:self.class]];
+    [tableView registerNib:nib forCellReuseIdentifier:reuseIdentifier];
+    objc_setAssociatedObject(tableView, (__bridge const void * _Nonnull)(self), @YES, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    return [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
 }
 
 + (instancetype)bm_tableViewCellFromAllocWithTableView:(UITableView *)tableView {
@@ -66,7 +56,12 @@
 }
 
 + (instancetype)bm_tableViewCellFromAllocWithTableView:(UITableView *)tableView style:(UITableViewCellStyle)style {
-    NSString *reuseIdentifier = [NSStringFromClass(self.class) stringByAppendingString:@"BMDynamicLayoutReuseIdentifier"];
+    NSString *reuseIdentifier = [NSStringFromClass(self.class) stringByAppendingString:@"BMAllocDynamicLayoutReuseIdentifier"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+    if (cell) {
+        return cell;
+    }
+    BM_UITableView_DynamicLayout_LOG(@"✅✅✅✅%@ alloc initWithStyle", self);
     return [[self alloc] initWithStyle:style reuseIdentifier:reuseIdentifier];
 }
 
