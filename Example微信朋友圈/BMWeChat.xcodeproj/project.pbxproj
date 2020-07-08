@@ -365,11 +365,11 @@
 		042B477C24B4D17A004809AF /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				042B478D24B4D17A004809AF /* BaseCell */,
 				042B477D24B4D17A004809AF /* BMEvaluationCell */,
 				042B478124B4D17A004809AF /* BMMessage1ImageCell */,
 				042B478524B4D17A004809AF /* BMMessage0ImageCell */,
 				042B478924B4D17A004809AF /* BMMessage56ImageCell */,
-				042B478D24B4D17A004809AF /* BaseCell */,
 				042B479124B4D17A004809AF /* BMMessage789ImageCell */,
 				042B479524B4D17A004809AF /* BMMessage4ImageCell */,
 				042B479924B4D17A004809AF /* BMMessage23ImageCell */,
@@ -475,9 +475,9 @@
 		042B479E24B4D17A004809AF /* BMMessageView */ = {
 			isa = PBXGroup;
 			children = (
+				042B47A124B4D17A004809AF /* BMMessageView.h */,
 				042B479F24B4D17A004809AF /* BMMessageView.m */,
 				042B47A024B4D17A004809AF /* BMMessageView.xib */,
-				042B47A124B4D17A004809AF /* BMMessageView.h */,
 			);
 			path = BMMessageView;
 			sourceTree = "<group>";
@@ -485,9 +485,9 @@
 		042B47A224B4D17A004809AF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				042B47A524B4D17A004809AF /* BMHomeVC.h */,
 				042B47A324B4D17A004809AF /* BMHomeVC.m */,
 				042B47A424B4D17A004809AF /* BMHomeVC.xib */,
-				042B47A524B4D17A004809AF /* BMHomeVC.h */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

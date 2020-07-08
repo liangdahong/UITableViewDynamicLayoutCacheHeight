@@ -6,9 +6,9 @@ target 'BMWeChat' do
     pod 'XXNibBridge', '2.3.1'
     pod 'Masonry', '1.0.2'
     pod 'MJExtension', '3.0.13'
-    pod 'SDWebImage', '4.0'
     pod 'TTTAttributedLabel'
     pod 'UITableViewDynamicLayoutCacheHeight', :path => '../'
     
     pod 'GDPerformanceView-Swift', '2.0.3'
+#    pod 'YBImageBrowser', '3.0.9'  #图片浏览
 end

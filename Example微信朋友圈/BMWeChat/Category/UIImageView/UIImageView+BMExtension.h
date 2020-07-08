@@ -10,6 +10,6 @@
 
 @interface UIImageView (BMExtension)
 
-- (void)bm_setImageNoPlaceholdereWithImageURLString:(NSString *)imageURLString;
+//- (void)bm_setImageNoPlaceholdereWithImageURLString:(NSString *)imageURLString;
 
 @end

@@ -19,6 +19,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+//    self.coLabel.layer.cornerRadius = 2;
+//    self.coLabel.layer.masksToBounds = YES;
 }
 
 - (void)draw {

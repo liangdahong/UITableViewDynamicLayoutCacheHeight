@@ -18,9 +18,6 @@ PODS:
   - Masonry (1.0.2)
   - MJExtension (3.0.13)
   - MJRefresh (3.1.12)
-  - SDWebImage (4.0.0):
-    - SDWebImage/Core (= 4.0.0)
-  - SDWebImage/Core (4.0.0)
   - SVProgressHUD (2.0.3)
   - TTTAttributedLabel (2.0.0)
   - UITableViewDynamicLayoutCacheHeight (5.1.4)
@@ -32,7 +29,6 @@ DEPENDENCIES:
   - Masonry (= 1.0.2)
   - MJExtension (= 3.0.13)
   - MJRefresh (= 3.1.12)
-  - SDWebImage (= 4.0)
   - SVProgressHUD (= 2.0.3)
   - TTTAttributedLabel
   - TTTAttributedLabel (= 2.0.0)
@@ -46,7 +42,6 @@ SPEC REPOS:
     - Masonry
     - MJExtension
     - MJRefresh
-    - SDWebImage
     - SVProgressHUD
     - TTTAttributedLabel
     - XXNibBridge
@@ -61,12 +56,11 @@ SPEC CHECKSUMS:
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
-  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
   UITableViewDynamicLayoutCacheHeight: 547355e803144cc5b7c22dc589d907cbc8cb9ce0
   XXNibBridge: addb780e6db076eb2c61716aa60b176a6799b80f
 
-PODFILE CHECKSUM: 702caf77c643fba7e1ff041b5818a0a5f37b757e
+PODFILE CHECKSUM: 4cd106485d0a56c398cf3431c0a70400512df0db
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.3

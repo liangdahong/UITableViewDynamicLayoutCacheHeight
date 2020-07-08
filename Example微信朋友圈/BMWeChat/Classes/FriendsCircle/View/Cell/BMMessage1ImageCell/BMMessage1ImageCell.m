@@ -28,6 +28,7 @@
     _heightCons.constant = self.model.size.height;
     [_friendPraiseListLabel setFriendArray:self.model.likeListNames segmentationString:@"、"];
     _iconImageView.image = [UIImage imageNamed:@"default_app_version.png"];
+    self.imageView.userInteractionEnabled = YES;
 }
 
 - (void)clear {

@@ -20,14 +20,14 @@
 #import "BMBaseTableViewCell.h"
 #import "UITableView+BMDynamicLoad.h"
 #import <UITableViewDynamicLayoutCacheHeight/UITableViewDynamicLayoutCacheHeight.h>
+#import <MJRefresh/MJRefresh.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface BMFriendsCircleVC () <UITableViewDelegate, UITableViewDataSource>
-{
-    NSMutableArray *needLoadArr;
-}
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray <BMModel *> *dataSourceArray; ///< dataSourceArray
+@property (strong, nonatomic) NSMutableArray *needLoadArr;
 
 @end
 
@@ -35,57 +35,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    needLoadArr = [@[] mutableCopy];
-    _tableView.hitTestBlock = ^{
-        [needLoadArr removeAllObjects];
-        [self loadContent];
-    };
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"a" ofType:@"txt"];
-    NSString *content = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-    NSData *JSONData = [content dataUsingEncoding:NSUTF8StringEncoding];
-    NSDictionary *responseJSON = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingMutableContainers error:nil];
-    _dataSourceArray = [BMModel bm_modelArrayWithKeyValuesArray:responseJSON[@"postList"]];
-    int arc = 3;
-    NSMutableArray *muarray = [@[] mutableCopy];
-    while (arc--) {
-        [muarray addObject:_dataSourceArray[arc4random_uniform(10)]];
-    }
-    arc = 100;
-    [muarray addObjectsFromArray:_dataSourceArray];
-    while (arc--) {
-        [muarray addObject:_dataSourceArray[arc4random_uniform(10)]];
-    }
-    _dataSourceArray = [muarray copy];
-
-    [_dataSourceArray enumerateObjectsUsingBlock:^(BMModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        obj.postId = [NSString stringWithFormat:@"%ld_%u", idx, arc4random()];
-        [obj.replyList enumerateObjectsUsingBlock:^(BMReplyListModel * _Nonnull obj, NSUInteger idx1, BOOL * _Nonnull stop) {
-            obj.replyId = [NSString stringWithFormat:@"%ld_%ld_%u", idx, idx1, arc4random()];
-            NSMutableString *str = @"".mutableCopy;
-            int a = arc4random_uniform(20)+1;
-            while (a--) {
-                if (arc4random_uniform(2)) {
-                    [str appendString:@"评价"];
-                } else {
-                    [str appendString:@"信息"];
-                }
-            }
-            obj.content = str.copy;
-        }];
-        [obj.likeList enumerateObjectsUsingBlock:^(BMLikeListModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            NSMutableString *str = @"".mutableCopy;
-            int a = arc4random_uniform(6)+1;
-            while (a--) {
-                if (arc4random_uniform(2)) {
-                    [str appendString:@"梁"];
-                } else {
-                    [str appendString:@"德"];
-                }
-            }
-            obj.likerInfo.nickName = str.copy;
-        }];
-    }];
+    
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [_tableView registerNib:[UINib nibWithNibName:@"BMEvaluationCell" bundle:nil] forCellReuseIdentifier:@"BMEvaluationCell"];
     [_tableView registerNib:[UINib nibWithNibName:@"BMMessage0ImageCell" bundle:nil] forCellReuseIdentifier:@"BMMessage0ImageCell"];
@@ -94,6 +44,68 @@
     [_tableView registerNib:[UINib nibWithNibName:@"BMMessage4ImageCell" bundle:nil] forCellReuseIdentifier:@"BMMessage4ImageCell"];
     [_tableView registerNib:[UINib nibWithNibName:@"BMMessage56ImageCell" bundle:nil] forCellReuseIdentifier:@"BMMessage56ImageCell"];
     [_tableView registerNib:[UINib nibWithNibName:@"BMMessage789ImageCell" bundle:nil] forCellReuseIdentifier:@"BMMessage789ImageCell"];
+    
+    self.needLoadArr = [@[] mutableCopy];
+    __weak typeof(self) weakSelf = self;
+    _tableView.hitTestBlock = ^{
+        __strong typeof(self) self = weakSelf;
+        [self.needLoadArr removeAllObjects];
+        [self loadContent];
+    };
+    
+    // load data
+    [SVProgressHUD show];
+    dispatch_async(dispatch_get_global_queue(0, 0), ^(void) {
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"a" ofType:@"txt"];
+          NSString *content = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+          NSData *JSONData = [content dataUsingEncoding:NSUTF8StringEncoding];
+          NSDictionary *responseJSON = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingMutableContainers error:nil];
+        self.dataSourceArray = [BMModel bm_modelArrayWithKeyValuesArray:responseJSON[@"postList"]];
+          int arc = 3;
+          NSMutableArray *muarray = [@[] mutableCopy];
+          while (arc--) {
+              [muarray addObject:self.dataSourceArray[arc4random_uniform(10)]];
+          }
+          arc = 100;
+          [muarray addObjectsFromArray:self.dataSourceArray];
+          while (arc--) {
+              [muarray addObject:self.dataSourceArray[arc4random_uniform(10)]];
+          }
+          self.dataSourceArray = [muarray copy];
+
+          [self.dataSourceArray enumerateObjectsUsingBlock:^(BMModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+              obj.postId = [NSString stringWithFormat:@"%ld_%u", idx, arc4random()];
+              [obj.replyList enumerateObjectsUsingBlock:^(BMReplyListModel * _Nonnull obj, NSUInteger idx1, BOOL * _Nonnull stop) {
+                  obj.replyId = [NSString stringWithFormat:@"%ld_%ld_%u", idx, idx1, arc4random()];
+                  NSMutableString *str = @"".mutableCopy;
+                  int a = arc4random_uniform(20)+1;
+                  while (a--) {
+                      if (arc4random_uniform(2)) {
+                          [str appendString:@"评价"];
+                      } else {
+                          [str appendString:@"信息"];
+                      }
+                  }
+                  obj.content = str.copy;
+              }];
+              [obj.likeList enumerateObjectsUsingBlock:^(BMLikeListModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                  NSMutableString *str = @"".mutableCopy;
+                  int a = arc4random_uniform(6)+1;
+                  while (a--) {
+                      if (arc4random_uniform(2)) {
+                          [str appendString:@"梁"];
+                      } else {
+                          [str appendString:@"德"];
+                      }
+                  }
+                  obj.likerInfo.nickName = str.copy;
+              }];
+          }];
+        dispatch_async(dispatch_get_main_queue(), ^(void) {
+            [SVProgressHUD dismiss];
+            [self.tableView reloadData];
+        });
+    });
 }
 
 // 按需加载 - 如果目标行与当前行相差超过指定行数，只在目标滚动范围的前后指定3行加载。
@@ -119,7 +131,7 @@
                 [arr addObject:[NSIndexPath indexPathForRow:indexPath.row-1 inSection:0]];
             }
         }
-        [needLoadArr addObjectsFromArray:arr];
+        [self.needLoadArr addObjectsFromArray:arr];
     }
 }
 
@@ -127,8 +139,8 @@
     if (indexPath.row == 0) {
         BMBaseTableViewCell *cell = (BMBaseTableViewCell *)cell1;
         cell.model = self.dataSourceArray[indexPath.section];
-        if (needLoadArr.count > 0
-            && [needLoadArr indexOfObject:indexPath] == NSNotFound) {
+        if (self.needLoadArr.count > 0
+            && [self.needLoadArr indexOfObject:indexPath] == NSNotFound) {
             [cell clear];
             return;
         }
@@ -138,8 +150,8 @@
 
     BMEvaluationCell *cell = (BMEvaluationCell *)cell1;
     cell.model = self.dataSourceArray[indexPath.section].replyList[indexPath.row - 1];
-    if (needLoadArr.count > 0
-        && [needLoadArr indexOfObject:indexPath] == NSNotFound) {
+    if (self.needLoadArr.count > 0
+        && [self.needLoadArr indexOfObject:indexPath] == NSNotFound) {
         [cell clear];
         return;
     }    
@@ -147,7 +159,7 @@
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    [needLoadArr removeAllObjects];
+    [self.needLoadArr removeAllObjects];
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{

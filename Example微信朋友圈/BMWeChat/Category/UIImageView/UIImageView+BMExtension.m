@@ -7,14 +7,14 @@
 //
 
 #import "UIImageView+BMExtension.h"
-#import <UIImageView+WebCache.h>
+//#import <UIImageView+WebCache.h>
 
 @implementation UIImageView (BMExtension)
 
-- (void)bm_setImageNoPlaceholdereWithImageURLString:(NSString *)imageURLString {
-    [self sd_setImageWithURL:[NSURL URLWithString:imageURLString]
-            placeholderImage:nil
-                     options:SDWebImageRetryFailed | SDWebImageLowPriority];
-}
+//- (void)bm_setImageNoPlaceholdereWithImageURLString:(NSString *)imageURLString {
+//    [self sd_setImageWithURL:[NSURL URLWithString:imageURLString]
+//            placeholderImage:nil
+//                     options:SDWebImageRetryFailed | SDWebImageLowPriority];
+//}
 
 @end
