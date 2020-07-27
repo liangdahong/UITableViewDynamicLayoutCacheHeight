@@ -1,4 +1,4 @@
-module Pods_BMWeChat {
+framework module Pods_BMWeChat {
   umbrella header "Pods-BMWeChat-umbrella.h"
 
   export *

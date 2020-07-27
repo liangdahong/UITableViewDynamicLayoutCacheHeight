@@ -145,6 +145,9 @@
     [alertVC addAction:[UIAlertAction actionWithTitle:@"纯代码" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self.navigationController pushViewController:PureCodeVC.new animated:YES];
     }]];
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"系统算高" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self.navigationController pushViewController:SystemHeightVC.new animated:YES];
+    }]];
     [self presentViewController:alertVC animated:YES completion:nil];
 }
 

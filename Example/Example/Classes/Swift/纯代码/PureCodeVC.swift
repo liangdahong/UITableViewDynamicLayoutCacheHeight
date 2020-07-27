@@ -35,7 +35,7 @@ class PureCodeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "纯代码布局"
-
+        
         // add tableView
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
@@ -44,11 +44,21 @@ class PureCodeVC: UIViewController {
     }
 }
 
-extension PureCodeVC: UITableViewDataSource, UITableViewDelegate {
+extension PureCodeVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return tableView.bm_height(withCellClass: PureCodeCell.self, cacheBy: indexPath) { (cell) in
+            if let cell1 = cell as? PureCodeCell {
+                cell1.descName = self.dataSourceArray[indexPath.row]
+            }
+        }
+    }
+}
+
+extension PureCodeVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         dataSourceArray.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = PureCodeCell.bm_tableViewCellFromAlloc(with: tableView, style: .default)
         if let cell1 = cell {
@@ -56,13 +66,5 @@ extension PureCodeVC: UITableViewDataSource, UITableViewDelegate {
             return cell1
         }
         return UITableViewCell()
-    }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.bm_height(withCellClass: PureCodeCell.self, cacheBy: indexPath) { (cell) in
-            if let cell1 = cell as? PureCodeCell {
-                cell1.descName = self.dataSourceArray[indexPath.row]
-            }
-        }
     }
 }

@@ -14,6 +14,7 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
+  - FSPagerView (0.8.3)
   - GDPerformanceView-Swift (2.0.3)
   - Masonry (1.0.2)
   - MJExtension (3.0.13)
@@ -25,6 +26,7 @@ PODS:
 
 DEPENDENCIES:
   - BlocksKit (= 2.2.5)
+  - FSPagerView
   - GDPerformanceView-Swift (= 2.0.3)
   - Masonry (= 1.0.2)
   - MJExtension (= 3.0.13)
@@ -38,6 +40,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - BlocksKit
+    - FSPagerView
     - GDPerformanceView-Swift
     - Masonry
     - MJExtension
@@ -52,6 +55,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
+  FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
   GDPerformanceView-Swift: ef3d05deb103e472a5494d3f60aeca5a58b88a7d
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
@@ -61,6 +65,6 @@ SPEC CHECKSUMS:
   UITableViewDynamicLayoutCacheHeight: 547355e803144cc5b7c22dc589d907cbc8cb9ce0
   XXNibBridge: addb780e6db076eb2c61716aa60b176a6799b80f
 
-PODFILE CHECKSUM: 4cd106485d0a56c398cf3431c0a70400512df0db
+PODFILE CHECKSUM: 98ba3707d7f940ed74e10e4bfc3d361fba1108fb
 
 COCOAPODS: 1.9.3

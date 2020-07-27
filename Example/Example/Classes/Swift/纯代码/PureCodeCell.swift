@@ -28,7 +28,7 @@ class PureCodeCell: UITableViewCell {
             make.left.equalTo(10)
             make.right.equalTo(-10)
         }
-
+        
         // 辅助 view，cell 需要的高度就是 linView 的 maxY
         let linView = UIView()
         contentView.addSubview(linView)

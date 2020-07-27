@@ -1,0 +1,11 @@
+${PODS_ROOT}/Target Support Files/Pods-BMWeChat/Pods-BMWeChat-frameworks.sh
+${BUILT_PRODUCTS_DIR}/BlocksKit/BlocksKit.framework
+${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework
+${BUILT_PRODUCTS_DIR}/GDPerformanceView-Swift/GDPerformanceView_Swift.framework
+${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework
+${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework
+${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework
+${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework
+${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework
+${BUILT_PRODUCTS_DIR}/UITableViewDynamicLayoutCacheHeight/UITableViewDynamicLayoutCacheHeight.framework
+${BUILT_PRODUCTS_DIR}/XXNibBridge/XXNibBridge.framework

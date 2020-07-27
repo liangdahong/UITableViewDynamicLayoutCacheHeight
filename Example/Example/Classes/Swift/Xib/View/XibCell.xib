@@ -57,7 +57,7 @@
             <connections>
                 <outlet property="descLabel" destination="cia-gS-QII" id="TeP-FB-s5g"/>
             </connections>
-            <point key="canvasLocation" x="128" y="-12"/>
+            <point key="canvasLocation" x="-149" y="86"/>
         </tableViewCell>
     </objects>
 </document>

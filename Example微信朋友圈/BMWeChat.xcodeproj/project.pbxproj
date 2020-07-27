@@ -54,7 +54,7 @@
 		042B47DC24B4D17B004809AF /* a.txt in Resources */ = {isa = PBXBuildFile; fileRef = 042B47B324B4D17A004809AF /* a.txt */; };
 		042B47DD24B4D17B004809AF /* crown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 042B47B424B4D17A004809AF /* crown@2x.png */; };
 		042B47E224B4D254004809AF /* GDP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B47E124B4D254004809AF /* GDP.swift */; };
-		DF9E5554AB709C04AC4E6722 /* libPods-BMWeChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A49D8AB588E1C53D976EC941 /* libPods-BMWeChat.a */; };
+		E9667E39F5771DE9337AF7FB /* Pods_BMWeChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8B76BC14690A21D65C6358 /* Pods_BMWeChat.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,8 +157,8 @@
 		042B47DE24B4D20B004809AF /* BMWeChat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BMWeChat-Bridging-Header.h"; sourceTree = "<group>"; };
 		042B47E124B4D254004809AF /* GDP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GDP.swift; sourceTree = "<group>"; };
 		84EC316155BAF1E6AF98151B /* Pods-BMWeChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BMWeChat.release.xcconfig"; path = "Target Support Files/Pods-BMWeChat/Pods-BMWeChat.release.xcconfig"; sourceTree = "<group>"; };
-		A49D8AB588E1C53D976EC941 /* libPods-BMWeChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BMWeChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6559EE2043F9115C8F17910 /* Pods-BMWeChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BMWeChat.debug.xcconfig"; path = "Target Support Files/Pods-BMWeChat/Pods-BMWeChat.debug.xcconfig"; sourceTree = "<group>"; };
+		FA8B76BC14690A21D65C6358 /* Pods_BMWeChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BMWeChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,7 +166,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF9E5554AB709C04AC4E6722 /* libPods-BMWeChat.a in Frameworks */,
+				E9667E39F5771DE9337AF7FB /* Pods_BMWeChat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,7 +552,7 @@
 		76BBD29236D8D75FAC71FC34 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A49D8AB588E1C53D976EC941 /* libPods-BMWeChat.a */,
+				FA8B76BC14690A21D65C6358 /* Pods_BMWeChat.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -568,7 +568,7 @@
 				042B471824B4D11D004809AF /* Sources */,
 				042B471924B4D11D004809AF /* Frameworks */,
 				042B471A24B4D11D004809AF /* Resources */,
-				68E972487415F081F41CC929 /* [CP] Copy Pods Resources */,
+				AEB20C9865D51C3707EE4CBA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -721,21 +721,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		68E972487415F081F41CC929 /* [CP] Copy Pods Resources */ = {
+		AEB20C9865D51C3707EE4CBA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BMWeChat/Pods-BMWeChat-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-BMWeChat/Pods-BMWeChat-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BMWeChat/Pods-BMWeChat-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-BMWeChat/Pods-BMWeChat-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BMWeChat/Pods-BMWeChat-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BMWeChat/Pods-BMWeChat-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

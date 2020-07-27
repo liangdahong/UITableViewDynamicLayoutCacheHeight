@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "BMHomeVC.h"
 #import "BMWeChat-Swift.h"
+#import <FSPagerView/FSPagerView-Swift.h>
 
 @implementation AppDelegate
 
@@ -23,6 +24,9 @@
 
     // cpu
     [GDP start];
+    
+    FSPagerView *obj = FSPagerView.new;
+    NSLog(@"%@", obj);
 
     return YES;
 }

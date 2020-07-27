@@ -22,7 +22,6 @@
 
 import UIKit
 
-
 class XibVC: UIViewController {
     fileprivate lazy var dataSourceArray: [String] = {
         var arr = [String]()
@@ -43,20 +42,22 @@ class XibVC: UIViewController {
     }
 }
 
-extension XibVC: UITableViewDataSource, UITableViewDelegate {
+extension XibVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         dataSourceArray.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = XibCell.bm_tableViewCellFromNib(with: tableView)
-        if let cell1 = cell {
-            cell1.desc = dataSourceArray[indexPath.row]
-            return cell1
+        guard let cell1 = cell else {
+            return UITableViewCell()
         }
-        return UITableViewCell()
+        cell1.desc = dataSourceArray[indexPath.row]
+        return cell1
     }
+}
 
+extension XibVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.bm_height(withCellClass: XibCell.self, cacheBy: indexPath) { (cell) in
             if let cell1 = cell as? XibCell {
@@ -64,7 +65,7 @@ extension XibVC: UITableViewDataSource, UITableViewDelegate {
             }
         }
     }
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }

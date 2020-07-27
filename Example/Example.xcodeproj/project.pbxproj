@@ -64,6 +64,10 @@
 		0504E98924AB124E00DAC823 /* data.text in Resources */ = {isa = PBXBuildFile; fileRef = 0504E96B24AB124E00DAC823 /* data.text */; };
 		05220EA124AB2B1F00D6FAFD /* PureCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05220E9F24AB2B1F00D6FAFD /* PureCodeVC.swift */; };
 		05220EA424AB2BC300D6FAFD /* PureCodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05220EA324AB2BC300D6FAFD /* PureCodeCell.swift */; };
+		0575A3E324C989CD008A6929 /* SystemHeightVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0575A3E124C989CC008A6929 /* SystemHeightVC.swift */; };
+		0575A3E424C989CD008A6929 /* SystemHeightVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0575A3E224C989CD008A6929 /* SystemHeightVC.xib */; };
+		0575A3E724C989D2008A6929 /* SystemHeightCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0575A3E524C989D1008A6929 /* SystemHeightCell.xib */; };
+		0575A3E824C989D2008A6929 /* SystemHeightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0575A3E624C989D2008A6929 /* SystemHeightCell.swift */; };
 		2B4A7D34290D5887318B0910 /* libPods-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0FF6360B632094C40CB7AB /* libPods-Example.a */; };
 /* End PBXBuildFile section */
 
@@ -153,6 +157,10 @@
 		05220E9F24AB2B1F00D6FAFD /* PureCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PureCodeVC.swift; sourceTree = "<group>"; };
 		05220EA324AB2BC300D6FAFD /* PureCodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PureCodeCell.swift; sourceTree = "<group>"; };
 		05220EA524AB30B700D6FAFD /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		0575A3E124C989CC008A6929 /* SystemHeightVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemHeightVC.swift; sourceTree = "<group>"; };
+		0575A3E224C989CD008A6929 /* SystemHeightVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SystemHeightVC.xib; sourceTree = "<group>"; };
+		0575A3E524C989D1008A6929 /* SystemHeightCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SystemHeightCell.xib; sourceTree = "<group>"; };
+		0575A3E624C989D2008A6929 /* SystemHeightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemHeightCell.swift; sourceTree = "<group>"; };
 		05DF563124AB1937000A0D1D /* UITableViewDynamicLayoutCacheHeight.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = UITableViewDynamicLayoutCacheHeight.podspec; path = ../UITableViewDynamicLayoutCacheHeight.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2719D198D1045EB7D5DF3A60 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		5D0FF6360B632094C40CB7AB /* libPods-Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -383,6 +391,7 @@
 		0504E92E24AB124000DAC823 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
+				0575A3D624C9898A008A6929 /* 系统算高 */,
 				05220E9E24AB2AD800D6FAFD /* Xib */,
 				05220E9D24AB2ACD00D6FAFD /* 纯代码 */,
 			);
@@ -476,6 +485,33 @@
 				0504E93324AB124000DAC823 /* View */,
 			);
 			path = Xib;
+			sourceTree = "<group>";
+		};
+		0575A3D624C9898A008A6929 /* 系统算高 */ = {
+			isa = PBXGroup;
+			children = (
+				0575A3D724C9898A008A6929 /* Controller */,
+				0575A3DA24C9898A008A6929 /* View */,
+			);
+			path = "系统算高";
+			sourceTree = "<group>";
+		};
+		0575A3D724C9898A008A6929 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0575A3E124C989CC008A6929 /* SystemHeightVC.swift */,
+				0575A3E224C989CD008A6929 /* SystemHeightVC.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0575A3DA24C9898A008A6929 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0575A3E624C989D2008A6929 /* SystemHeightCell.swift */,
+				0575A3E524C989D1008A6929 /* SystemHeightCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		7224759EBAD09408C54B3EE0 /* Frameworks */ = {
@@ -604,8 +640,10 @@
 				0504E98024AB124E00DAC823 /* 24.png in Resources */,
 				0504E97424AB124E00DAC823 /* 12.png in Resources */,
 				0504E98924AB124E00DAC823 /* data.text in Resources */,
+				0575A3E724C989D2008A6929 /* SystemHeightCell.xib in Resources */,
 				0504E97524AB124E00DAC823 /* 13.png in Resources */,
 				0504E96F24AB124E00DAC823 /* 28.png in Resources */,
+				0575A3E424C989CD008A6929 /* SystemHeightVC.xib in Resources */,
 				0504E97F24AB124E00DAC823 /* 30.png in Resources */,
 				0504E97A24AB124E00DAC823 /* 22.png in Resources */,
 				0504E97224AB124E00DAC823 /* 17.png in Resources */,
@@ -660,6 +698,7 @@
 				0504E94424AB124000DAC823 /* BMFooterView.m in Sources */,
 				0504E93724AB124000DAC823 /* YYFPSLabel.m in Sources */,
 				0504E93624AB124000DAC823 /* YYWeakProxy.m in Sources */,
+				0575A3E824C989D2008A6929 /* SystemHeightCell.swift in Sources */,
 				0504E93F24AB124000DAC823 /* BMModel.m in Sources */,
 				05220EA124AB2B1F00D6FAFD /* PureCodeVC.swift in Sources */,
 				0504E94624AB124000DAC823 /* BMCell.m in Sources */,
@@ -675,6 +714,7 @@
 				0504E93B24AB124000DAC823 /* BMHomeVC+IndexPaths.m in Sources */,
 				0504E94024AB124000DAC823 /* BMGroupModel.m in Sources */,
 				0504E93C24AB124000DAC823 /* BMHomeVC+BMTest.m in Sources */,
+				0575A3E324C989CD008A6929 /* SystemHeightVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

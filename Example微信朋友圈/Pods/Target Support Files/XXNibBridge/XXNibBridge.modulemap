@@ -1,0 +1,6 @@
+framework module XXNibBridge {
+  umbrella header "XXNibBridge-umbrella.h"
+
+  export *
+  module * { export * }
+}
