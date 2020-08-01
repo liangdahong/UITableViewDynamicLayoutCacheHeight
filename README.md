@@ -1,7 +1,9 @@
 <p align="center">
-    <img  width="22%" src="./Images/1.gif"/>
-    <img  width="22%" src="./Images/3.gif"/>
+    <img  width="22%" src="https://user-images.githubusercontent.com/12118567/89103687-3cbc6400-d446-11ea-9b66-cc349f7b8da4.gif"/>
+    <img  width="22%" src="https://user-images.githubusercontent.com/12118567/89103691-40e88180-d446-11ea-8e2e-4d19b1181f4c.gif"/>
 <p/>
+
+
 
 <p align="center">
 <a href="#"><img src="https://img.shields.io/cocoapods/v/UITableViewDynamicLayoutCacheHeight.svg"></a>
@@ -42,7 +44,7 @@ pod install
 
 - 现在你的 `UITableView`  已经`自动算高`且`自动缓存高度`了，效果如下：
 
-<img  width="22%" src="./Images/1.gif"/>
+<img  width="22%" src="https://user-images.githubusercontent.com/12118567/89103687-3cbc6400-d446-11ea-9b66-cc349f7b8da4.gif"/>
 
 - [ Swift Xib Demo ](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight/tree/master/Example/Example/Classes/Swift/Xib)
 
