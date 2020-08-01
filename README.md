@@ -50,7 +50,7 @@ pod install
 
 -  [ Swift 纯代码布局 Demo ](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight/tree/master/Example/Example/Classes/Swift/%E7%BA%AF%E4%BB%A3%E7%A0%81)
 
-- 更多使用请参考 [UITableView+BMDynamicLayout](<https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight/blob/master/Sources/UITableViewDynamicLayoutCacheHeight/UITableView%2BBMDynamicLayout.h>) 文件的 API。
+- 更多使用请参考 [ UITableView+BMDynamicLayout.h ](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight/blob/master/UITableViewDynamicLayoutCacheHeight/Classes/UITableView%2BBMDynamicLayout.h) 文件的 API。
 
 ## 框架实现原理
 
