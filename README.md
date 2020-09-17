@@ -72,7 +72,8 @@ pod install
 
 ## 常见问题处理
 
-- 如果使用 key 做缓存，表示高度只和 key 有关，只要使用相同的 key 就会得到一个唯一的高度，内部永远不会刷新这个高度「 即使调用了 reloadData 」。
+- 如果使用 key 做缓存，表示高度只和 key 有关，只要使用相同的 key 就会得到相同的高度，内部永远不会刷新这个高度「 即使调用了 reloadData 」。
+
 
 ## 联系
 - 欢迎 [issues](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight/issues) 和 [PR](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight/pulls)
