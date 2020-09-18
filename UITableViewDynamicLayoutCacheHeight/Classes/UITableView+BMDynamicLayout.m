@@ -125,15 +125,26 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
 - (CGFloat)_heightWithCellClass:(Class)clas
                   configuration:(BMConfigurationCellBlock)configuration {
     UIView *view = [self _cellViewWithCellClass:clas];
-    // 获取 TableView 宽度
-    UIView *temp = self.superview ? self.superview : self;
-    tableViewDynamicLayoutLayoutIfNeeded(temp);
-    CGFloat width = CGRectGetWidth(self.frame);
-
+    
     // 设置 Frame
-    view.frame = CGRectMake(0.0, 0.0, width, 0.0);
+    view.frame = CGRectMake(0.0, 0.0, self.bm_layoutWidth, 0.0);
     UITableViewCell *cell = view.subviews.firstObject;
-    cell.frame = CGRectMake(0.0, 0.0, width, 0.0);
+    cell.frame = CGRectMake(0.0, 0.0, self.bm_layoutWidth, 0.0);
+    
+    dispatch_async(dispatch_get_main_queue(), ^(void) {
+        // 刷新完成后 如果 tableView 的真实宽度和刚才的宽度不同就刷新 tableView
+        if (fabs(self.bm_layoutWidth - CGRectGetWidth(self.bounds)) > 0.1 ) {
+            BM_UITableView_DynamicLayout_LOG(@"❌❌❌❌ tableView 宽度有调整，需要刷新 真实宽度：%@  刚才布局时取的无效宽度：%@",
+                                             @(CGRectGetWidth(self.bounds)),
+                                             @(self.bm_layoutWidth));
+            // 保存真正的 width
+            self.bm_layoutWidth = CGRectGetWidth(self.bounds);
+            // 清除无效的缓存
+            [self bm_clearInvalidCache];
+            // 刷新 tableView
+            [self reloadData];
+        }
+    });
 
     // 让外面布局 Cell
     !configuration ? : configuration(cell);
@@ -211,18 +222,29 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
                                         sel:(SEL)sel
                               configuration:(BMConfigurationHeaderFooterViewBlock)configuration {
     UIView *view = [self _headerFooterViewWithHeaderFooterViewClass:clas sel:sel];
-    // 获取 TableView 宽度
-    UIView *temp = self.superview ? self.superview : self;
-    tableViewDynamicLayoutLayoutIfNeeded(temp);
-    CGFloat width = CGRectGetWidth(self.frame);
-
     // 设置 Frame
-    view.frame = CGRectMake(0.0, 0.0, width, 0.0);
+    view.frame = CGRectMake(0.0, 0.0, self.bm_layoutWidth, 0.0);
     UITableViewHeaderFooterView *headerFooterView = view.subviews.firstObject;
-    headerFooterView.frame = CGRectMake(0.0, 0.0, width, 0.0);
+    headerFooterView.frame = CGRectMake(0.0, 0.0, self.bm_layoutWidth, 0.0);
 
+    dispatch_async(dispatch_get_main_queue(), ^(void) {
+        // 刷新完成后 如果 tableView 的真实宽度和刚才的宽度不同就刷新 tableView
+        if (fabs(self.bm_layoutWidth - CGRectGetWidth(self.bounds)) > 0.1 ) {
+            BM_UITableView_DynamicLayout_LOG(@"❌❌❌❌ tableView 宽度有调整，需要刷新 真实宽度：%@  刚才布局时取的无效宽度：%@",
+                                             @(CGRectGetWidth(self.bounds)),
+                                             @(self.bm_layoutWidth));
+            // 保存真正的 width
+            self.bm_layoutWidth = CGRectGetWidth(self.bounds);
+            // 清除无效的缓存
+            [self bm_clearInvalidCache];
+            // 刷新 tableView
+            [self reloadData];
+        }
+    });
+    
     // 让外面布局 UITableViewHeaderFooterView
     !configuration ? : configuration(headerFooterView);
+    
     // 刷新布局
     tableViewDynamicLayoutLayoutIfNeeded(view);
 

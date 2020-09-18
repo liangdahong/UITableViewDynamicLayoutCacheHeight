@@ -51,6 +51,9 @@
 @property (nonatomic, strong, readonly) NSMutableArray <NSNumber *> *footerVerticalArray;
 @property (nonatomic, strong, readonly) NSMutableArray <NSNumber *> *footerHorizontalArray;
 
+@property (nonatomic, assign) CGFloat bm_verticalLayoutWidth;
+@property (nonatomic, assign) CGFloat bm_horizontalLayoutWidth;
+
 @end
 
 @implementation UITableView (BMPrivate)
@@ -191,6 +194,44 @@
         objc_setAssociatedObject(self, _cmd, arr, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     return arr;
+}
+
+- (CGFloat)bm_layoutWidth {
+    return kIS_VERTICAL ? self.bm_verticalLayoutWidth : self.bm_horizontalLayoutWidth;
+}
+
+- (void)setBm_layoutWidth:(CGFloat)bm_layoutWidth {
+    if (kIS_VERTICAL) {
+        self.bm_verticalLayoutWidth = bm_layoutWidth;
+    } else {
+        self.bm_horizontalLayoutWidth = bm_layoutWidth;
+    }
+}
+
+- (CGFloat)bm_verticalLayoutWidth {
+    NSNumber *layoutWidth = objc_getAssociatedObject(self, _cmd);
+    if (layoutWidth) {
+        return layoutWidth.floatValue;
+    }
+    objc_setAssociatedObject(self, _cmd, @(CGRectGetWidth(UIScreen.mainScreen.bounds)), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    return UIScreen.mainScreen.bounds.size.width;
+}
+
+- (void)setBm_verticalLayoutWidth:(CGFloat)bm_verticalLayoutWidth {
+    objc_setAssociatedObject(self, @selector(bm_verticalLayoutWidth), @(bm_verticalLayoutWidth), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (CGFloat)bm_horizontalLayoutWidth {
+    NSNumber *layoutWidth = objc_getAssociatedObject(self, _cmd);
+    if (layoutWidth) {
+        return layoutWidth.floatValue;
+    }
+    objc_setAssociatedObject(self, _cmd, @(CGRectGetWidth(UIScreen.mainScreen.bounds)), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    return UIScreen.mainScreen.bounds.size.width;
+}
+
+- (void)setBm_horizontalLayoutWidth:(CGFloat)bm_horizontalLayoutWidth {
+    objc_setAssociatedObject(self, @selector(bm_horizontalLayoutWidth), @(bm_horizontalLayoutWidth), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (BOOL)isDynamicLayoutInitializationed {
@@ -346,6 +387,19 @@
 }
 
 #pragma mark - Private Method
+
+- (void)bm_clearInvalidCache {
+    
+    // 清除无效的缓存
+    [self.headerVerticalDictionary removeAllObjects];
+    [self.headerHorizontalDictionary removeAllObjects];
+    
+    [self.verticalDictionary removeAllObjects];
+    [self.horizontalDictionary removeAllObjects];
+    
+    [self.footerVerticalDictionary removeAllObjects];
+    [self.footerHorizontalDictionary removeAllObjects];
+}
 
 - (void)_initCacheArrayWithDataSource:(id<UITableViewDataSource>)dataSource {
     if (!dataSource) {

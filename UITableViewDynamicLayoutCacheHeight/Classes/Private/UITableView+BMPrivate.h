@@ -37,9 +37,12 @@
 @property (nonatomic, strong, readonly) NSMutableDictionary <id<NSCopying>, NSNumber *> *footerHeightDictionary;
 @property (nonatomic, strong, readonly) NSMutableArray <NSNumber *> *footerHeightArray;
 
+@property (nonatomic, assign) CGFloat bm_layoutWidth; ///< 布局宽度
+
 /// 是否已经初始化过。
 @property (nonatomic, assign, readonly) BOOL isDynamicLayoutInitializationed;
 
+- (void)bm_clearInvalidCache;
 - (void)bm_dynamicLayoutInitialization;
 
 @end
