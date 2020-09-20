@@ -128,7 +128,7 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
     
     // 设置 Frame
     view.frame = CGRectMake(0.0, 0.0, self.bm_layoutWidth, 0.0);
-    UITableViewCell *cell = view.subviews.firstObject;
+    UITableViewCell *cell = view.subviews[0];
     cell.frame = CGRectMake(0.0, 0.0, self.bm_layoutWidth, 0.0);
     
     dispatch_async(dispatch_get_main_queue(), ^(void) {
@@ -224,7 +224,7 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
     UIView *view = [self _headerFooterViewWithHeaderFooterViewClass:clas sel:sel];
     // 设置 Frame
     view.frame = CGRectMake(0.0, 0.0, self.bm_layoutWidth, 0.0);
-    UITableViewHeaderFooterView *headerFooterView = view.subviews.firstObject;
+    UITableViewHeaderFooterView *headerFooterView = view.subviews[0];
     headerFooterView.frame = CGRectMake(0.0, 0.0, self.bm_layoutWidth, 0.0);
 
     dispatch_async(dispatch_get_main_queue(), ^(void) {

@@ -214,7 +214,7 @@
         return layoutWidth.floatValue;
     }
     objc_setAssociatedObject(self, _cmd, @(CGRectGetWidth(UIScreen.mainScreen.bounds)), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    return UIScreen.mainScreen.bounds.size.width;
+    return CGRectGetWidth(UIScreen.mainScreen.bounds);
 }
 
 - (void)setBm_verticalLayoutWidth:(CGFloat)bm_verticalLayoutWidth {
@@ -227,7 +227,7 @@
         return layoutWidth.floatValue;
     }
     objc_setAssociatedObject(self, _cmd, @(CGRectGetWidth(UIScreen.mainScreen.bounds)), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    return UIScreen.mainScreen.bounds.size.width;
+    return CGRectGetWidth(UIScreen.mainScreen.bounds);
 }
 
 - (void)setBm_horizontalLayoutWidth:(CGFloat)bm_horizontalLayoutWidth {

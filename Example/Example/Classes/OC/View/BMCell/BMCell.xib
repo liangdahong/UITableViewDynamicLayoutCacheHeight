@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -74,6 +74,7 @@
                     <constraint firstItem="lM9-Hc-jBb" firstAttribute="top" secondItem="lhq-Lr-331" secondAttribute="bottom" constant="5" id="zDr-el-yjx"/>
                 </constraints>
             </tableViewCellContentView>
+            <gestureRecognizers/>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="boolean" keyPath="bm_maxYViewFixed" value="YES"/>
             </userDefinedRuntimeAttributes>
@@ -85,9 +86,17 @@
                 <outlet property="titleLabel" destination="fFh-wW-ISV" id="tF1-xP-XR3"/>
                 <outlet property="userLabel" destination="AIe-Bw-kL1" id="SjD-S4-hgv"/>
                 <outlet property="widthCons" destination="FnQ-fB-AhP" id="nem-C4-iut"/>
+                <outletCollection property="gestureRecognizers" destination="gkq-Ck-4AT" appends="YES" id="g4P-Mw-0uE"/>
             </connections>
             <point key="canvasLocation" x="-858" y="-1133"/>
         </tableViewCell>
+        <tapGestureRecognizer id="gkq-Ck-4AT"/>
+        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="sb1-1W-uGu">
+            <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <state key="normal" title="Button"/>
+            <point key="canvasLocation" x="-1117" y="-827"/>
+        </button>
     </objects>
     <resources>
         <image name="1.png" width="214" height="265"/>

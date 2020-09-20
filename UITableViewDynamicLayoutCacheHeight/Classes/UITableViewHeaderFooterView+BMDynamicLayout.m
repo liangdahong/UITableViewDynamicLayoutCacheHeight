@@ -38,30 +38,34 @@
 + (instancetype)bm_tableViewHeaderFooterViewFromNibWithTableView:(UITableView *)tableView {
     NSString *selfClassName = NSStringFromClass(self.class);
     NSString *reuseIdentifier = [selfClassName stringByAppendingString:@"BMNibDynamicLayoutReuseIdentifier"];
-    if ([objc_getAssociatedObject(tableView, (__bridge const void * _Nonnull)(object_getClass(self))) boolValue]) {
-        // 已注册
-        return [tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
+    UITableViewHeaderFooterView *headerFooterView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
+    if (headerFooterView) {
+        return headerFooterView;
     }
-    BM_UITableView_DynamicLayout_LOG(@"✅✅✅✅%@ UINib nibWithNibName", self);
-    // 未注册，开始注册
+    BM_UITableView_DynamicLayout_LOG(@"⚠️⚠️⚠️⚠️⚠️⚠️⚠️%@ bm_tableViewHeaderFooterViewFromNibWithTableView", self);
     UINib *nib = [UINib nibWithNibName:kSwiftClassNibName(selfClassName) bundle:[NSBundle bundleForClass:self.class]];
-    [tableView registerNib:nib forHeaderFooterViewReuseIdentifier:reuseIdentifier];
-    objc_setAssociatedObject(tableView, (__bridge const void * _Nonnull)(object_getClass(self)), @YES, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    return [tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
+    NSArray <id> *arr = [nib instantiateWithOwner:nil options:nil];
+    for (id obj in arr) {
+        if ([obj isKindOfClass:self.class]) {
+            headerFooterView = (UITableViewHeaderFooterView *)obj;
+            [headerFooterView setValue:reuseIdentifier forKey:@"reuseIdentifier"];
+            return headerFooterView;
+        }
+    }
+    // 代码逻辑异常
+    NSAssert(NO, @"你的 UITableViewHeaderFooterView 不是使用 xib 创建的！");
+    return UITableViewHeaderFooterView.new;
 }
 
 + (instancetype)bm_tableViewHeaderFooterViewFromAllocWithTableView:(UITableView *)tableView {
     NSString *selfClassName = NSStringFromClass(self.class);
     NSString *reuseIdentifier = [selfClassName stringByAppendingString:@"BMAllocDynamicLayoutReuseIdentifier"];
-    if ([objc_getAssociatedObject(tableView, (__bridge const void * _Nonnull)(self)) boolValue]) {
-        // 已注册
-        return [tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
+    UITableViewHeaderFooterView *headerFooterView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
+    if (headerFooterView) {
+        return headerFooterView;
     }
-    BM_UITableView_DynamicLayout_LOG(@"✅✅✅✅%@ registerClass", self);
-    // 未注册，开始注册
-    [tableView registerClass:self forHeaderFooterViewReuseIdentifier:reuseIdentifier];
-    objc_setAssociatedObject(tableView, (__bridge const void * _Nonnull)(self), @YES, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    return [tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
+    BM_UITableView_DynamicLayout_LOG(@"⚠️⚠️⚠️⚠️⚠️⚠️⚠️%@ bm_tableViewHeaderFooterViewFromAllocWithTableView", self);
+    return [[self alloc] initWithReuseIdentifier:reuseIdentifier];
 }
 
 @end

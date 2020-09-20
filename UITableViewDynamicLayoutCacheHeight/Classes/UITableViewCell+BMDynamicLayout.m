@@ -38,17 +38,23 @@
 + (instancetype)bm_tableViewCellFromNibWithTableView:(UITableView *)tableView {
     NSString *selfClassName = NSStringFromClass(self.class);
     NSString *reuseIdentifier = [selfClassName stringByAppendingString:@"BMNibDynamicLayoutReuseIdentifier"];
-
-    if ([objc_getAssociatedObject(tableView, (__bridge const void * _Nonnull)(self)) boolValue]) {
-        // 已注册
-        return [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+    if (cell) {
+        return cell;
     }
-    BM_UITableView_DynamicLayout_LOG(@"✅✅✅✅%@ UINib nibWithNibName", self);
-    // 未注册，开始注册
+    BM_UITableView_DynamicLayout_LOG(@"⚠️⚠️⚠️⚠️⚠️⚠️⚠️%@ bm_tableViewCellFromNibWithTableView", self);
     UINib *nib = [UINib nibWithNibName:kSwiftClassNibName(selfClassName) bundle:[NSBundle bundleForClass:self.class]];
-    [tableView registerNib:nib forCellReuseIdentifier:reuseIdentifier];
-    objc_setAssociatedObject(tableView, (__bridge const void * _Nonnull)(self), @YES, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    return [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+    NSArray <id> *arr = [nib instantiateWithOwner:nil options:nil];
+    for (id obj in arr) {
+        if ([obj isKindOfClass:self.class]) {
+            cell = (UITableViewCell *)obj;
+            [cell setValue:reuseIdentifier forKey:@"reuseIdentifier"];
+            return cell;
+        }
+    }
+    // 代码逻辑异常
+    NSAssert(NO, @"你的 cell 不是使用 xib 创建的！");
+    return UITableViewCell.new;
 }
 
 + (instancetype)bm_tableViewCellFromAllocWithTableView:(UITableView *)tableView {
@@ -61,7 +67,7 @@
     if (cell) {
         return cell;
     }
-    BM_UITableView_DynamicLayout_LOG(@"✅✅✅✅%@ alloc initWithStyle", self);
+    BM_UITableView_DynamicLayout_LOG(@"⚠️⚠️⚠️⚠️⚠️⚠️⚠️%@ alloc initWithStyle", self);
     return [[self alloc] initWithStyle:style reuseIdentifier:reuseIdentifier];
 }
 
