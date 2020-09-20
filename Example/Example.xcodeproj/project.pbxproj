@@ -382,8 +382,8 @@
 			isa = PBXGroup;
 			children = (
 				0504E92B24AB124000DAC823 /* BMCell.h */,
-				0504E92C24AB124000DAC823 /* BMCell.xib */,
 				0504E92D24AB124000DAC823 /* BMCell.m */,
+				0504E92C24AB124000DAC823 /* BMCell.xib */,
 			);
 			path = BMCell;
 			sourceTree = "<group>";
