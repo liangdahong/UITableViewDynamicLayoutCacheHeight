@@ -46,7 +46,7 @@
     UINib *nib = [UINib nibWithNibName:kSwiftClassNibName(selfClassName) bundle:[NSBundle bundleForClass:self.class]];
     NSArray <id> *arr = [nib instantiateWithOwner:nil options:nil];
     for (id obj in arr) {
-        if ([obj isKindOfClass:self.class]) {
+        if ([obj isMemberOfClass:self.class]) {
             headerFooterView = (UITableViewHeaderFooterView *)obj;
             [headerFooterView setValue:reuseIdentifier forKey:@"reuseIdentifier"];
             return headerFooterView;
