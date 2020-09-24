@@ -39,8 +39,8 @@ typedef void(^BMConfigurationHeaderFooterViewBlock)(__kindof UITableViewHeaderFo
 /*
  获取 Cell 需要的高度 ，内部无缓存操作
  @param clas cell class
- @param configuration 布局 cell，内部不会拥有 Block，不需要 __weak
- 
+ @param configuration 布局 cell，内部不会拥有 Block，不需要 使用__weak。
+
  ...
  
  #import <UITableViewDynamicLayoutCacheHeight/UITableViewDynamicLayoutCacheHeight.h>
@@ -59,7 +59,7 @@ typedef void(^BMConfigurationHeaderFooterViewBlock)(__kindof UITableViewHeaderFo
 /// 获取 Cell 需要的高度 ，内部自动处理缓存，缓存标识 indexPath
 /// @param clas cell class
 /// @param indexPath 使用 indexPath 做缓存标识
-/// @param configuration 布局 cell，内部不会拥有 Block，不需要 __weak
+/// @param configuration 布局 cell，内部不会拥有 Block，不需要 使用__weak。
 - (CGFloat)bm_heightWithCellClass:(Class)clas
                  cacheByIndexPath:(NSIndexPath *)indexPath
                     configuration:(BMConfigurationCellBlock)configuration;
@@ -67,7 +67,7 @@ typedef void(^BMConfigurationHeaderFooterViewBlock)(__kindof UITableViewHeaderFo
 /// 获取 Cell 需要的高度 ，内部自动处理缓存，缓存标识 key
 /// @param clas cell class
 /// @param key 使用 key 做缓存标识
-/// @param configuration 布局 cell，内部不会拥有 Block，不需要 __weak
+/// @param configuration 布局 cell，内部不会拥有 Block，不需要 使用__weak。
 - (CGFloat)bm_heightWithCellClass:(Class)clas
                        cacheByKey:(id<NSCopying>)key
                     configuration:(BMConfigurationCellBlock)configuration;
@@ -77,7 +77,7 @@ typedef void(^BMConfigurationHeaderFooterViewBlock)(__kindof UITableViewHeaderFo
 /// 获取 HeaderFooter 需要的高度 ，内部无缓存操作
 /// @param clas HeaderFooter class
 /// @param type HeaderFooter类型，Header 或者 Footer
-/// @param configuration 布局 HeaderFooter，内部不会拥有 Block，不需要 __weak
+/// @param configuration 布局 HeaderFooter，内部不会拥有 Block，不需要 使用__weak。
 - (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
                                          type:(BMHeaderFooterViewDynamicLayoutType)type
                                 configuration:(BMConfigurationHeaderFooterViewBlock)configuration;
@@ -86,7 +86,7 @@ typedef void(^BMConfigurationHeaderFooterViewBlock)(__kindof UITableViewHeaderFo
 /// @param clas HeaderFooter class
 /// @param type HeaderFooter类型，Header 或者 Footer
 /// @param section 使用 section 做缓存标识
-/// @param configuration 布局 HeaderFooter，内部不会拥有 Block，不需要 __weak
+/// @param configuration 布局 HeaderFooter，内部不会拥有 Block，不需要 使用__weak。
 - (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
                                          type:(BMHeaderFooterViewDynamicLayoutType)type
                                cacheBySection:(NSInteger)section
@@ -96,7 +96,7 @@ typedef void(^BMConfigurationHeaderFooterViewBlock)(__kindof UITableViewHeaderFo
 /// @param clas HeaderFooter class
 /// @param type HeaderFooter类型，Header 或者 Footer
 /// @param key 使用 key 做缓存标识
-/// @param configuration 布局 HeaderFooter，内部不会拥有 Block，不需要 __weak
+/// @param configuration 布局 HeaderFooter，内部不会拥有 Block，不需要 使用__weak。
 - (CGFloat)bm_heightWithHeaderFooterViewClass:(Class)clas
                                          type:(BMHeaderFooterViewDynamicLayoutType)type
                                    cacheByKey:(id<NSCopying>)key

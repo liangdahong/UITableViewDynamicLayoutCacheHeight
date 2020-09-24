@@ -25,7 +25,7 @@
 // 兼容 Swift
 #define kSwiftClassNibName(clasName) ([clasName rangeOfString:@"."].location != NSNotFound ? [clasName componentsSeparatedByString:@"."].lastObject : clasName)
 
-/// 内部使用到的分类。
+/// 内部使用的工具类， 外部请勿使用。
 @interface UITableView (BMPrivate)
 
 @property (nonatomic, strong, readonly) NSMutableDictionary <id<NSCopying>, NSNumber *> *heightDictionary;

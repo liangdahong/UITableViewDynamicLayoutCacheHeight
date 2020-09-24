@@ -30,9 +30,9 @@
 
 void tableViewDynamicLayoutLayoutIfNeeded(UIView *view);
 inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
-    // https://juejin.im/post/5a30f24bf265da432e5c0070/
-    // https://objccn.io/issue-3-5/
-    // http://tech.gc.com/demystifying-ios-layout/
+    // 1、https://juejin.im/post/5a30f24bf265da432e5c0070
+    // 2、https://objccn.io/issue-3-5
+    // 3、http://tech.gc.com/demystifying-ios-layout
     [view setNeedsLayout];
     [view layoutIfNeeded];
 }
@@ -93,7 +93,6 @@ inline void tableViewDynamicLayoutLayoutIfNeeded(UIView *view) {
     }
     UIView *view = dict[cellClassName];
     if (view) {
-        // 直接返回
         return view;
     }
     
