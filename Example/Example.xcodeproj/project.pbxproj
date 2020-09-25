@@ -751,7 +751,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.liangdahong.Example;
 				PRODUCT_NAME = Example;
-				PROVISIONING_PROFILE_SPECIFIER = wildcard;
+				PROVISIONING_PROFILE_SPECIFIER = self_wildcard;
 				SWIFT_OBJC_BRIDGING_HEADER = "Example/Example-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -776,7 +776,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.liangdahong.Example;
 				PRODUCT_NAME = Example;
-				PROVISIONING_PROFILE_SPECIFIER = wildcard;
+				PROVISIONING_PROFILE_SPECIFIER = self_wildcard;
 				SWIFT_OBJC_BRIDGING_HEADER = "Example/Example-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
