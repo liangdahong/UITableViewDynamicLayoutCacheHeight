@@ -22,12 +22,10 @@
 
 #import "UITableViewCell+BMDynamicLayout.h"
 #import <objc/runtime.h>
-#import "UITableView+BMPrivate.h"
-#import "UITableViewDynamicLayoutCacheHeight.h"
 
 @implementation UITableViewCell (BMDynamicLayout)
 
-#pragma mark - 最大高度
+#pragma mark - 最大 Y 的 view 的固定的
 
 - (BOOL)bm_maxYViewFixed {
     return [objc_getAssociatedObject(self, _cmd) boolValue];
@@ -37,7 +35,7 @@
     objc_setAssociatedObject(self, @selector(bm_maxYViewFixed), @(bm_maxYViewFixed), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-#pragma mark - Action
+#pragma mark - 免注册获取 cell
 
 + (instancetype)bm_tableViewCellFromNibWithTableView:(UITableView *)tableView {
     NSString *selfClassName = NSStringFromClass(self.class);
@@ -46,16 +44,20 @@
     if (cell) {
         return cell;
     }
-    UINib *nib = [UINib nibWithNibName:kSwiftClassNibName(selfClassName) bundle:[NSBundle bundleForClass:self.class]];
+    // 获取 UINib
+    UINib *nib = [UINib nibWithNibName:([selfClassName rangeOfString:@"."].location != NSNotFound ? [selfClassName componentsSeparatedByString:@"."].lastObject : selfClassName)
+                                bundle:[NSBundle bundleForClass:self.class]];
+    
     NSArray <id> *arr = [nib instantiateWithOwner:nil options:nil];
     for (id obj in arr) {
         if ([obj isMemberOfClass:self.class]) {
             cell = (UITableViewCell *)obj;
+            // 设置 identifier
             [cell setValue:reuseIdentifier forKey:@"reuseIdentifier"];
             return cell;
         }
     }
-    // 代码逻辑异常
+    // 你的 cell 不是使用 xib 创建的！
     NSAssert(NO, @"你的 cell 不是使用 xib 创建的！");
     return UITableViewCell.new;
 }
