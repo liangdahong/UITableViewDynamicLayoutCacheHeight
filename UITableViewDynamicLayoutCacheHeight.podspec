@@ -10,9 +10,9 @@ s.source       = {:git => 'https://github.com/liangdahong/UITableViewDynamicLayo
 s.requires_arc = true
 s.source_files = 'UITableViewDynamicLayoutCacheHeight/**/*.{h,m}'
 
-s.subspec 'Category' do |ss|
-    ss.source_files = 'UITableViewDynamicLayoutCacheHeight/Classes/UITableViewCell+BMDynamicLayout.{h,m}', 'UITableViewDynamicLayoutCacheHeight/Classes/UITableViewHeaderFooterView+BMDynamicLayout.{h,m}'
-end
+#s.subspec 'Category' do |ss|
+#    ss.source_files = 'UITableViewDynamicLayoutCacheHeight/Classes/UITableViewCell+BMDynamicLayout.{h,m}', 'UITableViewDynamicLayoutCacheHeight/Classes/UITableViewHeaderFooterView+BMDynamicLayout.{h,m}'
+#end
 
 end
 
