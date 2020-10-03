@@ -1,0 +1,16 @@
+PODS:
+  - UITableViewDynamicLayoutCacheHeight/Category (5.1.7)
+
+DEPENDENCIES:
+  - UITableViewDynamicLayoutCacheHeight/Category (from `../`)
+
+EXTERNAL SOURCES:
+  UITableViewDynamicLayoutCacheHeight:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  UITableViewDynamicLayoutCacheHeight: 03853d22a66d6f3bf582b1e22745785161811eb2
+
+PODFILE CHECKSUM: cba39519a2da85768d0af798a7b19c4ea5719176
+
+COCOAPODS: 1.9.3

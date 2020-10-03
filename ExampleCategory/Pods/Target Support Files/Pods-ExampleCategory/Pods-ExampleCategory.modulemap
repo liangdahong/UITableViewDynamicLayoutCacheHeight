@@ -1,0 +1,6 @@
+framework module Pods_ExampleCategory {
+  umbrella header "Pods-ExampleCategory-umbrella.h"
+
+  export *
+  module * { export * }
+}

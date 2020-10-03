@@ -1,0 +1,6 @@
+framework module UITableViewDynamicLayoutCacheHeight {
+  umbrella header "UITableViewDynamicLayoutCacheHeight-umbrella.h"
+
+  export *
+  module * { export * }
+}

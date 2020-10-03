@@ -24,6 +24,12 @@ pod install
 #import <UITableViewDynamicLayoutCacheHeight/UITableViewDynamicLayoutCacheHeight.h>
 ```
 
+- 如果只想使用免注册获取 Cell 和 UITableViewHeaderFooterView 可使用如下的 pod
+
+```ruby
+pod 'UITableViewDynamicLayoutCacheHeight/Category'
+```
+
 ##  手动安装
 
 - 下载项目 【 `clone https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight.git` 】

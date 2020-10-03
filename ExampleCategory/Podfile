@@ -1,0 +1,6 @@
+use_frameworks!
+source 'https://cdn.cocoapods.org/'
+platform :ios, '8.0'
+target 'ExampleCategory' do
+  pod 'UITableViewDynamicLayoutCacheHeight/Category', :path => '../'
+end
