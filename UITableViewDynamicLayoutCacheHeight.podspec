@@ -9,5 +9,10 @@ s.platform     = :ios, '8.0'
 s.source       = {:git => 'https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight.git', :tag => s.version}
 s.requires_arc = true
 s.source_files = 'UITableViewDynamicLayoutCacheHeight/**/*.{h,m}'
+
+#s.subspec 'Category' do |ss|
+#    ss.source_files = 'UITableViewDynamicLayoutCacheHeight/Classes/UITableViewCell+BMDynamicLayout.{h,m}', 'UITableViewDynamicLayoutCacheHeight/Classes/UITableViewHeaderFooterView+BMDynamicLayout.{h,m}'
+#end
+
 end
 
