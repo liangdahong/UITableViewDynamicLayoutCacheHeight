@@ -28,15 +28,15 @@
 /// 请把此值设置为 YES，可提升一定的性能。
 @property (nonatomic, assign) IBInspectable BOOL bm_maxYViewFixed;
 
-/// 免注册 IB 创建 UITableViewCell，内部自动处理缓冲池。
+/// 免注册 IB 创建 UITableViewCell，内部自动处理缓存池。
 /// @param tableView tableView
 + (instancetype)bm_tableViewCellFromNibWithTableView:(UITableView *)tableView;
 
-/// 免注册 alloc 创建 UITableViewCell，内部自动处理缓冲池, 默认 UITableViewCellStyleDefault 类型
+/// 免注册 alloc 创建 UITableViewCell，内部自动处理缓存池, 默认 UITableViewCellStyleDefault 类型
 /// @param tableView tableView
 + (instancetype)bm_tableViewCellFromAllocWithTableView:(UITableView *)tableView;
 
-/// 免注册 alloc 创建 UITableViewCell，内部自动处理缓冲池。
+/// 免注册 alloc 创建 UITableViewCell，内部自动处理缓存池。
 /// @param tableView tableView
 /// @param style cell style
 + (instancetype)bm_tableViewCellFromAllocWithTableView:(UITableView *)tableView style:(UITableViewCellStyle)style;

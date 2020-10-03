@@ -27,6 +27,8 @@
 
 @implementation UITableViewCell (BMDynamicLayout)
 
+#pragma mark - 最大高度
+
 - (BOOL)bm_maxYViewFixed {
     return [objc_getAssociatedObject(self, _cmd) boolValue];
 }
@@ -35,6 +37,8 @@
     objc_setAssociatedObject(self, @selector(bm_maxYViewFixed), @(bm_maxYViewFixed), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
+#pragma mark - Action
+
 + (instancetype)bm_tableViewCellFromNibWithTableView:(UITableView *)tableView {
     NSString *selfClassName = NSStringFromClass(self.class);
     NSString *reuseIdentifier = [selfClassName stringByAppendingString:@"BMNibDynamicLayoutReuseIdentifier"];
@@ -42,7 +46,6 @@
     if (cell) {
         return cell;
     }
-    BM_UITableView_DynamicLayout_LOG(@"⚠️⚠️⚠️⚠️⚠️⚠️⚠️%@ bm_tableViewCellFromNibWithTableView", self);
     UINib *nib = [UINib nibWithNibName:kSwiftClassNibName(selfClassName) bundle:[NSBundle bundleForClass:self.class]];
     NSArray <id> *arr = [nib instantiateWithOwner:nil options:nil];
     for (id obj in arr) {
@@ -67,7 +70,6 @@
     if (cell) {
         return cell;
     }
-    BM_UITableView_DynamicLayout_LOG(@"⚠️⚠️⚠️⚠️⚠️⚠️⚠️%@ alloc initWithStyle", self);
     return [[self alloc] initWithStyle:style reuseIdentifier:reuseIdentifier];
 }
 
