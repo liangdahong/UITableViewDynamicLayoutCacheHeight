@@ -1,5 +1,5 @@
 #!/bin/sh
-pod trunk push UITableViewDynamicLayoutCacheHeight.podspec --allow-warnings
+pod trunk push *.podspec --allow-warnings
 echo "完成"
 
 #git add .

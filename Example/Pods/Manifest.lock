@@ -1,8 +1,8 @@
 PODS:
   - SnapKit (4.2.0)
-  - UITableViewDynamicLayoutCacheHeight (5.1.7):
-    - UITableViewDynamicLayoutCacheHeight/Category (= 5.1.7)
-  - UITableViewDynamicLayoutCacheHeight/Category (5.1.7)
+  - UITableViewDynamicLayoutCacheHeight (5.1.8):
+    - UITableViewDynamicLayoutCacheHeight/Category (= 5.1.8)
+  - UITableViewDynamicLayoutCacheHeight/Category (5.1.8)
 
 DEPENDENCIES:
   - SnapKit
@@ -18,8 +18,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
-  UITableViewDynamicLayoutCacheHeight: 03853d22a66d6f3bf582b1e22745785161811eb2
+  UITableViewDynamicLayoutCacheHeight: 4fabd95e944317cc7cd7ead3c56915d9527432dd
 
 PODFILE CHECKSUM: cb110a3e1119b3bf10660b70ec06ec9c28788df0
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.0
