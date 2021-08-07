@@ -40,6 +40,19 @@
 		0575A3E724C989D2008A6929 /* SystemHeightCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0575A3E524C989D1008A6929 /* SystemHeightCell.xib */; };
 		0575A3E824C989D2008A6929 /* SystemHeightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0575A3E624C989D2008A6929 /* SystemHeightCell.swift */; };
 		2B4A7D34290D5887318B0910 /* libPods-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0FF6360B632094C40CB7AB /* libPods-Example.a */; };
+		65F0642F26BEEE39005958FD /* UITableViewDynamicLayoutCacheHeight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F0642826BEEE39005958FD /* UITableViewDynamicLayoutCacheHeight.framework */; };
+		65F0643126BEEE39005958FD /* UITableViewDynamicLayoutCacheHeight.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65F0642826BEEE39005958FD /* UITableViewDynamicLayoutCacheHeight.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65F0644226BEEFF6005958FD /* UITableViewCell+BMDynamicLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 65F0643626BEEFF6005958FD /* UITableViewCell+BMDynamicLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65F0644326BEEFF6005958FD /* UITableView+BMDynamicLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F0643726BEEFF6005958FD /* UITableView+BMDynamicLayout.m */; };
+		65F0644426BEEFF6005958FD /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 65F0643826BEEFF6005958FD /* .gitkeep */; };
+		65F0644526BEEFF6005958FD /* UITableViewHeaderFooterView+BMDynamicLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F0643926BEEFF6005958FD /* UITableViewHeaderFooterView+BMDynamicLayout.m */; };
+		65F0644626BEEFF6005958FD /* UITableViewDynamicLayoutCacheHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F0643A26BEEFF6005958FD /* UITableViewDynamicLayoutCacheHeight.m */; };
+		65F0644726BEEFF6005958FD /* UITableView+BMPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F0643C26BEEFF6005958FD /* UITableView+BMPrivate.m */; };
+		65F0644826BEEFF6005958FD /* UITableView+BMPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 65F0643D26BEEFF6005958FD /* UITableView+BMPrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		65F0644926BEEFF6005958FD /* UITableView+BMDynamicLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 65F0643E26BEEFF6005958FD /* UITableView+BMDynamicLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65F0644A26BEEFF6005958FD /* UITableViewCell+BMDynamicLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F0643F26BEEFF6005958FD /* UITableViewCell+BMDynamicLayout.m */; };
+		65F0644B26BEEFF6005958FD /* UITableViewDynamicLayoutCacheHeight.h in Headers */ = {isa = PBXBuildFile; fileRef = 65F0644026BEEFF6005958FD /* UITableViewDynamicLayoutCacheHeight.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65F0644C26BEEFF6005958FD /* UITableViewHeaderFooterView+BMDynamicLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 65F0644126BEEFF6005958FD /* UITableViewHeaderFooterView+BMDynamicLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +63,28 @@
 			remoteGlobalIDString = 0504E8CE24AB120400DAC823;
 			remoteInfo = Example;
 		};
+		65F0642D26BEEE39005958FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0504E8C724AB120400DAC823 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65F0642726BEEE39005958FD;
+			remoteInfo = Carthage;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		65F0643026BEEE39005958FD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				65F0643126BEEE39005958FD /* UITableViewDynamicLayoutCacheHeight.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0504E8CF24AB120400DAC823 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,6 +140,19 @@
 		05DF563124AB1937000A0D1D /* UITableViewDynamicLayoutCacheHeight.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = UITableViewDynamicLayoutCacheHeight.podspec; path = ../UITableViewDynamicLayoutCacheHeight.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2719D198D1045EB7D5DF3A60 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		5D0FF6360B632094C40CB7AB /* libPods-Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		65F0642826BEEE39005958FD /* UITableViewDynamicLayoutCacheHeight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UITableViewDynamicLayoutCacheHeight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65F0642B26BEEE39005958FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65F0643626BEEFF6005958FD /* UITableViewCell+BMDynamicLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+BMDynamicLayout.h"; sourceTree = "<group>"; };
+		65F0643726BEEFF6005958FD /* UITableView+BMDynamicLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+BMDynamicLayout.m"; sourceTree = "<group>"; };
+		65F0643826BEEFF6005958FD /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		65F0643926BEEFF6005958FD /* UITableViewHeaderFooterView+BMDynamicLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewHeaderFooterView+BMDynamicLayout.m"; sourceTree = "<group>"; };
+		65F0643A26BEEFF6005958FD /* UITableViewDynamicLayoutCacheHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITableViewDynamicLayoutCacheHeight.m; sourceTree = "<group>"; };
+		65F0643C26BEEFF6005958FD /* UITableView+BMPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+BMPrivate.m"; sourceTree = "<group>"; };
+		65F0643D26BEEFF6005958FD /* UITableView+BMPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+BMPrivate.h"; sourceTree = "<group>"; };
+		65F0643E26BEEFF6005958FD /* UITableView+BMDynamicLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+BMDynamicLayout.h"; sourceTree = "<group>"; };
+		65F0643F26BEEFF6005958FD /* UITableViewCell+BMDynamicLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+BMDynamicLayout.m"; sourceTree = "<group>"; };
+		65F0644026BEEFF6005958FD /* UITableViewDynamicLayoutCacheHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewDynamicLayoutCacheHeight.h; sourceTree = "<group>"; };
+		65F0644126BEEFF6005958FD /* UITableViewHeaderFooterView+BMDynamicLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewHeaderFooterView+BMDynamicLayout.h"; sourceTree = "<group>"; };
 		8F55F1319949E4CF56F4CF6F /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,10 +162,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B4A7D34290D5887318B0910 /* libPods-Example.a in Frameworks */,
+				65F0642F26BEEE39005958FD /* UITableViewDynamicLayoutCacheHeight.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		0504E8EA24AB120700DAC823 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65F0642526BEEE39005958FD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -135,6 +190,7 @@
 				05220EA524AB30B700D6FAFD /* README.md */,
 				0504E8D124AB120400DAC823 /* Example */,
 				0504E8F024AB120700DAC823 /* ExampleTests */,
+				65F0642926BEEE39005958FD /* Carthage */,
 				0504E8D024AB120400DAC823 /* Products */,
 				BE74FB43E344586F47381541 /* Pods */,
 				7224759EBAD09408C54B3EE0 /* Frameworks */,
@@ -146,6 +202,7 @@
 			children = (
 				0504E8CF24AB120400DAC823 /* Example.app */,
 				0504E8ED24AB120700DAC823 /* ExampleTests.xctest */,
+				65F0642826BEEE39005958FD /* UITableViewDynamicLayoutCacheHeight.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -419,6 +476,42 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		65F0642926BEEE39005958FD /* Carthage */ = {
+			isa = PBXGroup;
+			children = (
+				65F0643526BEEFF6005958FD /* Classes */,
+				65F0642B26BEEE39005958FD /* Info.plist */,
+			);
+			path = Carthage;
+			sourceTree = "<group>";
+		};
+		65F0643526BEEFF6005958FD /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				65F0643626BEEFF6005958FD /* UITableViewCell+BMDynamicLayout.h */,
+				65F0643726BEEFF6005958FD /* UITableView+BMDynamicLayout.m */,
+				65F0643826BEEFF6005958FD /* .gitkeep */,
+				65F0643926BEEFF6005958FD /* UITableViewHeaderFooterView+BMDynamicLayout.m */,
+				65F0643A26BEEFF6005958FD /* UITableViewDynamicLayoutCacheHeight.m */,
+				65F0643B26BEEFF6005958FD /* Private */,
+				65F0643E26BEEFF6005958FD /* UITableView+BMDynamicLayout.h */,
+				65F0643F26BEEFF6005958FD /* UITableViewCell+BMDynamicLayout.m */,
+				65F0644026BEEFF6005958FD /* UITableViewDynamicLayoutCacheHeight.h */,
+				65F0644126BEEFF6005958FD /* UITableViewHeaderFooterView+BMDynamicLayout.h */,
+			);
+			name = Classes;
+			path = ../../UITableViewDynamicLayoutCacheHeight/Classes;
+			sourceTree = "<group>";
+		};
+		65F0643B26BEEFF6005958FD /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				65F0643C26BEEFF6005958FD /* UITableView+BMPrivate.m */,
+				65F0643D26BEEFF6005958FD /* UITableView+BMPrivate.h */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
 		7224759EBAD09408C54B3EE0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -438,6 +531,21 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		65F0642326BEEE39005958FD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65F0644C26BEEFF6005958FD /* UITableViewHeaderFooterView+BMDynamicLayout.h in Headers */,
+				65F0644B26BEEFF6005958FD /* UITableViewDynamicLayoutCacheHeight.h in Headers */,
+				65F0644926BEEFF6005958FD /* UITableView+BMDynamicLayout.h in Headers */,
+				65F0644226BEEFF6005958FD /* UITableViewCell+BMDynamicLayout.h in Headers */,
+				65F0644826BEEFF6005958FD /* UITableView+BMPrivate.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		0504E8CE24AB120400DAC823 /* Example */ = {
 			isa = PBXNativeTarget;
@@ -447,10 +555,12 @@
 				0504E8CB24AB120400DAC823 /* Sources */,
 				0504E8CC24AB120400DAC823 /* Frameworks */,
 				0504E8CD24AB120400DAC823 /* Resources */,
+				65F0643026BEEE39005958FD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				65F0642E26BEEE39005958FD /* PBXTargetDependency */,
 			);
 			name = Example;
 			productName = Example;
@@ -475,12 +585,31 @@
 			productReference = 0504E8ED24AB120700DAC823 /* ExampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		65F0642726BEEE39005958FD /* UITableViewDynamicLayoutCacheHeight */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65F0643426BEEE3A005958FD /* Build configuration list for PBXNativeTarget "UITableViewDynamicLayoutCacheHeight" */;
+			buildPhases = (
+				65F0642326BEEE39005958FD /* Headers */,
+				65F0642426BEEE39005958FD /* Sources */,
+				65F0642526BEEE39005958FD /* Frameworks */,
+				65F0642626BEEE39005958FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UITableViewDynamicLayoutCacheHeight;
+			productName = Carthage;
+			productReference = 65F0642826BEEE39005958FD /* UITableViewDynamicLayoutCacheHeight.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		0504E8C724AB120400DAC823 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				DefaultBuildSystemTypeForWorkspace = Original;
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = liangdahong;
 				TargetAttributes = {
@@ -491,6 +620,9 @@
 					0504E8EC24AB120700DAC823 = {
 						CreatedOnToolsVersion = 11.5;
 						TestTargetID = 0504E8CE24AB120400DAC823;
+					};
+					65F0642726BEEE39005958FD = {
+						CreatedOnToolsVersion = 12.5;
 					};
 				};
 			};
@@ -509,6 +641,7 @@
 			targets = (
 				0504E8CE24AB120400DAC823 /* Example */,
 				0504E8EC24AB120700DAC823 /* ExampleTests */,
+				65F0642726BEEE39005958FD /* UITableViewDynamicLayoutCacheHeight */,
 			);
 		};
 /* End PBXProject section */
@@ -536,6 +669,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65F0642626BEEE39005958FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65F0644426BEEFF6005958FD /* .gitkeep in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,6 +743,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		65F0642426BEEE39005958FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65F0644726BEEFF6005958FD /* UITableView+BMPrivate.m in Sources */,
+				65F0644326BEEFF6005958FD /* UITableView+BMDynamicLayout.m in Sources */,
+				65F0644526BEEFF6005958FD /* UITableViewHeaderFooterView+BMDynamicLayout.m in Sources */,
+				65F0644A26BEEFF6005958FD /* UITableViewCell+BMDynamicLayout.m in Sources */,
+				65F0644626BEEFF6005958FD /* UITableViewDynamicLayoutCacheHeight.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -609,6 +762,11 @@
 			isa = PBXTargetDependency;
 			target = 0504E8CE24AB120400DAC823 /* Example */;
 			targetProxy = 0504E8EE24AB120700DAC823 /* PBXContainerItemProxy */;
+		};
+		65F0642E26BEEE39005958FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65F0642726BEEE39005958FD /* UITableViewDynamicLayoutCacheHeight */;
+			targetProxy = 65F0642D26BEEE39005958FD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -823,6 +981,66 @@
 			};
 			name = Release;
 		};
+		65F0643226BEEE3A005958FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = JURK72AKL4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Carthage/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.liangdahong.Carthage;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		65F0643326BEEE3A005958FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = JURK72AKL4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Carthage/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.liangdahong.Carthage;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -849,6 +1067,15 @@
 			buildConfigurations = (
 				0504E8FA24AB120700DAC823 /* Debug */,
 				0504E8FB24AB120700DAC823 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65F0643426BEEE3A005958FD /* Build configuration list for PBXNativeTarget "UITableViewDynamicLayoutCacheHeight" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65F0643226BEEE3A005958FD /* Debug */,
+				65F0643326BEEE3A005958FD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

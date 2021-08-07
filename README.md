@@ -16,7 +16,8 @@
 
 -  [UITableViewDynamicLayoutCacheHeight](https://github.com/liangdahong/UITableViewDynamicLayoutCacheHeight) 是一个便捷的，高性能的自动计算使用 `Autolayout` 布局【`Xib`、`StoryBoard`、`Masonry` 、`SnapKit`、`SDAutoLayout` ...】的 `UITableViewCell` 和 `UITableViewHeaderFooterView` 的高度，支持横竖屏，内部自动管理高度缓存，已兼容 Swift 。
 
-##  CocoaPods 安装
+## Installation with  CocoaPods
+
 
 ```ruby
 pod 'UITableViewDynamicLayoutCacheHeight'
@@ -28,6 +29,13 @@ pod install
 
 ```ruby
 pod 'UITableViewDynamicLayoutCacheHeight/Category'
+```
+
+## Installation with Carthage
+Carthage is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate UITableViewDynamicLayoutCacheHeight, add the following to your Cartfile.
+
+```ruby
+github "liangdahong/UITableViewDynamicLayoutCacheHeight" ~> 5.2.0
 ```
 
 ##  手动安装

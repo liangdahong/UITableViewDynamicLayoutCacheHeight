@@ -1,0 +1,262 @@
+BCSymbolMap Version: 2.0
+Apple clang version 12.0.5 (clang-1205.0.22.9)
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk
+iPhoneOS14.5.sdk
+/Users/liangdahong/Library/Developer/Xcode/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/UITableViewDynamicLayoutCacheHeight/IntermediateBuildFilesPath/Example.build/Release-iphoneos/UITableViewDynamicLayoutCacheHeight.build/DerivedSources/UITableViewDynamicLayoutCacheHeight_vers.c
+/Users/liangdahong/Desktop/OpenSource/UITableViewDynamicLayoutCacheHeight/Example
+-[UITableView(BMPrivate) headerHeightDictionary]
+-[UITableView(BMPrivate) headerVerticalDictionary]
+-[UITableView(BMPrivate) headerHorizontalDictionary]
+-[UITableView(BMPrivate) headerHeightArray]
+-[UITableView(BMPrivate) headerVerticalArray]
+-[UITableView(BMPrivate) headerHorizontalArray]
+-[UITableView(BMPrivate) heightDictionary]
+-[UITableView(BMPrivate) verticalDictionary]
+-[UITableView(BMPrivate) horizontalDictionary]
+-[UITableView(BMPrivate) heightArray]
+-[UITableView(BMPrivate) verticalArray]
+-[UITableView(BMPrivate) horizontalArray]
+-[UITableView(BMPrivate) footerHeightDictionary]
+-[UITableView(BMPrivate) footerVerticalDictionary]
+-[UITableView(BMPrivate) footerHorizontalDictionary]
+-[UITableView(BMPrivate) footerHeightArray]
+-[UITableView(BMPrivate) footerVerticalArray]
+-[UITableView(BMPrivate) footerHorizontalArray]
+-[UITableView(BMPrivate) bm_layoutWidth]
+-[UITableView(BMPrivate) setBm_layoutWidth:]
+-[UITableView(BMPrivate) bm_verticalLayoutWidth]
+-[UITableView(BMPrivate) setBm_verticalLayoutWidth:]
+-[UITableView(BMPrivate) bm_horizontalLayoutWidth]
+-[UITableView(BMPrivate) setBm_horizontalLayoutWidth:]
+-[UITableView(BMPrivate) isDynamicLayoutInitializationed]
+-[UITableView(BMPrivate) bm_dynamicLayoutInitialization]
++[UITableView(BMPrivate) load]
+___30+[UITableView(BMPrivate) load]_block_invoke
+___copy_helper_block_e4_
+___destroy_helper_block_e4_
+-[UITableView(BMPrivate) tableView_dynamicLayout_reloadData]
+-[UITableView(BMPrivate) tableView_dynamicLayout_insertSections:withRowAnimation:]
+-[UITableView(BMPrivate) tableView_dynamicLayout_deleteSections:withRowAnimation:]
+___82-[UITableView(BMPrivate) tableView_dynamicLayout_deleteSections:withRowAnimation:]_block_invoke
+___copy_helper_block_e4_20s
+___destroy_helper_block_e4_20s
+-[UITableView(BMPrivate) tableView_dynamicLayout_reloadSections:withRowAnimation:]
+___82-[UITableView(BMPrivate) tableView_dynamicLayout_reloadSections:withRowAnimation:]_block_invoke
+-[UITableView(BMPrivate) tableView_dynamicLayout_moveSection:toSection:]
+-[UITableView(BMPrivate) tableView_dynamicLayout_insertRowsAtIndexPaths:withRowAnimation:]
+-[UITableView(BMPrivate) tableView_dynamicLayout_deleteRowsAtIndexPaths:withRowAnimation:]
+___90-[UITableView(BMPrivate) tableView_dynamicLayout_deleteRowsAtIndexPaths:withRowAnimation:]_block_invoke
+___90-[UITableView(BMPrivate) tableView_dynamicLayout_deleteRowsAtIndexPaths:withRowAnimation:]_block_invoke_2
+-[UITableView(BMPrivate) tableView_dynamicLayout_reloadRowsAtIndexPaths:withRowAnimation:]
+___90-[UITableView(BMPrivate) tableView_dynamicLayout_reloadRowsAtIndexPaths:withRowAnimation:]_block_invoke
+-[UITableView(BMPrivate) tableView_dynamicLayout_moveRowAtIndexPath:toIndexPath:]
+-[UITableView(BMPrivate) bm_clearInvalidCache]
+-[UITableView(BMPrivate) _initCacheArrayWithDataSource:]
+-[UITableView(BMPrivate) _initHeaderFooterCacheArrayWithSections:]
+-[UITableView(BMPrivate) _changedCacheLog]
+_OBJC_CLASSLIST_REFERENCES_$_
+_OBJC_SELECTOR_REFERENCES_
+_OBJC_SELECTOR_REFERENCES_.2
+_OBJC_SELECTOR_REFERENCES_.4
+_OBJC_SELECTOR_REFERENCES_.6
+_OBJC_SELECTOR_REFERENCES_.8
+_OBJC_SELECTOR_REFERENCES_.10
+_OBJC_SELECTOR_REFERENCES_.12
+_OBJC_SELECTOR_REFERENCES_.14
+_OBJC_SELECTOR_REFERENCES_.16
+_OBJC_SELECTOR_REFERENCES_.18
+_OBJC_SELECTOR_REFERENCES_.20
+_OBJC_SELECTOR_REFERENCES_.22
+_OBJC_SELECTOR_REFERENCES_.24
+_OBJC_SELECTOR_REFERENCES_.26
+_OBJC_SELECTOR_REFERENCES_.28
+_OBJC_SELECTOR_REFERENCES_.30
+_OBJC_SELECTOR_REFERENCES_.32
+_OBJC_SELECTOR_REFERENCES_.34
+_OBJC_SELECTOR_REFERENCES_.36
+_OBJC_SELECTOR_REFERENCES_.38
+_OBJC_CLASSLIST_REFERENCES_$_.39
+_OBJC_SELECTOR_REFERENCES_.41
+_OBJC_SELECTOR_REFERENCES_.43
+_OBJC_SELECTOR_REFERENCES_.45
+_OBJC_SELECTOR_REFERENCES_.47
+_OBJC_SELECTOR_REFERENCES_.49
+_OBJC_SELECTOR_REFERENCES_.51
+_load.onceToken
+_OBJC_SELECTOR_REFERENCES_.53
+_OBJC_SELECTOR_REFERENCES_.55
+_OBJC_SELECTOR_REFERENCES_.57
+_OBJC_SELECTOR_REFERENCES_.59
+_OBJC_SELECTOR_REFERENCES_.61
+_OBJC_SELECTOR_REFERENCES_.63
+_OBJC_SELECTOR_REFERENCES_.65
+_OBJC_SELECTOR_REFERENCES_.67
+_OBJC_SELECTOR_REFERENCES_.69
+_OBJC_SELECTOR_REFERENCES_.71
+___block_descriptor_24_e4__e5_v4?0l
+_OBJC_SELECTOR_REFERENCES_.74
+_OBJC_SELECTOR_REFERENCES_.76
+_OBJC_SELECTOR_REFERENCES_.78
+___block_descriptor_24_e4_20s_e11_v12?0I4^c8l
+_OBJC_SELECTOR_REFERENCES_.81
+_OBJC_SELECTOR_REFERENCES_.83
+_OBJC_SELECTOR_REFERENCES_.85
+_OBJC_CLASSLIST_REFERENCES_$_.86
+_OBJC_SELECTOR_REFERENCES_.88
+_OBJC_SELECTOR_REFERENCES_.90
+_OBJC_SELECTOR_REFERENCES_.92
+_OBJC_SELECTOR_REFERENCES_.94
+_OBJC_SELECTOR_REFERENCES_.96
+_OBJC_SELECTOR_REFERENCES_.98
+_OBJC_SELECTOR_REFERENCES_.100
+_OBJC_SELECTOR_REFERENCES_.102
+___block_descriptor_20_e36_i12?0"NSIndexPath"4"NSIndexPath"8l
+___block_literal_global
+_OBJC_SELECTOR_REFERENCES_.105
+_OBJC_SELECTOR_REFERENCES_.107
+_OBJC_SELECTOR_REFERENCES_.109
+_OBJC_SELECTOR_REFERENCES_.111
+___block_descriptor_24_e4_20s_e27_v16?0"NSIndexPath"4I8^c12l
+_OBJC_SELECTOR_REFERENCES_.114
+_OBJC_SELECTOR_REFERENCES_.116
+_OBJC_SELECTOR_REFERENCES_.118
+_OBJC_SELECTOR_REFERENCES_.120
+_OBJC_SELECTOR_REFERENCES_.122
+_OBJC_SELECTOR_REFERENCES_.124
+_OBJC_SELECTOR_REFERENCES_.126
+_OBJC_SELECTOR_REFERENCES_.128
+_OBJC_SELECTOR_REFERENCES_.130
+_OBJC_SELECTOR_REFERENCES_.132
+__OBJC_$_CATEGORY_INSTANCE_METHODS_UITableView_$_BMPrivate
+__OBJC_$_CATEGORY_CLASS_METHODS_UITableView_$_BMPrivate
+__OBJC_$_PROP_LIST_UITableView_$_BMPrivate
+__OBJC_$_CATEGORY_UITableView_$_BMPrivate
+/Users/liangdahong/Desktop/OpenSource/UITableViewDynamicLayoutCacheHeight/UITableViewDynamicLayoutCacheHeight/Classes/Private/UITableView+BMPrivate.m
+UITableViewDynamicLayoutCacheHeight/Classes/Private/UITableView+BMPrivate.m
+/Users/liangdahong/Desktop/OpenSource/UITableViewDynamicLayoutCacheHeight
+__90-[UITableView(BMPrivate) tableView_dynamicLayout_reloadRowsAtIndexPaths:withRowAnimation:]_block_invoke
+__90-[UITableView(BMPrivate) tableView_dynamicLayout_deleteRowsAtIndexPaths:withRowAnimation:]_block_invoke_2
+__90-[UITableView(BMPrivate) tableView_dynamicLayout_deleteRowsAtIndexPaths:withRowAnimation:]_block_invoke
+__82-[UITableView(BMPrivate) tableView_dynamicLayout_reloadSections:withRowAnimation:]_block_invoke
+__destroy_helper_block_e4_20s
+__copy_helper_block_e4_20s
+__82-[UITableView(BMPrivate) tableView_dynamicLayout_deleteSections:withRowAnimation:]_block_invoke
+__destroy_helper_block_e4_
+__copy_helper_block_e4_
+__30+[UITableView(BMPrivate) load]_block_invoke
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/usr/include/dispatch/once.h
+-[UITableViewCell(BMDynamicLayoutPrivate) dynamicLayout_maxYView]
+-[UITableViewCell(BMDynamicLayoutPrivate) setDynamicLayout_maxYView:]
+-[UITableViewHeaderFooterView(BMDynamicLayoutPrivate) dynamicLayout_maxYView]
+-[UITableViewHeaderFooterView(BMDynamicLayoutPrivate) setDynamicLayout_maxYView:]
+-[UITableView(BMDynamicLayout) _cellViewWithCellClass:]
+-[UITableView(BMDynamicLayout) _heightWithCellClass:configuration:]
+___67-[UITableView(BMDynamicLayout) _heightWithCellClass:configuration:]_block_invoke
+___Block_byref_object_copy_
+___Block_byref_object_dispose_
+___67-[UITableView(BMDynamicLayout) _heightWithCellClass:configuration:]_block_invoke.74
+___copy_helper_block_e4_20r24r
+___destroy_helper_block_e4_20r24r
+___67-[UITableView(BMDynamicLayout) _heightWithCellClass:configuration:]_block_invoke.78
+___copy_helper_block_e4_20r
+___destroy_helper_block_e4_20r
+-[UITableView(BMDynamicLayout) _headerFooterViewWithHeaderFooterViewClass:sel:]
+-[UITableView(BMDynamicLayout) _heightWithHeaderFooterViewClass:sel:configuration:]
+___83-[UITableView(BMDynamicLayout) _heightWithHeaderFooterViewClass:sel:configuration:]_block_invoke
+___83-[UITableView(BMDynamicLayout) _heightWithHeaderFooterViewClass:sel:configuration:]_block_invoke_2
+___83-[UITableView(BMDynamicLayout) _heightWithHeaderFooterViewClass:sel:configuration:]_block_invoke_3
+-[UITableView(BMDynamicLayout) _heightWithHeaderViewClass:configuration:]
+-[UITableView(BMDynamicLayout) _heightWithFooterViewClass:configuration:]
+-[UITableView(BMDynamicLayout) bm_heightWithCellClass:configuration:]
+-[UITableView(BMDynamicLayout) bm_heightWithCellClass:cacheByIndexPath:configuration:]
+-[UITableView(BMDynamicLayout) bm_heightWithCellClass:cacheByKey:configuration:]
+-[UITableView(BMDynamicLayout) bm_heightWithHeaderFooterViewClass:type:configuration:]
+-[UITableView(BMDynamicLayout) bm_heightWithHeaderFooterViewClass:type:cacheBySection:configuration:]
+-[UITableView(BMDynamicLayout) bm_heightWithHeaderFooterViewClass:type:cacheByKey:configuration:]
+__OBJC_$_CATEGORY_INSTANCE_METHODS_UITableViewCell_$_BMDynamicLayoutPrivate
+__OBJC_$_PROP_LIST_UITableViewCell_$_BMDynamicLayoutPrivate
+__OBJC_$_CATEGORY_UITableViewCell_$_BMDynamicLayoutPrivate
+__OBJC_$_CATEGORY_INSTANCE_METHODS_UITableViewHeaderFooterView_$_BMDynamicLayoutPrivate
+__OBJC_$_PROP_LIST_UITableViewHeaderFooterView_$_BMDynamicLayoutPrivate
+__OBJC_$_CATEGORY_UITableViewHeaderFooterView_$_BMDynamicLayoutPrivate
+_OBJC_SELECTOR_REFERENCES_.9
+_OBJC_SELECTOR_REFERENCES_.11
+_OBJC_SELECTOR_REFERENCES_.13
+_OBJC_SELECTOR_REFERENCES_.15
+_OBJC_SELECTOR_REFERENCES_.17
+_OBJC_SELECTOR_REFERENCES_.19
+_OBJC_SELECTOR_REFERENCES_.23
+_OBJC_SELECTOR_REFERENCES_.25
+_OBJC_CLASSLIST_REFERENCES_$_.26
+_OBJC_SELECTOR_REFERENCES_.40
+_OBJC_CLASSLIST_REFERENCES_$_.41
+___block_descriptor_24_e4_20s_e5_v4?0l
+_OBJC_SELECTOR_REFERENCES_.68
+_OBJC_SELECTOR_REFERENCES_.73
+___block_descriptor_28_e4_20r24r_e22_v16?0"UIView"4I8^c12l
+_OBJC_SELECTOR_REFERENCES_.77
+___block_descriptor_24_e4_20r_e22_v16?0"UIView"4I8^c12l
+_OBJC_SELECTOR_REFERENCES_.80
+_OBJC_SELECTOR_REFERENCES_.82
+_OBJC_SELECTOR_REFERENCES_.84
+_OBJC_SELECTOR_REFERENCES_.86
+_OBJC_CLASSLIST_REFERENCES_$_.101
+_OBJC_SELECTOR_REFERENCES_.103
+_OBJC_SELECTOR_REFERENCES_.113
+_OBJC_SELECTOR_REFERENCES_.115
+_OBJC_SELECTOR_REFERENCES_.117
+_OBJC_SELECTOR_REFERENCES_.119
+__OBJC_$_CATEGORY_INSTANCE_METHODS_UITableView_$_BMDynamicLayout
+__OBJC_$_CATEGORY_UITableView_$_BMDynamicLayout
+/Users/liangdahong/Desktop/OpenSource/UITableViewDynamicLayoutCacheHeight/UITableViewDynamicLayoutCacheHeight/Classes/UITableView+BMDynamicLayout.m
+UITableViewDynamicLayoutCacheHeight/Classes/UITableView+BMDynamicLayout.m
+__83-[UITableView(BMDynamicLayout) _heightWithHeaderFooterViewClass:sel:configuration:]_block_invoke_3
+__83-[UITableView(BMDynamicLayout) _heightWithHeaderFooterViewClass:sel:configuration:]_block_invoke_2
+__83-[UITableView(BMDynamicLayout) _heightWithHeaderFooterViewClass:sel:configuration:]_block_invoke
+tableViewDynamicLayoutLayoutIfNeeded
+CGRectMake
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h
+__destroy_helper_block_e4_20r
+__copy_helper_block_e4_20r
+__67-[UITableView(BMDynamicLayout) _heightWithCellClass:configuration:]_block_invoke.78
+__destroy_helper_block_e4_20r24r
+__copy_helper_block_e4_20r24r
+__67-[UITableView(BMDynamicLayout) _heightWithCellClass:configuration:]_block_invoke.74
+__Block_byref_object_dispose_
+__Block_byref_object_copy_
+__67-[UITableView(BMDynamicLayout) _heightWithCellClass:configuration:]_block_invoke
+-[UITableViewHeaderFooterView(BMDynamicLayout) bm_maxYViewFixed]
+-[UITableViewHeaderFooterView(BMDynamicLayout) setBm_maxYViewFixed:]
++[UITableViewHeaderFooterView(BMDynamicLayout) bm_tableViewHeaderFooterViewFromNibWithTableView:]
++[UITableViewHeaderFooterView(BMDynamicLayout) bm_tableViewHeaderFooterViewFromAllocWithTableView:]
+_OBJC_CLASSLIST_REFERENCES_$_.11
+_OBJC_CLASSLIST_REFERENCES_$_.20
+_OBJC_CLASSLIST_REFERENCES_$_.35
+_OBJC_SELECTOR_REFERENCES_.37
+__OBJC_$_CATEGORY_INSTANCE_METHODS_UITableViewHeaderFooterView_$_BMDynamicLayout
+__OBJC_$_CATEGORY_CLASS_METHODS_UITableViewHeaderFooterView_$_BMDynamicLayout
+__OBJC_$_PROP_LIST_UITableViewHeaderFooterView_$_BMDynamicLayout
+__OBJC_$_CATEGORY_UITableViewHeaderFooterView_$_BMDynamicLayout
+/Users/liangdahong/Desktop/OpenSource/UITableViewDynamicLayoutCacheHeight/UITableViewDynamicLayoutCacheHeight/Classes/UITableViewHeaderFooterView+BMDynamicLayout.m
+UITableViewDynamicLayoutCacheHeight/Classes/UITableViewHeaderFooterView+BMDynamicLayout.m
+-[UITableViewCell(BMDynamicLayout) bm_maxYViewFixed]
+-[UITableViewCell(BMDynamicLayout) setBm_maxYViewFixed:]
++[UITableViewCell(BMDynamicLayout) bm_tableViewCellFromNibWithTableView:]
++[UITableViewCell(BMDynamicLayout) bm_tableViewCellFromAllocWithTableView:]
++[UITableViewCell(BMDynamicLayout) bm_tableViewCellFromAllocWithTableView:style:]
+_OBJC_SELECTOR_REFERENCES_.39
+__OBJC_$_CATEGORY_INSTANCE_METHODS_UITableViewCell_$_BMDynamicLayout
+__OBJC_$_CATEGORY_CLASS_METHODS_UITableViewCell_$_BMDynamicLayout
+__OBJC_$_PROP_LIST_UITableViewCell_$_BMDynamicLayout
+__OBJC_$_CATEGORY_UITableViewCell_$_BMDynamicLayout
+/Users/liangdahong/Desktop/OpenSource/UITableViewDynamicLayoutCacheHeight/UITableViewDynamicLayoutCacheHeight/Classes/UITableViewCell+BMDynamicLayout.m
+UITableViewDynamicLayoutCacheHeight/Classes/UITableViewCell+BMDynamicLayout.m
++[UITableViewDynamicLayoutCacheHeight isOpenDebugLog]
++[UITableViewDynamicLayoutCacheHeight setOpenDebugLog:]
+_isOpenDebugLog
+__OBJC_$_CLASS_METHODS_UITableViewDynamicLayoutCacheHeight
+__OBJC_$_CLASS_PROP_LIST_UITableViewDynamicLayoutCacheHeight
+__OBJC_METACLASS_RO_$_UITableViewDynamicLayoutCacheHeight
+__OBJC_CLASS_RO_$_UITableViewDynamicLayoutCacheHeight
+/Users/liangdahong/Desktop/OpenSource/UITableViewDynamicLayoutCacheHeight/UITableViewDynamicLayoutCacheHeight/Classes/UITableViewDynamicLayoutCacheHeight.m
+UITableViewDynamicLayoutCacheHeight/Classes/UITableViewDynamicLayoutCacheHeight.m

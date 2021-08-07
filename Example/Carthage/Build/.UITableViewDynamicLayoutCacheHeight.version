@@ -1,0 +1,19 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "bc98fee0c1bea9020f00e524a6fb7ab6fc9247de",
+  "iOS" : [
+    {
+      "name" : "UITableViewDynamicLayoutCacheHeight",
+      "hash" : "4d396c0467efaa4d514c699d2a518711aff98b922252a32d1b531b432378b3c8",
+      "linking" : "dynamic"
+    }
+  ]
+}
